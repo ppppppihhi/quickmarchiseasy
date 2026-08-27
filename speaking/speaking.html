@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Speaking - QUICKMARCH PRACTICE</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -18,24 +20,39 @@
             color: #222;
         }
 
+        /* =========================
+           NAVBAR
+        ========================= */
+
         .navbar {
-            background: #ffffff;
-            padding: 15px 30px;
+            background: white;
+            padding: 15px 25px;
+
             display: flex;
             justify-content: center;
-            gap: 25px;
+            align-items: center;
+
+            gap: 15px;
+
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
             position: sticky;
             top: 0;
+
             z-index: 100;
+
             flex-wrap: wrap;
         }
 
         .navbar a {
             text-decoration: none;
+
             color: #333;
+
             font-weight: bold;
-            padding: 10px 15px;
+
+            padding: 10px 14px;
+
             border-radius: 10px;
         }
 
@@ -43,317 +60,601 @@
             background: #eef2ff;
         }
 
+
+        /* =========================
+           HEADER
+        ========================= */
+
         .hero {
             text-align: center;
+
             padding: 50px 20px 30px;
         }
 
         .hero h1 {
             font-size: 40px;
-            margin-bottom: 12px;
+
+            margin-bottom: 10px;
         }
 
         .hero p {
             color: #666;
+
             font-size: 18px;
         }
 
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
         .container {
-            max-width: 1000px;
+            max-width: 900px;
+
             margin: auto;
+
             padding: 20px;
         }
 
-        .section-title {
-            text-align: center;
-            margin: 35px 0 20px;
+
+        /* =========================
+           TABS
+        ========================= */
+
+        .tabs {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-bottom: 30px;
+
+            flex-wrap: wrap;
         }
 
-        .section-title h2 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
+        .tab-button {
+            border: none;
 
-        .section-title p {
-            color: #777;
-        }
-
-        .question-card,
-        .topic-card {
             background: white;
-            padding: 25px;
-            margin-bottom: 15px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+
+            padding: 14px 25px;
+
+            border-radius: 12px;
+
+            font-weight: bold;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
         }
 
-        .number {
-            display: inline-block;
+        .tab-button.active {
             background: #222;
+
             color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-bottom: 12px;
         }
+
+
+        /* =========================
+           SPEAKING CARD
+        ========================= */
+
+        .speaking-card {
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 40px 30px;
+
+            text-align: center;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            min-height: 360px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        .counter {
+            color: #777;
+
+            font-size: 15px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .question-number {
+            display: inline-block;
+
+            background: #222;
+
+            color: white;
+
+            padding: 7px 15px;
+
+            border-radius: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
 
         .question {
-            font-size: 20px;
+            font-size: 26px;
+
             font-weight: bold;
+
             line-height: 1.5;
+
+            margin-bottom: 15px;
         }
 
-        .vietnamese {
+
+        .translation {
             color: #777;
-            margin-top: 8px;
+
+            font-size: 18px;
+
             line-height: 1.5;
         }
 
-        .topic-card h3 {
-            font-size: 22px;
-            margin-bottom: 18px;
+
+        /* =========================
+           TOPIC
+        ========================= */
+
+        .topic-title {
+            font-size: 28px;
+
+            margin-bottom: 25px;
         }
+
 
         .topic-text {
+            text-align: left;
+
             font-size: 18px;
-            line-height: 1.8;
-            color: #333;
+
+            line-height: 1.9;
         }
+
+
+        .blank {
+            font-weight: bold;
+
+            color: #555;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navigation {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+
+        .nav-button {
+            border: none;
+
+            background: #222;
+
+            color: white;
+
+            padding: 12px 25px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            font-weight: bold;
+        }
+
+
+        .nav-button:disabled {
+            background: #ccc;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =========================
+           BACK HOME
+        ========================= */
 
         .back-button {
             display: block;
+
             width: fit-content;
-            margin: 30px auto;
-            background: #222;
-            color: white;
+
+            margin: 35px auto;
+
+            background: white;
+
+            color: #222;
+
             text-decoration: none;
+
             padding: 12px 25px;
+
             border-radius: 10px;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+
+            font-weight: bold;
         }
 
-        .back-button:hover {
-            opacity: 0.85;
-        }
 
         footer {
             text-align: center;
+
             padding: 30px;
+
             color: #888;
         }
 
-        @media (max-width: 600px) {
-            .navbar {
-                gap: 5px;
-                padding: 10px;
-            }
 
-            .navbar a {
-                padding: 8px 10px;
-                font-size: 14px;
-            }
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
 
             .hero h1 {
                 font-size: 32px;
             }
 
+            .speaking-card {
+                padding: 30px 20px;
+            }
+
             .question {
-                font-size: 18px;
+                font-size: 21px;
+            }
+
+            .translation {
+                font-size: 16px;
+            }
+
+            .topic-title {
+                font-size: 24px;
             }
 
             .topic-text {
                 font-size: 16px;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- NAVBAR -->
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
     <nav class="navbar">
+
         <a href="index.html">🏠 Home</a>
+
         <a href="#">🎧 Listening</a>
+
         <a href="#">✏️ Language</a>
+
         <a href="#">📖 Reading</a>
+
         <a href="speaking.html">🎤 Speaking</a>
+
         <a href="#">📝 Writing</a>
+
         <a href="#">📊 Progress</a>
+
     </nav>
 
-    <!-- HEADER -->
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
     <section class="hero">
+
         <h1>🎤 SPEAKING</h1>
-        <p>Look at the questions and practise speaking.</p>
+
+        <p>
+            Practise speaking using the questions and topics.
+        </p>
+
     </section>
+
+
 
     <div class="container">
 
-        <!-- PART 1 -->
-        <div class="section-title">
-            <h2>PART 1: QUESTIONS</h2>
-            <p>Answer the questions orally.</p>
-        </div>
 
-        <div class="question-card">
-            <span class="number">Question 1</span>
-            <div class="question">
-                How did you come to school today?
-            </div>
-            <div class="vietnamese">
-                Hôm nay em đi học bằng phương tiện gì?
-            </div>
-        </div>
+        <!-- =========================
+             TABS
+        ========================= -->
 
-        <div class="question-card">
-            <span class="number">Question 2</span>
-            <div class="question">
-                What subjects did you have yesterday?
-            </div>
-            <div class="vietnamese">
-                Hôm qua em đã học những môn gì?
-            </div>
-        </div>
+        <div class="tabs">
 
-        <div class="question-card">
-            <span class="number">Question 3</span>
-            <div class="question">
-                What is the biggest shop near your house?
-            </div>
-            <div class="vietnamese">
-                Cửa hàng lớn nhất gần nhà em là cửa hàng nào?
-            </div>
-        </div>
+            <button
+                class="tab-button active"
+                onclick="showPart(1)"
+                id="part1Button">
 
-        <div class="question-card">
-            <span class="number">Question 4</span>
-            <div class="question">
-                When are you going to have your next English lesson?
-            </div>
-            <div class="vietnamese">
-                Khi nào em sẽ có tiết học tiếng Anh tiếp theo?
-            </div>
-        </div>
+                PART 1: QUESTIONS
 
-        <div class="question-card">
-            <span class="number">Question 5</span>
-            <div class="question">
-                Who are you going to see this evening?
-            </div>
-            <div class="vietnamese">
-                Tối nay em dự định gặp ai?
-            </div>
-        </div>
+            </button>
 
-        <div class="question-card">
-            <span class="number">Question 6</span>
-            <div class="question">
-                Who cooks the best food in your family?
-            </div>
-            <div class="vietnamese">
-                Ai là người nấu ăn ngon nhất trong gia đình em?
-            </div>
-        </div>
 
-        <div class="question-card">
-            <span class="number">Question 7</span>
-            <div class="question">
-                What was the weather like yesterday?
-            </div>
-            <div class="vietnamese">
-                Thời tiết ngày hôm qua như thế nào?
-            </div>
-        </div>
+            <button
+                class="tab-button"
+                onclick="showPart(2)"
+                id="part2Button">
 
-        <div class="question-card">
-            <span class="number">Question 8</span>
-            <div class="question">
-                What is your favourite sport?
-            </div>
-            <div class="vietnamese">
-                Môn thể thao yêu thích của em là gì?
-            </div>
-        </div>
+                PART 2: TOPIC CARDS
 
-        <div class="question-card">
-            <span class="number">Question 9</span>
-            <div class="question">
-                How much homework did you do yesterday?
-            </div>
-            <div class="vietnamese">
-                Hôm qua em đã làm bao nhiêu bài tập về nhà?
-            </div>
-        </div>
+            </button>
 
-        <div class="question-card">
-            <span class="number">Question 10</span>
-            <div class="question">
-                What are you going to do this weekend?
-            </div>
-            <div class="vietnamese">
-                Em dự định làm gì vào cuối tuần này?
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="number">Question 11</span>
-            <div class="question">
-                How many shops are there near your house?
-            </div>
-            <div class="vietnamese">
-                Có bao nhiêu cửa hàng ở gần nhà em?
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="number">Question 12</span>
-            <div class="question">
-                How many times a day do you clean your teeth?
-            </div>
-            <div class="vietnamese">
-                Em đánh răng mấy lần một ngày?
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="number">Question 13</span>
-            <div class="question">
-                Where did you go for your last holiday?
-            </div>
-            <div class="vietnamese">
-                Kỳ nghỉ vừa qua em đã đi đâu?
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="number">Question 14</span>
-            <div class="question">
-                Who is the best teacher in your school?
-            </div>
-            <div class="vietnamese">
-                Ai là giáo viên giỏi nhất ở trường em?
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="number">Question 15</span>
-            <div class="question">
-                When were you born?
-            </div>
-            <div class="vietnamese">
-                Em sinh vào khi nào?
-            </div>
         </div>
 
 
-        <!-- PART 2 -->
-        <div class="section-title">
-            <h2>PART 2: TOPIC CARDS</h2>
-            <p>Use the prompts to practise speaking.</p>
+
+        <!-- =========================
+             SPEAKING CARD
+        ========================= -->
+
+        <div class="speaking-card">
+
+
+            <!-- PART 1 -->
+
+            <div id="part1">
+
+
+                <div class="counter" id="questionCounter">
+                    Question 1 / 15
+                </div>
+
+
+                <div
+                    class="question-number"
+                    id="questionNumber">
+
+                    Question 1
+
+                </div>
+
+
+                <div
+                    class="question"
+                    id="questionText">
+
+                    How did you come to school today?
+
+                </div>
+
+
+                <div
+                    class="translation"
+                    id="translationText">
+
+                    Hôm nay em đi học bằng phương tiện gì?
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PART 2 -->
+
+            <div id="part2" style="display:none;">
+
+
+                <div class="counter" id="topicCounter">
+                    Topic 1 / 5
+                </div>
+
+
+                <div
+                    class="topic-title"
+                    id="topicTitle">
+
+                    My Last Holiday
+
+                </div>
+
+
+                <div
+                    class="topic-text"
+                    id="topicText">
+
+                </div>
+
+
+            </div>
+
+
         </div>
 
-        <div class="topic-card">
-            <h3>Topic 1: My Last Holiday</h3>
-            <div class="topic-text">
+
+
+        <!-- =========================
+             NAVIGATION
+        ========================= -->
+
+        <div class="navigation">
+
+
+            <button
+                class="nav-button"
+                id="previousButton"
+                onclick="previousItem()">
+
+                ← Previous
+
+            </button>
+
+
+            <button
+                class="nav-button"
+                id="nextButton"
+                onclick="nextItem()">
+
+                Next →
+
+            </button>
+
+
+        </div>
+
+
+
+        <a
+            class="back-button"
+            href="index.html">
+
+            ← Back to Home
+
+        </a>
+
+
+    </div>
+
+
+
+    <footer>
+
+        © 2026 QUICKMARCH PRACTICE
+
+    </footer>
+
+
+
+    <script>
+
+        /* ===================================
+           PART 1 — YOUR QUESTIONS
+        =================================== */
+
+        const questions = [
+
+            {
+                question: "How did you come to school today?",
+                translation: "Hôm nay em đi học bằng phương tiện gì?"
+            },
+
+            {
+                question: "What subjects did you have yesterday?",
+                translation: "Hôm qua em đã học những môn gì?"
+            },
+
+            {
+                question: "What is the biggest shop near your house?",
+                translation: "Cửa hàng lớn nhất gần nhà em là cửa hàng nào?"
+            },
+
+            {
+                question: "When are you going to have your next English lesson?",
+                translation: "Khi nào em sẽ có tiết học tiếng Anh tiếp theo?"
+            },
+
+            {
+                question: "Who are you going to see this evening?",
+                translation: "Tối nay em dự định gặp ai?"
+            },
+
+            {
+                question: "Who cooks the best food in your family?",
+                translation: "Ai là người nấu ăn ngon nhất trong gia đình em?"
+            },
+
+            {
+                question: "What was the weather like yesterday?",
+                translation: "Thời tiết ngày hôm qua như thế nào?"
+            },
+
+            {
+                question: "What is your favourite sport?",
+                translation: "Môn thể thao yêu thích của em là gì?"
+            },
+
+            {
+                question: "How much homework did you do yesterday?",
+                translation: "Hôm qua em đã làm bao nhiêu bài tập về nhà?"
+            },
+
+            {
+                question: "What are you going to do this weekend?",
+                translation: "Em dự định làm gì vào cuối tuần này?"
+            },
+
+            {
+                question: "How many shops are there near your house?",
+                translation: "Có bao nhiêu cửa hàng ở gần nhà em?"
+            },
+
+            {
+                question: "How many times a day do you clean your teeth?",
+                translation: "Em đánh răng mấy lần một ngày?"
+            },
+
+            {
+                question: "Where did you go for your last holiday?",
+                translation: "Kỳ nghỉ vừa qua em đã đi đâu?"
+            },
+
+            {
+                question: "Who is the best teacher in your school?",
+                translation: "Ai là giáo viên giỏi nhất ở trường em?"
+            },
+
+            {
+                question: "When were you born?",
+                translation: "Em sinh vào khi nào?"
+            }
+
+        ];
+
+
+
+        /* ===================================
+           PART 2 — YOUR TOPICS
+        =================================== */
+
+        const topics = [
+
+            {
+                title: "My Last Holiday",
+
+                text: `
                 For my last holiday, I went to
                 <strong>(1) ____________________</strong>
                 [Carlin Lake/the beach/the country].
@@ -373,12 +674,14 @@
                 <strong>(6) ____________________</strong>
                 [happy/excited]
                 because it was a wonderful trip.
-            </div>
-        </div>
+                `
+            },
 
-        <div class="topic-card">
-            <h3>Topic 2: My Last School Trip</h3>
-            <div class="topic-text">
+
+            {
+                title: "My Last School Trip",
+
+                text: `
                 On my last school trip, I went to
                 <strong>(1) ____________________</strong>
                 [a museum/the zoo/a hall].
@@ -398,12 +701,14 @@
                 The trip was
                 <strong>(6) ____________________</strong>
                 [really interesting/fun].
-            </div>
-        </div>
+                `
+            },
 
-        <div class="topic-card">
-            <h3>Topic 3: Last Weekend</h3>
-            <div class="topic-text">
+
+            {
+                title: "Last Weekend",
+
+                text: `
                 Last weekend, I stayed
                 <strong>(1) ____________________</strong>
                 [at home/at a friend’s house].
@@ -423,12 +728,14 @@
                 <strong>(6) ____________________</strong>
                 [quiet/busy]
                 weekend.
-            </div>
-        </div>
+                `
+            },
 
-        <div class="topic-card">
-            <h3>Topic 4: My Last Birthday</h3>
-            <div class="topic-text">
+
+            {
+                title: "My Last Birthday",
+
+                text: `
                 On my last birthday, I was
                 <strong>(1) ____________________</strong>
                 [ten/eleven] years old.
@@ -448,12 +755,14 @@
                 <strong>(6) ____________________</strong>
                 [a big present/a guitar].
                 I was very happy!
-            </div>
-        </div>
+                `
+            },
 
-        <div class="topic-card">
-            <h3>Topic 5: My Favourite Time of Day</h3>
-            <div class="topic-text">
+
+            {
+                title: "My Favourite Time of Day",
+
+                text: `
                 My favourite time of day is the
                 <strong>(1) ____________________</strong>
                 [morning/afternoon/evening].
@@ -473,18 +782,262 @@
                 I feel
                 <strong>(6) ____________________</strong>
                 [relaxed/good].
-            </div>
-        </div>
+                `
+            }
 
-        <a class="back-button" href="index.html">
-            ← Back to Home
-        </a>
+        ];
 
-    </div>
 
-    <footer>
-        © 2026 QUICKMARCH PRACTICE
-    </footer>
+
+        /* ===================================
+           CURRENT POSITION
+        =================================== */
+
+        let currentQuestion = 0;
+
+        let currentTopic = 0;
+
+        let currentPart = 1;
+
+
+
+        /* ===================================
+           SHOW PART
+        =================================== */
+
+        function showPart(part) {
+
+            currentPart = part;
+
+
+            const part1 =
+                document.getElementById("part1");
+
+            const part2 =
+                document.getElementById("part2");
+
+
+            const part1Button =
+                document.getElementById("part1Button");
+
+            const part2Button =
+                document.getElementById("part2Button");
+
+
+            if (part === 1) {
+
+                part1.style.display = "block";
+
+                part2.style.display = "none";
+
+                part1Button.classList.add("active");
+
+                part2Button.classList.remove("active");
+
+            }
+
+            else {
+
+                part1.style.display = "none";
+
+                part2.style.display = "block";
+
+                part1Button.classList.remove("active");
+
+                part2Button.classList.add("active");
+
+            }
+
+
+            updateButtons();
+
+        }
+
+
+
+        /* ===================================
+           DISPLAY QUESTION
+        =================================== */
+
+        function displayQuestion() {
+
+            const item =
+                questions[currentQuestion];
+
+
+            document.getElementById("questionCounter").textContent =
+                "Question " +
+                (currentQuestion + 1) +
+                " / " +
+                questions.length;
+
+
+            document.getElementById("questionNumber").textContent =
+                "Question " +
+                (currentQuestion + 1);
+
+
+            document.getElementById("questionText").textContent =
+                item.question;
+
+
+            document.getElementById("translationText").textContent =
+                item.translation;
+
+
+            updateButtons();
+
+        }
+
+
+
+        /* ===================================
+           DISPLAY TOPIC
+        =================================== */
+
+        function displayTopic() {
+
+            const topic =
+                topics[currentTopic];
+
+
+            document.getElementById("topicCounter").textContent =
+                "Topic " +
+                (currentTopic + 1) +
+                " / " +
+                topics.length;
+
+
+            document.getElementById("topicTitle").textContent =
+                topic.title;
+
+
+            document.getElementById("topicText").innerHTML =
+                topic.text;
+
+
+            updateButtons();
+
+        }
+
+
+
+        /* ===================================
+           NEXT
+        =================================== */
+
+        function nextItem() {
+
+            if (currentPart === 1) {
+
+                if (currentQuestion < questions.length - 1) {
+
+                    currentQuestion++;
+
+                    displayQuestion();
+
+                }
+
+            }
+
+            else {
+
+                if (currentTopic < topics.length - 1) {
+
+                    currentTopic++;
+
+                    displayTopic();
+
+                }
+
+            }
+
+        }
+
+
+
+        /* ===================================
+           PREVIOUS
+        =================================== */
+
+        function previousItem() {
+
+            if (currentPart === 1) {
+
+                if (currentQuestion > 0) {
+
+                    currentQuestion--;
+
+                    displayQuestion();
+
+                }
+
+            }
+
+            else {
+
+                if (currentTopic > 0) {
+
+                    currentTopic--;
+
+                    displayTopic();
+
+                }
+
+            }
+
+        }
+
+
+
+        /* ===================================
+           BUTTON STATE
+        =================================== */
+
+        function updateButtons() {
+
+            const previous =
+                document.getElementById("previousButton");
+
+            const next =
+                document.getElementById("nextButton");
+
+
+            if (currentPart === 1) {
+
+                previous.disabled =
+                    currentQuestion === 0;
+
+                next.disabled =
+                    currentQuestion === questions.length - 1;
+
+            }
+
+            else {
+
+                previous.disabled =
+                    currentTopic === 0;
+
+                next.disabled =
+                    currentTopic === topics.length - 1;
+
+            }
+
+        }
+
+
+
+        /* ===================================
+           START
+        =================================== */
+
+        displayQuestion();
+
+        displayTopic();
+
+        showPart(1);
+
+    </script>
 
 </body>
 </html>
