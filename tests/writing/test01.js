@@ -4,20 +4,12 @@
    Pearson VS Gia su Minh Tri Thu Duc
 ===================================================== */
 
-
-/* =====================================================
-   TEST DATA
-===================================================== */
-
 const TEST_DATA = {
 
     title: "Writing Test 01",
 
-
     /* =================================================
-       TASK 3
-       Anna Talks to Cindy Barr
-       15 marks
+       TASK 3 — ANNA TALKS TO CINDY BARR
     ================================================= */
 
     task3: [
@@ -34,8 +26,7 @@ const TEST_DATA = {
         },
 
         {
-            answer:
-                "The song? It was called ‘Lazy Princess’.",
+            answer: "The song? It was called ‘Lazy Princess’.",
 
             acceptedQuestions: [
                 "what was the song called",
@@ -84,9 +75,7 @@ const TEST_DATA = {
 
 
     /* =================================================
-       TASK 5
-       Anna Sends an Email
-       15 marks
+       TASK 5 — ANNA SENDS AN EMAIL
     ================================================= */
 
     task5: [
@@ -175,9 +164,7 @@ const TEST_DATA = {
 
 
     /* =================================================
-       TASK 6
-       Music and Me
-       10 marks
+       TASK 6 — MUSIC AND ME
     ================================================= */
 
     task6: [
@@ -186,35 +173,65 @@ const TEST_DATA = {
             starter: "My favourite music is...",
 
             hint:
-                "What kind of music? When do you usually listen to it?"
+                "What kind of music? When do you usually listen to it?",
+
+            sample:
+                "My favourite music is pop music. I usually listen to it in the evening.",
+
+            explanation:
+                "Nêu loại nhạc em thích và thời gian em thường nghe."
         },
 
         {
             starter: "I like it because...",
 
             hint:
-                "Why do you like it? How does it make you feel?"
+                "Why do you like it? How does it make you feel?",
+
+            sample:
+                "I like it because it is fun and makes me happy.",
+
+            explanation:
+                "Nêu lý do em thích loại nhạc đó và cảm xúc của em."
         },
 
         {
             starter: "Our music teacher...",
 
             hint:
-                "What does your teacher usually do? Can he/she sing well? What songs does he/she sing or teach you?"
+                "What does your teacher usually do? Can he/she sing well? What songs does he/she sing or teach you?",
+
+            sample:
+                "Our music teacher sings very well. She often sings English songs and teaches us new songs.",
+
+            explanation:
+                "Mô tả giáo viên âm nhạc và những bài hát cô/thầy thường hát hoặc dạy."
         },
 
         {
             starter: "In my last music lesson...",
 
             hint:
-                "What song did you learn? What is it about? Did you like it?"
+                "What song did you learn? What is it about? Did you like it?",
+
+            sample:
+                "In my last music lesson, I learned a song about friendship. It was very beautiful and I liked it.",
+
+            explanation:
+                "Nêu tên/chủ đề bài hát, nội dung và cảm nhận của em."
         },
 
         {
             starter: "In the future...",
 
             hint:
-                "Do you want to become a singer? Do you want to learn more songs or play an instrument?"
+                "Do you want to become a singer? Do you want to learn more songs or play an instrument?",
+
+            sample:
+                "In the future, I want to learn more songs and play the guitar. I would also like to become a singer.",
+
+            explanation:
+                "Nói về mong muốn của em trong tương lai liên quan đến âm nhạc."
         }
 
     ]
@@ -239,7 +256,7 @@ function normalizeWritingText(text) {
 
 
 /* =====================================================
-   TASK 3 — CUSTOM RENDER
+   TASK 3
 ===================================================== */
 
 function renderWritingTask3() {
@@ -253,14 +270,11 @@ function renderWritingTask3() {
             </h2>
 
             <p class="task-description">
-
                 Cindy Barr sings songs for her job.
                 Anna asks her questions for the school magazine.
                 Write the questions in the spaces.
                 The first one is an example.
-
             </p>
-
 
             <div class="example-box">
 
@@ -281,79 +295,58 @@ function renderWritingTask3() {
     `;
 
 
-    TEST_DATA.task3.forEach(
-        (item, index) => {
+    TEST_DATA.task3.forEach((item, index) => {
 
-            html += `
+        html += `
 
-                <div class="question-box">
+            <div class="question-box">
 
-                    <div class="question-number">
-                        Question ${index + 1}
-                    </div>
+                <div class="question-number">
+                    Question ${index + 1}
+                </div>
 
+                <p>
+                    <strong>Anna:</strong>
+                </p>
 
-                    <p>
-                        <strong>Anna:</strong>
-                    </p>
+                <input
+                    id="writing3-${index}"
+                    class="question-input"
+                    type="text"
+                    placeholder="Write the question here..."
+                >
 
+                <div class="given-answer">
 
-                    <input
-                        id="writing3-${index}"
-                        class="question-input"
-                        type="text"
-                        placeholder="Write the question here..."
-                    >
+                    <strong>
+                        Cindy:
+                    </strong>
 
-
-                    <p style="
-                        margin-top:10px;
-                        font-weight:bold;
-                    ">
-                        ?
-                    </p>
-
-
-                    <div class="given-answer">
-
-                        <strong>
-                            Cindy:
-                        </strong>
-
-                        ${item.answer}
-
-                    </div>
-
-
-                    <button
-                        class="button"
-                        style="margin-top:15px;"
-                        onclick="
-                            submitWriting3(${index})
-                        "
-                    >
-                        Check
-                    </button>
-
-
-                    <div
-                        id="writing3-feedback-${index}"
-                        class="feedback"
-                    ></div>
+                    ${item.answer}
 
                 </div>
 
-            `;
+                <button
+                    class="button"
+                    style="margin-top:15px;"
+                    onclick="submitWriting3(${index})"
+                >
+                    Check
+                </button>
 
-        }
-    );
+                <div
+                    id="writing3-feedback-${index}"
+                    class="feedback"
+                ></div>
+
+            </div>
+
+        `;
+
+    });
 
 
-    html += `
-
-        </div>
-
-    `;
+    html += `</div>`;
 
     return html;
 
@@ -361,7 +354,7 @@ function renderWritingTask3() {
 
 
 /* =====================================================
-   TASK 3 — CHECK
+   CHECK TASK 3
 ===================================================== */
 
 window.submitWriting3 = function(index) {
@@ -376,17 +369,8 @@ window.submitWriting3 = function(index) {
             `writing3-feedback-${index}`
         );
 
-
-    if (!input || !feedback) {
-        return;
-    }
-
-
     const userAnswer =
-        normalizeWritingText(
-            input.value
-        );
-
+        normalizeWritingText(input.value);
 
     if (userAnswer === "") {
 
@@ -397,13 +381,11 @@ window.submitWriting3 = function(index) {
             "feedback wrong";
 
         return;
-
     }
 
 
     const question =
         TEST_DATA.task3[index];
-
 
     const accepted =
         question.acceptedQuestions.map(
@@ -411,9 +393,7 @@ window.submitWriting3 = function(index) {
         );
 
 
-    if (
-        accepted.includes(userAnswer)
-    ) {
+    if (accepted.includes(userAnswer)) {
 
         feedback.innerHTML =
             "✓ Correct! <strong>3/3 marks</strong>";
@@ -421,21 +401,16 @@ window.submitWriting3 = function(index) {
         feedback.className =
             "feedback correct";
 
-        input.style.borderColor =
-            "#16803c";
-
     } else {
 
         feedback.innerHTML =
-            `✗ Try again.<br>
+            `✗ Try again.
+             <br>
              <strong>Suggested answer:</strong>
              ${question.acceptedQuestions[0]}?`;
 
         feedback.className =
             "feedback wrong";
-
-        input.style.borderColor =
-            "#c62828";
 
     }
 
@@ -443,7 +418,7 @@ window.submitWriting3 = function(index) {
 
 
 /* =====================================================
-   TASK 5 — FULL EMAIL
+   TASK 5
 ===================================================== */
 
 function renderWritingTask5() {
@@ -456,19 +431,16 @@ function renderWritingTask5() {
                 Task 5 — Anna Sends an Email
             </h2>
 
-
             <p class="task-description">
 
                 Anna sends an email to her friend Kerry
                 about the singing competition.
                 Fill in the missing words.
-                Use the verbs in the box below but don't
-                forget to change them to the PAST TENSE
-                because the competition is finished.
-                The first one is an example.
+                Use the verbs in the box below but don't forget
+                to change them to the PAST TENSE because the
+                competition is finished.
 
             </p>
-
 
             <div class="example-box">
 
@@ -488,52 +460,20 @@ function renderWritingTask5() {
 
                 <p style="
                     margin-top:10px;
-                    line-height:2;
+                    line-height:2.2;
                 ">
 
-                    <span class="given-answer">
-                        take
-                    </span>
-
-                    <span class="given-answer">
-                        think
-                    </span>
-
-                    <span class="given-answer">
-                        come
-                    </span>
-
-                    <span class="given-answer">
-                        sing
-                    </span>
-
-                    <span class="given-answer">
-                        clap
-                    </span>
-
-                    <span class="given-answer">
-                        feel
-                    </span>
-
-                    <span class="given-answer">
-                        have
-                    </span>
-
-                    <span class="given-answer">
-                        sit
-                    </span>
-
-                    <span class="given-answer">
-                        win
-                    </span>
-
-                    <span class="given-answer">
-                        sleep
-                    </span>
-
-                    <span class="given-answer">
-                        fall
-                    </span>
+                    take &nbsp;
+                    think &nbsp;
+                    come &nbsp;
+                    sing &nbsp;
+                    clap &nbsp;
+                    feel &nbsp;
+                    have &nbsp;
+                    sit &nbsp;
+                    win &nbsp;
+                    sleep &nbsp;
+                    fall
 
                 </p>
 
@@ -542,12 +482,13 @@ function renderWritingTask5() {
 
             <div class="question-box">
 
-                <p><strong>Hi Kerry,</strong></p>
+                <p>
+                    <strong>Hi Kerry</strong>
+                </p>
 
                 <p style="margin-top:15px;">
 
-                    My school
-                    <strong>(example)</strong>
+                    My school <strong>(example)</strong>
                     <strong>had</strong>
                     a singing competition last Saturday.
 
@@ -601,8 +542,8 @@ function renderWritingTask5() {
 
                 <p style="margin-top:15px;">
 
-                    But it was OK.
-                    I drank a glass of water and
+                    But it was OK. I drank a glass of water
+                    and
 
                     <input
                         id="writing5-5"
@@ -718,14 +659,9 @@ function renderWritingTask5() {
    CREATE EMAIL BLANK
 ===================================================== */
 
-function createEmailBlank(
-    index,
-    before,
-    after
-) {
+function createEmailBlank(index, before, after) {
 
-    const number =
-        index + 1;
+    const number = index + 1;
 
     return `
 
@@ -756,7 +692,7 @@ function createEmailBlank(
 
 
 /* =====================================================
-   TASK 5 — CHECK ALL
+   CHECK TASK 5
 ===================================================== */
 
 window.checkWritingTask5 = function() {
@@ -764,74 +700,61 @@ window.checkWritingTask5 = function() {
     let score = 0;
 
 
-    TEST_DATA.task5.forEach(
-        (item, index) => {
+    TEST_DATA.task5.forEach((item, index) => {
 
-            const input =
-                document.getElementById(
-                    `writing5-${index}`
-                );
+        const input =
+            document.getElementById(
+                `writing5-${index}`
+            );
 
-            const explanation =
-                document.getElementById(
-                    `writing5-explanation-${index}`
-                );
-
-
-            if (!input || !explanation) {
-                return;
-            }
+        const explanation =
+            document.getElementById(
+                `writing5-explanation-${index}`
+            );
 
 
-            const user =
-                normalizeWritingText(
-                    input.value
-                );
+        if (!input || !explanation) {
+            return;
+        }
 
 
-            const correct =
-                normalizeWritingText(
-                    item.answer
-                );
+        const user =
+            normalizeWritingText(input.value);
+
+        const correct =
+            normalizeWritingText(item.answer);
 
 
-            if (user === correct) {
+        if (user === correct) {
 
-                score += 1.5;
+            score += 1.5;
 
-                explanation.innerHTML =
-                    `✓ Correct! <strong>1.5/1.5 marks</strong>
-                    <br>
-                    <strong>💡 Explanation:</strong>
-                    ${item.explanation}`;
+            explanation.innerHTML =
+                `✓ Correct! <strong>1.5/1.5 marks</strong>
+                <br>
+                <strong>💡 Explanation:</strong>
+                ${item.explanation}`;
 
-                explanation.className =
-                    "feedback correct";
+            explanation.className =
+                "feedback correct";
 
-                input.style.borderColor =
-                    "#16803c";
+        } else {
 
-            } else {
+            explanation.innerHTML =
+                `✗ Try again.
+                <br>
+                <strong>Answer:</strong>
+                ${item.answer}
+                <br>
+                <strong>💡 Explanation:</strong>
+                ${item.explanation}`;
 
-                explanation.innerHTML =
-                    `✗ Try again.
-                    <br>
-                    <strong>Answer:</strong>
-                    ${item.answer}
-                    <br>
-                    <strong>💡 Explanation:</strong>
-                    ${item.explanation}`;
-
-                explanation.className =
-                    "feedback wrong";
-
-                input.style.borderColor =
-                    "#c62828";
-
-            }
+            explanation.className =
+                "feedback wrong";
 
         }
-    );
+
+    });
 
 
     const total =
@@ -840,15 +763,11 @@ window.checkWritingTask5 = function() {
         );
 
 
-    if (total) {
+    total.innerHTML =
+        `<strong>Task 5 Score: ${score}/15 marks</strong>`;
 
-        total.innerHTML =
-            `<strong>Task 5 Score: ${score}/15 marks</strong>`;
-
-        total.className =
-            "feedback correct";
-
-    }
+    total.className =
+        "feedback correct";
 
 };
 
@@ -867,7 +786,6 @@ function renderWritingTask6() {
                 Task 6 — Music and Me
             </h2>
 
-
             <p class="task-description">
 
                 Now write about music and you.
@@ -878,48 +796,54 @@ function renderWritingTask6() {
     `;
 
 
-    TEST_DATA.task6.forEach(
-        (item, index) => {
+    TEST_DATA.task6.forEach((item, index) => {
 
-            html += `
+        html += `
 
-                <div class="question-box">
+            <div class="question-box">
 
-                    <div class="question-number">
+                <div class="question-number">
 
-                        ${index + 1}.
-                        ${item.starter}
-
-                    </div>
-
-
-                    <div class="example-box">
-
-                        <strong>
-                            💡 Gợi ý:
-                        </strong>
-
-                        <br>
-
-                        ${item.hint}
-
-                    </div>
-
-
-                    <textarea
-                        id="writing6-${index}"
-                        class="answer-input"
-                        rows="4"
-                        placeholder="Write your answer here..."
-                        style="resize:vertical;"
-                    ></textarea>
+                    ${index + 1}.
+                    ${item.starter}
 
                 </div>
 
-            `;
 
-        }
-    );
+                <div class="example-box">
+
+                    <strong>
+                        💡 Gợi ý:
+                    </strong>
+
+                    <br>
+
+                    ${item.hint}
+
+                </div>
+
+
+                <textarea
+                    id="writing6-${index}"
+                    class="answer-input"
+                    rows="4"
+                    placeholder="Write your answer here..."
+                    style="resize:vertical;"
+                ></textarea>
+
+
+                <!-- SAMPLE ANSWER WILL APPEAR AFTER CHECK -->
+
+                <div
+                    id="writing6-sample-${index}"
+                    style="display:none; margin-top:15px;"
+                ></div>
+
+            </div>
+
+        `;
+
+    });
 
 
     html += `
@@ -928,7 +852,7 @@ function renderWritingTask6() {
                 class="button"
                 onclick="checkWritingTask6()"
             >
-                Submit Writing
+                Check Task 6
             </button>
 
 
@@ -949,24 +873,26 @@ function renderWritingTask6() {
 
 
 /* =====================================================
-   TASK 6 — CHECK
+   CHECK TASK 6
 ===================================================== */
 
 window.checkWritingTask6 = function() {
 
-    const inputs =
-        TEST_DATA.task6.map(
-            (_, index) =>
-                document.getElementById(
-                    `writing6-${index}`
-                )
-        );
-
-
     let completed = 0;
 
 
-    inputs.forEach(input => {
+    TEST_DATA.task6.forEach((item, index) => {
+
+        const input =
+            document.getElementById(
+                `writing6-${index}`
+            );
+
+        const sample =
+            document.getElementById(
+                `writing6-sample-${index}`
+            );
+
 
         if (
             input &&
@@ -974,6 +900,52 @@ window.checkWritingTask6 = function() {
         ) {
 
             completed++;
+
+        }
+
+
+        if (sample) {
+
+            sample.innerHTML = `
+
+                <div style="
+                    background:#f0f7ff;
+                    border-left:5px solid #3949ab;
+                    padding:15px;
+                    border-radius:10px;
+                ">
+
+                    <strong>
+                        💡 Sample answer:
+                    </strong>
+
+                    <p style="
+                        margin-top:8px;
+                        line-height:1.6;
+                    ">
+                        ${item.sample}
+                    </p>
+
+
+                    <p style="
+                        margin-top:10px;
+                        color:#555;
+                    ">
+
+                        <strong>
+                            Giải thích:
+                        </strong>
+
+                        ${item.explanation}
+
+                    </p>
+
+                </div>
+
+            `;
+
+            sample.style.display =
+                "block";
 
         }
 
@@ -986,61 +958,53 @@ window.checkWritingTask6 = function() {
         );
 
 
-    if (!feedback) {
-        return;
-    }
+    if (completed === 5) {
 
+        feedback.innerHTML = `
 
-    if (completed < 5) {
+            ✓ Writing submitted!
 
-        feedback.innerHTML =
-            `Please complete all 5 sections.
-            (${completed}/5 completed)`;
+            <br>
+
+            <strong>
+                Task 6 Score: 10/10 marks
+            </strong>
+
+            <br><br>
+
+            💡 Đây là bài viết cá nhân.
+            Sample answer chỉ là câu trả lời tham khảo.
+
+        `;
+
+        feedback.className =
+            "feedback correct";
+
+    } else {
+
+        feedback.innerHTML = `
+
+            Please complete all 5 sections.
+            (${completed}/5 completed)
+
+            <br><br>
+
+            💡 Sample answers have been shown
+            to help you.
+
+        `;
 
         feedback.className =
             "feedback wrong";
 
-        return;
-
     }
-
-
-    /*
-       Task 6 is personal writing.
-       Each completed section = 2 marks.
-    */
-
-    const score =
-        completed * 2;
-
-
-    feedback.innerHTML =
-        `✓ Writing submitted!
-        <br>
-        <strong>Task 6 Score: ${score}/10 marks</strong>
-        <br><br>
-        💡 Your answers are personal, so there is
-        no single correct answer.`;
-
-    feedback.className =
-        "feedback correct";
 
 };
 
 
 /* =====================================================
-   CUSTOM WRITING RENDER
+   RENDER WRITING
 ===================================================== */
-
-const originalRenderWriting =
-    window.renderWriting;
-
-
-/*
-   Override renderWriting so that
-   Test 01 uses the new Task 3,
-   Task 5 and Task 6 layout.
-*/
 
 window.renderWriting = function(data) {
 
