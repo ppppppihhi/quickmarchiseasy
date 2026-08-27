@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaking - QUICKMARCH PRACTICE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        .navbar {
+            background: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 10px;
+        }
+
+        .navbar a:hover {
+            background: #eef2ff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 35px 0 20px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        .question-card,
+        .topic-card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .number {
+            display: inline-block;
+            background: #222;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .question {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .vietnamese {
+            color: #777;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        .topic-card h3 {
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        .topic-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+        }
+
+        .back-button:hover {
+            opacity: 0.85;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .navbar a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .question {
+                font-size: 18px;
+            }
+
+            .topic-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html">🏠 Home</a>
+        <a href="#">🎧 Listening</a>
+        <a href="#">✏️ Language</a>
+        <a href="#">📖 Reading</a>
+        <a href="speaking.html">🎤 Speaking</a>
+        <a href="#">📝 Writing</a>
+        <a href="#">📊 Progress</a>
+    </nav>
+
+    <!-- HEADER -->
+    <section class="hero">
+        <h1>🎤 SPEAKING</h1>
+        <p>Look at the questions and practise speaking.</p>
+    </section>
+
+    <div class="container">
+
+        <!-- PART 1 -->
+        <div class="section-title">
+            <h2>PART 1: QUESTIONS</h2>
+            <p>Answer the questions orally.</p>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 1</span>
+            <div class="question">
+                How did you come to school today?
+            </div>
+            <div class="vietnamese">
+                Hôm nay em đi học bằng phương tiện gì?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 2</span>
+            <div class="question">
+                What subjects did you have yesterday?
+            </div>
+            <div class="vietnamese">
+                Hôm qua em đã học những môn gì?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 3</span>
+            <div class="question">
+                What is the biggest shop near your house?
+            </div>
+            <div class="vietnamese">
+                Cửa hàng lớn nhất gần nhà em là cửa hàng nào?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 4</span>
+            <div class="question">
+                When are you going to have your next English lesson?
+            </div>
+            <div class="vietnamese">
+                Khi nào em sẽ có tiết học tiếng Anh tiếp theo?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 5</span>
+            <div class="question">
+                Who are you going to see this evening?
+            </div>
+            <div class="vietnamese">
+                Tối nay em dự định gặp ai?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 6</span>
+            <div class="question">
+                Who cooks the best food in your family?
+            </div>
+            <div class="vietnamese">
+                Ai là người nấu ăn ngon nhất trong gia đình em?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 7</span>
+            <div class="question">
+                What was the weather like yesterday?
+            </div>
+            <div class="vietnamese">
+                Thời tiết ngày hôm qua như thế nào?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 8</span>
+            <div class="question">
+                What is your favourite sport?
+            </div>
+            <div class="vietnamese">
+                Môn thể thao yêu thích của em là gì?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 9</span>
+            <div class="question">
+                How much homework did you do yesterday?
+            </div>
+            <div class="vietnamese">
+                Hôm qua em đã làm bao nhiêu bài tập về nhà?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 10</span>
+            <div class="question">
+                What are you going to do this weekend?
+            </div>
+            <div class="vietnamese">
+                Em dự định làm gì vào cuối tuần này?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 11</span>
+            <div class="question">
+                How many shops are there near your house?
+            </div>
+            <div class="vietnamese">
+                Có bao nhiêu cửa hàng ở gần nhà em?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 12</span>
+            <div class="question">
+                How many times a day do you clean your teeth?
+            </div>
+            <div class="vietnamese">
+                Em đánh răng mấy lần một ngày?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 13</span>
+            <div class="question">
+                Where did you go for your last holiday?
+            </div>
+            <div class="vietnamese">
+                Kỳ nghỉ vừa qua em đã đi đâu?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 14</span>
+            <div class="question">
+                Who is the best teacher in your school?
+            </div>
+            <div class="vietnamese">
+                Ai là giáo viên giỏi nhất ở trường em?
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="number">Question 15</span>
+            <div class="question">
+                When were you born?
+            </div>
+            <div class="vietnamese">
+                Em sinh vào khi nào?
+            </div>
+        </div>
+
+
+        <!-- PART 2 -->
+        <div class="section-title">
+            <h2>PART 2: TOPIC CARDS</h2>
+            <p>Use the prompts to practise speaking.</p>
+        </div>
+
+        <div class="topic-card">
+            <h3>Topic 1: My Last Holiday</h3>
+            <div class="topic-text">
+                For my last holiday, I went to
+                <strong>(1) ____________________</strong>
+                [Carlin Lake/the beach/the country].
+                I went there with
+                <strong>(2) ____________________</strong>
+                [my family/my friends].
+                The weather was
+                <strong>(3) ____________________</strong>
+                [beautiful/sunny/hot].
+                In the morning, I
+                <strong>(4) ____________________</strong>
+                [swam/had sailing lessons].
+                We also
+                <strong>(5) ____________________</strong>
+                [caught some fish/ate at a restaurant].
+                I felt very
+                <strong>(6) ____________________</strong>
+                [happy/excited]
+                because it was a wonderful trip.
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <h3>Topic 2: My Last School Trip</h3>
+            <div class="topic-text">
+                On my last school trip, I went to
+                <strong>(1) ____________________</strong>
+                [a museum/the zoo/a hall].
+                I went there by
+                <strong>(2) ____________________</strong>
+                [school bus/train].
+                My
+                <strong>(3) ____________________</strong>
+                [teacher and classmates]
+                went with me.
+                We saw
+                <strong>(4) ____________________</strong>
+                [a puppet show/some animals].
+                We
+                <strong>(5) ____________________</strong>
+                [ate a picnic/took photos].
+                The trip was
+                <strong>(6) ____________________</strong>
+                [really interesting/fun].
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <h3>Topic 3: Last Weekend</h3>
+            <div class="topic-text">
+                Last weekend, I stayed
+                <strong>(1) ____________________</strong>
+                [at home/at a friend’s house].
+                On Saturday, I
+                <strong>(2) ____________________</strong>
+                [played football/read in bed].
+                On Sunday, the weather was
+                <strong>(3) ____________________</strong>
+                [rainy/cloudy/sunny].
+                I
+                <strong>(4) ____________________</strong>
+                [did my homework/watched TV].
+                I also
+                <strong>(5) ____________________</strong>
+                [went to a singing competition/saw my cousins].
+                It was a
+                <strong>(6) ____________________</strong>
+                [quiet/busy]
+                weekend.
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <h3>Topic 4: My Last Birthday</h3>
+            <div class="topic-text">
+                On my last birthday, I was
+                <strong>(1) ____________________</strong>
+                [ten/eleven] years old.
+                I had a party at
+                <strong>(2) ____________________</strong>
+                [my house/a restaurant].
+                I invited
+                <strong>(3) ____________________</strong>
+                [my best friends/my family].
+                We ate
+                <strong>(4) ____________________</strong>
+                [cake/pizza]
+                and drank
+                <strong>(5) ____________________</strong>
+                [juice/lemonade].
+                My parents gave me
+                <strong>(6) ____________________</strong>
+                [a big present/a guitar].
+                I was very happy!
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <h3>Topic 5: My Favourite Time of Day</h3>
+            <div class="topic-text">
+                My favourite time of day is the
+                <strong>(1) ____________________</strong>
+                [morning/afternoon/evening].
+                I like it because I
+                <strong>(2) ____________________</strong>
+                [can play sports/watch a movie].
+                I usually
+                <strong>(3) ____________________</strong>
+                [have dinner/clean my teeth]
+                with
+                <strong>(4) ____________________</strong>
+                [my parents/my brother].
+                It is a
+                <strong>(5) ____________________</strong>
+                [quiet/exciting]
+                time for me.
+                I feel
+                <strong>(6) ____________________</strong>
+                [relaxed/good].
+            </div>
+        </div>
+
+        <a class="back-button" href="index.html">
+            ← Back to Home
+        </a>
+
+    </div>
+
+    <footer>
+        © 2026 QUICKMARCH PRACTICE
+    </footer>
+
+</body>
+</html>
