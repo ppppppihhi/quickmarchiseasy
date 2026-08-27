@@ -29,6 +29,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            flex-wrap: wrap;
         }
 
         .navbar a {
@@ -108,10 +109,35 @@
             border-radius: 10px;
         }
 
+        .button:hover {
+            background: #444;
+        }
+
         footer {
             text-align: center;
             padding: 25px;
             color: #888;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .navbar {
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .navbar a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -120,66 +146,161 @@
 
     <!-- TASKBAR -->
     <nav class="navbar">
-        <a href="#">🏠 Home</a>
+
+        <a href="index.html">🏠 Home</a>
+
         <a href="#">🎧 Listening</a>
+
         <a href="#">✏️ Language</a>
+
         <a href="#">📖 Reading</a>
+
+        <!-- SPEAKING -->
+        <a href="speaking.html">🎤 Speaking</a>
+
         <a href="#">📝 Writing</a>
+
         <a href="#">📊 Progress</a>
+
     </nav>
+
 
     <!-- HOME -->
     <section class="hero">
+
         <h1>QUICKMARCH PRACTICE</h1>
-        <p>Practice English. Learn Better. Improve Every Day.</p>
+
+        <p>
+            Practice English. Learn Better. Improve Every Day.
+        </p>
+
     </section>
+
 
     <!-- SUBJECTS -->
     <div class="container">
 
         <div class="cards">
 
+
+            <!-- LISTENING -->
             <div class="card">
+
                 <div class="icon">🎧</div>
+
                 <h2>Listening</h2>
-                <p>Practice listening skills</p>
-                <a class="button" href="#">Start</a>
+
+                <p>
+                    Practice listening skills
+                </p>
+
+                <a class="button" href="#">
+                    Start
+                </a>
+
             </div>
 
+
+            <!-- LANGUAGE -->
             <div class="card">
+
                 <div class="icon">✏️</div>
+
                 <h2>Language</h2>
-                <p>Grammar and vocabulary</p>
-                <a class="button" href="#">Start</a>
+
+                <p>
+                    Grammar and vocabulary
+                </p>
+
+                <a class="button" href="#">
+                    Start
+                </a>
+
             </div>
 
+
+            <!-- READING -->
             <div class="card">
+
                 <div class="icon">📖</div>
+
                 <h2>Reading</h2>
-                <p>Read and understand</p>
-                <a class="button" href="#">Start</a>
+
+                <p>
+                    Read and understand
+                </p>
+
+                <a class="button" href="#">
+                    Start
+                </a>
+
             </div>
 
+
+            <!-- WRITING -->
             <div class="card">
+
                 <div class="icon">📝</div>
+
                 <h2>Writing</h2>
-                <p>Improve your writing</p>
-                <a class="button" href="#">Start</a>
+
+                <p>
+                    Improve your writing
+                </p>
+
+                <a class="button" href="#">
+                    Start
+                </a>
+
             </div>
 
+
+            <!-- SPEAKING -->
             <div class="card">
-                <div class="icon">📊</div>
-                <h2>My Progress</h2>
-                <p>See your learning progress</p>
-                <a class="button" href="#">View</a>
+
+                <div class="icon">🎤</div>
+
+                <h2>Speaking</h2>
+
+                <p>
+                    Practise speaking skills
+                </p>
+
+                <a class="button" href="speaking.html">
+                    Start
+                </a>
+
             </div>
+
+
+            <!-- PROGRESS -->
+            <div class="card">
+
+                <div class="icon">📊</div>
+
+                <h2>My Progress</h2>
+
+                <p>
+                    See your learning progress
+                </p>
+
+                <a class="button" href="#">
+                    View
+                </a>
+
+            </div>
+
 
         </div>
 
     </div>
 
+
+    <!-- FOOTER -->
     <footer>
+
         © 2026 QUICKMARCH PRACTICE
+
     </footer>
 
 </body>
