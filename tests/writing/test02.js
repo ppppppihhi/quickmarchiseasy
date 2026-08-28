@@ -1,3 +1,4 @@
+```javascript
 /* =====================================================
    QUICKMARCH PRACTICE
    WRITING TEST 02
@@ -24,7 +25,11 @@ const TEST_DATA = {
             acceptedQuestions: [
                 "Do you think living in the country is better than living in the city?",
                 "Do you think living in the country is better than living in a city?"
-            ]
+            ],
+
+            explanation:
+                "<strong>Do you think...?</strong> = Bạn có nghĩ rằng... không?<br>" +
+                "Câu trả lời bắt đầu bằng <strong>I think...</strong>, vì vậy Sophie cần hỏi ý kiến bằng <strong>Do you think...?</strong>."
         },
 
         {
@@ -34,7 +39,11 @@ const TEST_DATA = {
             acceptedQuestions: [
                 "What is the best thing about living here?",
                 "What's the best thing about living here?"
-            ]
+            ],
+
+            explanation:
+                "<strong>What is...?</strong> = Cái gì...?/Điều gì...?<br>" +
+                "Mike nói về <strong>the best thing about living here</strong>, vì vậy Sophie dùng <strong>What is the best thing about living here?</strong>."
         },
 
         {
@@ -43,7 +52,11 @@ const TEST_DATA = {
 
             acceptedQuestions: [
                 "How often do you go fishing?"
-            ]
+            ],
+
+            explanation:
+                "<strong>How often...?</strong> = Bao lâu một lần?/Thường xuyên như thế nào?<br>" +
+                "Câu trả lời có <strong>two or three times a week</strong>, đây là thông tin về tần suất nên dùng <strong>How often...?</strong>."
         },
 
         {
@@ -54,7 +67,11 @@ const TEST_DATA = {
                 "Are you going to go fishing this weekend?",
                 "Are you going fishing this weekend?",
                 "Will you go fishing this weekend?"
-            ]
+            ],
+
+            explanation:
+                "<strong>Are you going to...?</strong> = Bạn có định... không?<br>" +
+                "Mike nói <strong>I'm going to go fishing</strong>, diễn tả một kế hoạch trong tương lai. Vì vậy có thể hỏi bằng <strong>Are you going to...?</strong>."
         },
 
         {
@@ -64,7 +81,11 @@ const TEST_DATA = {
             acceptedQuestions: [
                 "Can you teach me to fish?",
                 "Could you teach me to fish?"
-            ]
+            ],
+
+            explanation:
+                "<strong>Can you...?</strong> = Bạn có thể...?<br>" +
+                "Mike trả lời <strong>Of course I can</strong>, cho thấy câu hỏi cần hỏi về khả năng. Vì vậy dùng <strong>Can you teach me to fish?</strong>."
         }
 
     ],
@@ -79,91 +100,83 @@ const TEST_DATA = {
     task5: [
 
         {
-            answer: "slept",
-
-            explanation:
-                "1. **slept** = quá khứ của **sleep**.<br>" +
-                "2. **slept in Danny’s house** = **đã ngủ ở nhà Danny**."
-        },
-
-        {
             answer: "woke",
 
             explanation:
-                "1. **woke** = quá khứ của **wake**.<br>" +
-                "2. **woke up** = **đã thức dậy**."
+                "<strong>woke</strong> = quá khứ của <strong>wake</strong>.<br>" +
+                "<strong>woke up</strong> = đã thức dậy."
         },
 
         {
             answer: "ate",
 
             explanation:
-                "1. **ate** = quá khứ của **eat**.<br>" +
-                "2. **ate them** = **đã ăn chúng**."
+                "<strong>ate</strong> = quá khứ của <strong>eat</strong>.<br>" +
+                "<strong>ate them</strong> = đã ăn chúng."
         },
 
         {
             answer: "took",
 
             explanation:
-                "1. **took** = quá khứ của **take**.<br>" +
-                "2. **took our swimming things** = **đã mang đồ bơi**."
+                "<strong>took</strong> = quá khứ của <strong>take</strong>.<br>" +
+                "<strong>took our swimming things and a picnic</strong> = đã mang đồ bơi và đồ ăn picnic."
         },
 
         {
             answer: "wore",
 
             explanation:
-                "1. **wore** = quá khứ của **wear**.<br>" +
-                "2. **wore a hat** = **đã đội mũ**."
+                "<strong>wore</strong> = quá khứ của <strong>wear</strong>.<br>" +
+                "<strong>wore a hat</strong> = đã đội mũ."
         },
 
         {
             answer: "knocked",
 
             explanation:
-                "1. **knocked** = quá khứ của **knock**.<br>" +
-                "2. **knocked on the door** = **đã gõ cửa**."
+                "<strong>knocked</strong> = quá khứ của <strong>knock</strong>.<br>" +
+                "<strong>knocked on Mike's door</strong> = đã gõ cửa nhà Mike."
         },
 
         {
             answer: "swam",
 
             explanation:
-                "1. **swam** = quá khứ của **swim**.<br>" +
-                "2. **swam to the middle** = **đã bơi ra giữa**."
+                "<strong>swam</strong> = quá khứ của <strong>swim</strong>.<br>" +
+                "<strong>swam to the middle of the lake</strong> = đã bơi ra giữa hồ."
         },
 
         {
             answer: "put",
 
             explanation:
-                "1. **put** = quá khứ của **put**.<br>" +
-                "2. **put a sailing boat onto the lake** = **đưa/thả thuyền buồm xuống hồ**."
+                "<strong>put</strong> = quá khứ của <strong>put</strong>.<br>" +
+                "<strong>put a sailing boat onto the lake</strong> = đưa/thả thuyền buồm xuống hồ."
         },
 
         {
             answer: "gave",
 
             explanation:
-                "1. **gave** = quá khứ của **give**.<br>" +
-                "2. **gave us a lesson** = **đã dạy chúng tôi một bài học**."
+                "<strong>gave</strong> = quá khứ của <strong>give</strong>.<br>" +
+                "<strong>gave us a lesson</strong> = đã dạy chúng tôi một bài học."
         },
 
         {
             answer: "showed",
 
             explanation:
-                "1. **showed** = quá khứ của **show**.<br>" +
-                "2. **showed us how to turn** = **đã chỉ cho chúng tôi cách quay thuyền**."
+                "<strong>showed</strong> = quá khứ của <strong>show</strong>.<br>" +
+                "<strong>showed us how to turn the boat around</strong> = đã chỉ cho chúng tôi cách quay thuyền."
         },
 
         {
             answer: "caught",
 
             explanation:
-                "1. **caught** = quá khứ của **catch**.<br>" +
-                "2. **caught some fish** = **đã bắt được một số con cá**."
+                "<strong>caught</strong> = quá khứ của <strong>catch</strong>.<br>" +
+                "<strong>caught some fish</strong> = đã bắt được một số con cá."
         }
 
     ],
@@ -182,13 +195,7 @@ const TEST_DATA = {
                 "At the weekend, I like...",
 
             hint:
-                "What do you like doing? Where do you go? Who do you go with?",
-
-            sample:
-                "At the weekend, I like playing football with my friends. We usually play in the park near my house.",
-
-            explanation:
-                "Nêu hoạt động em thích làm vào cuối tuần và nói thêm nơi chốn hoặc người đi cùng."
+                "What do you like doing? Where do you go? Who do you go with?"
         },
 
         {
@@ -196,13 +203,7 @@ const TEST_DATA = {
                 "Sometimes my friends and I...",
 
             hint:
-                "What do you do with your friends? Do you play games, go shopping or play sports?",
-
-            sample:
-                "Sometimes my friends and I go shopping or play games together. We always have a lot of fun.",
-
-            explanation:
-                "Nêu một hoặc hai hoạt động em thường làm cùng bạn bè."
+                "What do you do with your friends? Do you play games, go shopping or play sports?"
         },
 
         {
@@ -210,13 +211,7 @@ const TEST_DATA = {
                 "Every weekend, my family...",
 
             hint:
-                "What does your family usually do together?",
-
-            sample:
-                "Every weekend, my family has a meal together. Sometimes we go to the park or visit our grandparents.",
-
-            explanation:
-                "Nêu hoạt động gia đình thường làm vào mỗi cuối tuần."
+                "What does your family usually do together?"
         },
 
         {
@@ -224,13 +219,7 @@ const TEST_DATA = {
                 "Last weekend,...",
 
             hint:
-                "What did you do? Where did you go? Who did you go with?",
-
-            sample:
-                "Last weekend I went to the park with my family. We had a picnic and played some games together.",
-
-            explanation:
-                "Kể về hoạt động đã xảy ra cuối tuần trước. Chú ý dùng quá khứ đơn."
+                "What did you do? Where did you go? Who did you go with?"
         },
 
         {
@@ -238,13 +227,7 @@ const TEST_DATA = {
                 "Next Saturday,...",
 
             hint:
-                "What are you going to do? Where are you going to go?",
-
-            sample:
-                "Next Saturday, I am going to visit my grandparents. We are going to have lunch together and watch a movie.",
-
-            explanation:
-                "Nói về kế hoạch cuối tuần tới. Có thể dùng **be going to + verb**."
+                "What are you going to do? Where are you going to go?"
         }
 
     ]
@@ -258,7 +241,7 @@ const TEST_DATA = {
 
 function normalizeWritingText(text) {
 
-    return text
+    return String(text)
         .toLowerCase()
         .trim()
         .replace(/[’‘]/g, "'")
@@ -284,7 +267,7 @@ function renderWritingTask3() {
 
             <p class="task-description">
 
-                The Brown family are staying in Danny’s house.
+                The Brown family are staying in Danny's house.
                 Sophie talks to the neighbour, Mike.
                 She asks him some questions.
                 Write her questions in the spaces.
@@ -352,7 +335,6 @@ function renderWritingTask3() {
                 <div class="given-answer">
 
                     <strong>Mike:</strong>
-
                     ${item.answer}
 
                 </div>
@@ -378,6 +360,15 @@ function renderWritingTask3() {
                     id="writing3-feedback-${index}"
 
                     class="feedback"
+
+                ></div>
+
+
+                <div
+
+                    id="writing3-explanation-${index}"
+
+                    class="answer-explanation"
 
                 ></div>
 
@@ -413,7 +404,13 @@ window.submitWriting3 = function(index) {
         );
 
 
-    if (!input || !feedback) {
+    const explanation =
+        document.getElementById(
+            `writing3-explanation-${index}`
+        );
+
+
+    if (!input || !feedback || !explanation) {
         return;
     }
 
@@ -432,6 +429,8 @@ window.submitWriting3 = function(index) {
         feedback.className =
             "feedback wrong";
 
+        explanation.classList.remove("show");
+
         return;
 
     }
@@ -442,14 +441,22 @@ window.submitWriting3 = function(index) {
 
 
     const accepted =
-        question.acceptedQuestions.map(
-            normalizeWritingText
+        question.acceptedQuestions || [];
+
+
+    const normalizedAccepted =
+        accepted.map(
+            answer => normalizeWritingText(answer)
         );
 
 
-    if (
-        accepted.includes(userAnswer)
-    ) {
+    const correct =
+        normalizedAccepted.includes(
+            userAnswer
+        );
+
+
+    if (correct) {
 
         feedback.innerHTML =
             "✓ Correct! <strong>3/3 marks</strong>";
@@ -463,10 +470,7 @@ window.submitWriting3 = function(index) {
     } else {
 
         feedback.innerHTML =
-            `✗ Try again.
-            <br>
-            <strong>Suggested answer:</strong>
-            ${question.acceptedQuestions[0]}?`;
+            "✗ Try again.";
 
         feedback.className =
             "feedback wrong";
@@ -476,11 +480,45 @@ window.submitWriting3 = function(index) {
 
     }
 
+
+    /*
+       Chỉ sau khi học sinh bấm Check
+       mới hiển thị đáp án và giải thích.
+    */
+
+    explanation.innerHTML = `
+
+        <div class="answer-sample">
+
+            <strong>
+                💡 Suggested answer:
+            </strong>
+
+            <br>
+
+            ${accepted[0] || ""}
+
+        </div>
+
+
+        <strong>
+            🇻🇳 Giải thích:
+        </strong>
+
+        <br>
+
+        ${question.explanation || ""}
+
+    `;
+
+
+    explanation.classList.add("show");
+
 };
 
 
 /* =====================================================
-   TASK 5 — FULL CARD
+   TASK 5 — RENDER
 ===================================================== */
 
 function renderWritingTask5() {
@@ -499,7 +537,7 @@ function renderWritingTask5() {
             <p class="task-description">
 
                 Ben writes a card to Grandpa about the
-                family’s day by the lake.
+                family's day by the lake.
                 Fill in the missing words.
                 Use the verbs in the box below but don't
                 forget to change them to the PAST TENSE
@@ -562,7 +600,7 @@ function renderWritingTask5() {
 
                     We <strong>(example)</strong>
                     <strong>slept</strong>
-                    in Danny’s house last night.
+                    in Danny's house last night.
                     It was lovely and sunny when we all
 
                     <input
@@ -644,7 +682,7 @@ function renderWritingTask5() {
                         placeholder="(5)"
                     >
 
-                    on Mike’s door, and then we all
+                    on Mike's door, and then we all
                     walked to the lake.
 
                 </p>
@@ -792,11 +830,9 @@ window.checkWritingTask5 = function() {
 
 
     /*
-       Task 5 has 10 questions.
-       15 marks total.
-       Each question = 1.5 marks.
+       Task 5:
+       10 questions × 1.5 marks = 15 marks.
     */
-
 
     TEST_DATA.task5.forEach((item, index) => {
 
@@ -813,7 +849,7 @@ window.checkWritingTask5 = function() {
 
         let explanation =
             document.getElementById(
-                `writing5-explanation-${index}`
+                `writing5-explanation-${index + 1}`
             );
 
 
@@ -823,10 +859,10 @@ window.checkWritingTask5 = function() {
                 document.createElement("div");
 
             explanation.id =
-                `writing5-explanation-${index}`;
+                `writing5-explanation-${index + 1}`;
 
             explanation.className =
-                "feedback";
+                "answer-explanation";
 
             input.parentNode.appendChild(
                 explanation
@@ -852,39 +888,79 @@ window.checkWritingTask5 = function() {
             score += 1.5;
 
 
-            explanation.innerHTML =
-                `✓ Correct!
-                <strong>1.5/1.5 marks</strong>
-                <br>
-                <strong>💡 Explanation:</strong>
-                ${item.explanation}`;
-
-
-            explanation.className =
-                "feedback correct";
-
-
             input.style.borderColor =
                 "#16803c";
 
+
+            explanation.innerHTML = `
+
+                <div class="answer-sample">
+
+                    <strong>
+                        ✓ Correct!
+                    </strong>
+
+                    <br>
+
+                    <strong>
+                        ${item.answer}
+                    </strong>
+
+                    <br>
+
+                    1.5/1.5 marks
+
+                </div>
+
+
+                <strong>
+                    🇻🇳 Giải thích:
+                </strong>
+
+                <br>
+
+                ${item.explanation}
+
+            `;
+
+
+            explanation.classList.add("show");
+
         } else {
-
-            explanation.innerHTML =
-                `✗ Try again.
-                <br>
-                <strong>Answer:</strong>
-                ${item.answer}
-                <br>
-                <strong>💡 Explanation:</strong>
-                ${item.explanation}`;
-
-
-            explanation.className =
-                "feedback wrong";
-
 
             input.style.borderColor =
                 "#c62828";
+
+
+            explanation.innerHTML = `
+
+                <div class="answer-sample">
+
+                    <strong>
+                        💡 Correct answer:
+                    </strong>
+
+                    <br>
+
+                    <strong>
+                        ${item.answer}
+                    </strong>
+
+                </div>
+
+
+                <strong>
+                    🇻🇳 Giải thích:
+                </strong>
+
+                <br>
+
+                ${item.explanation}
+
+            `;
+
+
+            explanation.classList.add("show");
 
         }
 
@@ -899,11 +975,19 @@ window.checkWritingTask5 = function() {
 
     if (total) {
 
-        total.innerHTML =
-            `<strong>Task 5 Score: ${score}/15 marks</strong>`;
+        total.innerHTML = `
+
+            <strong>
+                Task 5 Score: ${score}/15 marks
+            </strong>
+
+        `;
+
 
         total.className =
-            "feedback correct";
+            score === 15
+                ? "feedback correct"
+                : "feedback wrong";
 
     }
 
@@ -979,18 +1063,6 @@ function renderWritingTask6() {
 
                 ></textarea>
 
-
-                <div
-
-                    id="writing6-sample-${index}"
-
-                    style="
-                        display:none;
-                        margin-top:15px;
-                    "
-
-                ></div>
-
             </div>
 
         `;
@@ -1051,68 +1123,12 @@ window.checkWritingTask6 = function() {
             );
 
 
-        const sample =
-            document.getElementById(
-                `writing6-sample-${index}`
-            );
-
-
         if (
             input &&
             input.value.trim() !== ""
         ) {
 
             completed++;
-
-        }
-
-
-        if (sample) {
-
-            sample.innerHTML = `
-
-                <div style="
-                    background:#f0f7ff;
-                    border-left:5px solid #3949ab;
-                    padding:15px;
-                    border-radius:10px;
-                ">
-
-                    <strong>
-                        💡 Sample answer:
-                    </strong>
-
-
-                    <p style="
-                        margin-top:8px;
-                        line-height:1.6;
-                    ">
-
-                        ${item.sample}
-
-                    </p>
-
-
-                    <p style="
-                        margin-top:10px;
-                        color:#555;
-                    ">
-
-                        <strong>
-                            Giải thích:
-                        </strong>
-
-                        ${item.explanation}
-
-                    </p>
-
-                </div>
-
-            `;
-
-
-            sample.style.display =
-                "block";
 
         }
 
@@ -1125,22 +1141,30 @@ window.checkWritingTask6 = function() {
         );
 
 
-    if (completed === 5) {
+    if (!feedback) {
+        return;
+    }
+
+
+    if (completed === TEST_DATA.task6.length) {
 
         feedback.innerHTML = `
 
             ✓ Writing submitted!
 
-            <br>
+            <br><br>
 
             <strong>
-                Task 6 Score: 10/10 marks
+                Task 6: ${completed}/${TEST_DATA.task6.length}
+                sections completed
             </strong>
 
             <br><br>
 
             💡 Đây là bài viết cá nhân.
-            Sample answer chỉ là câu trả lời tham khảo.
+            Không có một đáp án duy nhất.
+            Hãy kiểm tra lại ngữ pháp, từ vựng,
+            thì của động từ và nội dung câu trả lời.
 
         `;
 
@@ -1151,13 +1175,13 @@ window.checkWritingTask6 = function() {
 
         feedback.innerHTML = `
 
-            Please complete all 5 sections.
-            (${completed}/5 completed)
+            Please complete all
+            ${TEST_DATA.task6.length} sections.
 
-            <br><br>
+            <br>
 
-            💡 Sample answers have been shown
-            to help you.
+            (${completed}/${TEST_DATA.task6.length}
+            completed)
 
         `;
 
@@ -1190,7 +1214,7 @@ window.renderWriting = function(data) {
 
         <h2 class="current-test-title">
 
-            ${data.title || "Writing Test 02"}
+            ${TEST_DATA.title}
 
         </h2>
 
@@ -1259,3 +1283,4 @@ window.WRITING_TEST_INFO = {
     }
 
 };
+```
