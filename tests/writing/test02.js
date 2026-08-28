@@ -81,91 +81,101 @@ const TEST_DATA = {
         {
             answer: "woke",
             verb: "wake",
+
             explanation:
                 "wake → V2/ed: woke.<br>" +
-                "woke up: đã thức dậy.<br>" +
-                "Trong bài: woke up this morning nghĩa là đã thức dậy vào sáng nay."
+                "woke up = đã thức dậy.<br>" +
+                "Trong bài: woke up this morning = đã thức dậy vào sáng nay."
         },
 
         {
             answer: "ate",
             verb: "eat",
+
             explanation:
                 "eat → V2/ed: ate.<br>" +
-                "ate + food: đã ăn thức ăn gì đó.<br>" +
-                "Trong bài: ate them at the table nghĩa là đã ăn chúng tại bàn."
+                "ate + food = đã ăn thức ăn gì đó.<br>" +
+                "Trong bài: ate them at the table = đã ăn chúng tại bàn."
         },
 
         {
             answer: "took",
             verb: "take",
+
             explanation:
                 "take → V2/ed: took.<br>" +
-                "took + something: đã mang/lấy một thứ gì đó.<br>" +
-                "Trong bài: took our swimming things nghĩa là đã mang đồ bơi của chúng tôi."
+                "took + something = đã mang/lấy một thứ gì đó.<br>" +
+                "Trong bài: took our swimming things = đã mang đồ bơi của chúng tôi."
         },
 
         {
             answer: "wore",
             verb: "wear",
+
             explanation:
                 "wear → V2/ed: wore.<br>" +
-                "wore + clothes: đã mặc/đeo một thứ gì đó.<br>" +
-                "Trong bài: wore a hat nghĩa là đã đội mũ."
+                "wore + clothes = đã mặc/đeo một thứ gì đó.<br>" +
+                "Trong bài: wore a hat = đã đội mũ."
         },
 
         {
             answer: "knocked",
             verb: "knock",
+
             explanation:
                 "knock → V2/ed: knocked.<br>" +
-                "knocked on + something: đã gõ vào thứ gì đó.<br>" +
-                "Trong bài: knocked on Mike’s door nghĩa là đã gõ cửa nhà Mike."
+                "knocked on + something = đã gõ vào thứ gì đó.<br>" +
+                "Trong bài: knocked on Mike’s door = đã gõ cửa nhà Mike."
         },
 
         {
             answer: "swam",
             verb: "swim",
+
             explanation:
                 "swim → V2/ed: swam.<br>" +
-                "swam to + nơi chốn: đã bơi đến nơi nào đó.<br>" +
-                "Trong bài: swam to the middle of the lake nghĩa là đã bơi ra giữa hồ."
+                "swam to + nơi chốn = đã bơi đến nơi nào đó.<br>" +
+                "Trong bài: swam to the middle of the lake = đã bơi ra giữa hồ."
         },
 
         {
             answer: "put",
             verb: "put",
+
             explanation:
                 "put → V2/ed: put.<br>" +
-                "put + something + onto/in + nơi chốn: đã đặt/đưa một thứ gì đó vào hoặc lên đâu đó.<br>" +
-                "Trong bài: put a sailing boat onto the lake nghĩa là đã đưa một chiếc thuyền buồm xuống hồ."
+                "put + something + onto/in + nơi chốn = đã đặt/đưa một thứ gì đó vào hoặc lên đâu đó.<br>" +
+                "Trong bài: put a sailing boat onto the lake = đã đưa một chiếc thuyền buồm xuống hồ."
         },
 
         {
             answer: "gave",
             verb: "give",
+
             explanation:
                 "give → V2/ed: gave.<br>" +
-                "gave + someone + something: đã đưa/cho ai đó một thứ gì.<br>" +
-                "Trong bài: gave us a lesson nghĩa là đã dạy chúng tôi một bài học."
+                "gave + someone + something = đã đưa/cho ai đó một thứ gì.<br>" +
+                "Trong bài: gave us a lesson = đã dạy chúng tôi một bài học."
         },
 
         {
             answer: "showed",
             verb: "show",
+
             explanation:
                 "show → V2/ed: showed.<br>" +
-                "showed someone how to + verb: đã chỉ cho ai cách làm gì.<br>" +
-                "Trong bài: showed us how to turn the boat around nghĩa là đã chỉ cho chúng tôi cách quay thuyền."
+                "showed someone how to + verb = đã chỉ cho ai cách làm gì.<br>" +
+                "Trong bài: showed us how to turn the boat around = đã chỉ cho chúng tôi cách quay thuyền."
         },
 
         {
             answer: "caught",
             verb: "catch",
+
             explanation:
                 "catch → V2/ed: caught.<br>" +
-                "caught + something: đã bắt được một thứ gì đó.<br>" +
-                "Trong bài: caught some fish nghĩa là đã bắt được một số con cá."
+                "caught + something = đã bắt được một thứ gì đó.<br>" +
+                "Trong bài: caught some fish = đã bắt được một số con cá."
         }
 
     ],
@@ -190,7 +200,7 @@ const TEST_DATA = {
                 "At the weekend, I like playing football with my friends in the park.",
 
             explanation:
-                "Nêu hoạt động em thích làm vào cuối tuần, nơi em làm hoạt động đó và người đi cùng."
+                "Nêu hoạt động em thích làm vào cuối tuần, có thể thêm địa điểm và người đi cùng."
         },
 
         {
@@ -201,10 +211,10 @@ const TEST_DATA = {
                 "What do you do with your friends? Do you play games, go shopping or play sports?",
 
             sample:
-                "Sometimes my friends and I go shopping or play games together.",
+                "Sometimes my friends and I go shopping and eat lunch together.",
 
             explanation:
-                "Nêu một hoặc hai hoạt động em thường làm cùng bạn bè."
+                "Nêu một hoạt động em thường làm cùng bạn bè."
         },
 
         {
@@ -215,10 +225,10 @@ const TEST_DATA = {
                 "What does your family usually do together?",
 
             sample:
-                "Every weekend, my family has breakfast together and goes to the park.",
+                "Every weekend, my family goes to the park and has lunch together.",
 
             explanation:
-                "Mô tả một hoạt động mà gia đình em thường làm cùng nhau vào mỗi cuối tuần."
+                "Nói về một hoạt động mà gia đình em thường làm cùng nhau vào mỗi cuối tuần."
         },
 
         {
@@ -229,10 +239,10 @@ const TEST_DATA = {
                 "What did you do? Where did you go? Who did you go with?",
 
             sample:
-                "Last weekend, I went to the cinema with my sister and watched a funny film.",
+                "Last weekend, I went to the beach with my family and played in the sea.",
 
             explanation:
-                "Kể về một hoạt động đã xảy ra vào cuối tuần trước. Dùng thì quá khứ đơn."
+                "Vì có Last weekend nên dùng thì quá khứ để kể về hoạt động đã xảy ra."
         },
 
         {
@@ -243,10 +253,10 @@ const TEST_DATA = {
                 "What are you going to do? Where are you going to go?",
 
             sample:
-                "Next Saturday, I am going to visit my grandparents with my family.",
+                "Next Saturday, I am going to visit my grandparents and have lunch with them.",
 
             explanation:
-                "Nói về kế hoạch vào thứ Bảy tới. Có thể dùng be going to để nói về dự định."
+                "Nói về kế hoạch trong tương lai. Có thể dùng be going to để diễn tả dự định."
         }
 
     ]
@@ -339,15 +349,10 @@ function renderWritingTask3() {
 
 
                 <input
-
                     id="writing3-${index}"
-
                     class="question-input"
-
                     type="text"
-
                     placeholder="Write Sophie's question here..."
-
                 >
 
 
@@ -361,13 +366,9 @@ function renderWritingTask3() {
 
 
                 <button
-
                     class="button"
-
                     style="margin-top:15px;"
-
                     onclick="submitWriting3(${index})"
-
                 >
 
                     Check
@@ -376,11 +377,8 @@ function renderWritingTask3() {
 
 
                 <div
-
                     id="writing3-feedback-${index}"
-
                     class="feedback"
-
                 ></div>
 
             </div>
@@ -399,6 +397,7 @@ function renderWritingTask3() {
 
 /* =====================================================
    TASK 3 — CHECK
+   HIỆN ĐÁP ÁN KHI SAI
 ===================================================== */
 
 window.submitWriting3 = function(index) {
@@ -430,8 +429,11 @@ window.submitWriting3 = function(index) {
 
     if (userAnswer === "") {
 
-        feedback.textContent =
-            "Please write a question.";
+        feedback.innerHTML = `
+
+            Please write a question.
+
+        `;
 
         feedback.className =
             "feedback wrong";
@@ -453,15 +455,19 @@ window.submitWriting3 = function(index) {
 
     if (accepted.includes(userAnswer)) {
 
-        feedback.innerHTML =
+        feedback.innerHTML = `
 
-            "✓ Correct! " +
-            "<strong>3/3 marks</strong>" +
+            ✓ Correct!
 
-            "<br><br>" +
+            <strong>3/3 marks</strong>
 
-            "<strong>Answer:</strong> " +
-            question.acceptedQuestions[0] + "?";
+            <br><br>
+
+            <strong>Answer:</strong>
+
+            ${question.acceptedQuestions[0]}?
+
+        `;
 
         feedback.className =
             "feedback correct";
@@ -471,15 +477,17 @@ window.submitWriting3 = function(index) {
 
     } else {
 
-        feedback.innerHTML =
+        feedback.innerHTML = `
 
-            "✗ Try again." +
+            ✗ Try again.
 
-            "<br><br>" +
+            <br><br>
 
-            "<strong>Suggested answer:</strong> " +
+            <strong>Suggested answer:</strong>
 
-            question.acceptedQuestions[0] + "?";
+            ${question.acceptedQuestions[0]}?
+
+        `;
 
         feedback.className =
             "feedback wrong";
@@ -529,7 +537,7 @@ function renderWritingTask5() {
                 <br>
 
                 The day is finished, so change the verbs
-                into the <strong>PAST TENSE</strong>.
+                into the PAST TENSE.
 
             </div>
 
@@ -563,9 +571,7 @@ function renderWritingTask5() {
             <div class="question-box">
 
                 <p>
-
                     <strong>Dear Grandpa</strong>
-
                 </p>
 
 
@@ -749,26 +755,19 @@ function renderWritingTask5() {
 
 
                 <p style="margin-top:20px;">
-
                     <strong>Love</strong>
-
                 </p>
 
                 <p>
-
                     <strong>Ben</strong>
-
                 </p>
 
             </div>
 
 
             <button
-
                 class="button"
-
                 onclick="checkWritingTask5()"
-
             >
 
                 Check Task 5
@@ -777,13 +776,9 @@ function renderWritingTask5() {
 
 
             <div
-
                 id="writing5-total-feedback"
-
                 class="feedback"
-
                 style="margin-top:20px;"
-
             ></div>
 
         </div>
@@ -811,9 +806,7 @@ window.checkWritingTask5 = function() {
 
 
         if (!input) {
-
             return;
-
         }
 
 
@@ -953,8 +946,8 @@ window.checkWritingTask5 = function() {
 
         total.className =
             score === 15
-            ? "feedback correct"
-            : "feedback wrong";
+                ? "feedback correct"
+                : "feedback wrong";
 
     }
 
@@ -963,6 +956,7 @@ window.checkWritingTask5 = function() {
 
 /* =====================================================
    TASK 6 — RENDER
+   CÓ SAMPLE ANSWER TRONG DATA
 ===================================================== */
 
 function renderWritingTask6() {
@@ -1016,31 +1010,17 @@ function renderWritingTask6() {
 
 
                 <textarea
-
                     id="writing6-${index}"
-
                     class="answer-input"
-
                     rows="4"
-
                     placeholder="Write your answer here..."
-
                     style="resize:vertical;"
-
                 ></textarea>
 
 
-                <!-- SAMPLE ANSWER -->
-
                 <div
-
                     id="writing6-sample-${index}"
-
-                    style="
-                        display:none;
-                        margin-top:15px;
-                    "
-
+                    style="display:none; margin-top:15px;"
                 ></div>
 
             </div>
@@ -1053,11 +1033,8 @@ function renderWritingTask6() {
     html += `
 
         <button
-
             class="button"
-
             onclick="checkWritingTask6()"
-
         >
 
             Submit Task 6
@@ -1066,13 +1043,9 @@ function renderWritingTask6() {
 
 
         <div
-
             id="writing6-feedback"
-
             class="feedback"
-
             style="margin-top:20px;"
-
         ></div>
 
 
@@ -1149,6 +1122,7 @@ window.checkWritingTask6 = function() {
                     <p style="
                         margin-top:10px;
                         color:#555;
+                        line-height:1.6;
                     ">
 
                         <strong>
@@ -1162,7 +1136,6 @@ window.checkWritingTask6 = function() {
                 </div>
 
             `;
-
 
             sample.style.display =
                 "block";
@@ -1179,9 +1152,7 @@ window.checkWritingTask6 = function() {
 
 
     if (!feedback) {
-
         return;
-
     }
 
 
@@ -1218,7 +1189,7 @@ window.checkWritingTask6 = function() {
             ${TEST_DATA.task6.length}
             sections.
 
-            <br><br>
+            <br>
 
             Completed:
             ${completed}/${TEST_DATA.task6.length}
@@ -1251,9 +1222,7 @@ window.renderWriting = function(data) {
 
 
     if (!content) {
-
         return;
-
     }
 
 
