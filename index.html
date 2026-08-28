@@ -1,276 +1,2455 @@
-const TEST_DATA = {
-
-    title: "Writing Test 04",
-
-    /* =====================================================
-       TASK 3
-    ===================================================== */
-
-    task3: [
-
-        {
-            answer:
-                "Which clubs are you going to, Ben?",
-
-            acceptedQuestions: [
-                "Which clubs are you going to, Ben?",
-                "What clubs are you going to, Ben?",
-                "Which clubs are you going to?"
-            ]
-        },
-
-        {
-            answer:
-                "Which do you like better, computers or football?",
-
-            acceptedQuestions: [
-                "Which do you like better, computers or football?",
-                "Which do you like better, computers or football?",
-                "Do you like computers or football better?"
-            ]
-        },
-
-        {
-            answer:
-                "Was there a computer club last year?",
-
-            acceptedQuestions: [
-                "Was there a computer club last year?",
-                "Did you have a computer club last year?",
-                "Was there a computer club last year"
-            ]
-        },
-
-        {
-            answer:
-                "How many children are going to football club?",
-
-            acceptedQuestions: [
-                "How many children are going to football club?",
-                "How many children are going to the football club?",
-                "How many children are going to football club"
-            ]
-        },
-
-        {
-            answer:
-                "Can I come to football club?",
-
-            acceptedQuestions: [
-                "Can I come to football club?",
-                "Can I come to the football club?",
-                "Can I go to football club?",
-                "Can I go to the football club?"
-            ]
-        }
-
-    ],
-
-
-    /* =====================================================
-       TASK 5
-    ===================================================== */
-
-    task5: [
-
-        {
-            sentence:
-                "Last week the school clubs (example) ________. I went to computer club and football club.",
-
-            verb: "start",
-
-            answer: "started",
-
-            explanation:
-                "start → V2/ed: started."
-        },
-
-        {
-            sentence:
-                "Mr Lee (1) ________ to us about different computer programmes.",
-
-            verb: "talk",
-
-            answer: "talked",
-
-            explanation:
-                "talk → V2/ed: talked."
-        },
-
-        {
-            sentence:
-                "Then we (2) ________ partners.",
-
-            verb: "choose",
-
-            answer: "chose",
-
-            explanation:
-                "choose → V2/ed: chose."
-        },
-
-        {
-            sentence:
-                "and (3) ________ at some great websites.",
-
-            verb: "look",
-
-            answer: "looked",
-
-            explanation:
-                "look → V2/ed: looked.<br>" +
-                "looked at = đã xem / nhìn vào."
-        },
-
-        {
-            sentence:
-                "After that Mr Lee (4) ________ us play computer games for five minutes!",
-
-            verb: "let",
-
-            answer: "let",
-
-            explanation:
-                "let → V2/ed: let.<br>" +
-                "let us play = cho chúng tôi chơi."
-        },
-
-        {
-            sentence:
-                "We all really (5) ________ football club.",
-
-            verb: "enjoy",
-
-            answer: "enjoyed",
-
-            explanation:
-                "enjoy → V2/ed: enjoyed."
-        },
-
-        {
-            sentence:
-                "First we (6) ________ up and down and warmed up.",
-
-            verb: "jump",
-
-            answer: "jumped",
-
-            explanation:
-                "jump → V2/ed: jumped."
-        },
-
-        {
-            sentence:
-                "Everybody (7) ________ really well.",
-
-            verb: "do",
-
-            answer: "did",
-
-            explanation:
-                "do → V2/ed: did."
-        },
-
-        {
-            sentence:
-                "and my team (8) ________ the match 3-1!",
-
-            verb: "win",
-
-            answer: "won",
-
-            explanation:
-                "win → V2/ed: won."
-        },
-
-        {
-            sentence:
-                "It (9) ________ really cool!",
-
-            verb: "be",
-
-            answer: "was",
-
-            explanation:
-                "be → V2/ed: was."
-        },
-
-        {
-            sentence:
-                "After the match, my Dad took me to the cafe and (10) ________ me my favourite ice-cream!",
-
-            verb: "buy",
-
-            answer: "bought",
-
-            explanation:
-                "buy → V2/ed: bought."
-        }
-
-    ],
-
-
-    /* =====================================================
-       TASK 6
-    ===================================================== */
-
-    task6: [
-
-        {
-            starter:
-                "A good club is...",
-
-            hint:
-                "Think about what makes a club interesting and enjoyable.",
-
-            sampleAnswer:
-                "A good club is fun, friendly, and interesting."
-        },
-
-        {
-            starter:
-                "People like it because...",
-
-            hint:
-                "Think about the activities, friends, teachers, or things students can learn.",
-
-            sampleAnswer:
-                "People like it because they can have fun and learn new things."
-        },
-
-        {
-            starter:
-                "In my school there are...",
-
-            hint:
-                "Write about the clubs in your school.",
-
-            sampleAnswer:
-                "In my school there are football, music, art, and computer clubs."
-        },
-
-        {
-            starter:
-                "Last year...",
-
-            hint:
-                "Write about a club you joined or an activity you did last year.",
-
-            sampleAnswer:
-                "Last year I joined the football club and played with my friends."
-        },
-
-        {
-            starter:
-                "In the future...",
-
-            hint:
-                "Write about a club you want to join or start in the future.",
-
-            sampleAnswer:
-                "In the future I want to join a music club and learn new songs."
-        }
-
-    ]
-
-};
+ <!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ 
+<title>QUICKMARCH PRACTICE</title> 
+ 
+<style> 
+ 
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+} 
+ 
+html { 
+    scroll-behavior: smooth; 
+} 
+ 
+body { 
+    font-family: Arial, sans-serif; 
+    background: #f5f7fb; 
+    color: #222; 
+    line-height: 1.5; 
+} 
+ 
+/* ============================== 
+   NAVBAR 
+============================== */ 
+ 
+.navbar { 
+    background: white; 
+    padding: 15px 25px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 12px; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08); 
+ 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+ 
+    flex-wrap: wrap; 
+} 
+ 
+.navbar a { 
+    text-decoration: none; 
+    color: #333; 
+    font-weight: bold; 
+    padding: 10px 15px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+} 
+ 
+.navbar a:hover, 
+.navbar a.active { 
+    background: #eef2ff; 
+    color: #3949ab; 
+} 
+ 
+/* ============================== 
+   HOME 
+============================== */ 
+ 
+.hero { 
+    text-align: center; 
+    padding: 65px 20px 35px; 
+} 
+ 
+.hero h1 { 
+    font-size: 42px; 
+    margin-bottom: 12px; 
+} 
+ 
+.hero p { 
+    font-size: 18px; 
+    color: #666; 
+} 
+ 
+.container { 
+    max-width: 1150px; 
+    margin: auto; 
+    padding: 20px; 
+} 
+ 
+/* ============================== 
+   HOME CARDS 
+============================== */ 
+ 
+.cards { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 20px; 
+} 
+ 
+.card { 
+    background: white; 
+    padding: 30px 20px; 
+    border-radius: 18px; 
+    text-align: center; 
+ 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+ 
+    transition: 0.2s; 
+} 
+ 
+.card:hover { 
+    transform: translateY(-5px); 
+} 
+ 
+.icon { 
+    font-size: 45px; 
+    margin-bottom: 12px; 
+} 
+ 
+.card h2 { 
+    margin-bottom: 8px; 
+} 
+ 
+.card p { 
+    color: #777; 
+    margin-bottom: 20px; 
+} 
+ 
+.button { 
+    background: #222; 
+    color: white; 
+ 
+    border: none; 
+    border-radius: 10px; 
+ 
+    padding: 11px 20px; 
+ 
+    cursor: pointer; 
+ 
+    font-size: 15px; 
+} 
+ 
+.button:hover { 
+    background: #444; 
+} 
+ 
+/* ============================== 
+   SKILL AREA 
+============================== */ 
+ 
+.section { 
+    display: none; 
+ 
+    scroll-margin-top: 90px; 
+ 
+    margin-top: 45px; 
+    margin-bottom: 80px; 
+} 
+ 
+.section.active { 
+    display: block; 
+} 
+ 
+.section-title { 
+    text-align: center; 
+    margin-bottom: 30px; 
+} 
+ 
+.section-title h2 { 
+    font-size: 32px; 
+    margin-bottom: 8px; 
+} 
+ 
+.section-title p { 
+    color: #777; 
+} 
+ 
+/* ============================== 
+   TEST SELECTOR 
+============================== */ 
+ 
+.test-selector { 
+    background: white; 
+    border-radius: 20px; 
+    padding: 30px; 
+ 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+ 
+    margin-bottom: 30px; 
+} 
+ 
+.test-selector h3 { 
+    text-align: center; 
+    margin-bottom: 25px; 
+    font-size: 22px; 
+} 
+ 
+.test-grid { 
+    display: grid; 
+ 
+    grid-template-columns: 
+        repeat(auto-fit, minmax(130px, 1fr)); 
+ 
+    gap: 15px; 
+} 
+ 
+.test-button { 
+    background: #f5f7fb; 
+ 
+    border: 2px solid #e1e4ec; 
+ 
+    border-radius: 12px; 
+ 
+    padding: 15px; 
+ 
+    cursor: pointer; 
+ 
+    font-weight: bold; 
+ 
+    font-size: 15px; 
+ 
+    transition: 0.2s; 
+} 
+ 
+.test-button:hover { 
+    background: #eef2ff; 
+    border-color: #7986cb; 
+} 
+ 
+.test-button.selected { 
+    background: #3949ab; 
+    color: white; 
+    border-color: #3949ab; 
+} 
+ 
+/* ============================== 
+   TEST CONTENT 
+============================== */ 
+ 
+.test-content { 
+    display: none; 
+} 
+ 
+.test-content.active { 
+    display: block; 
+} 
+ 
+.current-test-title { 
+    text-align: center; 
+    margin-bottom: 25px; 
+    font-size: 25px; 
+} 
+ 
+/* ============================== 
+   TASK BOX 
+============================== */ 
+ 
+.task-box { 
+    background: white; 
+ 
+    border-radius: 20px; 
+ 
+    padding: 30px; 
+ 
+    margin-bottom: 30px; 
+ 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+} 
+ 
+.task-title { 
+    font-size: 25px; 
+    margin-bottom: 8px; 
+} 
+ 
+.task-description { 
+    color: #777; 
+    margin-bottom: 25px; 
+} 
+ 
+.question-box { 
+    background: #f8f9ff; 
+ 
+    border-radius: 15px; 
+ 
+    padding: 25px; 
+ 
+    margin-bottom: 20px; 
+} 
+ 
+.question-number { 
+    font-weight: bold; 
+    font-size: 18px; 
+    margin-bottom: 15px; 
+} 
+ 
+/* ============================== 
+   LISTENING AUDIO 
+============================== */ 
+ 
+.audio-box { 
+ 
+    position: sticky; 
+ 
+    top: 85px; 
+ 
+    z-index: 100; 
+ 
+    background: white; 
+ 
+    border-radius: 18px; 
+ 
+    padding: 18px; 
+ 
+    margin-bottom: 25px; 
+ 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12); 
+ 
+    text-align: center; 
+} 
+ 
+.audio-box h3 { 
+    margin-bottom: 10px; 
+} 
+ 
+.audio-box audio { 
+    width: 100%; 
+    max-width: 650px; 
+} 
+ 
+/* ============================== 
+   LISTENING PICTURES 
+============================== */ 
+ 
+.picture-options { 
+ 
+    display: grid; 
+ 
+    grid-template-columns: 
+        repeat(3, 1fr); 
+ 
+    gap: 20px; 
+} 
+ 
+.picture-option { 
+ 
+    background: white; 
+ 
+    border: 4px solid transparent; 
+ 
+    border-radius: 15px; 
+ 
+    padding: 8px; 
+ 
+    cursor: pointer; 
+ 
+    transition: 0.2s; 
+} 
+ 
+.picture-option:hover { 
+    border-color: #b8c0ff; 
+    transform: scale(1.02); 
+} 
+ 
+.picture-option.selected { 
+ 
+    border-color: #3949ab; 
+ 
+    background: #eef1ff; 
+} 
+ 
+.picture-option img { 
+ 
+    width: 100%; 
+ 
+    height: 190px; 
+ 
+    object-fit: contain; 
+ 
+    border-radius: 10px; 
+ 
+    display: block; 
+} 
+ 
+/* ============================== 
+   INPUT 
+============================== */ 
+ 
+.answer-input, 
+.question-input { 
+ 
+    width: 100%; 
+ 
+    padding: 13px; 
+ 
+    border: 1px solid #ccc; 
+ 
+    border-radius: 10px; 
+ 
+    font-size: 16px; 
+ 
+    background: white; 
+} 
+ 
+.answer-input:focus, 
+.question-input:focus { 
+ 
+    outline: none; 
+ 
+    border-color: #3949ab; 
+} 
+ 
+/* ============================== 
+   READING 
+============================== */ 
+ 
+.reading-layout { 
+ 
+    display: grid; 
+ 
+    grid-template-columns: 
+        1fr 1fr; 
+ 
+    gap: 30px; 
+ 
+    align-items: start; 
+} 
+ 
+/* FIXED PICTURE */ 
+ 
+.fixed-picture { 
+ 
+    position: sticky; 
+ 
+    top: 110px; 
+ 
+    background: white; 
+ 
+    border-radius: 20px; 
+ 
+    padding: 20px; 
+ 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+ 
+    text-align: center; 
+} 
+ 
+.fixed-picture img { 
+ 
+    width: 100%; 
+ 
+    height: 450px; 
+ 
+    object-fit: contain; 
+ 
+    border-radius: 15px; 
+} 
+ 
+.question-select { 
+ 
+    width: 100%; 
+ 
+    padding: 14px; 
+ 
+    border-radius: 10px; 
+ 
+    border: 1px solid #ccc; 
+ 
+    font-size: 16px; 
+ 
+    margin-bottom: 20px; 
+ 
+    background: white; 
+} 
+ 
+.example-box { 
+ 
+    background: #fff8e1; 
+ 
+    border-left: 5px solid #f0ad00; 
+ 
+    padding: 18px; 
+ 
+    border-radius: 10px; 
+ 
+    margin-bottom: 20px; 
+} 
+ 
+/* ============================== 
+   WRITING 
+============================== */ 
+ 
+.given-answer { 
+ 
+    background: #eef2f7; 
+ 
+    padding: 15px; 
+ 
+    border-radius: 10px; 
+ 
+    margin-top: 5px; 
+} 
+ 
+.story-row { 
+ 
+    margin-bottom: 15px; 
+} 
+ 
+.story-starter { 
+ 
+    font-weight: bold; 
+} 
+ 
+.story-input { 
+ 
+    width: 100%; 
+ 
+    padding: 11px; 
+ 
+    border: none; 
+ 
+    border-bottom: 2px solid #aaa; 
+ 
+    background: transparent; 
+ 
+    font-size: 16px; 
+ 
+    margin-top: 5px; 
+} 
+ 
+.story-input:focus { 
+ 
+    outline: none; 
+ 
+    border-bottom-color: #3949ab; 
+} 
+ 
+/* ============================== 
+   FEEDBACK 
+============================== */ 
+ 
+.feedback { 
+ 
+    margin-top: 12px; 
+ 
+    font-weight: bold; 
+} 
+ 
+.correct { 
+    color: #16803c; 
+} 
+ 
+.wrong { 
+    color: #c62828; 
+} 
+ 
+/* ============================== 
+   LOADING 
+============================== */ 
+ 
+.loading { 
+ 
+    text-align: center; 
+ 
+    padding: 35px; 
+ 
+    color: #777; 
+} 
+ 
+.error-message { 
+ 
+    background: #ffebee; 
+ 
+    color: #c62828; 
+ 
+    padding: 20px; 
+ 
+    border-radius: 12px; 
+ 
+    margin-bottom: 20px; 
+ 
+    text-align: center; 
+} 
+ 
+/* ============================== 
+   FOOTER 
+============================== */ 
+ 
+footer { 
+ 
+    text-align: center; 
+ 
+    padding: 30px; 
+ 
+    color: #888; 
+} 
+ 
+/* ============================== 
+   MOBILE 
+============================== */ 
+ 
+@media (max-width: 800px) { 
+ 
+    .reading-layout { 
+        grid-template-columns: 1fr; 
+    } 
+ 
+    .fixed-picture { 
+        position: relative; 
+        top: 0; 
+    } 
+ 
+    .fixed-picture img { 
+        height: 300px; 
+    } 
+ 
+    .picture-options { 
+        grid-template-columns: 1fr; 
+    } 
+ 
+    .picture-option img { 
+        height: 220px; 
+    } 
+} 
+ 
+@media (max-width: 600px) { 
+ 
+    .navbar { 
+        gap: 4px; 
+        padding: 10px; 
+    } 
+ 
+    .navbar a { 
+        padding: 8px 10px; 
+        font-size: 13px; 
+    } 
+ 
+    .hero h1 { 
+        font-size: 32px; 
+    } 
+ 
+    .task-box { 
+        padding: 20px; 
+    } 
+ 
+    .test-selector { 
+        padding: 20px; 
+    } 
+} 
+ 
+</style> 
+</head> 
+ 
+ 
+<body> 
+ 
+ 
+<!-- ===================================================== 
+     NAVBAR 
+===================================================== --> 
+ 
+<nav class="navbar"> 
+ 
+    <a href="#home" onclick="showHome()"> 
+        🏠 Home 
+    </a> 
+ 
+    <a href="#listening" onclick="showSkill('listening')"> 
+        🎧 Listening 
+    </a> 
+ 
+    <a href="speaking/speaking.html"> 
+        🎤 Speaking 
+    </a> 
+ 
+    <a href="#reading" onclick="showSkill('reading')"> 
+        📖 Reading 
+    </a> 
+ 
+    <a href="#writing" onclick="showSkill('writing')"> 
+        📝 Writing 
+    </a> 
+ 
+</nav> 
+ 
+ 
+<!-- ===================================================== 
+     HOME 
+===================================================== --> 
+ 
+<section id="home" class="hero"> 
+ 
+    <h1>QUICKMARCH PRACTICE</h1> 
+ 
+    <p> 
+        Practice English. Learn Better. Improve Every Day. 
+    </p> 
+ 
+</section> 
+ 
+ 
+<div class="container"> 
+ 
+ 
+    <!-- ================================================= 
+         HOME INFORMATION 
+    ================================================== --> 
+ 
+    <div id="homeCards" class="cards"> 
+ 
+        <div class="card"> 
+ 
+            <div class="icon">🎧</div> 
+ 
+            <h2>Listening</h2> 
+ 
+            <p> 
+                19 practice tests 
+            </p> 
+ 
+            <button 
+                class="button" 
+                onclick="showSkill('listening')" 
+            > 
+                Choose Test 
+            </button> 
+ 
+        </div> 
+ 
+ 
+        <div class="card"> 
+ 
+            <div class="icon">📖</div> 
+ 
+            <h2>Reading</h2> 
+ 
+            <p> 
+                19 practice tests 
+            </p> 
+ 
+            <button 
+                class="button" 
+                onclick="showSkill('reading')" 
+            > 
+                Choose Test 
+            </button> 
+ 
+        </div> 
+ 
+ 
+        <div class="card"> 
+ 
+            <div class="icon">🎤</div> 
+ 
+            <h2>Speaking</h2> 
+ 
+            <p> 
+                Practise speaking skills 
+            </p> 
+ 
+            <a 
+                class="button" 
+                href="speaking/speaking.html" 
+            > 
+                Start 
+            </a> 
+ 
+        </div> 
+ 
+ 
+        <div class="card"> 
+ 
+            <div class="icon">📝</div> 
+ 
+            <h2>Writing</h2> 
+ 
+            <p> 
+                19 practice tests 
+            </p> 
+ 
+            <button 
+                class="button" 
+                onclick="showSkill('writing')" 
+            > 
+                Choose Test 
+            </button> 
+ 
+        </div> 
+ 
+    </div> 
+ 
+ 
+    <!-- ================================================= 
+         LISTENING 
+    ================================================== --> 
+ 
+    <section 
+        id="listening" 
+        class="section" 
+    > 
+ 
+        <div class="section-title"> 
+ 
+            <h2>🎧 Listening</h2> 
+ 
+            <p> 
+                Choose a test to practise. 
+            </p> 
+ 
+        </div> 
+ 
+ 
+        <!-- TEST SELECTOR --> 
+ 
+        <div class="test-selector"> 
+ 
+            <h3> 
+                Choose a Listening Test 
+            </h3> 
+ 
+            <div 
+                id="listeningTestButtons" 
+                class="test-grid" 
+            ></div> 
+ 
+        </div> 
+ 
+ 
+        <!-- TEST CONTENT --> 
+ 
+        <div 
+            id="listeningContent" 
+            class="test-content" 
+        ></div> 
+ 
+    </section> 
+ 
+ 
+    <!-- ================================================= 
+         READING 
+    ================================================== --> 
+ 
+    <section 
+        id="reading" 
+        class="section" 
+    > 
+ 
+        <div class="section-title"> 
+ 
+            <h2>📖 Reading</h2> 
+ 
+            <p> 
+                Choose a test to practise. 
+            </p> 
+ 
+        </div> 
+ 
+ 
+        <div class="test-selector"> 
+ 
+            <h3> 
+                Choose a Reading Test 
+            </h3> 
+ 
+            <div 
+                id="readingTestButtons" 
+                class="test-grid" 
+            ></div> 
+ 
+        </div> 
+ 
+ 
+        <div 
+            id="readingContent" 
+            class="test-content" 
+        ></div> 
+ 
+    </section> 
+ 
+ 
+    <!-- ================================================= 
+         WRITING 
+    ================================================== --> 
+ 
+    <section 
+        id="writing" 
+        class="section" 
+    > 
+ 
+        <div class="section-title"> 
+ 
+            <h2>📝 Writing</h2> 
+ 
+            <p> 
+                Choose a test to practise. 
+            </p> 
+ 
+        </div> 
+ 
+ 
+        <div class="test-selector"> 
+ 
+            <h3> 
+                Choose a Writing Test 
+            </h3> 
+ 
+            <div 
+                id="writingTestButtons" 
+                class="test-grid" 
+            ></div> 
+ 
+        </div> 
+ 
+ 
+        <div 
+            id="writingContent" 
+            class="test-content" 
+        ></div> 
+ 
+    </section> 
+ 
+</div> 
+ 
+ 
+<footer> 
+ 
+    © 2026 QUICKMARCH PRACTICE 
+ 
+</footer> 
+ 
+ 
+<script> 
+ 
+/* ===================================================== 
+   CONFIGURATION 
+===================================================== */ 
+ 
+/* 
+    IMPORTANT: 
+ 
+    index.html KHÔNG chứa nội dung đề. 
+ 
+    Nội dung nằm trong: 
+ 
+    tests/test01.js 
+    tests/test02.js 
+    ... 
+    tests/test19.js 
+*/ 
+ 
+const TOTAL_TESTS = 19; 
+ 
+ 
+/* ===================================================== 
+   CURRENT STATE 
+===================================================== */ 
+ 
+let currentSkill = null; 
+ 
+let currentTest = null; 
+ 
+let currentTestData = null; 
+ 
+ 
+/* ===================================================== 
+   CREATE 19 TEST BUTTONS 
+===================================================== */ 
+ 
+function createTestButtons() { 
+ 
+    const skills = [ 
+        "listening", 
+        "reading", 
+        "writing" 
+    ]; 
+ 
+    skills.forEach(skill => { 
+ 
+        const container = 
+            document.getElementById( 
+                skill + "TestButtons" 
+            ); 
+ 
+        for ( 
+            let i = 1; 
+            i <= TOTAL_TESTS; 
+            i++ 
+        ) { 
+ 
+            const button = 
+                document.createElement("button"); 
+ 
+            button.className = 
+                "test-button"; 
+ 
+            button.textContent = 
+                `Test ${String(i).padStart(2, "0")}`; 
+ 
+            button.onclick = 
+                () => loadTest(skill, i); 
+ 
+            container.appendChild(button); 
+        } 
+ 
+    }); 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   SHOW HOME 
+===================================================== */ 
+ 
+function showHome() { 
+ 
+    currentSkill = null; 
+ 
+    currentTest = null; 
+ 
+    currentTestData = null; 
+ 
+    document 
+        .querySelectorAll(".section") 
+        .forEach(section => { 
+ 
+            section.classList.remove("active"); 
+ 
+        }); 
+ 
+    document 
+        .getElementById("homeCards") 
+        .style.display = "grid"; 
+ 
+    window.scrollTo({ 
+        top: 0, 
+        behavior: "smooth" 
+    }); 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   SHOW SKILL 
+===================================================== */ 
+ 
+function showSkill(skill) { 
+ 
+    currentSkill = skill; 
+ 
+    document 
+        .getElementById("homeCards") 
+        .style.display = "none"; 
+ 
+ 
+    document 
+        .querySelectorAll(".section") 
+        .forEach(section => { 
+ 
+            section.classList.remove("active"); 
+ 
+        }); 
+ 
+ 
+    const section = 
+        document.getElementById(skill); 
+ 
+    if (section) { 
+ 
+        section.classList.add("active"); 
+ 
+        section.scrollIntoView({ 
+            behavior: "smooth" 
+        }); 
+ 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   LOAD TEST FILE 
+===================================================== */ 
+ 
+function loadTest(skill, testNumber) { 
+ 
+    currentSkill = skill; 
+ 
+    currentTest = testNumber; 
+ 
+ 
+    const testNumberText = 
+        String(testNumber).padStart(2, "0"); 
+ 
+ 
+    const file = 
+        `tests/test${testNumberText}.js`; 
+ 
+ 
+    const oldScript = 
+        document.getElementById( 
+            "currentTestScript" 
+        ); 
+ 
+ 
+    if (oldScript) { 
+ 
+        oldScript.remove(); 
+ 
+    } 
+ 
+ 
+    const content = 
+        document.getElementById( 
+            skill + "Content" 
+        ); 
+ 
+ 
+    content.innerHTML = ` 
+ 
+        <div class="loading"> 
+ 
+            Loading Test ${testNumberText}... 
+ 
+        </div> 
+ 
+    `; 
+ 
+ 
+    const script = 
+        document.createElement("script"); 
+ 
+    script.id = 
+        "currentTestScript"; 
+ 
+    script.src = 
+        file + "?v=" + Date.now(); 
+ 
+ 
+    script.onload = function() { 
+ 
+        if ( 
+            typeof TEST_DATA === "undefined" 
+        ) { 
+ 
+            showTestError( 
+                skill, 
+                `Test ${testNumberText} does not contain TEST_DATA.` 
+            ); 
+ 
+            return; 
+ 
+        } 
+ 
+ 
+        currentTestData = 
+            TEST_DATA; 
+ 
+ 
+        displayTest( 
+            skill, 
+            TEST_DATA 
+        ); 
+ 
+    }; 
+ 
+ 
+    script.onerror = function() { 
+ 
+        showTestError( 
+            skill, 
+            `Cannot load ${file}. Please check that the file exists.` 
+        ); 
+ 
+    }; 
+ 
+ 
+    document.body.appendChild(script); 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   DISPLAY TEST 
+===================================================== */ 
+ 
+function displayTest(skill, data) { 
+ 
+    const content = 
+        document.getElementById( 
+            skill + "Content" 
+        ); 
+ 
+ 
+    content.classList.add("active"); 
+ 
+ 
+    if (skill === "listening") { 
+ 
+        renderListening(data); 
+ 
+    } 
+ 
+ 
+    if (skill === "reading") { 
+ 
+        renderReading(data); 
+ 
+    } 
+ 
+ 
+    if (skill === "writing") { 
+ 
+        renderWriting(data); 
+ 
+    } 
+ 
+ 
+    content.scrollIntoView({ 
+        behavior: "smooth", 
+        block: "start" 
+    }); 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   ERROR 
+===================================================== */ 
+ 
+function showTestError(skill, message) { 
+ 
+    const content = 
+        document.getElementById( 
+            skill + "Content" 
+        ); 
+ 
+ 
+    content.classList.add("active"); 
+ 
+ 
+    content.innerHTML = ` 
+ 
+        <div class="error-message"> 
+ 
+            <strong>Unable to load this test.</strong> 
+ 
+            <br><br> 
+ 
+            ${message} 
+ 
+        </div> 
+ 
+    `; 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   LISTENING 
+===================================================== */ 
+ 
+function renderListening(data) { 
+ 
+    const content = 
+        document.getElementById( 
+            "listeningContent" 
+        ); 
+ 
+ 
+    let html = ` 
+ 
+        <h2 class="current-test-title"> 
+            ${data.title || "Listening Test"} 
+        </h2> 
+ 
+ 
+        <!-- AUDIO ALWAYS AT TOP --> 
+ 
+        <div class="audio-box"> 
+ 
+            <h3> 
+                🎧 Listen to the recording 
+            </h3> 
+ 
+            <audio controls> 
+ 
+                <source 
+                    src="${data.audio || ""}" 
+                    type="audio/mpeg" 
+                > 
+ 
+                Your browser does not support audio. 
+ 
+            </audio> 
+ 
+        </div> 
+ 
+    `; 
+ 
+ 
+    /* ========================== 
+       TASK 1 
+    ========================== */ 
+ 
+    if (data.task1) { 
+ 
+        html += ` 
+ 
+            <div class="task-box"> 
+ 
+                <h2 class="task-title"> 
+                    Task 1 
+                </h2> 
+ 
+                <p class="task-description"> 
+ 
+                    Listen and click on the picture 
+                    that describes the correct answer. 
+ 
+                </p> 
+ 
+        `; 
+ 
+ 
+        data.task1.forEach( 
+            (question, index) => { 
+ 
+                html += ` 
+ 
+                    <div class="question-box"> 
+ 
+                        <div class="question-number"> 
+ 
+                            Question ${index + 1} 
+ 
+                        </div> 
+ 
+                        <p> 
+                            ${question.question || ""} 
+                        </p> 
+ 
+                        <div class="picture-options"> 
+ 
+                `; 
+ 
+ 
+                question.images.forEach( 
+                    (image, imageIndex) => { 
+ 
+                        html += ` 
+ 
+                            <div 
+                                class="picture-option" 
+                                data-q="${index}" 
+                                data-a="${imageIndex}" 
+                                onclick=" 
+                                    selectPicture( 
+                                        ${index}, 
+                                        ${imageIndex} 
+                                    ) 
+                                " 
+                            > 
+ 
+                                <img 
+                                    src="${image}" 
+                                    alt="Option ${imageIndex + 1}" 
+                                > 
+ 
+                            </div> 
+ 
+                        `; 
+ 
+                    } 
+                ); 
+ 
+ 
+                html += ` 
+ 
+                        </div> 
+ 
+                        <button 
+                            class="button" 
+                            onclick=" 
+                                checkPicture( 
+                                    ${index}, 
+                                    ${question.answer} 
+                                ) 
+                            " 
+                            style="margin-top:15px;" 
+                        > 
+                            Check 
+                        </button> 
+ 
+                        <div 
+                            id="picture-feedback-${index}" 
+                            class="feedback" 
+                        ></div> 
+ 
+                    </div> 
+ 
+                `; 
+ 
+            } 
+        ); 
+ 
+ 
+        html += `</div>`; 
+ 
+    } 
+ 
+ 
+    /* ========================== 
+       TASK 2 
+    ========================== */ 
+ 
+    if (data.task2) { 
+ 
+        html += ` 
+ 
+            <div class="task-box"> 
+ 
+                <h2 class="task-title"> 
+                    Task 2 
+                </h2> 
+ 
+                <p class="task-description"> 
+ 
+                    Listen and write a short answer. 
+ 
+                </p> 
+ 
+        `; 
+ 
+ 
+        data.task2.forEach( 
+            (question, index) => { 
+ 
+                html += ` 
+ 
+                    <div class="question-box"> 
+ 
+                        <div class="question-number"> 
+ 
+                            Question ${index + 1} 
+ 
+                        </div> 
+ 
+                        <p> 
+                            ${question.question || ""} 
+                        </p> 
+ 
+                        <input 
+                            id="listen-answer-${index}" 
+                            class="answer-input" 
+                            type="text" 
+                            placeholder="Write your answer..." 
+                        > 
+ 
+                        <button 
+                            class="button" 
+                            style="margin-top:15px;" 
+                            onclick=" 
+                                checkShortAnswer( 
+                                    ${index}, 
+                                    ${JSON.stringify( 
+                                        question.answer || "" 
+                                    )} 
+                                ) 
+                            " 
+                        > 
+                            Check 
+                        </button> 
+ 
+                        <div 
+                            id="short-feedback-${index}" 
+                            class="feedback" 
+                        ></div> 
+ 
+                    </div> 
+ 
+                `; 
+ 
+            } 
+        ); 
+ 
+ 
+        html += `</div>`; 
+ 
+    } 
+ 
+ 
+    content.innerHTML = html; 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   LISTENING SELECT PICTURE 
+===================================================== */ 
+ 
+function selectPicture( 
+    questionIndex, 
+    answerIndex 
+) { 
+ 
+    const options = 
+        document.querySelectorAll( 
+            `[data-q="${questionIndex}"]` 
+        ); 
+ 
+ 
+    options.forEach(option => { 
+ 
+        option.classList.remove( 
+            "selected" 
+        ); 
+ 
+    }); 
+ 
+ 
+    const selected = 
+        document.querySelector( 
+            `[data-q="${questionIndex}"][data-a="${answerIndex}"]` 
+        ); 
+ 
+ 
+    if (selected) { 
+ 
+        selected.classList.add( 
+            "selected" 
+        ); 
+ 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   CHECK PICTURE 
+===================================================== */ 
+ 
+function checkPicture( 
+    questionIndex, 
+    correctAnswer 
+) { 
+ 
+    const selected = 
+        document.querySelector( 
+            `[data-q="${questionIndex}"].selected` 
+        ); 
+ 
+ 
+    const feedback = 
+        document.getElementById( 
+            `picture-feedback-${questionIndex}` 
+        ); 
+ 
+ 
+    if (!selected) { 
+ 
+        feedback.textContent = 
+            "Please choose a picture."; 
+ 
+        feedback.className = 
+            "feedback wrong"; 
+ 
+        return; 
+ 
+    } 
+ 
+ 
+    const userAnswer = 
+        Number( 
+            selected.dataset.a 
+        ); 
+ 
+ 
+    if ( 
+        userAnswer === Number(correctAnswer) 
+    ) { 
+ 
+        feedback.textContent = 
+            "✓ Correct!"; 
+ 
+        feedback.className = 
+            "feedback correct"; 
+ 
+    } else { 
+ 
+        feedback.textContent = 
+            "✗ Try again."; 
+ 
+        feedback.className = 
+            "feedback wrong"; 
+ 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   CHECK SHORT ANSWER 
+===================================================== */ 
+ 
+function checkShortAnswer( 
+    index, 
+    correctAnswer 
+) { 
+ 
+    const input = 
+        document.getElementById( 
+            `listen-answer-${index}` 
+        ); 
+ 
+ 
+    const feedback = 
+        document.getElementById( 
+            `short-feedback-${index}` 
+        ); 
+ 
+ 
+    const user = 
+        input.value 
+            .trim() 
+            .toLowerCase(); 
+ 
+ 
+    const correct = 
+        String(correctAnswer) 
+            .trim() 
+            .toLowerCase(); 
+ 
+ 
+    if (user === "") { 
+ 
+        feedback.textContent = 
+            "Please write an answer."; 
+ 
+        feedback.className = 
+            "feedback wrong"; 
+ 
+        return; 
+ 
+    } 
+ 
+ 
+    if ( 
+        correct !== "" && 
+        user === correct 
+    ) { 
+ 
+        feedback.textContent = 
+            "✓ Correct!"; 
+ 
+        feedback.className = 
+            "feedback correct"; 
+ 
+    } else if (correct === "") { 
+ 
+        feedback.textContent = 
+            "✓ Answer recorded."; 
+ 
+        feedback.className = 
+            "feedback correct"; 
+ 
+    } else { 
+ 
+        feedback.textContent = 
+            "✗ Try again."; 
+ 
+        feedback.className = 
+            "feedback wrong"; 
+ 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   READING 
+===================================================== */ 
+ 
+function renderReading(data) { 
+ 
+    const content = 
+        document.getElementById( 
+            "readingContent" 
+        ); 
+ 
+ 
+    let html = ` 
+ 
+        <h2 class="current-test-title"> 
+            ${data.title || "Reading Test"} 
+        </h2> 
+ 
+        <div class="task-box"> 
+ 
+            <h2 class="task-title"> 
+                Task 4 
+            </h2> 
+ 
+            <p class="task-description"> 
+ 
+                Look at the fixed picture 
+                and choose the correct question. 
+ 
+            </p> 
+ 
+    `; 
+ 
+ 
+    /* EXAMPLE */ 
+ 
+    if (data.example) { 
+ 
+        html += ` 
+ 
+            <div class="example-box"> 
+ 
+                <strong> 
+                    Example 
+                </strong> 
+ 
+                <p style="margin-top:8px;"> 
+ 
+                    ${data.example.question || ""} 
+ 
+                </p> 
+ 
+            </div> 
+ 
+        `; 
+ 
+    } 
+ 
+ 
+    html += ` 
+ 
+        <div class="reading-layout"> 
+ 
+            <div class="fixed-picture"> 
+ 
+                <h3> 
+                    Picture 
+                </h3> 
+ 
+                <img 
+                    id="reading-picture" 
+                    src="${ 
+                        data.pictures && 
+                        data.pictures[0] 
+                        ? data.pictures[0] 
+                        : "" 
+                    }" 
+                    alt="Reading picture" 
+                > 
+ 
+            </div> 
+ 
+ 
+            <div> 
+ 
+                <label> 
+ 
+                    <strong> 
+                        Choose a question: 
+                    </strong> 
+ 
+                </label> 
+ 
+                <select 
+                    id="reading-question-select" 
+                    class="question-select" 
+                    onchange="changeReadingQuestion()" 
+                > 
+ 
+                    <option value=""> 
+                        -- Choose a question -- 
+                    </option> 
+ 
+    `; 
+ 
+ 
+    if (data.questions) { 
+ 
+        data.questions.forEach( 
+            (question, index) => { 
+ 
+                html += ` 
+ 
+                    <option value="${index}"> 
+                        Question ${index + 1} 
+                    </option> 
+ 
+                `; 
+ 
+            } 
+        ); 
+ 
+    } 
+ 
+ 
+    html += ` 
+ 
+                </select> 
+ 
+ 
+                <div 
+                    id="reading-question-text" 
+                    class="question-box" 
+                > 
+ 
+                    Please choose a question. 
+ 
+                </div> 
+ 
+ 
+                <button 
+                    class="button" 
+                    onclick="checkReadingAnswer()" 
+                > 
+                    Check 
+                </button> 
+ 
+ 
+                <div 
+                    id="reading-feedback" 
+                    class="feedback" 
+                ></div> 
+ 
+            </div> 
+ 
+        </div> 
+ 
+    </div> 
+ 
+    `; 
+ 
+ 
+    content.innerHTML = html; 
+ 
+ 
+    window.currentReadingData = 
+        data; 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   CHANGE READING QUESTION 
+===================================================== */ 
+ 
+function changeReadingQuestion() { 
+ 
+    const select = 
+        document.getElementById( 
+            "reading-question-select" 
+        ); 
+ 
+ 
+    const index = 
+        Number(select.value); 
+ 
+ 
+    if ( 
+        select.value === "" 
+    ) { 
+ 
+        return; 
+ 
+    } 
+ 
+ 
+    const data = 
+        window.currentReadingData; 
+ 
+ 
+    const question = 
+        data.questions[index]; 
+ 
+ 
+    const picture = 
+        question.picture || 
+        ( 
+            data.pictures 
+            ? data.pictures[ 
+                question.pictureIndex || 0 
+            ] 
+            : "" 
+        ); 
+ 
+ 
+    document.getElementById( 
+        "reading-picture" 
+    ).src = picture; 
+ 
+ 
+    document.getElementById( 
+        "reading-question-text" 
+    ).textContent = 
+        question.question || ""; 
+ 
+ 
+    document.getElementById( 
+        "reading-feedback" 
+    ).textContent = ""; 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   CHECK READING 
+===================================================== */ 
+ 
+function checkReadingAnswer() { 
+ 
+    const select = 
+        document.getElementById( 
+            "reading-question-select" 
+        ); 
+ 
+ 
+    const feedback = 
+        document.getElementById( 
+            "reading-feedback" 
+        ); 
+ 
+ 
+    if ( 
+        select.value === "" 
+    ) { 
+ 
+        feedback.textContent = 
+            "Please choose a question."; 
+ 
+        feedback.className = 
+            "feedback wrong"; 
+ 
+        return; 
+ 
+    } 
+ 
+ 
+    const index = 
+        Number(select.value); 
+ 
+ 
+    const question = 
+        window.currentReadingData 
+            .questions[index]; 
+ 
+ 
+    /* 
+       Nếu file đề có: 
+ 
+       question.correct = true 
+ 
+       thì có thể kiểm tra tại đây. 
+    */ 
+ 
+    if ( 
+        question.correct !== undefined 
+    ) { 
+ 
+        if ( 
+            question.correct === true 
+        ) { 
+ 
+            feedback.textContent = 
+                "✓ Correct!"; 
+ 
+            feedback.className = 
+                "feedback correct"; 
+ 
+        } else { 
+ 
+            feedback.textContent = 
+                "✗ Try again."; 
+ 
+            feedback.className = 
+                "feedback wrong"; 
+ 
+        } 
+ 
+    } else { 
+ 
+        feedback.textContent = 
+            "✓ Answer recorded."; 
+ 
+        feedback.className = 
+            "feedback correct"; 
+ 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   WRITING 
+===================================================== */ 
+ 
+function renderWriting(data) { 
+ 
+    const content = 
+        document.getElementById( 
+            "writingContent" 
+        ); 
+ 
+ 
+    let html = ` 
+ 
+        <h2 class="current-test-title"> 
+            ${data.title || "Writing Test"} 
+        </h2> 
+ 
+    `; 
+ 
+ 
+    /* ========================== 
+       TASK 3 
+    ========================== */ 
+ 
+    if (data.task3) { 
+ 
+        html += ` 
+ 
+            <div class="task-box"> 
+ 
+                <h2 class="task-title"> 
+                    Task 3 — Make a Question 
+                </h2> 
+ 
+                <p class="task-description"> 
+ 
+                    Write a question for the answer. 
+ 
+                </p> 
+ 
+        `; 
+ 
+ 
+        data.task3.forEach( 
+            (item, index) => { 
+ 
+                html += ` 
+ 
+                    <div class="question-box"> 
+ 
+                        <div class="question-number"> 
+ 
+                            Question ${index + 1} 
+ 
+                        </div> 
+ 
+ 
+                        <!-- QUESTION ABOVE --> 
+ 
+                        <input 
+                            id="writing3-${index}" 
+                            class="question-input" 
+                            type="text" 
+                            placeholder="Write your question here..." 
+                        > 
+ 
+ 
+                        <!-- ANSWER BELOW --> 
+ 
+                        <div class="given-answer"> 
+ 
+                            <strong> 
+                                Answer: 
+                            </strong> 
+ 
+                            <br> 
+ 
+                            ${item.answer} 
+ 
+                        </div> 
+ 
+ 
+                        <button 
+                            class="button" 
+                            style="margin-top:15px;" 
+                            onclick=" 
+                                submitWriting3( 
+                                    ${index} 
+                                ) 
+                            " 
+                        > 
+                            Check 
+                        </button> 
+ 
+ 
+                        <div 
+                            id="writing3-feedback-${index}" 
+                            class="feedback" 
+                        ></div> 
+ 
+                    </div> 
+ 
+                `; 
+ 
+            } 
+        ); 
+ 
+ 
+        html += `</div>`; 
+ 
+    } 
+ 
+ 
+    /* ========================== 
+       TASK 5 
+    ========================== */ 
+ 
+    if (data.task5) { 
+ 
+        html += ` 
+ 
+            <div class="task-box"> 
+ 
+                <h2 class="task-title"> 
+                    Task 5 — Past Tense 
+                </h2> 
+ 
+                <p class="task-description"> 
+ 
+                    Complete the sentence with 
+                    the past form of the verb. 
+ 
+                </p> 
+ 
+        `; 
+ 
+ 
+        data.task5.forEach( 
+            (item, index) => { 
+ 
+                html += ` 
+ 
+                    <div class="question-box"> 
+ 
+                        <div class="question-number"> 
+ 
+                            Question ${index + 1} 
+ 
+                        </div> 
+ 
+                        <p> 
+                            ${item.sentence} 
+                        </p> 
+ 
+                        <p style="margin-top:8px;"> 
+ 
+                            Verb: 
+                            <strong> 
+                                (${item.verb}) 
+                            </strong> 
+ 
+                        </p> 
+ 
+ 
+                        <input 
+                            id="writing5-${index}" 
+                            class="answer-input" 
+                            type="text" 
+                            placeholder="Write the past tense..." 
+                        > 
+ 
+ 
+                        <button 
+                            class="button" 
+                            style="margin-top:15px;" 
+                            onclick=" 
+                                checkWriting5( 
+                                    ${index}, 
+                                    ${JSON.stringify( 
+                                        item.answer 
+                                    )} 
+                                ) 
+                            " 
+                        > 
+                            Check 
+                        </button> 
+ 
+ 
+                        <div 
+                            id="writing5-feedback-${index}" 
+                            class="feedback" 
+                        ></div> 
+ 
+                    </div> 
+ 
+                `; 
+ 
+            } 
+        ); 
+ 
+ 
+        html += `</div>`; 
+ 
+    } 
+ 
+ 
+    /* ========================== 
+       TASK 6 
+    ========================== */ 
+ 
+    if (data.task6) { 
+ 
+        html += ` 
+ 
+            <div class="task-box"> 
+ 
+                <h2 class="task-title"> 
+                    Task 6 — Story Writing 
+                </h2> 
+ 
+                <p class="task-description"> 
+ 
+                    Write a story in 5 sentences. 
+                    Continue each sentence from 
+                    the given beginning. 
+ 
+                </p> 
+ 
+        `; 
+ 
+ 
+        data.task6.forEach( 
+            (starter, index) => { 
+ 
+                html += ` 
+ 
+                    <div class="story-row"> 
+ 
+                        <strong> 
+                            ${index + 1}. 
+                            ${starter} 
+                        </strong> 
+ 
+                        <input 
+                            class="story-input" 
+                            type="text" 
+                            placeholder="Continue the sentence..." 
+                        > 
+ 
+                    </div> 
+ 
+                `; 
+ 
+            } 
+        ); 
+ 
+ 
+        html += ` 
+ 
+                <button 
+                    class="button" 
+                    onclick="submitStory()" 
+                > 
+                    Submit Story 
+                </button> 
+ 
+ 
+                <div 
+                    id="story-feedback" 
+                    class="feedback" 
+                ></div> 
+ 
+            </div> 
+ 
+        `; 
+ 
+    } 
+ 
+ 
+    content.innerHTML = 
+        html; 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   WRITING TASK 3 
+===================================================== */ 
+ 
+function submitWriting3(index) { 
+ 
+    const input = 
+        document.getElementById( 
+            `writing3-${index}` 
+        ); 
+ 
+ 
+    const feedback = 
+        document.getElementById( 
+            `writing3-feedback-${index}` 
+        ); 
+ 
+ 
+    if ( 
+        input.value.trim() === "" 
+    ) { 
+ 
+        feedback.textContent = 
+            "Please write a question."; 
+ 
+        feedback.className = 
+            "feedback wrong"; 
+ 
+        return; 
+ 
+    } 
+ 
+ 
+    /* 
+       Khi bạn cung cấp đáp án thật, 
+       index.html có thể kiểm tra 
+       acceptedQuestions. 
+    */ 
+ 
+    feedback.textContent = 
+        "✓ Question submitted."; 
+ 
+    feedback.className = 
+        "feedback correct"; 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   WRITING TASK 5 
+===================================================== */ 
+ 
+function checkWriting5( 
+    index, 
+    correctAnswer 
+) { 
+ 
+    const input = 
+        document.getElementById( 
+            `writing5-${index}` 
+        ); 
+ 
+ 
+    const feedback = 
+        document.getElementById( 
+            `writing5-feedback-${index}` 
+        ); 
+ 
+ 
+    const user = 
+        input.value 
+            .trim() 
+            .toLowerCase(); 
+ 
+ 
+    const correct = 
+        String(correctAnswer) 
+            .trim() 
+            .toLowerCase(); 
+ 
+ 
+    if ( 
+        user === correct 
+    ) { 
+ 
+        feedback.textContent = 
+            "✓ Correct!"; 
+ 
+        feedback.className = 
+            "feedback correct"; 
+ 
+    } else { 
+ 
+        feedback.textContent = 
+            "✗ Try again."; 
+ 
+        feedback.className = 
+            "feedback wrong"; 
+ 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   WRITING TASK 6 
+===================================================== */ 
+ 
+function submitStory() { 
+ 
+    const inputs = 
+        document.querySelectorAll( 
+            ".story-input" 
+        ); 
+ 
+ 
+    let completed = 0; 
+ 
+ 
+    inputs.forEach( 
+        input => { 
+ 
+            if ( 
+                input.value.trim() !== "" 
+            ) { 
+ 
+                completed++; 
+ 
+            } 
+ 
+        } 
+    ); 
+ 
+ 
+    const feedback = 
+        document.getElementById( 
+            "story-feedback" 
+        ); 
+ 
+ 
+    if ( 
+        completed === 5 
+    ) { 
+ 
+        feedback.textContent = 
+            "✓ Your 5-sentence story has been submitted."; 
+ 
+        feedback.className = 
+            "feedback correct"; 
+ 
+    } else { 
+ 
+        feedback.textContent = 
+            `Please complete all 5 sentences. (${completed}/5)`; 
+ 
+        feedback.className = 
+            "feedback wrong"; 
+ 
+    } 
+ 
+} 
+ 
+ 
+/* ===================================================== 
+   START 
+===================================================== */ 
+ 
+createTestButtons(); 
+ 
+showHome(); 
+ 
+</script> 
+ 
+</body> 
+</html>, không được động vào file index
