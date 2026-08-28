@@ -1,3 +1,4 @@
+```javascript
 /* =====================================================
    QUICKMARCH PRACTICE
    WRITING TEST 02
@@ -79,9 +80,7 @@ const TEST_DATA = {
 
         {
             answer: "woke",
-
             verb: "wake",
-
             explanation:
                 "wake → V2/ed: woke.<br>" +
                 "woke up: đã thức dậy.<br>" +
@@ -90,9 +89,7 @@ const TEST_DATA = {
 
         {
             answer: "ate",
-
             verb: "eat",
-
             explanation:
                 "eat → V2/ed: ate.<br>" +
                 "ate + food: đã ăn thức ăn gì đó.<br>" +
@@ -101,9 +98,7 @@ const TEST_DATA = {
 
         {
             answer: "took",
-
             verb: "take",
-
             explanation:
                 "take → V2/ed: took.<br>" +
                 "took + something: đã mang/lấy một thứ gì đó.<br>" +
@@ -112,9 +107,7 @@ const TEST_DATA = {
 
         {
             answer: "wore",
-
             verb: "wear",
-
             explanation:
                 "wear → V2/ed: wore.<br>" +
                 "wore + clothes: đã mặc/đeo một thứ gì đó.<br>" +
@@ -123,9 +116,7 @@ const TEST_DATA = {
 
         {
             answer: "knocked",
-
             verb: "knock",
-
             explanation:
                 "knock → V2/ed: knocked.<br>" +
                 "knocked on + something: đã gõ vào thứ gì đó.<br>" +
@@ -134,9 +125,7 @@ const TEST_DATA = {
 
         {
             answer: "swam",
-
             verb: "swim",
-
             explanation:
                 "swim → V2/ed: swam.<br>" +
                 "swam to + nơi chốn: đã bơi đến nơi nào đó.<br>" +
@@ -145,9 +134,7 @@ const TEST_DATA = {
 
         {
             answer: "put",
-
             verb: "put",
-
             explanation:
                 "put → V2/ed: put.<br>" +
                 "put + something + onto/in + nơi chốn: đã đặt/đưa một thứ gì đó vào hoặc lên đâu đó.<br>" +
@@ -156,9 +143,7 @@ const TEST_DATA = {
 
         {
             answer: "gave",
-
             verb: "give",
-
             explanation:
                 "give → V2/ed: gave.<br>" +
                 "gave + someone + something: đã đưa/cho ai đó một thứ gì.<br>" +
@@ -167,9 +152,7 @@ const TEST_DATA = {
 
         {
             answer: "showed",
-
             verb: "show",
-
             explanation:
                 "show → V2/ed: showed.<br>" +
                 "showed someone how to + verb: đã chỉ cho ai cách làm gì.<br>" +
@@ -178,9 +161,7 @@ const TEST_DATA = {
 
         {
             answer: "caught",
-
             verb: "catch",
-
             explanation:
                 "catch → V2/ed: caught.<br>" +
                 "caught + something: đã bắt được một thứ gì đó.<br>" +
@@ -203,7 +184,13 @@ const TEST_DATA = {
                 "At the weekend, I like...",
 
             hint:
-                "What do you like doing? Where do you go? Who do you go with?"
+                "What do you like doing? Where do you go? Who do you go with?",
+
+            sample:
+                "At the weekend, I like playing football with my friends in the park.",
+
+            explanation:
+                "Nêu hoạt động em thích làm vào cuối tuần, nơi em làm hoạt động đó và người đi cùng."
         },
 
         {
@@ -211,7 +198,13 @@ const TEST_DATA = {
                 "Sometimes my friends and I...",
 
             hint:
-                "What do you do with your friends? Do you play games, go shopping or play sports?"
+                "What do you do with your friends? Do you play games, go shopping or play sports?",
+
+            sample:
+                "Sometimes my friends and I go shopping or play games together.",
+
+            explanation:
+                "Nêu một hoặc hai hoạt động em thường làm cùng bạn bè."
         },
 
         {
@@ -219,7 +212,13 @@ const TEST_DATA = {
                 "Every weekend, my family...",
 
             hint:
-                "What does your family usually do together?"
+                "What does your family usually do together?",
+
+            sample:
+                "Every weekend, my family has breakfast together and goes to the park.",
+
+            explanation:
+                "Mô tả một hoạt động mà gia đình em thường làm cùng nhau vào mỗi cuối tuần."
         },
 
         {
@@ -227,7 +226,13 @@ const TEST_DATA = {
                 "Last weekend,...",
 
             hint:
-                "What did you do? Where did you go? Who did you go with?"
+                "What did you do? Where did you go? Who did you go with?",
+
+            sample:
+                "Last weekend, I went to the cinema with my sister and watched a funny film.",
+
+            explanation:
+                "Kể về một hoạt động đã xảy ra vào cuối tuần trước. Dùng thì quá khứ đơn."
         },
 
         {
@@ -235,7 +240,13 @@ const TEST_DATA = {
                 "Next Saturday,...",
 
             hint:
-                "What are you going to do? Where are you going to go?"
+                "What are you going to do? Where are you going to go?",
+
+            sample:
+                "Next Saturday, I am going to visit my grandparents with my family.",
+
+            explanation:
+                "Nói về kế hoạch vào thứ Bảy tới. Có thể dùng be going to để nói về dự định."
         }
 
     ]
@@ -290,14 +301,14 @@ function renderWritingTask3() {
 
                 <p style="margin-top:8px;">
 
-                    Sophie:
+                    <strong>Sophie:</strong>
                     When did you move into your house, Mike?
 
                 </p>
 
                 <p>
 
-                    Mike:
+                    <strong>Mike:</strong>
                     Into this house? I moved here last year.
 
                 </p>
@@ -445,7 +456,12 @@ window.submitWriting3 = function(index) {
         feedback.innerHTML =
 
             "✓ Correct! " +
-            "<strong>3/3 marks</strong>";
+            "<strong>3/3 marks</strong>" +
+
+            "<br><br>" +
+
+            "<strong>Answer:</strong> " +
+            question.acceptedQuestions[0] + "?";
 
         feedback.className =
             "feedback correct";
@@ -457,7 +473,13 @@ window.submitWriting3 = function(index) {
 
         feedback.innerHTML =
 
-            "✗ Try again.";
+            "✗ Try again." +
+
+            "<br><br>" +
+
+            "<strong>Suggested answer:</strong> " +
+
+            question.acceptedQuestions[0] + "?";
 
         feedback.className =
             "feedback wrong";
@@ -507,7 +529,7 @@ function renderWritingTask5() {
                 <br>
 
                 The day is finished, so change the verbs
-                into the PAST TENSE.
+                into the <strong>PAST TENSE</strong>.
 
             </div>
 
@@ -835,11 +857,7 @@ window.checkWritingTask5 = function() {
 
             explanation.innerHTML = `
 
-                <span class="wrong">
-
-                    Please write an answer.
-
-                </span>
+                Please write an answer.
 
             `;
 
@@ -1011,6 +1029,20 @@ function renderWritingTask6() {
 
                 ></textarea>
 
+
+                <!-- SAMPLE ANSWER -->
+
+                <div
+
+                    id="writing6-sample-${index}"
+
+                    style="
+                        display:none;
+                        margin-top:15px;
+                    "
+
+                ></div>
+
             </div>
 
         `;
@@ -1056,7 +1088,7 @@ function renderWritingTask6() {
 
 /* =====================================================
    TASK 6 — CHECK
-   Không hiện sample answer
+   HIỆN SAMPLE ANSWER + GIẢI THÍCH
 ===================================================== */
 
 window.checkWritingTask6 = function() {
@@ -1072,12 +1104,68 @@ window.checkWritingTask6 = function() {
             );
 
 
+        const sample =
+            document.getElementById(
+                `writing6-sample-${index}`
+            );
+
+
         if (
             input &&
             input.value.trim() !== ""
         ) {
 
             completed++;
+
+        }
+
+
+        if (sample) {
+
+            sample.innerHTML = `
+
+                <div style="
+                    background:#f0f7ff;
+                    border-left:5px solid #3949ab;
+                    padding:15px;
+                    border-radius:10px;
+                ">
+
+                    <strong>
+                        💡 Sample answer:
+                    </strong>
+
+
+                    <p style="
+                        margin-top:8px;
+                        line-height:1.6;
+                    ">
+
+                        ${item.sample}
+
+                    </p>
+
+
+                    <p style="
+                        margin-top:10px;
+                        color:#555;
+                    ">
+
+                        <strong>
+                            Giải thích:
+                        </strong>
+
+                        ${item.explanation}
+
+                    </p>
+
+                </div>
+
+            `;
+
+
+            sample.style.display =
+                "block";
 
         }
 
@@ -1097,22 +1185,25 @@ window.checkWritingTask6 = function() {
     }
 
 
-    if (completed === TEST_DATA.task6.length) {
+    if (
+        completed ===
+        TEST_DATA.task6.length
+    ) {
 
         feedback.innerHTML = `
 
             ✓ Writing submitted!
 
-            <br>
+            <br><br>
 
-            You completed all
-            ${TEST_DATA.task6.length}
-            sections.
+            <strong>
+                Task 6 Score: 10/10 marks
+            </strong>
 
             <br><br>
 
-            Your answers are your own writing.
-            Check your grammar, spelling and punctuation.
+            💡 Đây là bài viết cá nhân.
+            Sample answer chỉ là câu trả lời tham khảo.
 
         `;
 
@@ -1127,10 +1218,15 @@ window.checkWritingTask6 = function() {
             ${TEST_DATA.task6.length}
             sections.
 
-            <br>
+            <br><br>
 
             Completed:
             ${completed}/${TEST_DATA.task6.length}
+
+            <br><br>
+
+            💡 Sample answers have been shown
+            to help you.
 
         `;
 
@@ -1234,3 +1330,4 @@ window.WRITING_TEST_INFO = {
     }
 
 };
+```
