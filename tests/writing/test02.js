@@ -22,8 +22,8 @@ const TEST_DATA = {
                 "I think living in the country is better than living in the city.",
 
             acceptedQuestions: [
-                "do you think living in the country is better than living in the city",
-                "do you think living in the country is better than living in a city"
+                "Do you think living in the country is better than living in the city?",
+                "Do you think living in the country is better than living in a city?"
             ]
         },
 
@@ -32,8 +32,8 @@ const TEST_DATA = {
                 "For me, the best thing about living here is fishing in the lake.",
 
             acceptedQuestions: [
-                "what is the best thing about living here",
-                "what's the best thing about living here"
+                "What is the best thing about living here?",
+                "What's the best thing about living here?"
             ]
         },
 
@@ -42,7 +42,7 @@ const TEST_DATA = {
                 "I usually go fishing two or three times a week.",
 
             acceptedQuestions: [
-                "how often do you go fishing"
+                "How often do you go fishing?"
             ]
         },
 
@@ -51,9 +51,9 @@ const TEST_DATA = {
                 "This weekend? Yes, I’m going to go fishing on Saturday.",
 
             acceptedQuestions: [
-                "are you going to go fishing this weekend",
-                "are you going fishing this weekend",
-                "will you go fishing this weekend"
+                "Are you going to go fishing this weekend?",
+                "Are you going fishing this weekend?",
+                "Will you go fishing this weekend?"
             ]
         },
 
@@ -62,8 +62,8 @@ const TEST_DATA = {
                 "Of course I can, Sophie. I’d love to teach you to fish!",
 
             acceptedQuestions: [
-                "can you teach me to fish",
-                "could you teach me to fish"
+                "Can you teach me to fish?",
+                "Could you teach me to fish?"
             ]
         }
 
@@ -179,13 +179,13 @@ const TEST_DATA = {
 
         {
             starter:
-                "At the weekend I like...",
+                "At the weekend, I like...",
 
             hint:
                 "What do you like doing? Where do you go? Who do you go with?",
 
             sample:
-                "At the weekend I like playing football with my friends. We usually play in the park near my house.",
+                "At the weekend, I like playing football with my friends. We usually play in the park near my house.",
 
             explanation:
                 "Nêu hoạt động em thích làm vào cuối tuần và nói thêm nơi chốn hoặc người đi cùng."
@@ -207,13 +207,13 @@ const TEST_DATA = {
 
         {
             starter:
-                "Every weekend my family...",
+                "Every weekend, my family...",
 
             hint:
                 "What does your family usually do together?",
 
             sample:
-                "Every weekend my family has a meal together. Sometimes we go to the park or visit our grandparents.",
+                "Every weekend, my family has a meal together. Sometimes we go to the park or visit our grandparents.",
 
             explanation:
                 "Nêu hoạt động gia đình thường làm vào mỗi cuối tuần."
@@ -221,7 +221,7 @@ const TEST_DATA = {
 
         {
             starter:
-                "Last weekend...",
+                "Last weekend,...",
 
             hint:
                 "What did you do? Where did you go? Who did you go with?",
@@ -235,13 +235,13 @@ const TEST_DATA = {
 
         {
             starter:
-                "Next Saturday...",
+                "Next Saturday,...",
 
             hint:
                 "What are you going to do? Where are you going to go?",
 
             sample:
-                "Next Saturday I am going to visit my grandparents. We are going to have lunch together and watch a movie.",
+                "Next Saturday, I am going to visit my grandparents. We are going to have lunch together and watch a movie.",
 
             explanation:
                 "Nói về kế hoạch cuối tuần tới. Có thể dùng **be going to + verb**."
