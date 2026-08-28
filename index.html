@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
 <style>
 
 /* =====================================================
-   RESET
+   GENERAL
 ===================================================== */
 
 * {
@@ -43,7 +44,6 @@ body {
     padding: 15px 25px;
 
     display: flex;
-
     justify-content: center;
 
     gap: 12px;
@@ -51,7 +51,6 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 
     position: sticky;
-
     top: 0;
 
     z-index: 1000;
@@ -174,8 +173,6 @@ body {
 
 .button {
 
-    display: inline-block;
-
     background: #222;
 
     color: white;
@@ -189,8 +186,6 @@ body {
     cursor: pointer;
 
     font-size: 15px;
-
-    text-decoration: none;
 }
 
 .button:hover {
@@ -390,7 +385,7 @@ body {
 
 
 /* =====================================================
-   LISTENING AUDIO
+   AUDIO
 ===================================================== */
 
 .audio-box {
@@ -503,6 +498,8 @@ body {
     font-size: 16px;
 
     background: white;
+
+    margin-top: 10px;
 }
 
 .answer-input:focus,
@@ -511,6 +508,218 @@ body {
     outline: none;
 
     border-color: #3949ab;
+}
+
+
+/* =====================================================
+   FEEDBACK
+===================================================== */
+
+.feedback {
+
+    margin-top: 12px;
+
+    font-weight: bold;
+}
+
+.correct {
+
+    color: #16803c;
+}
+
+.wrong {
+
+    color: #c62828;
+}
+
+
+/* =====================================================
+   ANSWER EXPLANATION
+===================================================== */
+
+.answer-explanation {
+
+    background: #f1f8f4;
+
+    border-left: 5px solid #16803c;
+
+    padding: 15px;
+
+    margin-top: 15px;
+
+    border-radius: 10px;
+
+    display: none;
+}
+
+.answer-explanation.show {
+
+    display: block;
+}
+
+.answer-sample {
+
+    background: #fff8e1;
+
+    border-left: 5px solid #f0ad00;
+
+    padding: 15px;
+
+    margin-top: 12px;
+
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   HINT
+===================================================== */
+
+.hint-box {
+
+    background: #eef2ff;
+
+    border-left: 5px solid #3949ab;
+
+    padding: 15px;
+
+    margin-top: 12px;
+
+    border-radius: 10px;
+
+    color: #333;
+}
+
+
+/* =====================================================
+   WORD BANK
+===================================================== */
+
+.word-bank {
+
+    background: #fff8e1;
+
+    border: 2px solid #f0ad00;
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    margin-bottom: 25px;
+
+    line-height: 2;
+
+    text-align: center;
+}
+
+.word-bank strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   TASK 5 PASSAGE
+===================================================== */
+
+.passage-box {
+
+    background: white;
+
+    border: 1px solid #e2e5ec;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    font-size: 17px;
+
+    line-height: 2.1;
+
+    margin-bottom: 20px;
+}
+
+.inline-writing-input {
+
+    width: 110px;
+
+    padding: 5px 8px;
+
+    border: none;
+
+    border-bottom: 2px solid #777;
+
+    background: transparent;
+
+    font-size: 16px;
+
+    text-align: center;
+}
+
+.inline-writing-input:focus {
+
+    outline: none;
+
+    border-bottom-color: #3949ab;
+}
+
+.inline-writing-input.correct-input {
+
+    border-bottom-color: #16803c;
+
+    background: #eefaf2;
+}
+
+.inline-writing-input.wrong-input {
+
+    border-bottom-color: #c62828;
+
+    background: #fff0f0;
+}
+
+
+/* =====================================================
+   TASK 6
+===================================================== */
+
+.story-row {
+
+    margin-bottom: 25px;
+}
+
+.story-starter {
+
+    font-weight: bold;
+
+    font-size: 17px;
+}
+
+.story-input {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border: none;
+
+    border-bottom: 2px solid #aaa;
+
+    background: transparent;
+
+    font-size: 16px;
+
+    margin-top: 5px;
+}
+
+.story-input:focus {
+
+    outline: none;
+
+    border-bottom-color: #3949ab;
 }
 
 
@@ -591,129 +800,7 @@ body {
 
 
 /* =====================================================
-   WRITING
-===================================================== */
-
-.given-answer {
-
-    background: #eef2f7;
-
-    padding: 15px;
-
-    border-radius: 10px;
-
-    margin-top: 5px;
-}
-
-.story-row {
-
-    margin-bottom: 15px;
-}
-
-.story-starter {
-
-    font-weight: bold;
-}
-
-.story-input {
-
-    width: 100%;
-
-    padding: 11px;
-
-    border: none;
-
-    border-bottom: 2px solid #aaa;
-
-    background: transparent;
-
-    font-size: 16px;
-
-    margin-top: 5px;
-}
-
-.story-input:focus {
-
-    outline: none;
-
-    border-bottom-color: #3949ab;
-}
-
-
-/* =====================================================
-   SPEAKING
-===================================================== */
-
-.speaking-card {
-
-    background: white;
-
-    border-radius: 20px;
-
-    padding: 30px;
-
-    margin-bottom: 30px;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
-}
-
-.speaking-instruction {
-
-    background: #eef2ff;
-
-    padding: 18px;
-
-    border-radius: 12px;
-
-    margin-bottom: 20px;
-}
-
-.speaking-topic {
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    margin-bottom: 15px;
-}
-
-.speaking-question {
-
-    background: #f8f9ff;
-
-    padding: 15px;
-
-    border-radius: 10px;
-
-    margin-bottom: 12px;
-}
-
-
-/* =====================================================
-   FEEDBACK
-===================================================== */
-
-.feedback {
-
-    margin-top: 12px;
-
-    font-weight: bold;
-}
-
-.correct {
-
-    color: #16803c;
-}
-
-.wrong {
-
-    color: #c62828;
-}
-
-
-/* =====================================================
-   LOADING
+   LOADING / ERROR
 ===================================================== */
 
 .loading {
@@ -787,6 +874,7 @@ footer {
 
         height: 220px;
     }
+
 }
 
 @media (max-width: 600px) {
@@ -819,6 +907,7 @@ footer {
 
         padding: 20px;
     }
+
 }
 
 </style>
@@ -843,7 +932,7 @@ footer {
         🎧 Listening
     </a>
 
-    <a href="#speaking" onclick="showSkill('speaking')">
+    <a href="speaking/speaking.html">
         🎤 Speaking
     </a>
 
@@ -876,277 +965,221 @@ footer {
 <div class="container">
 
 
-<!-- =====================================================
-     HOME CARDS
-===================================================== -->
+    <!-- =================================================
+         HOME CARDS
+    ================================================== -->
 
-<div id="homeCards" class="cards">
+    <div id="homeCards" class="cards">
 
+        <div class="card">
 
-    <!-- LISTENING -->
+            <div class="icon">🎧</div>
 
-    <div class="card">
+            <h2>Listening</h2>
 
-        <div class="icon">🎧</div>
+            <p>
+                19 practice tests
+            </p>
 
-        <h2>Listening</h2>
+            <button
+                class="button"
+                onclick="showSkill('listening')"
+            >
+                Choose Test
+            </button>
 
-        <p>
-            19 practice tests
-        </p>
-
-        <button
-            class="button"
-            onclick="showSkill('listening')"
-        >
-            Choose Test
-        </button>
-
-    </div>
+        </div>
 
 
-    <!-- READING -->
+        <div class="card">
 
-    <div class="card">
+            <div class="icon">📖</div>
 
-        <div class="icon">📖</div>
+            <h2>Reading</h2>
 
-        <h2>Reading</h2>
+            <p>
+                19 practice tests
+            </p>
 
-        <p>
-            19 practice tests
-        </p>
+            <button
+                class="button"
+                onclick="showSkill('reading')"
+            >
+                Choose Test
+            </button>
 
-        <button
-            class="button"
-            onclick="showSkill('reading')"
-        >
-            Choose Test
-        </button>
-
-    </div>
+        </div>
 
 
-    <!-- SPEAKING -->
+        <div class="card">
 
-    <div class="card">
+            <div class="icon">🎤</div>
 
-        <div class="icon">🎤</div>
+            <h2>Speaking</h2>
 
-        <h2>Speaking</h2>
+            <p>
+                19 practice tests
+            </p>
 
-        <p>
-            19 practice tests
-        </p>
+            <a
+                class="button"
+                href="speaking/speaking.html"
+            >
+                Start
+            </a>
 
-        <button
-            class="button"
-            onclick="showSkill('speaking')"
-        >
-            Choose Test
-        </button>
-
-    </div>
+        </div>
 
 
-    <!-- WRITING -->
+        <div class="card">
 
-    <div class="card">
+            <div class="icon">📝</div>
 
-        <div class="icon">📝</div>
+            <h2>Writing</h2>
 
-        <h2>Writing</h2>
+            <p>
+                19 practice tests
+            </p>
 
-        <p>
-            19 practice tests
-        </p>
+            <button
+                class="button"
+                onclick="showSkill('writing')"
+            >
+                Choose Test
+            </button>
 
-        <button
-            class="button"
-            onclick="showSkill('writing')"
-        >
-            Choose Test
-        </button>
+        </div>
 
     </div>
+
+
+    <!-- =================================================
+         LISTENING
+    ================================================== -->
+
+    <section
+        id="listening"
+        class="section"
+    >
+
+        <div class="section-title">
+
+            <h2>🎧 Listening</h2>
+
+            <p>
+                Choose a test to practise.
+            </p>
+
+        </div>
+
+
+        <div class="test-selector">
+
+            <h3>
+                Choose a Listening Test
+            </h3>
+
+            <div
+                id="listeningTestButtons"
+                class="test-grid"
+            ></div>
+
+        </div>
+
+
+        <div
+            id="listeningContent"
+            class="test-content"
+        ></div>
+
+    </section>
+
+
+    <!-- =================================================
+         READING
+    ================================================== -->
+
+    <section
+        id="reading"
+        class="section"
+    >
+
+        <div class="section-title">
+
+            <h2>📖 Reading</h2>
+
+            <p>
+                Choose a test to practise.
+            </p>
+
+        </div>
+
+
+        <div class="test-selector">
+
+            <h3>
+                Choose a Reading Test
+            </h3>
+
+            <div
+                id="readingTestButtons"
+                class="test-grid"
+            ></div>
+
+        </div>
+
+
+        <div
+            id="readingContent"
+            class="test-content"
+        ></div>
+
+    </section>
+
+
+    <!-- =================================================
+         WRITING
+    ================================================== -->
+
+    <section
+        id="writing"
+        class="section"
+    >
+
+        <div class="section-title">
+
+            <h2>📝 Writing</h2>
+
+            <p>
+                Choose a test to practise.
+            </p>
+
+        </div>
+
+
+        <div class="test-selector">
+
+            <h3>
+                Choose a Writing Test
+            </h3>
+
+            <div
+                id="writingTestButtons"
+                class="test-grid"
+            ></div>
+
+        </div>
+
+
+        <div
+            id="writingContent"
+            class="test-content"
+        ></div>
+
+    </section>
 
 </div>
 
-
-<!-- =====================================================
-     LISTENING
-===================================================== -->
-
-<section
-    id="listening"
-    class="section"
->
-
-    <div class="section-title">
-
-        <h2>🎧 Listening</h2>
-
-        <p>
-            Choose a test to practise.
-        </p>
-
-    </div>
-
-
-    <div class="test-selector">
-
-        <h3>
-            Choose a Listening Test
-        </h3>
-
-        <div
-            id="listeningTestButtons"
-            class="test-grid"
-        ></div>
-
-    </div>
-
-
-    <div
-        id="listeningContent"
-        class="test-content"
-    ></div>
-
-</section>
-
-
-<!-- =====================================================
-     SPEAKING
-===================================================== -->
-
-<section
-    id="speaking"
-    class="section"
->
-
-    <div class="section-title">
-
-        <h2>🎤 Speaking</h2>
-
-        <p>
-            Choose a test to practise.
-        </p>
-
-    </div>
-
-
-    <div class="test-selector">
-
-        <h3>
-            Choose a Speaking Test
-        </h3>
-
-        <div
-            id="speakingTestButtons"
-            class="test-grid"
-        ></div>
-
-    </div>
-
-
-    <div
-        id="speakingContent"
-        class="test-content"
-    ></div>
-
-</section>
-
-
-<!-- =====================================================
-     READING
-===================================================== -->
-
-<section
-    id="reading"
-    class="section"
->
-
-    <div class="section-title">
-
-        <h2>📖 Reading</h2>
-
-        <p>
-            Choose a test to practise.
-        </p>
-
-    </div>
-
-
-    <div class="test-selector">
-
-        <h3>
-            Choose a Reading Test
-        </h3>
-
-        <div
-            id="readingTestButtons"
-            class="test-grid"
-        ></div>
-
-    </div>
-
-
-    <div
-        id="readingContent"
-        class="test-content"
-    ></div>
-
-</section>
-
-
-<!-- =====================================================
-     WRITING
-===================================================== -->
-
-<section
-    id="writing"
-    class="section"
->
-
-    <div class="section-title">
-
-        <h2>📝 Writing</h2>
-
-        <p>
-            Choose a test to practise.
-        </p>
-
-    </div>
-
-
-    <div class="test-selector">
-
-        <h3>
-            Choose a Writing Test
-        </h3>
-
-        <div
-            id="writingTestButtons"
-            class="test-grid"
-        ></div>
-
-    </div>
-
-
-    <div
-        id="writingContent"
-        class="test-content"
-    ></div>
-
-</section>
-
-
-</div>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
 <footer>
 
@@ -1155,8 +1188,8 @@ footer {
 </footer>
 
 
-<script>
 
+<script>
 
 /* =====================================================
    CONFIGURATION
@@ -1185,10 +1218,8 @@ function createTestButtons() {
     const skills = [
         "listening",
         "reading",
-        "speaking",
         "writing"
     ];
-
 
     skills.forEach(skill => {
 
@@ -1196,7 +1227,6 @@ function createTestButtons() {
             document.getElementById(
                 skill + "TestButtons"
             );
-
 
         for (
             let i = 1;
@@ -1207,18 +1237,14 @@ function createTestButtons() {
             const button =
                 document.createElement("button");
 
-
             button.className =
                 "test-button";
-
 
             button.textContent =
                 `Test ${String(i).padStart(2, "0")}`;
 
-
             button.onclick =
                 () => loadTest(skill, i);
-
 
             container.appendChild(button);
 
@@ -1241,7 +1267,6 @@ function showHome() {
 
     currentTestData = null;
 
-
     document
         .querySelectorAll(".section")
         .forEach(section => {
@@ -1250,11 +1275,9 @@ function showHome() {
 
         });
 
-
     document
         .getElementById("homeCards")
         .style.display = "grid";
-
 
     window.scrollTo({
 
@@ -1274,7 +1297,6 @@ function showHome() {
 function showSkill(skill) {
 
     currentSkill = skill;
-
 
     document
         .getElementById("homeCards")
@@ -1298,7 +1320,6 @@ function showSkill(skill) {
 
         section.classList.add("active");
 
-
         section.scrollIntoView({
 
             behavior: "smooth"
@@ -1311,7 +1332,7 @@ function showSkill(skill) {
 
 
 /* =====================================================
-   LOAD TEST
+   LOAD TEST FILE
 ===================================================== */
 
 function loadTest(skill, testNumber) {
@@ -1326,11 +1347,17 @@ function loadTest(skill, testNumber) {
 
 
     /*
-       NEW STRUCTURE:
+       IMPORTANT:
 
+       Mỗi kỹ năng có thư mục riêng.
+
+       Listening:
        tests/listening/test01.js
+
+       Reading:
        tests/reading/test01.js
-       tests/speaking/test01.js
+
+       Writing:
        tests/writing/test01.js
     */
 
@@ -1364,21 +1391,11 @@ function loadTest(skill, testNumber) {
 
         <div class="loading">
 
-            Loading
-            ${skill}
-            Test ${testNumberText}...
+            Loading Test ${testNumberText}...
 
         </div>
 
     `;
-
-
-    /*
-       Reset global TEST_DATA
-       before loading another test.
-    */
-
-    window.TEST_DATA = undefined;
 
 
     const script =
@@ -1394,7 +1411,6 @@ function loadTest(skill, testNumber) {
 
 
     script.onload = function() {
-
 
         if (
             typeof TEST_DATA === "undefined"
@@ -1418,8 +1434,11 @@ function loadTest(skill, testNumber) {
 
 
         displayTest(
+
             skill,
+
             TEST_DATA
+
         );
 
     };
@@ -1468,13 +1487,6 @@ function displayTest(skill, data) {
     if (skill === "reading") {
 
         renderReading(data);
-
-    }
-
-
-    if (skill === "speaking") {
-
-        renderSpeaking(data);
 
     }
 
@@ -1574,7 +1586,9 @@ function renderListening(data) {
     `;
 
 
-    /* TASK 1 */
+    /* =================================================
+       TASK 1
+    ================================================= */
 
     if (data.task1) {
 
@@ -1624,8 +1638,11 @@ function renderListening(data) {
                         html += `
 
                             <div
+
                                 class="picture-option"
+
                                 data-q="${index}"
+
                                 data-a="${imageIndex}"
 
                                 onclick="
@@ -1634,6 +1651,7 @@ function renderListening(data) {
                                         ${imageIndex}
                                     )
                                 "
+
                             >
 
                                 <img
@@ -1653,22 +1671,33 @@ function renderListening(data) {
 
                         </div>
 
+
                         <button
+
                             class="button"
+
                             onclick="
                                 checkPicture(
                                     ${index},
                                     ${question.answer}
                                 )
                             "
+
                             style="margin-top:15px;"
+
                         >
+
                             Check
+
                         </button>
 
+
                         <div
+
                             id="picture-feedback-${index}"
+
                             class="feedback"
+
                         ></div>
 
                     </div>
@@ -1684,7 +1713,9 @@ function renderListening(data) {
     }
 
 
-    /* TASK 2 */
+    /* =================================================
+       TASK 2
+    ================================================= */
 
     if (data.task2) {
 
@@ -1722,16 +1753,26 @@ function renderListening(data) {
                             ${question.question || ""}
                         </p>
 
+
                         <input
+
                             id="listen-answer-${index}"
+
                             class="answer-input"
+
                             type="text"
+
                             placeholder="Write your answer..."
+
                         >
 
+
                         <button
+
                             class="button"
+
                             style="margin-top:15px;"
+
                             onclick="
                                 checkShortAnswer(
                                     ${index},
@@ -1740,13 +1781,20 @@ function renderListening(data) {
                                     )}
                                 )
                             "
+
                         >
+
                             Check
+
                         </button>
 
+
                         <div
+
                             id="short-feedback-${index}"
+
                             class="feedback"
+
                         ></div>
 
                     </div>
@@ -1768,7 +1816,7 @@ function renderListening(data) {
 
 
 /* =====================================================
-   LISTENING SELECT PICTURE
+   SELECT PICTURE
 ===================================================== */
 
 function selectPicture(
@@ -1928,9 +1976,7 @@ function checkShortAnswer(
         feedback.className =
             "feedback correct";
 
-    }
-
-    else if (correct === "") {
+    } else if (correct === "") {
 
         feedback.textContent =
             "✓ Answer recorded.";
@@ -1938,9 +1984,7 @@ function checkShortAnswer(
         feedback.className =
             "feedback correct";
 
-    }
-
-    else {
+    } else {
 
         feedback.textContent =
             "✗ Try again.";
@@ -1973,11 +2017,15 @@ function renderReading(data) {
 
         </h2>
 
+
         <div class="task-box">
 
             <h2 class="task-title">
+
                 Task 4
+
             </h2>
+
 
             <p class="task-description">
 
@@ -2023,14 +2071,20 @@ function renderReading(data) {
                 </h3>
 
                 <img
+
                     id="reading-picture"
+
                     src="${
+
                         data.pictures &&
                         data.pictures[0]
                         ? data.pictures[0]
                         : ""
+
                     }"
+
                     alt="Reading picture"
+
                 >
 
             </div>
@@ -2046,14 +2100,21 @@ function renderReading(data) {
 
                 </label>
 
+
                 <select
+
                     id="reading-question-select"
+
                     class="question-select"
+
                     onchange="changeReadingQuestion()"
+
                 >
 
                     <option value="">
+
                         -- Choose a question --
+
                     </option>
 
     `;
@@ -2086,8 +2147,11 @@ function renderReading(data) {
 
 
                 <div
+
                     id="reading-question-text"
+
                     class="question-box"
+
                 >
 
                     Please choose a question.
@@ -2096,8 +2160,11 @@ function renderReading(data) {
 
 
                 <button
+
                     class="button"
+
                     onclick="checkReadingAnswer()"
+
                 >
 
                     Check
@@ -2106,8 +2173,11 @@ function renderReading(data) {
 
 
                 <div
+
                     id="reading-feedback"
+
                     class="feedback"
+
                 ></div>
 
             </div>
@@ -2163,10 +2233,12 @@ function changeReadingQuestion() {
         question.picture ||
         (
             data.pictures
-            ? data.pictures[
+            ?
+            data.pictures[
                 question.pictureIndex || 0
             ]
-            : ""
+            :
+            ""
         );
 
 
@@ -2266,148 +2338,6 @@ function checkReadingAnswer() {
 
 
 /* =====================================================
-   SPEAKING
-===================================================== */
-
-function renderSpeaking(data) {
-
-    const content =
-        document.getElementById(
-            "speakingContent"
-        );
-
-
-    let html = `
-
-        <h2 class="current-test-title">
-
-            ${data.title || "Speaking Test"}
-
-        </h2>
-
-    `;
-
-
-    /*
-       Speaking files can use:
-
-       data.instruction
-
-       data.questions
-
-       data.topic
-
-       data.image
-    */
-
-
-    if (data.instruction) {
-
-        html += `
-
-            <div class="speaking-card">
-
-                <div class="speaking-instruction">
-
-                    ${data.instruction}
-
-                </div>
-
-        `;
-
-    } else {
-
-        html += `
-
-            <div class="speaking-card">
-
-        `;
-
-    }
-
-
-    if (data.topic) {
-
-        html += `
-
-            <div class="speaking-topic">
-
-                ${data.topic}
-
-            </div>
-
-        `;
-
-    }
-
-
-    if (data.image) {
-
-        html += `
-
-            <div style="text-align:center;margin-bottom:20px;">
-
-                <img
-                    src="${data.image}"
-                    alt="Speaking picture"
-                    style="
-                        max-width:100%;
-                        max-height:450px;
-                        object-fit:contain;
-                        border-radius:15px;
-                    "
-                >
-
-            </div>
-
-        `;
-
-    }
-
-
-    if (data.questions) {
-
-        data.questions.forEach(
-            (question, index) => {
-
-                html += `
-
-                    <div class="speaking-question">
-
-                        <strong>
-
-                            Question ${index + 1}:
-
-                        </strong>
-
-                        <br>
-
-                        ${question.question || question}
-
-                    </div>
-
-                `;
-
-            }
-        );
-
-    }
-
-
-    html += `
-
-            </div>
-
-    `;
-
-
-    content.innerHTML =
-        html;
-
-}
-
-
-/* =====================================================
    WRITING
 ===================================================== */
 
@@ -2430,7 +2360,9 @@ function renderWriting(data) {
     `;
 
 
-    /* TASK 3 */
+    /* =================================================
+       TASK 3
+    ================================================= */
 
     if (data.task3) {
 
@@ -2440,13 +2372,15 @@ function renderWriting(data) {
 
                 <h2 class="task-title">
 
-                    Task 3
+                    Task 3 — Make a Question
 
                 </h2>
 
+
                 <p class="task-description">
 
-                    Write the questions in the spaces.
+                    Write the question that matches
+                    the answer below.
 
                 </p>
 
@@ -2468,10 +2402,15 @@ function renderWriting(data) {
 
 
                         <input
+
                             id="writing3-${index}"
+
                             class="question-input"
+
                             type="text"
+
                             placeholder="Write your question here..."
+
                         >
 
 
@@ -2489,13 +2428,17 @@ function renderWriting(data) {
 
 
                         <button
+
                             class="button"
+
                             style="margin-top:15px;"
+
                             onclick="
                                 submitWriting3(
                                     ${index}
                                 )
                             "
+
                         >
 
                             Check
@@ -2504,8 +2447,20 @@ function renderWriting(data) {
 
 
                         <div
+
                             id="writing3-feedback-${index}"
+
                             class="feedback"
+
+                        ></div>
+
+
+                        <div
+
+                            id="writing3-explanation-${index}"
+
+                            class="answer-explanation"
+
                         ></div>
 
                     </div>
@@ -2521,7 +2476,9 @@ function renderWriting(data) {
     }
 
 
-    /* TASK 5 */
+    /* =================================================
+       TASK 5
+    ================================================= */
 
     if (data.task5) {
 
@@ -2531,87 +2488,194 @@ function renderWriting(data) {
 
                 <h2 class="task-title">
 
-                    Task 5
+                    Task 5 — Past Tense
 
                 </h2>
 
+
                 <p class="task-description">
 
-                    Complete the sentences using
-                    the correct past tense.
+                    Fill in the blanks.
+                    Remember to change the verbs
+                    into the PAST TENSE.
 
                 </p>
+
 
         `;
 
 
-        data.task5.forEach(
-            (item, index) => {
+        /* WORD BANK */
 
-                html += `
+        if (data.task5WordBank) {
 
-                    <div class="question-box">
+            html += `
 
-                        <div class="question-number">
+                <div class="word-bank">
 
-                            Question ${index + 1}
+                    <strong>
+                        📚 Word Bank
+                    </strong>
+
+                    ${data.task5WordBank.join(
+                        " &nbsp; • &nbsp; "
+                    )}
+
+                    <br>
+
+                    <small>
+                        Remember: Change the verbs
+                        to the past tense.
+                    </small>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /*
+           PASSAGE MODE
+        */
+
+        if (
+            data.task5Passage
+        ) {
+
+            html += `
+
+                <div class="passage-box">
+
+                    ${data.task5Passage}
+
+                </div>
+
+                <button
+
+                    class="button"
+
+                    onclick="checkWriting5Passage()"
+
+                >
+
+                    Check
+
+                </button>
+
+
+                <div
+
+                    id="writing5-passage-feedback"
+
+                    class="feedback"
+
+                ></div>
+
+            `;
+
+        }
+
+
+        /*
+           OLD ARRAY MODE
+           Kept for compatibility
+        */
+
+        else {
+
+            data.task5.forEach(
+                (item, index) => {
+
+                    html += `
+
+                        <div class="question-box">
+
+                            <div class="question-number">
+
+                                Question ${index + 1}
+
+                            </div>
+
+
+                            <p>
+
+                                ${item.sentence}
+
+                            </p>
+
+
+                            <p style="margin-top:8px;">
+
+                                Verb:
+
+                                <strong>
+                                    (${item.verb})
+                                </strong>
+
+                            </p>
+
+
+                            <input
+
+                                id="writing5-${index}"
+
+                                class="answer-input"
+
+                                type="text"
+
+                                placeholder="Write the past tense..."
+
+                            >
+
+
+                            <button
+
+                                class="button"
+
+                                style="margin-top:15px;"
+
+                                onclick="
+                                    checkWriting5(
+                                        ${index},
+                                        ${JSON.stringify(
+                                            item.answer
+                                        )}
+                                    )
+                                "
+
+                            >
+
+                                Check
+
+                            </button>
+
+
+                            <div
+
+                                id="writing5-feedback-${index}"
+
+                                class="feedback"
+
+                            ></div>
+
+
+                            <div
+
+                                id="writing5-explanation-${index}"
+
+                                class="answer-explanation"
+
+                            ></div>
 
                         </div>
 
-                        <p>
+                    `;
 
-                            ${item.sentence}
+                }
+            );
 
-                        </p>
-
-                        <p style="margin-top:8px;">
-
-                            Verb:
-
-                            <strong>
-                                (${item.verb})
-                            </strong>
-
-                        </p>
-
-
-                        <input
-                            id="writing5-${index}"
-                            class="answer-input"
-                            type="text"
-                            placeholder="Write the past tense..."
-                        >
-
-
-                        <button
-                            class="button"
-                            style="margin-top:15px;"
-                            onclick="
-                                checkWriting5(
-                                    ${index},
-                                    ${JSON.stringify(
-                                        item.answer
-                                    )}
-                                )
-                            "
-                        >
-
-                            Check
-
-                        </button>
-
-
-                        <div
-                            id="writing5-feedback-${index}"
-                            class="feedback"
-                        ></div>
-
-                    </div>
-
-                `;
-
-            }
-        );
+        }
 
 
         html += `</div>`;
@@ -2619,7 +2683,9 @@ function renderWriting(data) {
     }
 
 
-    /* TASK 6 */
+    /* =================================================
+       TASK 6
+    ================================================= */
 
     if (data.task6) {
 
@@ -2629,13 +2695,15 @@ function renderWriting(data) {
 
                 <h2 class="task-title">
 
-                    Task 6
+                    Task 6 — ${data.task6Title || "Writing"}
 
                 </h2>
 
+
                 <p class="task-description">
 
-                    Now write about music and you.
+                    ${data.task6Description ||
+                    "Write about the topic. Use the hints to help you."}
 
                 </p>
 
@@ -2645,10 +2713,20 @@ function renderWriting(data) {
         data.task6.forEach(
             (item, index) => {
 
+                /*
+                   Supports both:
+
+                   item.starter
+                   item.hint
+
+                   OR old format:
+                   starter as string
+                */
+
                 const starter =
                     typeof item === "string"
                     ? item
-                    : item.starter;
+                    : item.starter || "";
 
 
                 const hint =
@@ -2661,44 +2739,54 @@ function renderWriting(data) {
 
                     <div class="story-row">
 
-                        <strong>
+                        <div class="story-starter">
 
                             ${index + 1}.
                             ${starter}
 
-                        </strong>
+                        </div>
 
-                        ${
-                            hint
-                            ? `
-                                <div
-                                    style="
-                                        color:#777;
-                                        font-style:italic;
-                                        margin-top:5px;
-                                    "
-                                >
-                                    ${hint}
-                                </div>
-                              `
-                            : ""
-                        }
+                `;
 
 
-                        <textarea
+                if (hint) {
+
+                    html += `
+
+                        <div class="hint-box">
+
+                            💡 <strong>Hint:</strong>
+                            ${hint}
+
+                        </div>
+
+                    `;
+
+                }
+
+
+                html += `
+
+                        <input
+
+                            id="story-input-${index}"
+
                             class="story-input"
-                            rows="4"
-                            placeholder="Write your answer here..."
-                            style="
-                                border:1px solid #ccc;
-                                border-radius:10px;
-                                padding:12px;
-                                margin-top:10px;
-                                width:100%;
-                                min-height:120px;
-                                resize:vertical;
-                            "
-                        ></textarea>
+
+                            type="text"
+
+                            placeholder="Write your answer..."
+
+                        >
+
+
+                        <div
+
+                            id="story-answer-${index}"
+
+                            class="answer-explanation"
+
+                        ></div>
 
                     </div>
 
@@ -2711,18 +2799,24 @@ function renderWriting(data) {
         html += `
 
                 <button
+
                     class="button"
+
                     onclick="submitStory()"
+
                 >
 
-                    Submit Writing
+                    Check
 
                 </button>
 
 
                 <div
+
                     id="story-feedback"
+
                     class="feedback"
+
                 ></div>
 
             </div>
@@ -2739,7 +2833,7 @@ function renderWriting(data) {
 
 
 /* =====================================================
-   WRITING TASK 3
+   TASK 3 CHECK
 ===================================================== */
 
 function submitWriting3(index) {
@@ -2756,9 +2850,19 @@ function submitWriting3(index) {
         );
 
 
-    if (
-        input.value.trim() === ""
-    ) {
+    const explanation =
+        document.getElementById(
+            `writing3-explanation-${index}`
+        );
+
+
+    const userAnswer =
+        input.value
+            .trim()
+            .toLowerCase();
+
+
+    if (userAnswer === "") {
 
         feedback.textContent =
             "Please write a question.";
@@ -2766,22 +2870,103 @@ function submitWriting3(index) {
         feedback.className =
             "feedback wrong";
 
+        explanation.classList.remove(
+            "show"
+        );
+
         return;
 
     }
 
 
-    feedback.textContent =
-        "✓ Question submitted.";
+    const item =
+        currentTestData.task3[index];
 
-    feedback.className =
-        "feedback correct";
+
+    const accepted =
+        item.acceptedQuestions || [];
+
+
+    const normalizedUser =
+        normalizeText(userAnswer);
+
+
+    let correct = false;
+
+
+    accepted.forEach(answer => {
+
+        if (
+            normalizedUser ===
+            normalizeText(answer)
+        ) {
+
+            correct = true;
+
+        }
+
+    });
+
+
+    if (correct) {
+
+        feedback.textContent =
+            "✓ Correct!";
+
+        feedback.className =
+            "feedback correct";
+
+    } else {
+
+        feedback.textContent =
+            "✗ Try again.";
+
+        feedback.className =
+            "feedback wrong";
+
+    }
+
+
+    /*
+       Show sample answer + explanation
+    */
+
+    explanation.innerHTML = `
+
+        <div class="answer-sample">
+
+            <strong>
+                💡 Suggested answer:
+            </strong>
+
+            <br>
+
+            ${accepted[0] || "See the answer above."}
+
+        </div>
+
+
+        <strong>
+            🇻🇳 Giải thích:
+        </strong>
+
+        <br>
+
+        ${item.explanation ||
+        "Hãy chú ý từ khóa trong câu trả lời để chọn từ hỏi phù hợp."}
+
+    `;
+
+
+    explanation.classList.add(
+        "show"
+    );
 
 }
 
 
 /* =====================================================
-   WRITING TASK 5
+   TASK 5 — OLD ARRAY MODE
 ===================================================== */
 
 function checkWriting5(
@@ -2801,6 +2986,12 @@ function checkWriting5(
         );
 
 
+    const explanation =
+        document.getElementById(
+            `writing5-explanation-${index}`
+        );
+
+
     const user =
         input.value
             .trim()
@@ -2813,9 +3004,7 @@ function checkWriting5(
             .toLowerCase();
 
 
-    if (
-        user === correct
-    ) {
+    if (user === correct) {
 
         feedback.textContent =
             "✓ Correct!";
@@ -2833,11 +3022,132 @@ function checkWriting5(
 
     }
 
+
+    const item =
+        currentTestData.task5[index];
+
+
+    explanation.innerHTML = `
+
+        <div class="answer-sample">
+
+            <strong>
+                ✓ Answer:
+            </strong>
+
+            ${correctAnswer}
+
+        </div>
+
+
+        <strong>
+            🇻🇳 Giải thích:
+        </strong>
+
+        <br>
+
+        ${item.explanation ||
+        "Đây là dạng quá khứ đơn của động từ trong Word Bank."}
+
+    `;
+
+
+    explanation.classList.add(
+        "show"
+    );
+
 }
 
 
 /* =====================================================
-   WRITING TASK 6
+   TASK 5 — PASSAGE MODE
+===================================================== */
+
+function checkWriting5Passage() {
+
+    const inputs =
+        document.querySelectorAll(
+            ".inline-writing-input"
+        );
+
+
+    const feedback =
+        document.getElementById(
+            "writing5-passage-feedback"
+        );
+
+
+    let correctCount = 0;
+
+
+    inputs.forEach(input => {
+
+        const user =
+            input.value
+                .trim()
+                .toLowerCase();
+
+
+        const answer =
+            input.dataset.answer
+                .trim()
+                .toLowerCase();
+
+
+        input.classList.remove(
+            "correct-input",
+            "wrong-input"
+        );
+
+
+        if (user === answer) {
+
+            correctCount++;
+
+            input.classList.add(
+                "correct-input"
+            );
+
+        } else {
+
+            input.classList.add(
+                "wrong-input"
+            );
+
+        }
+
+    });
+
+
+    feedback.innerHTML = `
+
+        ${correctCount}/${inputs.length} correct.
+
+        <br>
+
+        <small>
+
+            ✓ Green = correct
+
+            &nbsp;&nbsp;
+
+            ✗ Red = try again
+
+        </small>
+
+    `;
+
+
+    feedback.className =
+        correctCount === inputs.length
+        ? "feedback correct"
+        : "feedback wrong";
+
+}
+
+
+/* =====================================================
+   TASK 6
 ===================================================== */
 
 function submitStory() {
@@ -2851,19 +3161,17 @@ function submitStory() {
     let completed = 0;
 
 
-    inputs.forEach(
-        input => {
+    inputs.forEach(input => {
 
-            if (
-                input.value.trim() !== ""
-            ) {
+        if (
+            input.value.trim() !== ""
+        ) {
 
-                completed++;
-
-            }
+            completed++;
 
         }
-    );
+
+    });
 
 
     const feedback =
@@ -2877,15 +3185,72 @@ function submitStory() {
     ) {
 
         feedback.textContent =
-            `✓ Your writing has been submitted. (${completed}/${inputs.length})`;
+            `✓ All ${inputs.length} answers have been submitted.`;
 
         feedback.className =
             "feedback correct";
 
+
+        /*
+           Show sample answers
+        */
+
+        inputs.forEach(
+            (input, index) => {
+
+                const box =
+                    document.getElementById(
+                        `story-answer-${index}`
+                    );
+
+
+                const item =
+                    currentTestData.task6[index];
+
+
+                if (
+                    typeof item === "object"
+                ) {
+
+                    box.innerHTML = `
+
+                        <div class="answer-sample">
+
+                            <strong>
+                                💡 Suggested answer:
+                            </strong>
+
+                            <br>
+
+                            ${item.sample || ""}
+
+                        </div>
+
+
+                        <strong>
+                            🇻🇳 Giải thích:
+                        </strong>
+
+                        <br>
+
+                        ${item.explanation || ""}
+
+                    `;
+
+                    box.classList.add(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+
     } else {
 
         feedback.textContent =
-            `Please complete all sections. (${completed}/${inputs.length})`;
+            `Please complete all ${inputs.length} sentences. (${completed}/${inputs.length})`;
 
         feedback.className =
             "feedback wrong";
@@ -2896,16 +3261,35 @@ function submitStory() {
 
 
 /* =====================================================
-   START WEBSITE
+   NORMALIZE TEXT
+===================================================== */
+
+function normalizeText(text) {
+
+    return String(text)
+
+        .toLowerCase()
+
+        .trim()
+
+        .replace(/[?.!,]/g, "")
+
+        .replace(/\s+/g, " ");
+
+}
+
+
+/* =====================================================
+   START
 ===================================================== */
 
 createTestButtons();
 
 showHome();
 
-
 </script>
 
 </body>
 
 </html>
+```
