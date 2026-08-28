@@ -84,80 +84,80 @@ const TEST_DATA = {
             answer: "came",
 
             explanation:
-                "1. **came** = quá khứ của **come**.<br>" +
-                "2. **came to it** = **đã đến tham dự cuộc thi**."
+                "1. came = quá khứ của come.<br>" +
+                "2. came to it = đã đến tham dự cuộc thi."
         },
 
         {
             answer: "sang",
 
             explanation:
-                "1. **sang** = quá khứ của **sing**.<br>" +
-                "2. **sang the song** = **đã hát bài hát**."
+                "1. sang = quá khứ của sing.<br>" +
+                "2. sang the song = đã hát bài hát."
         },
 
         {
             answer: "felt",
 
             explanation:
-                "1. **felt** = quá khứ của **feel**.<br>" +
-                "2. **felt nervous** = **cảm thấy lo lắng**."
+                "1. felt = quá khứ của feel.<br>" +
+                "2. felt nervous = cảm thấy lo lắng."
         },
 
         {
             answer: "fell",
 
             explanation:
-                "1. **fell** = quá khứ của **fall**.<br>" +
-                "2. **fell over** = **ngã xuống**."
+                "1. fell = quá khứ của fall.<br>" +
+                "2. fell over = té/ngã xuống."
         },
 
         {
             answer: "thought",
 
             explanation:
-                "1. **thought** = quá khứ của **think**.<br>" +
-                "2. **thought** = **đã nghĩ**."
+                "1. thought = quá khứ của think.<br>" +
+                "2. thought = đã nghĩ rằng."
         },
 
         {
             answer: "sat",
 
             explanation:
-                "1. **sat** = quá khứ của **sit**.<br>" +
-                "2. **sat down** = **đã ngồi xuống**."
+                "1. sat = quá khứ của sit.<br>" +
+                "2. sat down = đã ngồi xuống."
         },
 
         {
             answer: "clapped",
 
             explanation:
-                "1. **clapped** = quá khứ của **clap**.<br>" +
-                "2. **clapped loudly** = **vỗ tay lớn**."
+                "1. clapped = quá khứ của clap.<br>" +
+                "2. clapped loudly = đã vỗ tay lớn."
         },
 
         {
             answer: "won",
 
             explanation:
-                "1. **won** = quá khứ của **win**.<br>" +
-                "2. **won the competition** = **đã thắng cuộc thi**."
+                "1. won = quá khứ của win.<br>" +
+                "2. won the competition = đã thắng cuộc thi."
         },
 
         {
             answer: "took",
 
             explanation:
-                "1. **took** = quá khứ của **take**.<br>" +
-                "2. **took me out for a meal** = **đưa tôi đi ăn**."
+                "1. took = quá khứ của take.<br>" +
+                "2. took me out for a meal = đưa tôi đi ăn."
         },
 
         {
             answer: "slept",
 
             explanation:
-                "1. **slept** = quá khứ của **sleep**.<br>" +
-                "2. **slept for ten hours** = **đã ngủ mười tiếng**."
+                "1. slept = quá khứ của sleep.<br>" +
+                "2. slept for ten hours** = đã ngủ mười tiếng."
         }
 
     ],
