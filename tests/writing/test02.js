@@ -10,16 +10,13 @@ const TEST_DATA = {
     title: "Writing Test 02",
 
     /* =================================================
-       TASK 3
-       Sophie Asks Mike Some Questions
-       15 marks
+       TASK 3 — Sophie Asks Mike Some Questions
     ================================================= */
 
     task3: [
 
         {
-            answer:
-                "I think living in the country is better than living in the city.",
+            answer: "I think living in the country is better than living in the city.",
 
             acceptedQuestions: [
                 "Do you think living in the country is better than living in the city?",
@@ -28,8 +25,7 @@ const TEST_DATA = {
         },
 
         {
-            answer:
-                "For me, the best thing about living here is fishing in the lake.",
+            answer: "For me, the best thing about living here is fishing in the lake.",
 
             acceptedQuestions: [
                 "What is the best thing about living here?",
@@ -38,8 +34,7 @@ const TEST_DATA = {
         },
 
         {
-            answer:
-                "I usually go fishing two or three times a week.",
+            answer: "I usually go fishing two or three times a week.",
 
             acceptedQuestions: [
                 "How often do you go fishing?"
@@ -47,8 +42,7 @@ const TEST_DATA = {
         },
 
         {
-            answer:
-                "This weekend? Yes, I’m going to go fishing on Saturday.",
+            answer: "This weekend? Yes, I’m going to go fishing on Saturday.",
 
             acceptedQuestions: [
                 "Are you going to go fishing this weekend?",
@@ -58,8 +52,7 @@ const TEST_DATA = {
         },
 
         {
-            answer:
-                "Of course I can, Sophie. I’d love to teach you to fish!",
+            answer: "Of course I can, Sophie. I’d love to teach you to fish!",
 
             acceptedQuestions: [
                 "Can you teach me to fish?",
@@ -71,16 +64,13 @@ const TEST_DATA = {
 
 
     /* =================================================
-       TASK 5
-       Ben Writes to Grandpa
-       15 marks
+       TASK 5 — Ben Writes to Grandpa
     ================================================= */
 
     task5: [
 
         {
             answer: "woke",
-            verb: "wake",
 
             explanation:
                 "wake → V2/ed: woke.<br>" +
@@ -90,7 +80,6 @@ const TEST_DATA = {
 
         {
             answer: "ate",
-            verb: "eat",
 
             explanation:
                 "eat → V2/ed: ate.<br>" +
@@ -100,7 +89,6 @@ const TEST_DATA = {
 
         {
             answer: "took",
-            verb: "take",
 
             explanation:
                 "take → V2/ed: took.<br>" +
@@ -110,7 +98,6 @@ const TEST_DATA = {
 
         {
             answer: "wore",
-            verb: "wear",
 
             explanation:
                 "wear → V2/ed: wore.<br>" +
@@ -120,7 +107,6 @@ const TEST_DATA = {
 
         {
             answer: "knocked",
-            verb: "knock",
 
             explanation:
                 "knock → V2/ed: knocked.<br>" +
@@ -130,7 +116,6 @@ const TEST_DATA = {
 
         {
             answer: "swam",
-            verb: "swim",
 
             explanation:
                 "swim → V2/ed: swam.<br>" +
@@ -140,7 +125,6 @@ const TEST_DATA = {
 
         {
             answer: "put",
-            verb: "put",
 
             explanation:
                 "put → V2/ed: put.<br>" +
@@ -150,7 +134,6 @@ const TEST_DATA = {
 
         {
             answer: "gave",
-            verb: "give",
 
             explanation:
                 "give → V2/ed: gave.<br>" +
@@ -160,7 +143,6 @@ const TEST_DATA = {
 
         {
             answer: "showed",
-            verb: "show",
 
             explanation:
                 "show → V2/ed: showed.<br>" +
@@ -170,7 +152,6 @@ const TEST_DATA = {
 
         {
             answer: "caught",
-            verb: "catch",
 
             explanation:
                 "catch → V2/ed: caught.<br>" +
@@ -182,16 +163,13 @@ const TEST_DATA = {
 
 
     /* =================================================
-       TASK 6
-       My Weekends
-       10 marks
+       TASK 6 — My Weekends
     ================================================= */
 
     task6: [
 
         {
-            starter:
-                "At the weekend, I like...",
+            starter: "At the weekend, I like...",
 
             hint:
                 "What do you like doing? Where do you go? Who do you go with?",
@@ -204,8 +182,7 @@ const TEST_DATA = {
         },
 
         {
-            starter:
-                "Sometimes my friends and I...",
+            starter: "Sometimes my friends and I...",
 
             hint:
                 "What do you do with your friends? Do you play games, go shopping or play sports?",
@@ -218,8 +195,7 @@ const TEST_DATA = {
         },
 
         {
-            starter:
-                "Every weekend, my family...",
+            starter: "Every weekend, my family...",
 
             hint:
                 "What does your family usually do together?",
@@ -232,8 +208,7 @@ const TEST_DATA = {
         },
 
         {
-            starter:
-                "Last weekend,...",
+            starter: "Last weekend,...",
 
             hint:
                 "What did you do? Where did you go? Who did you go with?",
@@ -246,8 +221,7 @@ const TEST_DATA = {
         },
 
         {
-            starter:
-                "Next Saturday,...",
+            starter: "Next Saturday,...",
 
             hint:
                 "What are you going to do? Where are you going to go?",
@@ -295,36 +269,28 @@ function renderWritingTask3() {
             </h2>
 
             <p class="task-description">
-
                 The Brown family are staying in Danny’s house.
                 Sophie talks to the neighbour, Mike.
                 She asks him some questions.
                 Write her questions in the spaces.
                 The first one is an example.
-
             </p>
-
 
             <div class="example-box">
 
                 <strong>Example</strong>
 
                 <p style="margin-top:8px;">
-
                     <strong>Sophie:</strong>
                     When did you move into your house, Mike?
-
                 </p>
 
                 <p>
-
                     <strong>Mike:</strong>
                     Into this house? I moved here last year.
-
                 </p>
 
             </div>
-
     `;
 
 
@@ -335,18 +301,12 @@ function renderWritingTask3() {
             <div class="question-box">
 
                 <div class="question-number">
-
                     Question ${index + 1}
-
                 </div>
 
-
                 <p>
-
                     <strong>Sophie:</strong>
-
                 </p>
-
 
                 <input
                     id="writing3-${index}"
@@ -354,7 +314,6 @@ function renderWritingTask3() {
                     type="text"
                     placeholder="Write Sophie's question here..."
                 >
-
 
                 <div class="given-answer">
 
@@ -364,17 +323,13 @@ function renderWritingTask3() {
 
                 </div>
 
-
                 <button
                     class="button"
                     style="margin-top:15px;"
                     onclick="submitWriting3(${index})"
                 >
-
                     Check
-
                 </button>
-
 
                 <div
                     id="writing3-feedback-${index}"
@@ -397,43 +352,30 @@ function renderWritingTask3() {
 
 /* =====================================================
    TASK 3 — CHECK
-   HIỆN ĐÁP ÁN KHI SAI
 ===================================================== */
 
 window.submitWriting3 = function(index) {
 
     const input =
-        document.getElementById(
-            `writing3-${index}`
-        );
-
+        document.getElementById(`writing3-${index}`);
 
     const feedback =
-        document.getElementById(
-            `writing3-feedback-${index}`
-        );
+        document.getElementById(`writing3-feedback-${index}`);
 
 
     if (!input || !feedback) {
-
         return;
-
     }
 
 
     const userAnswer =
-        normalizeWritingText(
-            input.value
-        );
+        normalizeWritingText(input.value);
 
 
     if (userAnswer === "") {
 
-        feedback.innerHTML = `
-
-            Please write a question.
-
-        `;
+        feedback.innerHTML =
+            "Please write a question.";
 
         feedback.className =
             "feedback wrong";
@@ -463,9 +405,9 @@ window.submitWriting3 = function(index) {
 
             <br><br>
 
-            <strong>Answer:</strong>
+            <strong>Suggested answer:</strong>
 
-            ${question.acceptedQuestions[0]}?
+            ${question.acceptedQuestions[0]}
 
         `;
 
@@ -485,7 +427,7 @@ window.submitWriting3 = function(index) {
 
             <strong>Suggested answer:</strong>
 
-            ${question.acceptedQuestions[0]}?
+            ${question.acceptedQuestions[0]}
 
         `;
 
@@ -511,11 +453,8 @@ function renderWritingTask5() {
         <div class="task-box">
 
             <h2 class="task-title">
-
                 Task 5 — Ben Writes to Grandpa
-
             </h2>
-
 
             <p class="task-description">
 
@@ -529,7 +468,6 @@ function renderWritingTask5() {
 
             </p>
 
-
             <div class="example-box">
 
                 <strong>Remember</strong>
@@ -541,15 +479,11 @@ function renderWritingTask5() {
 
             </div>
 
-
             <div class="question-box">
 
                 <strong>Word bank:</strong>
 
-                <p style="
-                    margin-top:10px;
-                    line-height:2.2;
-                ">
+                <p style="margin-top:10px; line-height:2.2;">
 
                     put &nbsp;
                     swim &nbsp;
@@ -567,13 +501,11 @@ function renderWritingTask5() {
 
             </div>
 
-
             <div class="question-box">
 
                 <p>
                     <strong>Dear Grandpa</strong>
                 </p>
-
 
                 <p style="margin-top:15px;">
 
@@ -594,7 +526,6 @@ function renderWritingTask5() {
 
                 </p>
 
-
                 <p style="margin-top:15px;">
 
                     Mum cooked sausage and eggs for breakfast
@@ -611,7 +542,6 @@ function renderWritingTask5() {
                     them at the table in the garden.
 
                 </p>
-
 
                 <p style="margin-top:15px;">
 
@@ -630,7 +560,6 @@ function renderWritingTask5() {
 
                 </p>
 
-
                 <p style="margin-top:15px;">
 
                     Jack
@@ -647,7 +576,6 @@ function renderWritingTask5() {
                     the sun was quite hot.
 
                 </p>
-
 
                 <p style="margin-top:15px;">
 
@@ -666,7 +594,6 @@ function renderWritingTask5() {
 
                 </p>
 
-
                 <p style="margin-top:15px;">
 
                     Dad
@@ -682,7 +609,6 @@ function renderWritingTask5() {
                     to the middle of the lake.
 
                 </p>
-
 
                 <p style="margin-top:15px;">
 
@@ -701,7 +627,6 @@ function renderWritingTask5() {
 
                 </p>
 
-
                 <p style="margin-top:15px;">
 
                     She
@@ -718,7 +643,6 @@ function renderWritingTask5() {
 
                 </p>
 
-
                 <p style="margin-top:15px;">
 
                     She
@@ -734,7 +658,6 @@ function renderWritingTask5() {
                     us how to turn the boat around.
 
                 </p>
-
 
                 <p style="margin-top:15px;">
 
@@ -753,7 +676,6 @@ function renderWritingTask5() {
 
                 </p>
 
-
                 <p style="margin-top:20px;">
                     <strong>Love</strong>
                 </p>
@@ -764,16 +686,12 @@ function renderWritingTask5() {
 
             </div>
 
-
             <button
                 class="button"
                 onclick="checkWritingTask5()"
             >
-
                 Check Task 5
-
             </button>
-
 
             <div
                 id="writing5-total-feedback"
@@ -811,15 +729,11 @@ window.checkWritingTask5 = function() {
 
 
         const user =
-            normalizeWritingText(
-                input.value
-            );
+            normalizeWritingText(input.value);
 
 
         const correct =
-            normalizeWritingText(
-                item.answer
-            );
+            normalizeWritingText(item.answer);
 
 
         let explanation =
@@ -849,9 +763,7 @@ window.checkWritingTask5 = function() {
         if (user === "") {
 
             explanation.innerHTML = `
-
                 Please write an answer.
-
             `;
 
             explanation.className =
@@ -956,7 +868,6 @@ window.checkWritingTask5 = function() {
 
 /* =====================================================
    TASK 6 — RENDER
-   CÓ SAMPLE ANSWER TRONG DATA
 ===================================================== */
 
 function renderWritingTask6() {
@@ -966,11 +877,8 @@ function renderWritingTask6() {
         <div class="task-box">
 
             <h2 class="task-title">
-
                 Task 6 — My Weekends
-
             </h2>
-
 
             <p class="task-description">
 
@@ -995,7 +903,6 @@ function renderWritingTask6() {
 
                 </div>
 
-
                 <div class="example-box">
 
                     <strong>
@@ -1008,7 +915,6 @@ function renderWritingTask6() {
 
                 </div>
 
-
                 <textarea
                     id="writing6-${index}"
                     class="answer-input"
@@ -1016,7 +922,6 @@ function renderWritingTask6() {
                     placeholder="Write your answer here..."
                     style="resize:vertical;"
                 ></textarea>
-
 
                 <div
                     id="writing6-sample-${index}"
@@ -1036,18 +941,14 @@ function renderWritingTask6() {
             class="button"
             onclick="checkWritingTask6()"
         >
-
             Submit Task 6
-
         </button>
-
 
         <div
             id="writing6-feedback"
             class="feedback"
             style="margin-top:20px;"
         ></div>
-
 
         </div>
 
@@ -1108,7 +1009,6 @@ window.checkWritingTask6 = function() {
                         💡 Sample answer:
                     </strong>
 
-
                     <p style="
                         margin-top:8px;
                         line-height:1.6;
@@ -1117,7 +1017,6 @@ window.checkWritingTask6 = function() {
                         ${item.sample}
 
                     </p>
-
 
                     <p style="
                         margin-top:10px;
@@ -1237,16 +1136,9 @@ window.renderWriting = function(data) {
     `;
 
 
-    html +=
-        renderWritingTask3();
-
-
-    html +=
-        renderWritingTask5();
-
-
-    html +=
-        renderWritingTask6();
+    html += renderWritingTask3();
+    html += renderWritingTask5();
+    html += renderWritingTask6();
 
 
     content.innerHTML =
