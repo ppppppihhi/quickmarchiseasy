@@ -1,11 +1,12 @@
+
 /* =====================================================
    QUICKMARCH PRACTICE
-   WRITING TEST 05
+   WRITING TEST 06
 ===================================================== */
 
 window.QUICKMARCH_TEST = {
 
-    title: "Writing Test 05",
+    title: "Writing Test 06",
 
     render: function(container) {
 
@@ -28,18 +29,14 @@ window.QUICKMARCH_TEST = {
             }
 
             /* Nội dung đề bài */
-            .qm-problem {
+            .qm-question-text {
                 color: rgb(0, 0, 238);
             }
 
-            .qm-problem strong {
+            /* Nội dung bức thư */
+            .qm-letter {
                 color: rgb(0, 0, 238);
-            }
-
-            /* Keyword cần chú ý */
-            .qm-keyword {
-                color: #990000;
-                font-weight: 700;
+                line-height: 1.8;
             }
 
             .qm-task {
@@ -53,7 +50,7 @@ window.QUICKMARCH_TEST = {
             .qm-task-title {
                 color: #315b45;
                 font-size: 22px;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
 
             .qm-task-description {
@@ -108,13 +105,13 @@ window.QUICKMARCH_TEST = {
             }
 
             .qm-inline-input {
-                width: 175px;
+                width: 170px;
                 display: inline-block;
                 margin: 0 5px;
             }
 
             .qm-textarea {
-                min-height: 110px;
+                min-height: 100px;
                 resize: vertical;
             }
 
@@ -154,33 +151,25 @@ window.QUICKMARCH_TEST = {
                 color: #754d45;
             }
 
-            /* Feedback Task 5 */
-            .qm-task5-feedback {
+            .qm-explanation {
                 margin-top: 10px;
-                padding: 13px 15px;
-                border-radius: 8px;
+                padding: 12px;
                 background: #f7faf8;
+                border-radius: 8px;
                 color: #53655b;
-                border-left: 4px solid #8db59b;
             }
 
-            .qm-task5-feedback .feedback-keyword {
+            /* Keyword trong phần giải thích */
+            .qm-keyword {
                 color: #990000;
                 font-weight: 700;
             }
 
-            .qm-task5-feedback .feedback-english {
-                color: #37443d;
-                font-weight: 700;
-            }
-
-            .qm-task5-section {
-                margin-top: 8px;
-            }
-
-            .qm-task5-section-title {
-                font-weight: 400;
-                color: #53655b;
+            .qm-clue {
+                margin-top: 7px;
+                padding: 8px 10px;
+                background: #eef5f0;
+                border-radius: 7px;
             }
 
             .qm-word-bank {
@@ -232,7 +221,7 @@ window.QUICKMARCH_TEST = {
 
         `;
 
-        document.head.appendChild(style);
+        container.appendChild(style);
 
 
         /* =================================================
@@ -251,18 +240,6 @@ window.QUICKMARCH_TEST = {
         }
 
 
-        function escapeHTML(value) {
-
-            return String(value || "")
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-
-        }
-
-
         /* =================================================
            TASK 3 DATA
         ================================================= */
@@ -271,103 +248,137 @@ window.QUICKMARCH_TEST = {
 
             {
                 answer:
-                    "Leonardo da Vinci is my favourite. I like Picasso, too.",
+                    "I went to Fox Wood to take them.",
 
                 acceptedQuestions: [
-                    "Who is your favourite painter?",
-                    "Who is your favorite painter?",
-                    "Who is your favourite artist?",
-                    "Who is your favorite artist?"
+                    "Where did you go to take them?",
+                    "Where did you go to take the photos?"
                 ],
 
                 explanation: `
-                    <span class="qm-keyword">Anna nói: “Leonardo da Vinci is my favourite. I like Picasso, too.”</span>
-                    <br>
-                    Anna đang nói về người mà cô ấy yêu thích.
-                    Vì câu trả lời là tên một người nên ta cần hỏi “Ai?”.
+                    <strong>💡 Gợi ý:</strong><br>
+                    Lily nói:
+                    “I went to Fox Wood to take them.”
+                    → Lily đang nói về <span class="qm-keyword">nơi</span>
+                    bạn ấy chụp ảnh.
                     <br><br>
-                    Dạng câu hỏi: Hỏi về người → <strong>Who is...?</strong>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+                    Hỏi về địa điểm → dùng
+                    <span class="qm-keyword">Where did...?</span>
                     <br>
-                    Đáp án: <strong>Who is your favourite painter?</strong>
+                    “Bạn đã đi đâu để chụp ảnh?”
+                    <br>
+                    → <span class="qm-keyword">Where did you go to take them?</span>
                 `
             },
 
             {
                 answer:
-                    "I last went to an art museum about a month ago.",
+                    "I like this photo the best.",
 
                 acceptedQuestions: [
-                    "When did you last go to an art museum?",
-                    "When did you last go to the art museum?"
+                    "Which photo do you like best?",
+                    "Which photo do you like the best?"
                 ],
 
                 explanation: `
-                    <span class="qm-keyword">Anna nói: “I last went to an art museum about a month ago.”</span>
-                    <br>
-                    Cụm “about a month ago” cho biết thời gian Anna đến bảo tàng lần cuối.
+                    <strong>💡 Gợi ý:</strong><br>
+                    Lily nói:
+                    “I like this photo the best.”
+                    → Lily đang nói về
+                    <span class="qm-keyword">bức ảnh yêu thích nhất</span>.
                     <br><br>
-                    Dạng câu hỏi: Hỏi về thời gian → <strong>When did...?</strong>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+                    Hỏi về lựa chọn giữa các bức ảnh →
+                    <span class="qm-keyword">Which photo...?</span>
                     <br>
-                    Đáp án: <strong>When did you last go to an art museum?</strong>
+                    “Bạn thích bức ảnh nào nhất?”
+                    <br>
+                    → <span class="qm-keyword">Which photo do you like best?</span>
                 `
             },
 
             {
                 answer:
-                    "I went with Mum, Dad and Sophie.",
+                    "I’m going to put it into a photography competition.",
 
                 acceptedQuestions: [
-                    "Who did you go with?"
+                    "What are you going to do with it?",
+                    "What are you going to do with the photo?"
                 ],
 
                 explanation: `
-                    <span class="qm-keyword">Anna nói: “I went with Mum, Dad and Sophie.”</span>
-                    <br>
-                    Câu trả lời cho biết những người đã đi cùng Anna.
+                    <strong>💡 Gợi ý:</strong><br>
+                    Lily nói:
+                    “I’m going to put it into a photography competition.”
+                    → Lily đang nói về
+                    <span class="qm-keyword">việc sẽ làm với bức ảnh</span>.
                     <br><br>
-                    Dạng câu hỏi: Hỏi về người → <strong>Who did...?</strong>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+                    Hỏi về hành động hoặc kế hoạch →
+                    <span class="qm-keyword">What are you going to...?</span>
                     <br>
-                    Đáp án: <strong>Who did you go with?</strong>
+                    “Bạn sẽ làm gì với nó?”
+                    <br>
+                    → <span class="qm-keyword">What are you going to do with it?</span>
                 `
             },
 
             {
                 answer:
-                    "Yes, I would. It would be great to go with you.",
+                    "The competition? It’s going to be at school.",
 
                 acceptedQuestions: [
-                    "Would you like to go with me?",
-                    "Would you like to go with me, Linda?"
+                    "Where is the competition going to be?",
+                    "Where is the competition?"
                 ],
 
                 explanation: `
-                    <span class="qm-keyword">Anna nói: “Yes, I would. It would be great to go with you.”</span>
-                    <br>
-                    Câu trả lời “Yes, I would” cho thấy Linda đang hỏi Anna có muốn làm một việc gì đó hay không.
+                    <strong>💡 Gợi ý:</strong><br>
+                    Lily nói:
+                    “It’s going to be at school.”
+                    → Lily đang nói về
+                    <span class="qm-keyword">địa điểm tổ chức cuộc thi</span>.
                     <br><br>
-                    Dạng câu hỏi: Đề nghị / hỏi mong muốn → <strong>Would you like...?</strong>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+                    Hỏi địa điểm → dùng
+                    <span class="qm-keyword">Where...?</span>
                     <br>
-                    Đáp án: <strong>Would you like to go with me?</strong>
+                    “Cuộc thi sẽ diễn ra ở đâu?”
+                    <br>
+                    → <span class="qm-keyword">Where is the competition going to be?</span>
                 `
             },
 
             {
                 answer:
-                    "Because I like visiting them and looking at old pictures there.",
+                    "The other photos? Of course you can. Here they are.",
 
                 acceptedQuestions: [
-                    "Why do you like visiting art museums?",
-                    "Why do you like visiting art museums, Anna?"
+                    "Can I see the other photos?",
+                    "Can I look at the other photos?"
                 ],
 
                 explanation: `
-                    <span class="qm-keyword">Anna nói: “Because I like visiting them and looking at old pictures there.”</span>
-                    <br>
-                    Câu trả lời bắt đầu bằng <strong>Because</strong>, vì vậy Anna đang đưa ra lý do.
+                    <strong>💡 Gợi ý:</strong><br>
+                    Lily nói:
+                    “Of course you can. Here they are.”
+                    → Lily đồng ý cho Ben
+                    <span class="qm-keyword">xem những bức ảnh khác</span>.
                     <br><br>
-                    Dạng câu hỏi: Hỏi lý do → <strong>Why...?</strong>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+                    Khi câu trả lời là “Yes, you can” hoặc
+                    “Of course you can”, câu hỏi thường dùng
+                    <span class="qm-keyword">Can I...?</span>
                     <br>
-                    Đáp án: <strong>Why do you like visiting art museums?</strong>
+                    “Mình có thể xem những bức ảnh khác không?”
+                    <br>
+                    → <span class="qm-keyword">Can I see the other photos?</span>
                 `
             }
 
@@ -381,143 +392,91 @@ window.QUICKMARCH_TEST = {
         const task5 = [
 
             {
+                answer: "spent",
+                verb: "spend",
+                clue: "Trong câu có cụm “a really nice weekend at Amy’s house”.",
+                why: "Câu nói về một cuối tuần đã kết thúc. Động từ phù hợp là “spend” vì ta nói “spend a weekend”. Vì vậy spend chuyển sang Past Simple: spent.",
+                phrase: "spent a really nice weekend = đã trải qua một cuối tuần rất vui."
+            },
+
+            {
                 answer: "arrived",
                 verb: "arrive",
-
-                clue:
-                    "Sau chỗ trống là “at the gallery just after nine”.",
-
-                why:
-                    "Câu cho biết Anna đến phòng tranh ngay sau 9 giờ. Cụm “arrive at the gallery” có nghĩa là đến phòng tranh. Vì ngày làm việc đã kết thúc nên dùng Past Simple: arrive → arrived.",
-
-                phrase:
-                    "<strong>arrived at the gallery</strong> = đã đến phòng tranh."
-            },
-
-            {
-                answer: "could",
-                verb: "can",
-
-                clue:
-                    "Ngay sau chỗ trống là “not find it at first”.",
-
-                why:
-                    "Anna nói cô ấy không thể tìm thấy phòng tranh lúc đầu. Vì toàn bộ câu chuyện kể về ngày đã qua, “can” phải chuyển sang dạng quá khứ “could”.",
-
-                phrase:
-                    "<strong>could not find it</strong> = đã không thể tìm thấy nó."
-            },
-
-            {
-                answer: "worked",
-                verb: "work",
-
-                clue:
-                    "Sau chỗ trống là “very hard”.",
-
-                why:
-                    "Cụm “work very hard” có nghĩa là làm việc rất chăm chỉ. Anna đang kể về công việc cô ấy đã làm tại phòng tranh, vì vậy dùng Past Simple: work → worked.",
-
-                phrase:
-                    "<strong>worked very hard</strong> = đã làm việc rất chăm chỉ."
-            },
-
-            {
-                answer: "told",
-                verb: "tell",
-
-                clue:
-                    "Sau chỗ trống là “them about the pictures”.",
-
-                why:
-                    "Anna nói chuyện và cung cấp thông tin cho những người khách về các bức tranh. Cấu trúc “tell someone about something” phù hợp với câu. tell là động từ bất quy tắc: tell → told.",
-
-                phrase:
-                    "<strong>told them about the pictures</strong> = đã nói/giới thiệu cho họ về các bức tranh."
-            },
-
-            {
-                answer: "put",
-                verb: "put",
-
-                clue:
-                    "Sau chỗ trống là “pictures on the wall”.",
-
-                why:
-                    "Ngữ cảnh nói Anna đặt các bức tranh lên tường cho Linda. Cụm “put pictures on the wall” phù hợp với nghĩa của câu. put là động từ đặc biệt: V1 và V2 giống nhau, nên put → put.",
-
-                phrase:
-                    "<strong>put pictures on the wall</strong> = đã đặt các bức tranh lên tường."
-            },
-
-            {
-                answer: "sold",
-                verb: "sell",
-
-                clue:
-                    "Ngay sau chỗ trống là “eight pictures during the day”.",
-
-                why:
-                    "Linda làm việc tại phòng tranh và trong ngày cô ấy bán tám bức tranh. Câu nói về một việc đã hoàn thành nên dùng Past Simple. sell là động từ bất quy tắc: sell → sold.",
-
-                phrase:
-                    "<strong>sold eight pictures</strong> = đã bán tám bức tranh."
-            },
-
-            {
-                answer: "left",
-                verb: "leave",
-
-                clue:
-                    "Câu nói “At five o’clock the last visitors ___”.",
-
-                why:
-                    "Lúc 5 giờ, những vị khách cuối cùng rời khỏi phòng tranh và sau đó họ đóng cửa. Vì vậy động từ phù hợp là “leave”. Đây là động từ bất quy tắc: leave → left.",
-
-                phrase:
-                    "<strong>the last visitors left</strong> = những vị khách cuối cùng đã rời đi."
+                clue: "Sau chỗ trống là “at their home about 7.00 pm”.",
+                why: "Cụm “arrive at their home” dùng để nói đến nơi nào đó. Vì việc đến nhà đã xảy ra vào tối thứ Sáu nên dùng Past Simple.",
+                phrase: "arrived at their home = đã đến nhà họ."
             },
 
             {
                 answer: "had",
                 verb: "have",
-
-                clue:
-                    "Sau chỗ trống là “a cup of tea”.",
-
-                why:
-                    "Cụm “have a cup of tea” có nghĩa là uống một tách trà. Vì đây là hành động đã xảy ra sau khi đóng cửa phòng tranh, have phải chuyển sang Past Simple: have → had.",
-
-                phrase:
-                    "<strong>had a cup of tea</strong> = đã uống một tách trà."
+                clue: "Sau chỗ trống là “dinner with Amy’s family”.",
+                why: "Ta thường dùng cụm “have dinner”. Vì bữa tối đã xảy ra nên have chuyển sang dạng quá khứ bất quy tắc: had.",
+                phrase: "had dinner = đã ăn tối."
             },
 
             {
-                answer: "said",
-                verb: "say",
-
-                clue:
-                    "Sau chỗ trống là “goodbye”.",
-
-                why:
-                    "Cụm “say goodbye” có nghĩa là nói lời tạm biệt. Vì Anna và Linda đã nói lời tạm biệt vào cuối ngày nên dùng Past Simple: say → said.",
-
-                phrase:
-                    "<strong>said goodbye</strong> = đã nói lời tạm biệt."
+                answer: "slept",
+                verb: "sleep",
+                clue: "Câu nói “in Lily’s bedroom” cho biết nơi Sophie và người kể chuyện ngủ.",
+                why: "Ngữ cảnh đang kể lại việc họ ngủ ở các phòng khác nhau. Động từ phù hợp là sleep và cần chuyển sang Past Simple.",
+                phrase: "slept in Lily’s bedroom = đã ngủ trong phòng Lily."
             },
 
             {
-                answer: "rode",
-                verb: "ride",
+                answer: "woke up",
+                verb: "wake up",
+                clue: "Sau chỗ trống là “early”.",
+                why: "Cụm “wake up early” có nghĩa là thức dậy sớm. Đây là hành động đã xảy ra vào sáng thứ Bảy nên dùng Past Simple: wake → woke.",
+                phrase: "woke up early = đã thức dậy sớm."
+            },
 
-                clue:
-                    "Sau chỗ trống là “home on my bike”.",
+            {
+                answer: "took",
+                verb: "take",
+                clue: "Sau chỗ trống là “the bus into town”.",
+                why: "Ta dùng cụm “take the bus” khi nói đi bằng xe buýt. Vì hành động đã xảy ra nên take chuyển sang Past Simple: took.",
+                phrase: "took the bus into town = đã đi xe buýt vào thị trấn."
+            },
 
-                why:
-                    "Anna đi về nhà bằng xe đạp. Cụm “ride home on my bike” phù hợp với ngữ cảnh. Vì hành động đã xảy ra nên dùng Past Simple. ride là động từ bất quy tắc: ride → rode.",
+            {
+                answer: "did",
+                verb: "do",
+                clue: "Sau chỗ trống là “some shopping at the market”.",
+                why: "Cụm “do some shopping” có nghĩa là đi mua sắm. Vì việc mua sắm đã xảy ra nên do → did.",
+                phrase: "did some shopping = đã đi mua sắm."
+            },
 
-                phrase:
-                    "<strong>rode home on my bike</strong> = đã đạp xe về nhà."
+            {
+                answer: "liked",
+                verb: "like",
+                clue: "Sau chỗ trống là “a great wool jacket”.",
+                why: "Anna nói cô ấy rất thích một chiếc áo khoác len. Động từ phù hợp là like và vì câu chuyện ở quá khứ nên like → liked.",
+                phrase: "liked a great wool jacket = đã thích một chiếc áo khoác rất đẹp."
+            },
+
+            {
+                answer: "met",
+                verb: "meet",
+                clue: "Sau chỗ trống là “the others outside the restaurant”.",
+                why: "Câu cho biết Anna, Amy và Lily gặp những người khác bên ngoài nhà hàng. Động từ meet là bất quy tắc: meet → met.",
+                phrase: "met the others = đã gặp những người khác."
+            },
+
+            {
+                answer: "fell",
+                verb: "fall",
+                clue: "Câu có “ice-cream ... on the floor”.",
+                why: "Kem của Jack rơi xuống sàn. Động từ phù hợp là fall. Đây là động từ bất quy tắc: fall → fell.",
+                phrase: "fell on the floor = đã rơi xuống sàn."
+            },
+
+            {
+                answer: "laughed",
+                verb: "laugh",
+                clue: "Sau đó có dấu “!” và câu “Usually he cries!”, cho thấy mọi người thấy tình huống buồn cười.",
+                why: "Ngữ cảnh cho biết Jack làm rơi kem và mọi người cười. Động từ phù hợp là laugh và cần dùng Past Simple: laughed.",
+                phrase: "laughed = đã cười."
             }
 
         ];
@@ -530,80 +489,75 @@ window.QUICKMARCH_TEST = {
         const task6 = [
 
             {
-                starter:
-                    "After I leave school, I want to...",
+                starter: "Sometimes I...",
 
                 hint:
-                    "What job would you like to do after school? Why?",
+                    "What do you sometimes do when you visit your friends?",
 
                 sample:
-                    "After I leave school, I want to become a teacher because I enjoy helping children learn.",
+                    "Sometimes I visit my friends at their homes and play games together.",
 
                 explanation:
-                    "Nói về công việc em muốn làm sau khi rời trường. Có thể nêu thêm lý do em thích công việc đó."
+                    "Em có thể nói về một hoạt động thỉnh thoảng em làm khi gặp hoặc đến thăm bạn bè."
             },
 
             {
-                starter:
-                    "In my country...",
+                starter: "At school...",
 
                 hint:
-                    "What jobs are popular or important in your country?",
+                    "What do you usually do with your friends at school?",
 
                 sample:
-                    "In my country, many people work as teachers, doctors, engineers and business owners.",
+                    "At school I usually talk to my friends and play together during break time.",
 
                 explanation:
-                    "Nêu một số nghề phổ biến hoặc quan trọng ở đất nước của em."
+                    "Nêu một hoạt động em thường làm cùng bạn bè ở trường."
             },
 
             {
-                starter:
-                    "The best job for me...",
+                starter: "Last week...",
 
                 hint:
-                    "What job suits you best? Think about your interests and abilities.",
+                    "What did you do with your friends last week? Use the past tense.",
 
                 sample:
-                    "The best job for me is being a teacher because I like working with children.",
+                    "Last week I visited my best friend and we watched a film together.",
 
                 explanation:
-                    "Chọn một công việc phù hợp với bản thân và giải thích ngắn gọn vì sao."
+                    "Vì có “Last week”, em đang nói về một sự việc đã xảy ra nên chú ý sử dụng Past Simple."
             },
 
             {
-                starter:
-                    "This job is good because...",
+                starter: "Tomorrow...",
 
                 hint:
-                    "Why is this job good for you?",
+                    "What are you going to do with your friends tomorrow?",
 
                 sample:
-                    "This job is good because it is interesting and I can help other people every day.",
+                    "Tomorrow I am going to visit my friend and we are going to play football.",
 
                 explanation:
-                    "Giải thích những điểm tốt của công việc mà em đã chọn."
+                    "“Tomorrow” nói về tương lai. Em có thể dùng “be going to” để nói về kế hoạch hoặc dự định."
             },
 
             {
-                starter:
-                    "In my family...",
+                starter: "The best thing about...",
 
                 hint:
-                    "What jobs do people in your family do?",
+                    "What do you like best about visiting your friends?",
 
                 sample:
-                    "In my family, my father is an engineer and my mother works in a school.",
+                    "The best thing about visiting my friends is that we always have fun together.",
 
                 explanation:
-                    "Nói về nghề nghiệp của một hoặc vài người trong gia đình em."
+                    "Nêu điều em thích nhất khi đến thăm hoặc dành thời gian với bạn bè."
             }
 
         ];
 
 
         /* =================================================
-           RENDER HTML
+           RENDER
         ================================================= */
 
         let html = `
@@ -617,34 +571,27 @@ window.QUICKMARCH_TEST = {
                 <section class="qm-task">
 
                     <h2 class="qm-task-title">
-                        Task 3 — Linda Meets Anna
+                        Task 3 — Ben talks to Lily
                     </h2>
 
-                    <div class="qm-problem">
+                    <p class="qm-task-description qm-question-text">
+                        Ben is talking to Lily about her photographs.
+                        Write Ben’s questions in the spaces.
+                        The first one is an example.
+                    </p>
 
-                        <p>
-                            Linda meets Anna at the Brown’s house before Anna
-                            goes to work at Bridge Street Gallery.
-                            Linda asks Anna some questions.
-                            Write her questions in the spaces.
-                            The first one is an example.
-                        </p>
-
-                    </div>
-
-                    <div class="qm-example">
+                    <div class="qm-example qm-question-text">
 
                         <strong>Example</strong>
 
                         <p>
-                            <strong>Linda:</strong>
-                            Do you like painting?
+                            <strong>Ben:</strong>
+                            Did you take all these photos yourself?
                         </p>
 
                         <p>
-                            <strong>Anna:</strong>
-                            Yes, I love painting.
-                            I like looking at pictures, too.
+                            <strong>Lily:</strong>
+                            Yes, I took all the photos myself.
                         </p>
 
                     </div>
@@ -663,19 +610,19 @@ window.QUICKMARCH_TEST = {
                     </div>
 
                     <p>
-                        <strong>Linda:</strong>
+                        <strong>Ben:</strong>
                     </p>
 
                     <input
-                        id="t5-task3-${index}"
+                        id="t6-task3-${index}"
                         class="qm-input"
                         type="text"
-                        placeholder="Write Linda's question here..."
+                        placeholder="Write Ben's question here..."
                     >
 
-                    <div class="qm-answer">
+                    <div class="qm-answer qm-question-text">
 
-                        <strong>Anna:</strong>
+                        <strong>Lily:</strong>
                         ${item.answer}
 
                     </div>
@@ -689,9 +636,7 @@ window.QUICKMARCH_TEST = {
                         Check
                     </button>
 
-                    <div
-                        id="t5-task3-feedback-${index}"
-                    ></div>
+                    <div id="t6-task3-feedback-${index}"></div>
 
                 </div>
 
@@ -703,7 +648,7 @@ window.QUICKMARCH_TEST = {
         html += `
 
                     <div
-                        id="t5-task3-total"
+                        id="t6-task3-total"
                         class="qm-total"
                     >
                         Task 3 Score: 0/15 marks
@@ -719,35 +664,27 @@ window.QUICKMARCH_TEST = {
                 <section class="qm-task">
 
                     <h2 class="qm-task-title">
-                        Task 5 — Anna Writes about her Day at the Art Gallery
+                        Task 5 — Anna Emails Gran
                     </h2>
 
-                    <div class="qm-problem">
-
-                        <p>
-                            The next day, Anna writes about Bridge House Gallery
-                            for her teacher. Fill in the missing words.
-                            Use the verbs in the box below but don’t forget
-                            to change them to the <strong>PAST TENSE</strong>
-                            because the day at the gallery is finished.
-                            The first one is an example.
-                        </p>
-
-                    </div>
+                    <p class="qm-task-description qm-question-text">
+                        Anna decides to send Gran an email.
+                        Fill in the missing words. Use the verbs in the box
+                        below but don’t forget to change them to the PAST TENSE
+                        because the visit to Amy’s house is finished.
+                        The first one is an example.
+                    </p>
 
                     <div class="qm-example">
 
-                        <strong>💡 How to do Task 5</strong>
-
                         <p>
-                            Đọc cả câu trước khi chọn từ.
-                            Quan sát từ ngay bên cạnh chỗ trống,
-                            chú ý ngữ cảnh và tìm các cụm động từ quen thuộc.
+                            Hãy quan sát từ ngay bên cạnh chỗ trống,
+                            đọc ngữ cảnh của cả câu và chú ý các cụm động từ.
                         </p>
 
                         <p>
-                            Sau đó xác định động từ phù hợp trong Word Bank
-                            và đổi động từ sang <strong>Past Simple</strong>.
+                            Sau đó xác định động từ phù hợp và đổi sang
+                            Past Simple.
                         </p>
 
                     </div>
@@ -756,137 +693,151 @@ window.QUICKMARCH_TEST = {
 
                         <strong>Word bank:</strong><br>
 
+                        sleep &nbsp;&nbsp;
+                        like &nbsp;&nbsp;
+                        laugh &nbsp;&nbsp;
+                        spend &nbsp;&nbsp;
+                        do &nbsp;&nbsp;
+                        fall &nbsp;&nbsp;
                         arrive &nbsp;&nbsp;
-                        be &nbsp;&nbsp;
-                        can &nbsp;&nbsp;
                         have &nbsp;&nbsp;
-                        leave &nbsp;&nbsp;
-                        ride &nbsp;&nbsp;
-                        put &nbsp;&nbsp;
-                        say &nbsp;&nbsp;
-                        sell &nbsp;&nbsp;
-                        tell &nbsp;&nbsp;
-                        work
+                        take &nbsp;&nbsp;
+                        meet &nbsp;&nbsp;
+                        wake up
 
                     </div>
 
 
                     <div class="qm-question">
 
-                        <p>
-                            <strong>Dear Teacher</strong>
-                        </p>
+                        <div class="qm-letter">
 
-                        <p>
-                            Yesterday I (example)
-                            <span class="qm-keyword">was</span>
-                            at Bridge House Gallery.
-                            I
-                            <input
-                                id="t5-task5-0"
-                                class="qm-input qm-inline-input"
-                                type="text"
-                                placeholder="(1)"
-                            >
-                            at the gallery just after nine.
-                            I was late because I
-                            <input
-                                id="t5-task5-1"
-                                class="qm-input qm-inline-input"
-                                type="text"
-                                placeholder="(2)"
-                            >
-                            not find it at first – but Linda was not cross with me.
-                        </p>
+                            <p>
+                                Hi Gran
+                            </p>
 
-                        <p>
-                            I
-                            <input
-                                id="t5-task5-2"
-                                class="qm-input qm-inline-input"
-                                type="text"
-                                placeholder="(3)"
-                            >
-                            very hard.
-                            I met some of the visitors.
-                            I
-                            <input
-                                id="t5-task5-3"
-                                class="qm-input qm-inline-input"
-                                type="text"
-                                placeholder="(4)"
-                            >
-                            them about the pictures in the gallery.
-                        </p>
+                            <p>
+                                We (example)
+                                <strong>spent</strong>
+                                a really nice weekend at Amy’s house.
+                            </p>
 
-                        <p>
-                            I also cleaned some of the windows and
-                            <input
-                                id="t5-task5-4"
-                                class="qm-input qm-inline-input"
-                                type="text"
-                                placeholder="(5)"
-                            >
-                            pictures on the wall for Linda.
-                            Linda was very happy because she
-                            <input
-                                id="t5-task5-5"
-                                class="qm-input qm-inline-input"
-                                type="text"
-                                placeholder="(6)"
-                            >
-                            eight pictures during the day.
-                        </p>
+                            <p>
+                                We
+                                <input
+                                    id="t6-task5-0"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(1)"
+                                >
+                                at their home about 7.00 pm on Friday night
+                                and
+                                <input
+                                    id="t6-task5-1"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(2)"
+                                >
+                                dinner with Amy’s family.
+                            </p>
 
-                        <p>
-                            At five o’clock the last visitors
-                            <input
-                                id="t5-task5-6"
-                                class="qm-input qm-inline-input"
-                                type="text"
-                                placeholder="(7)"
-                            >
-                            and we closed the gallery.
-                            Linda thanked me for my work.
-                            Then we
-                            <input
-                                id="t5-task5-7"
-                                class="qm-input qm-inline-input"
-                                type="text"
-                                placeholder="(8)"
-                            >
-                            a cup of tea.
-                        </p>
+                            <p>
+                                Sophie and I
+                                <input
+                                    id="t6-task5-2"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(3)"
+                                >
+                                in Lily’s bedroom and Jack and Ben were in Oscar’s room.
+                            </p>
 
-                        <p>
-                            At half past five, Linda and I
-                            <input
-                                id="t5-task5-8"
-                                class="qm-input qm-inline-input"
-                                type="text"
-                                placeholder="(9)"
-                            >
-                            goodbye and I
-                            <input
-                                id="t5-task5-9"
-                                class="qm-input qm-inline-input"
-                                type="text"
-                                placeholder="(10)"
-                            >
-                            home on my bike.
-                            I enjoyed my day at the gallery very much.
-                        </p>
+                            <p>
+                                On Saturday, everybody
+                                <input
+                                    id="t6-task5-3"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(4)"
+                                >
+                                early and then we all
+                                <input
+                                    id="t6-task5-4"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(5)"
+                                >
+                                the bus into town.
+                            </p>
 
-                        <p>
-                            <strong>Love<br>Anna xxx</strong>
-                        </p>
+                            <p>
+                                Amy, Lily and I
+                                <input
+                                    id="t6-task5-5"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(6)"
+                                >
+                                some shopping at the market.
+                                I really
+                                <input
+                                    id="t6-task5-6"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(7)"
+                                >
+                                a great wool jacket, but I didn’t buy it –
+                                too expensive!
+                            </p>
+
+                            <p>
+                                Then we
+                                <input
+                                    id="t6-task5-7"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(8)"
+                                >
+                                the others outside the restaurant.
+                            </p>
+
+                            <p>
+                                It was funny in the restaurant because
+                                Jack’s ice-cream
+                                <input
+                                    id="t6-task5-8"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(9)"
+                                >
+                                on the floor and he
+                                <input
+                                    id="t6-task5-9"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(10)"
+                                >
+                                !
+                                Usually he cries!
+                            </p>
+
+                            <p>
+                                Hope you’re well
+                            </p>
+
+                            <p>
+                                Love<br>
+                                Anna xxx
+                            </p>
+
+                        </div>
 
                     </div>
 
 
                     <button
                         type="button"
-                        id="t5-check-task5"
+                        id="t6-check-task5"
                         class="qm-button"
                     >
                         Check Task 5
@@ -894,7 +845,7 @@ window.QUICKMARCH_TEST = {
 
 
                     <div
-                        id="t5-task5-total"
+                        id="t6-task5-total"
                         class="qm-total"
                     >
                         Task 5 Score: 0/15 marks
@@ -910,17 +861,12 @@ window.QUICKMARCH_TEST = {
                 <section class="qm-task">
 
                     <h2 class="qm-task-title">
-                        Task 6 — Jobs in My Country
+                        Task 6 — Visiting Friends
                     </h2>
 
-                    <div class="qm-problem">
-
-                        <p>
-                            Now write about jobs in your country.
-                            Write about 50 words — about 10 words in each space.
-                        </p>
-
-                    </div>
+                    <p class="qm-task-description qm-question-text">
+                        Now write about visiting your friends.
+                    </p>
 
         `;
 
@@ -937,22 +883,20 @@ window.QUICKMARCH_TEST = {
 
                     <div class="qm-example">
 
-                        <strong>💡 Gợi ý:</strong>
-
-                        <br>
+                        <strong>💡 Gợi ý:</strong><br>
 
                         ${item.hint}
 
                     </div>
 
                     <textarea
-                        id="t5-task6-${index}"
+                        id="t6-task6-${index}"
                         class="qm-input qm-textarea"
                         placeholder="Write your answer here..."
                     ></textarea>
 
                     <div
-                        id="t5-task6-sample-${index}"
+                        id="t6-task6-sample-${index}"
                         style="display:none;"
                     ></div>
 
@@ -967,15 +911,13 @@ window.QUICKMARCH_TEST = {
 
                     <button
                         type="button"
-                        id="t5-check-task6"
+                        id="t6-check-task6"
                         class="qm-button"
                     >
                         Check Task 6
                     </button>
 
-                    <div
-                        id="t5-task6-feedback"
-                    ></div>
+                    <div id="t6-task6-feedback"></div>
 
                 </section>
 
@@ -999,105 +941,100 @@ window.QUICKMARCH_TEST = {
             .querySelectorAll('[data-action="check-task3"]')
             .forEach(function(button) {
 
-                button.addEventListener(
-                    "click",
-                    function() {
+                button.addEventListener("click", function() {
 
-                        const index =
-                            Number(button.dataset.index);
+                    const index =
+                        Number(button.dataset.index);
 
-                        const input =
-                            container.querySelector(
-                                `#t5-task3-${index}`
-                            );
+                    const input =
+                        container.querySelector(
+                            `#t6-task3-${index}`
+                        );
 
-                        const feedback =
-                            container.querySelector(
-                                `#t5-task3-feedback-${index}`
-                            );
+                    const feedback =
+                        container.querySelector(
+                            `#t6-task3-feedback-${index}`
+                        );
 
-                        const user =
-                            normalize(input.value);
+                    const user =
+                        normalize(input.value);
 
-                        const accepted =
-                            task3[index]
-                                .acceptedQuestions
-                                .map(normalize);
+                    const accepted =
+                        task3[index]
+                            .acceptedQuestions
+                            .map(normalize);
 
 
-                        if (!user) {
+                    if (!user) {
 
-                            task3Scores[index] = false;
+                        task3Scores[index] = false;
 
-                            feedback.innerHTML = `
+                        feedback.innerHTML = `
 
-                                <div class="qm-feedback qm-wrong">
+                            <div class="qm-feedback qm-wrong">
+                                Please write a question.
+                            </div>
 
-                                    Please write a question.
-
-                                </div>
-
-                            `;
-
-                            updateTask3Total();
-
-                            return;
-                        }
-
-
-                        if (accepted.includes(user)) {
-
-                            task3Scores[index] = true;
-
-                            feedback.innerHTML = `
-
-                                <div class="qm-feedback qm-correct">
-
-                                    ✓ Correct!
-                                    <strong>3/3 marks</strong>
-
-                                    <div class="qm-example">
-
-                                        ${task3[index].explanation}
-
-                                    </div>
-
-                                </div>
-
-                            `;
-
-                        } else {
-
-                            task3Scores[index] = false;
-
-                            feedback.innerHTML = `
-
-                                <div class="qm-feedback qm-wrong">
-
-                                    ✗ Try again.
-
-                                    <br><br>
-
-                                    <strong>Suggested answer:</strong>
-                                    ${task3[index]
-                                        .acceptedQuestions[0]}
-
-                                    <div class="qm-example">
-
-                                        ${task3[index].explanation}
-
-                                    </div>
-
-                                </div>
-
-                            `;
-
-                        }
+                        `;
 
                         updateTask3Total();
+                        return;
+                    }
+
+
+                    if (accepted.includes(user)) {
+
+                        task3Scores[index] = true;
+
+                        feedback.innerHTML = `
+
+                            <div class="qm-feedback qm-correct">
+
+                                ✓ Correct!
+                                <strong>3/3 marks</strong>
+
+                                <div class="qm-explanation">
+
+                                    ${task3[index].explanation}
+
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    } else {
+
+                        task3Scores[index] = false;
+
+                        feedback.innerHTML = `
+
+                            <div class="qm-feedback qm-wrong">
+
+                                ✗ Try again.
+
+                                <br><br>
+
+                                Suggested answer:<br>
+
+                                ${task3[index]
+                                    .acceptedQuestions[0]}
+
+                                <div class="qm-explanation">
+
+                                    ${task3[index].explanation}
+
+                                </div>
+
+                            </div>
+
+                        `;
 
                     }
-                );
+
+                    updateTask3Total();
+
+                });
 
             });
 
@@ -1109,7 +1046,7 @@ window.QUICKMARCH_TEST = {
 
             const total =
                 container.querySelector(
-                    "#t5-task3-total"
+                    "#t6-task3-total"
                 );
 
             total.textContent =
@@ -1123,244 +1060,78 @@ window.QUICKMARCH_TEST = {
         ================================================= */
 
         container
-            .querySelector("#t5-check-task5")
-            .addEventListener(
-                "click",
-                function() {
+            .querySelector("#t6-check-task5")
+            .addEventListener("click", function() {
 
-                    let score = 0;
+                let score = 0;
 
 
-                    task5.forEach(
-                        function(item, index) {
+                task5.forEach(function(item, index) {
 
-                            const input =
-                                container.querySelector(
-                                    `#t5-task5-${index}`
-                                );
-
-
-                            const old =
-                                container.querySelector(
-                                    `#t5-task5-feedback-${index}`
-                                );
-
-
-                            if (old) {
-                                old.remove();
-                            }
-
-
-                            const user =
-                                normalize(input.value);
-
-                            const correct =
-                                normalize(item.answer);
-
-
-                            const feedback =
-                                document.createElement("div");
-
-
-                            feedback.id =
-                                `t5-task5-feedback-${index}`;
-
-                            feedback.className =
-                                "qm-task5-feedback";
-
-
-                            if (user === correct) {
-
-                                score += 1.5;
-
-                                feedback.innerHTML = `
-
-                                    <div class="qm-task5-section">
-
-                                        Đáp án:
-                                        <span class="feedback-english">
-                                            ${escapeHTML(item.answer)}
-                                        </span>
-
-                                    </div>
-
-                                    <div class="qm-task5-section">
-
-                                        Gợi ý:
-                                        ${item.clue}
-
-                                    </div>
-
-                                    <div class="qm-task5-section">
-
-                                        Giải thích:
-                                        ${item.why}
-
-                                    </div>
-
-                                    <div class="qm-task5-section">
-
-                                        Cụm từ quan trọng:
-                                        ${item.phrase}
-
-                                    </div>
-
-                                `;
-
-                            } else {
-
-                                feedback.innerHTML = `
-
-                                    <div class="qm-task5-section">
-
-                                        Đáp án:
-                                        <span class="feedback-english">
-                                            ${escapeHTML(item.answer)}
-                                        </span>
-
-                                    </div>
-
-                                    <div class="qm-task5-section">
-
-                                        Gợi ý:
-                                        ${item.clue}
-
-                                    </div>
-
-                                    <div class="qm-task5-section">
-
-                                        Giải thích:
-                                        ${item.why}
-
-                                    </div>
-
-                                    <div class="qm-task5-section">
-
-                                        Cụm từ quan trọng:
-                                        ${item.phrase}
-
-                                    </div>
-
-                                `;
-
-                            }
-
-
-                            input.parentNode.appendChild(feedback);
-
-                        }
-                    );
-
-
-                    const total =
+                    const input =
                         container.querySelector(
-                            "#t5-task5-total"
+                            `#t6-task5-${index}`
                         );
 
+                    const old =
+                        container.querySelector(
+                            `#t6-task5-feedback-${index}`
+                        );
 
-                    total.innerHTML =
-                        `Task 5 Score: ${score}/15 marks`;
-
-                }
-            );
-
-
-        /* =================================================
-           TASK 6 CHECK
-        ================================================= */
-
-        container
-            .querySelector("#t5-check-task6")
-            .addEventListener(
-                "click",
-                function() {
-
-                    let completed = 0;
+                    if (old) {
+                        old.remove();
+                    }
 
 
-                    task6.forEach(
-                        function(item, index) {
+                    const user =
+                        normalize(input.value);
 
-                            const input =
-                                container.querySelector(
-                                    `#t5-task6-${index}`
-                                );
-
-                            const sample =
-                                container.querySelector(
-                                    `#t5-task6-sample-${index}`
-                                );
-
-
-                            if (
-                                input.value.trim() !== ""
-                            ) {
-
-                                completed++;
-
-                            }
-
-
-                            sample.innerHTML = `
-
-                                <div class="qm-sample">
-
-                                    <strong>
-                                        💡 Sample answer:
-                                    </strong>
-
-                                    <p>
-                                        ${item.sample}
-                                    </p>
-
-                                    <p class="qm-small-note">
-
-                                        <strong>
-                                            Giải thích:
-                                        </strong>
-
-                                        ${item.explanation}
-
-                                    </p>
-
-                                </div>
-
-                            `;
-
-                            sample.style.display =
-                                "block";
-
-                        }
-                    );
+                    const correct =
+                        normalize(item.answer);
 
 
                     const feedback =
-                        container.querySelector(
-                            "#t5-task6-feedback"
-                        );
+                        document.createElement("div");
+
+                    feedback.id =
+                        `t6-task5-feedback-${index}`;
 
 
-                    if (
-                        completed === task6.length
-                    ) {
+                    if (user === correct) {
+
+                        score += 1.5;
+
+                        feedback.className =
+                            "qm-feedback qm-correct";
 
                         feedback.innerHTML = `
 
-                            <div class="qm-feedback qm-correct">
+                            ✓ Correct!
+                            <strong>1.5/1.5 marks</strong>
 
-                                ✓ Writing submitted!
+                            <div class="qm-explanation">
 
-                                <br><br>
+                                Đáp án:
+                                ${item.answer}
 
-                                <strong>
-                                    Task 6 Score: 10/10 marks
-                                </strong>
+                                <div class="qm-clue">
 
-                                <br><br>
+                                    Gợi ý:
+                                    ${item.clue}
 
-                                💡 Đây là bài viết cá nhân.
-                                Sample answer chỉ là câu trả lời
-                                tham khảo.
+                                </div>
+
+                                <p>
+                                    Giải thích:
+                                    ${item.why}
+                                </p>
+
+                                <p>
+                                    Cụm từ quan trọng:
+                                    <span class="qm-keyword">
+                                        ${item.phrase}
+                                    </span>
+                                </p>
 
                             </div>
 
@@ -1368,20 +1139,36 @@ window.QUICKMARCH_TEST = {
 
                     } else {
 
+                        feedback.className =
+                            "qm-feedback qm-wrong";
+
                         feedback.innerHTML = `
 
-                            <div class="qm-feedback qm-wrong">
+                            ✗ Try again.
 
-                                Please complete all 5 sections.
+                            <div class="qm-explanation">
 
-                                <br><br>
+                                Đáp án:
+                                ${item.answer}
 
-                                (${completed}/5 completed)
+                                <div class="qm-clue">
 
-                                <br><br>
+                                    Gợi ý:
+                                    ${item.clue}
 
-                                💡 Sample answers have been shown
-                                to help you.
+                                </div>
+
+                                <p>
+                                    Giải thích:
+                                    ${item.why}
+                                </p>
+
+                                <p>
+                                    Cụm từ quan trọng:
+                                    <span class="qm-keyword">
+                                        ${item.phrase}
+                                    </span>
+                                </p>
 
                             </div>
 
@@ -1389,9 +1176,138 @@ window.QUICKMARCH_TEST = {
 
                     }
 
+
+                    input.parentNode.appendChild(feedback);
+
+                });
+
+
+                const total =
+                    container.querySelector(
+                        "#t6-task5-total"
+                    );
+
+                total.innerHTML =
+                    `Task 5 Score: ${score}/15 marks`;
+
+            });
+
+
+        /* =================================================
+           TASK 6 CHECK
+        ================================================= */
+
+        container
+            .querySelector("#t6-check-task6")
+            .addEventListener("click", function() {
+
+                let completed = 0;
+
+
+                task6.forEach(function(item, index) {
+
+                    const input =
+                        container.querySelector(
+                            `#t6-task6-${index}`
+                        );
+
+                    const sample =
+                        container.querySelector(
+                            `#t6-task6-sample-${index}`
+                        );
+
+
+                    if (input.value.trim() !== "") {
+                        completed++;
+                    }
+
+
+                    sample.innerHTML = `
+
+                        <div class="qm-sample">
+
+                            <strong>
+                                💡 Sample answer:
+                            </strong>
+
+                            <p>
+                                ${item.sample}
+                            </p>
+
+                            <p class="qm-small-note">
+
+                                <strong>
+                                    Giải thích:
+                                </strong>
+
+                                ${item.explanation}
+
+                            </p>
+
+                        </div>
+
+                    `;
+
+                    sample.style.display = "block";
+
+                });
+
+
+                const feedback =
+                    container.querySelector(
+                        "#t6-task6-feedback"
+                    );
+
+
+                if (completed === task6.length) {
+
+                    feedback.innerHTML = `
+
+                        <div class="qm-feedback qm-correct">
+
+                            ✓ Writing submitted!
+
+                            <br><br>
+
+                            <strong>
+                                Task 6 Score: 10/10 marks
+                            </strong>
+
+                            <br><br>
+
+                            💡 Đây là bài viết cá nhân.
+                            Sample answer chỉ là câu trả lời tham khảo.
+
+                        </div>
+
+                    `;
+
+                } else {
+
+                    feedback.innerHTML = `
+
+                        <div class="qm-feedback qm-wrong">
+
+                            Please complete all 5 sections.
+
+                            <br><br>
+
+                            (${completed}/5 completed)
+
+                            <br><br>
+
+                            💡 Sample answers have been shown
+                            to help you.
+
+                        </div>
+
+                    `;
+
                 }
-            );
+
+            });
 
     }
 
 };
+
