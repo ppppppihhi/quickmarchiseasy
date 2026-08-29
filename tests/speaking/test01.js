@@ -1,4 +1,3 @@
-
 /* =========================================================
    QUICKMARCH PRACTICE
    SPEAKING TEST 01
@@ -32,8 +31,8 @@ window.QUICKMARCH_TEST = {
         container.innerHTML = `
 
             <div style="
-                width:50%;
-                max-width:500px;
+                width:100%;
+                max-width:900px;
                 margin:0 auto;
             ">
 
@@ -46,7 +45,7 @@ window.QUICKMARCH_TEST = {
                         color:#315b45;
                         font-size:19px;
                         font-weight:800;
-                        margin-bottom:10px;
+                        margin-bottom:6px;
                     "
                 >
                     Question 1 / 5
@@ -71,10 +70,13 @@ window.QUICKMARCH_TEST = {
                         type="button"
                         aria-label="Previous question"
                         style="
-                          position:absolute; left:0; top:50%; transform:translateY(-50%);
+                            position:absolute;
+                            left:0;
+                            top:50%;
+                            transform:translateY(-50%);
 
-                            width:30px;
-                            height:50px;
+                            width:46px;
+                            height:60px;
 
                             border:1px solid #cfddd3;
                             background:#f7faf8;
@@ -104,8 +106,8 @@ window.QUICKMARCH_TEST = {
                             display:block;
                             width:100%;
                             max-width:700px;
-                            height:auto;
-
+                            height:17.5vh;
+                            object-fit:contain;
                             border-radius:8px;
                         "
                     >
@@ -124,7 +126,7 @@ window.QUICKMARCH_TEST = {
                             transform:translateY(-50%);
 
                             width:46px;
-                            height:90px;
+                            height:60px;
 
                             border:1px solid #cfddd3;
                             background:#f7faf8;
@@ -150,7 +152,7 @@ window.QUICKMARCH_TEST = {
 
                 <div style="
                     text-align:center;
-                    margin-top:12px;
+                    margin-top:6px;
                 ">
 
                     <button
@@ -163,7 +165,7 @@ window.QUICKMARCH_TEST = {
 
                             border-radius:7px;
 
-                            padding:7px 20px;
+                            padding:6px 20px;
 
                             font-family:inherit;
                             font-size:16px;
@@ -181,11 +183,11 @@ window.QUICKMARCH_TEST = {
                         style="
                             display:none;
 
-                            margin:10px auto 0;
+                            margin:8px auto 0;
 
                             max-width:700px;
 
-                            padding:10px 14px;
+                            padding:9px 14px;
 
                             background:#edf5ef;
                             border:1px solid #cfdfd4;
@@ -284,7 +286,7 @@ window.QUICKMARCH_TEST = {
 
 
             /* ---------------------------------------------
-               DISABLE / ENABLE NAVIGATION
+               PREVIOUS BUTTON
             --------------------------------------------- */
 
             if (
@@ -309,6 +311,10 @@ window.QUICKMARCH_TEST = {
 
             }
 
+
+            /* ---------------------------------------------
+               NEXT BUTTON
+            --------------------------------------------- */
 
             if (
                 currentQuestion ===
