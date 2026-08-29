@@ -1,11 +1,11 @@
 /* =====================================================
    QUICKMARCH PRACTICE
-   WRITING TEST 06
+   WRITING TEST 07
 ===================================================== */
 
 window.QUICKMARCH_TEST = {
 
-    title: "Writing Test 06",
+    title: "Writing Test 07",
 
     render: function(container) {
 
