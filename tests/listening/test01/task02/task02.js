@@ -86,8 +86,9 @@ window.QUICKMARCH_TEST = {
                         "
                     >
 
+                        <!-- FIXED AUDIO PATH -->
                         <source
-                            src="tests/listening/test01/audio/task2.mp3"
+                            src="listening/test01/audio/task2.mp3"
                             type="audio/mpeg"
                         >
 
