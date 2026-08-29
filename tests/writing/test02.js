@@ -14,7 +14,16 @@ window.QUICKMARCH_TEST = {
         /* =================================================
            CSS
         ================================================= */
+const style = document.createElement("style");
 
+        style.textContent = `
+            .problem-text {
+                color: rgb(0, 0, 238);
+                font-weight: 700;
+            }
+        `;
+
+        container.appendChild(style);
         const style = document.createElement("style");
 
         style.textContent = `
@@ -236,101 +245,197 @@ window.QUICKMARCH_TEST = {
         }
 
 
-        /* =================================================
-           TASK 3 DATA
-        ================================================= */
+      /* =====================================================
+   TASK 3 — CHECK + EXPLANATION
+===================================================== */
 
-        const task3 = [
+window.submitWriting3 = function(index) {
 
-            {
-                answer:
-                    "Into this house? I moved here last year.",
+    const input = document.getElementById(
+        `writing3-${index}`
+    );
 
-                acceptedQuestions: [
+    const feedback = document.getElementById(
+        `writing3-feedback-${index}`
+    );
 
-                    "Why do you think living in the country is better than living in the city?",
+    const userAnswer = normalizeWritingText(
+        input.value
+    );
 
-                    "Why is living in the country better than living in the city?",
+    if (userAnswer === "") {
 
-                    "Which do you think is better living in the country or living in the city?",
+        feedback.innerHTML = `
+            Please write a question.
+        `;
 
-                    "Do you think living in the country is better than living in the city?"
+        feedback.className = "feedback wrong";
 
-                ]
+        return;
+    }
 
-            },
 
-            {
-                answer:
-                    "For me, the best thing about living here is fishing in the lake.",
+    const question = TEST_DATA.task3[index];
 
-                acceptedQuestions: [
+    const accepted =
+        question.acceptedQuestions.map(
+            normalizeWritingText
+        );
 
-                    "What is the best thing about living here?",
 
-                    "What is the best thing about living here for you?",
+    /* =================================================
+       EXPLANATION FOR EACH QUESTION
+    ================================================= */
 
-                    "What do you like best about living here?",
+    const explanations = [
 
-                    "What is your favourite thing about living here?"
+        `
+        <strong>💡 Giải thích:</strong><br>
+        Câu trả lời có cụm <strong>"last year"</strong>,
+        đây là thông tin về <strong>thời gian</strong>
+        một sự việc xảy ra trong quá khứ.
+        Vì vậy, ta dùng từ để hỏi <strong>When</strong>.
+        <br><br>
+        <strong>When did you move into your house?</strong>
+        <br>
+        = Bạn chuyển vào ngôi nhà này khi nào?
+        `,
 
-                ]
 
-            },
+        `
+        <strong>💡 Giải thích:</strong><br>
+        Mike nói:
+        <strong>"living in the country is better than living in the city."</strong>
+        Đây là <strong>ý kiến của Mike</strong> về việc sống ở
+        nông thôn và thành phố.
+        Vì vậy, ta có thể hỏi:
+        <strong>What do you think...?</strong>
+        <br><br>
+        <strong>What do you think about living in the country?</strong>
+        <br>
+        = Bạn nghĩ gì về việc sống ở nông thôn?
+        `,
 
-            {
-                answer:
-                    "I usually go fishing two or three times a week.",
 
-                acceptedQuestions: [
+        `
+        <strong>💡 Giải thích:</strong><br>
+        Mike nói:
+        <strong>"the best thing ... is fishing in the lake."</strong>
+        Câu trả lời đang cho biết <strong>điều tốt nhất</strong>
+        mà Mike thích làm ở đây.
+        Vì vậy, ta dùng từ để hỏi <strong>What</strong>
+        để hỏi về sự việc hoặc hoạt động.
+        <br><br>
+        <strong>What is the best thing about living here?</strong>
+        <br>
+        = Điều tuyệt vời nhất khi sống ở đây là gì?
+        `,
 
-                    "How often do you go fishing?",
 
-                    "How many times a week do you go fishing?",
+        `
+        <strong>💡 Giải thích:</strong><br>
+        Câu trả lời có:
+        <strong>"two or three times a week"</strong>.
+        Cụm này cho biết <strong>tần suất</strong>,
+        tức là một hoạt động xảy ra bao nhiêu lần.
+        Vì vậy, ta dùng <strong>How often</strong>.
+        <br><br>
+        <strong>How often do you go fishing?</strong>
+        <br>
+        = Bạn đi câu cá bao lâu một lần?
+        `,
 
-                    "How often do you usually go fishing?"
 
-                ]
+        `
+        <strong>💡 Giải thích:</strong><br>
+        Mike nói:
+        <strong>"on Saturday"</strong>.
+        Đây là một <strong>thời điểm cụ thể trong tương lai</strong>.
+        Khi hỏi về thời gian, ta dùng <strong>When</strong>.
+        <br><br>
+        <strong>When are you going to go fishing?</strong>
+        <br>
+        = Bạn sẽ đi câu cá khi nào?
+        `
 
-            },
+    ];
 
-            {
-                answer:
-                    "This weekend? Yes, I’m going to go fishing on Saturday.",
 
-                acceptedQuestions: [
+    /* =================================================
+       CHECK ANSWER
+    ================================================= */
 
-                    "Are you going fishing this weekend?",
+    if (accepted.includes(userAnswer)) {
 
-                    "Are you going to go fishing this weekend?",
+        feedback.innerHTML = `
 
-                    "What are you going to do this weekend?",
+            <div>
+                ✓ Correct!
+                <strong>3/3 marks</strong>
+            </div>
 
-                    "Are you going fishing on Saturday?"
+            <div style="
+                margin-top:12px;
+                padding:12px;
+                background:#f4f8ff;
+                border-left:4px solid #0000EE;
+                border-radius:8px;
+                line-height:1.6;
+            ">
 
-                ]
+                ${explanations[index]}
 
-            },
+            </div>
 
-            {
-                answer:
-                    "Of course I can, Sophie. I’d love to teach you to fish!",
+        `;
 
-                acceptedQuestions: [
+        feedback.className =
+            "feedback correct";
 
-                    "Can you teach me to fish?",
+    } else {
 
-                    "Can you teach me how to fish?",
+        feedback.innerHTML = `
 
-                    "Will you teach me to fish?",
+            <div>
+                ✗ Try again.
+            </div>
 
-                    "Could you teach me to fish?"
+            <div style="
+                margin-top:10px;
+                padding:12px;
+                background:#fff8f6;
+                border-radius:8px;
+                line-height:1.6;
+            ">
 
-                ]
+                <strong>Suggested answer:</strong><br>
 
-            }
+                ${question.acceptedQuestions[0]}?
 
-        ];
+            </div>
+
+
+            <div style="
+                margin-top:12px;
+                padding:12px;
+                background:#f4f8ff;
+                border-left:4px solid #0000EE;
+                border-radius:8px;
+                line-height:1.6;
+            ">
+
+                ${explanations[index]}
+
+            </div>
+
+        `;
+
+        feedback.className =
+            "feedback wrong";
+
+    }
+
+};
 
 
         /* =================================================
