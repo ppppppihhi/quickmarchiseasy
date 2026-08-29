@@ -1,9 +1,3 @@
-/* =========================================================
-   QUICKMARCH PRACTICE
-   SPEAKING TEST 01
-   ONE QUESTION PER PAGE
-   ========================================================= */
-
 window.QUICKMARCH_TEST = {
 
     title: "Speaking Test 01",
@@ -11,22 +5,14 @@ window.QUICKMARCH_TEST = {
     render: function(container) {
 
         const answers = [
-
             "I like sunny weather most.",
-
             "My mum is good at swimming, and my dad is good at football.",
-
             "My school started at eight o’clock today.",
-
             "I’m going to do my homework and watch TV tonight.",
-
             "My family is going to go to Da Nang this year."
-
         ];
 
-
         let currentQuestion = 0;
-
 
         container.innerHTML = `
 
@@ -36,8 +22,6 @@ window.QUICKMARCH_TEST = {
                 margin:0 auto;
             ">
 
-                <!-- QUESTION NUMBER -->
-
                 <div
                     id="questionNumber"
                     style="
@@ -45,14 +29,11 @@ window.QUICKMARCH_TEST = {
                         color:#315b45;
                         font-size:19px;
                         font-weight:800;
-                        margin-bottom:10px;
+                        margin-bottom:6px;
                     "
                 >
                     Question 1 / 5
                 </div>
-
-
-                <!-- IMAGE AREA -->
 
                 <div style="
                     position:relative;
@@ -62,41 +43,26 @@ window.QUICKMARCH_TEST = {
                     justify-content:center;
                 ">
 
-
-                    <!-- LEFT BUTTON -->
-
                     <button
                         id="prevButton"
                         type="button"
-                        aria-label="Previous question"
                         style="
                             position:absolute;
                             left:0;
                             top:50%;
                             transform:translateY(-50%);
-
                             width:46px;
-                            height:90px;
-
+                            height:60px;
                             border:1px solid #cfddd3;
                             background:#f7faf8;
                             color:#315b45;
-
                             border-radius:8px;
-
                             font-size:30px;
                             font-weight:700;
-
                             cursor:pointer;
-
                             z-index:5;
                         "
-                    >
-                        ‹
-                    </button>
-
-
-                    <!-- IMAGE -->
+                    >‹</button>
 
                     <img
                         id="questionImage"
@@ -106,53 +72,38 @@ window.QUICKMARCH_TEST = {
                             display:block;
                             width:100%;
                             max-width:700px;
-                            height:auto;
-
+                            height:17.5vh;
+                            object-fit:contain;
                             border-radius:8px;
                         "
                     >
 
-
-                    <!-- RIGHT BUTTON -->
-
                     <button
                         id="nextButton"
                         type="button"
-                        aria-label="Next question"
                         style="
                             position:absolute;
                             right:0;
                             top:50%;
                             transform:translateY(-50%);
-
                             width:46px;
-                            height:90px;
-
+                            height:60px;
                             border:1px solid #cfddd3;
                             background:#f7faf8;
                             color:#315b45;
-
                             border-radius:8px;
-
                             font-size:30px;
                             font-weight:700;
-
                             cursor:pointer;
-
                             z-index:5;
                         "
-                    >
-                        ›
-                    </button>
+                    >›</button>
 
                 </div>
 
-
-                <!-- SHOW ANSWER -->
-
                 <div style="
                     text-align:center;
-                    margin-top:12px;
+                    margin-top:6px;
                 ">
 
                     <button
@@ -162,43 +113,30 @@ window.QUICKMARCH_TEST = {
                             border:1px solid #cfddd3;
                             background:#f7faf8;
                             color:#315b45;
-
                             border-radius:7px;
-
-                            padding:7px 20px;
-
+                            padding:6px 20px;
                             font-family:inherit;
                             font-size:16px;
                             font-weight:700;
-
                             cursor:pointer;
                         "
                     >
                         Show Answer
                     </button>
 
-
                     <div
                         id="answerBox"
                         style="
                             display:none;
-
-                            margin:10px auto 0;
-
+                            margin:8px auto 0;
                             max-width:700px;
-
-                            padding:10px 14px;
-
+                            padding:9px 14px;
                             background:#edf5ef;
                             border:1px solid #cfdfd4;
-
                             border-radius:7px;
-
                             color:#456053;
-
                             font-size:16px;
                             line-height:1.4;
-
                             text-align:left;
                         "
                     ></div>
@@ -206,92 +144,54 @@ window.QUICKMARCH_TEST = {
                 </div>
 
             </div>
-
         `;
 
-
         const image =
-            document.getElementById(
-                "questionImage"
-            );
-
+            document.getElementById("questionImage");
 
         const questionNumber =
-            document.getElementById(
-                "questionNumber"
-            );
-
+            document.getElementById("questionNumber");
 
         const answerButton =
-            document.getElementById(
-                "answerButton"
-            );
-
+            document.getElementById("answerButton");
 
         const answerBox =
-            document.getElementById(
-                "answerBox"
-            );
-
+            document.getElementById("answerBox");
 
         const prevButton =
-            document.getElementById(
-                "prevButton"
-            );
-
+            document.getElementById("prevButton");
 
         const nextButton =
-            document.getElementById(
-                "nextButton"
-            );
+            document.getElementById("nextButton");
 
-
-        /* =================================================
-           UPDATE QUESTION
-        ================================================= */
 
         function updateQuestion() {
 
             const number =
                 currentQuestion + 1;
 
-
             questionNumber.textContent =
-                "Question " +
-                number +
-                " / 5";
-
+                "Question " + number + " / 5";
 
             image.src =
                 "tests/speaking/images/test01/" +
                 number +
                 ".png";
 
-
             image.alt =
-                "Speaking Question " +
-                number;
-
+                "Speaking Question " + number;
 
             answerBox.style.display =
                 "none";
 
-
             answerBox.textContent =
                 answers[currentQuestion];
-
 
             answerButton.textContent =
                 "Show Answer";
 
 
-            /* ---------------------------------------------
-               DISABLE / ENABLE NAVIGATION
-            --------------------------------------------- */
-
-            if (
-                currentQuestion === 0
-            ) {
+            if (currentQuestion === 0) {
 
                 prevButton.style.opacity =
                     "0.4";
@@ -299,9 +199,7 @@ window.QUICKMARCH_TEST = {
                 prevButton.style.cursor =
                     "default";
 
-            }
-
-            else {
+            } else {
 
                 prevButton.style.opacity =
                     "1";
@@ -323,9 +221,7 @@ window.QUICKMARCH_TEST = {
                 nextButton.style.cursor =
                     "default";
 
-            }
-
-            else {
+            } else {
 
                 nextButton.style.opacity =
                     "1";
@@ -338,17 +234,11 @@ window.QUICKMARCH_TEST = {
         }
 
 
-        /* =================================================
-           PREVIOUS
-        ================================================= */
-
         prevButton.addEventListener(
             "click",
             function() {
 
-                if (
-                    currentQuestion > 0
-                ) {
+                if (currentQuestion > 0) {
 
                     currentQuestion--;
 
@@ -359,10 +249,6 @@ window.QUICKMARCH_TEST = {
             }
         );
 
-
-        /* =================================================
-           NEXT
-        ================================================= */
 
         nextButton.addEventListener(
             "click",
@@ -383,10 +269,6 @@ window.QUICKMARCH_TEST = {
         );
 
 
-        /* =================================================
-           SHOW / HIDE ANSWER
-        ================================================= */
-
         answerButton.addEventListener(
             "click",
             function() {
@@ -402,9 +284,7 @@ window.QUICKMARCH_TEST = {
                     answerButton.textContent =
                         "Hide Answer";
 
-                }
-
-                else {
+                } else {
 
                     answerBox.style.display =
                         "none";
@@ -417,10 +297,6 @@ window.QUICKMARCH_TEST = {
             }
         );
 
-
-        /* =================================================
-           INITIAL DISPLAY
-        ================================================= */
 
         updateQuestion();
 
