@@ -1,4 +1,3 @@
-```javascript
 /* =====================================================
    QUICKMARCH PRACTICE
    WRITING TEST 02
@@ -1486,4 +1485,3 @@ window.QUICKMARCH_TEST = {
     }
 
 };
-```
