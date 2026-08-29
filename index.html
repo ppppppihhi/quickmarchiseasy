@@ -3,10 +3,11 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QUICKMARCH PRACTICE</title>
+<title>QUICKMARCH PEARSON PRACTICE</title>
 
 <style>
 
@@ -21,260 +22,671 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f7fb;
-    color: #1f2937;
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8fb 0%,
+            #f5f8ff 50%,
+            #f4fff9 100%
+        );
+
+    color: #4b5563;
+
     min-height: 100vh;
 }
+
 
 /* =====================================================
    HEADER
 ===================================================== */
 
 header {
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-    color: white;
-    padding: 22px 20px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffdce8,
+            #dfe8ff
+        );
+
+    padding: 35px 20px 32px;
+
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+
+    box-shadow:
+        0 6px 20px rgba(120, 130, 170, 0.12);
+
 }
 
-header h1 {
-    font-size: 30px;
+
+/* Decorative clouds */
+
+header::before {
+
+    content: "☁️";
+
+    position: absolute;
+
+    left: 8%;
+    top: 18px;
+
+    font-size: 38px;
+
+    opacity: 0.65;
+
+}
+
+header::after {
+
+    content: "🌸";
+
+    position: absolute;
+
+    right: 9%;
+    bottom: 18px;
+
+    font-size: 34px;
+
+    opacity: 0.7;
+
+}
+
+
+.logo {
+
+    font-size: 34px;
+
     font-weight: 800;
+
     letter-spacing: 1px;
+
+    color: #59658c;
+
 }
 
-header p {
-    margin-top: 6px;
-    font-size: 14px;
-    opacity: 0.9;
+
+.subtitle {
+
+    margin-top: 8px;
+
+    font-size: 15px;
+
+    color: #7b849f;
+
+    font-weight: 500;
+
 }
+
+
+.school-name {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 7px 16px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.65);
+
+    color: #6d7591;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
 
 /* =====================================================
-   MAIN CONTAINER
+   MAIN
 ===================================================== */
 
 .container {
-    width: 95%;
-    max-width: 1200px;
-    margin: 25px auto;
+
+    width: 94%;
+
+    max-width: 1100px;
+
+    margin: 30px auto 40px;
+
 }
+
+
+/* =====================================================
+   WELCOME CARD
+===================================================== */
+
+.welcome-card {
+
+    background: rgba(255,255,255,0.82);
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(120,130,160,0.10);
+
+    border: 1px solid rgba(255,255,255,0.8);
+
+}
+
+
+.welcome-card h2 {
+
+    color: #59658c;
+
+    font-size: 22px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.welcome-card p {
+
+    color: #8991a8;
+
+    font-size: 14px;
+
+}
+
 
 /* =====================================================
    SUBJECT TABS
 ===================================================== */
 
 .subject-tabs {
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
     margin-bottom: 25px;
+
 }
+
 
 .subject-btn {
+
     border: none;
-    border-radius: 12px;
-    padding: 17px 10px;
+
+    border-radius: 20px;
+
+    padding: 18px 10px;
+
     background: white;
-    color: #374151;
+
+    color: #68718c;
+
     font-size: 16px;
+
     font-weight: 700;
+
     cursor: pointer;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    transition: all 0.2s ease;
+
+    box-shadow:
+        0 5px 16px rgba(120,130,160,0.10);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
 }
+
 
 .subject-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 9px 20px rgba(120,130,160,0.15);
+
 }
+
 
 .subject-btn.active {
-    background: #2563eb;
-    color: white;
+
+    color: #59658c;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe4ed,
+            #e5eaff
+        );
+
+    box-shadow:
+        0 7px 18px rgba(120,130,160,0.16);
+
 }
 
+
 /* =====================================================
-   TEST LIST
+   TEST PANEL
 ===================================================== */
 
 .test-panel {
-    background: white;
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+    background:
+        rgba(255,255,255,0.88);
+
+    border-radius: 25px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 8px 25px rgba(120,130,160,0.10);
+
 }
+
 
 .test-panel h2 {
-    font-size: 22px;
-    margin-bottom: 8px;
+
+    color: #59658c;
+
+    font-size: 23px;
+
+    margin-bottom: 5px;
+
 }
+
 
 .test-description {
-    color: #6b7280;
+
+    color: #9299ad;
+
     font-size: 14px;
-    margin-bottom: 20px;
+
+    margin-bottom: 22px;
+
 }
+
+
+/* =====================================================
+   TEST GRID
+===================================================== */
 
 .test-grid {
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 13px;
+
 }
+
 
 .test-btn {
-    border: 1px solid #dbe3ef;
-    background: #f8fafc;
-    border-radius: 10px;
-    padding: 15px 10px;
+
+    border: 1px solid #edf0f7;
+
+    background: #fbfcff;
+
+    border-radius: 16px;
+
+    padding: 16px 10px;
+
     cursor: pointer;
-    font-size: 15px;
+
+    font-size: 14px;
+
     font-weight: 700;
-    color: #1f2937;
-    transition: all 0.2s ease;
+
+    color: #68718c;
+
+    transition:
+        all 0.2s ease;
+
 }
 
+
 .test-btn:hover {
-    background: #2563eb;
-    color: white;
-    border-color: #2563eb;
-    transform: translateY(-2px);
+
+    transform: translateY(-3px);
+
+    background: #f4f0ff;
+
+    border-color: #ded7f7;
+
+    color: #6b6090;
+
+    box-shadow:
+        0 6px 15px rgba(130,120,170,0.12);
+
 }
+
 
 /* =====================================================
    TEST AREA
 ===================================================== */
 
 #testArea {
+
     margin-top: 25px;
+
 }
+
 
 .test-header {
-    background: white;
-    border-radius: 16px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf0ff,
+            #fff0f6
+        );
+
+    border-radius: 25px;
+
+    padding: 27px;
+
+    margin-bottom: 18px;
+
+    box-shadow:
+        0 7px 22px rgba(120,130,160,0.10);
+
 }
+
 
 .test-header h2 {
+
+    color: #59658c;
+
     font-size: 24px;
-    margin-bottom: 8px;
+
+    margin-bottom: 7px;
+
 }
+
 
 .test-header p {
-    color: #6b7280;
+
+    color: #858da4;
+
     font-size: 14px;
+
 }
 
-/* =====================================================
-   CONTENT
-===================================================== */
 
 .test-content {
+
     background: white;
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+    border-radius: 25px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 7px 22px rgba(120,130,160,0.10);
+
     min-height: 200px;
+
 }
 
+
 /* =====================================================
-   EMPTY / LOADING / ERROR
+   MESSAGE
 ===================================================== */
 
 .message {
+
     text-align: center;
+
     padding: 50px 20px;
-    color: #6b7280;
+
 }
+
 
 .message h3 {
-    color: #374151;
+
+    color: #68718c;
+
+    font-size: 20px;
+
     margin-bottom: 10px;
+
 }
 
-.error-message {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
-    color: #991b1b;
-    border-radius: 10px;
-    padding: 18px;
-    line-height: 1.6;
+
+.message p {
+
+    color: #9aa1b3;
+
+    font-size: 14px;
+
 }
+
+
+/* =====================================================
+   LOADING
+===================================================== */
 
 .loading {
+
     text-align: center;
-    padding: 40px;
-    color: #2563eb;
+
+    padding: 45px;
+
+    color: #7b83a0;
+
     font-weight: 700;
+
 }
+
+
+.loading::before {
+
+    content: "🌷";
+
+    display: block;
+
+    font-size: 35px;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error-message {
+
+    background: #fff1f2;
+
+    border: 1px solid #ffd6dc;
+
+    color: #9a6871;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    line-height: 1.7;
+
+}
+
+
+.error-message strong {
+
+    color: #a65f6a;
+
+}
+
+
+.error-message code {
+
+    background: #fff;
+
+    padding: 3px 6px;
+
+    border-radius: 5px;
+
+    color: #8c6470;
+
+}
+
 
 /* =====================================================
    BACK BUTTON
 ===================================================== */
 
 .back-btn {
-    margin-top: 20px;
+
+    margin-top: 18px;
+
     border: none;
-    background: #374151;
-    color: white;
-    border-radius: 8px;
+
+    background: #dfe5f8;
+
+    color: #59658c;
+
+    border-radius: 14px;
+
     padding: 11px 18px;
+
     cursor: pointer;
+
     font-weight: 700;
+
 }
 
+
 .back-btn:hover {
-    background: #111827;
+
+    background: #d4dcf5;
+
 }
+
 
 /* =====================================================
    FOOTER
 ===================================================== */
 
 footer {
+
     text-align: center;
-    padding: 30px 15px;
-    color: #9ca3af;
-    font-size: 13px;
+
+    padding: 25px 15px 35px;
+
+    color: #a2a8b8;
+
+    font-size: 12px;
+
 }
+
+
+.footer-title {
+
+    font-weight: 700;
+
+    color: #777f99;
+
+    margin-bottom: 5px;
+
+}
+
 
 /* =====================================================
    RESPONSIVE
 ===================================================== */
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 
     .subject-tabs {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
     }
 
     .test-grid {
-        grid-template-columns: repeat(3, 1fr);
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
     }
+
 }
 
-@media (max-width: 500px) {
 
-    header h1 {
-        font-size: 24px;
+@media (max-width: 600px) {
+
+    header {
+
+        padding: 28px 15px;
+
+    }
+
+    .logo {
+
+        font-size: 27px;
+
     }
 
     .subject-tabs {
-        grid-template-columns: 1fr 1fr;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
     }
 
     .test-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
     }
 
     .test-panel,
-    .test-content,
-    .test-header {
-        padding: 18px;
+    .test-content {
+
+        padding: 20px;
+
     }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .test-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .subject-btn {
+
+        font-size: 14px;
+
+        padding: 15px 5px;
+
+    }
+
 }
 
 </style>
@@ -290,11 +702,23 @@ footer {
 <header>
 
 ```
-<h1>QUICKMARCH PRACTICE</h1>
+<div class="logo">
 
-<p>
-    English Practice System
-</p>
+    🌈 QUICKMARCH
+
+</div>
+
+<div class="subtitle">
+
+    Pearson English Practice
+
+</div>
+
+<div class="school-name">
+
+    ✨ Vs Giasu Minh Tri Thu Duc
+
+</div>
 ```
 
 </header>
@@ -306,74 +730,118 @@ footer {
 <div class="container">
 
 ```
-<!-- SUBJECT BUTTONS -->
+<!-- WELCOME -->
+
+<div class="welcome-card">
+
+    <h2>
+        🌷 Welcome to QUICKMARCH!
+    </h2>
+
+    <p>
+        Choose a skill and select a test to start practicing.
+    </p>
+
+</div>
+
+
+
+<!-- SUBJECTS -->
 
 <div class="subject-tabs">
+
 
     <button
         class="subject-btn active"
         data-subject="listening"
         onclick="selectSubject('listening')">
+
         🎧 Listening
+
     </button>
+
 
     <button
         class="subject-btn"
         data-subject="reading"
         onclick="selectSubject('reading')">
+
         📖 Reading
+
     </button>
+
 
     <button
         class="subject-btn"
         data-subject="speaking"
         onclick="selectSubject('speaking')">
+
         🎤 Speaking
+
     </button>
+
 
     <button
         class="subject-btn"
         data-subject="writing"
         onclick="selectSubject('writing')">
-        ✍️ Writing
+
+        ✏️ Writing
+
     </button>
+
 
 </div>
 
 
-<!-- TEST LIST -->
+
+<!-- TEST PANEL -->
 
 <div class="test-panel">
 
+
     <h2 id="subjectTitle">
-        Listening
+
+        🎧 Listening
+
     </h2>
 
+
     <p class="test-description">
-        Select a test to begin.
+
+        Choose one of the practice tests below.
+
     </p>
+
 
     <div
         id="testList"
         class="test-grid">
+
     </div>
 
+
 </div>
+
 
 
 <!-- TEST AREA -->
 
 <div id="testArea">
 
-    <div class="message">
+    <div class="test-content">
 
-        <h3>
-            Welcome to QUICKMARCH PRACTICE
-        </h3>
+        <div class="message">
 
-        <p>
-            Choose a subject and select a test.
-        </p>
+            <h3>
+                🌸 Ready to practice?
+            </h3>
+
+            <p>
+                Choose a subject and select a test.
+            </p>
+
+        </div>
 
     </div>
 
@@ -389,7 +857,17 @@ footer {
 <footer>
 
 ```
-QUICKMARCH PRACTICE
+<div class="footer-title">
+
+    QUICKMARCH PEARSON PRACTICE
+
+</div>
+
+<div>
+
+    © 2026 QUICKMARCH — Vs Giasu Minh Tri Thu Duc
+
+</div>
 ```
 
 </footer>
@@ -401,27 +879,28 @@ QUICKMARCH PRACTICE
    MAIN APPLICATION
 
    IMPORTANT:
-   Do not edit this file when adding a new test.
+   This file does NOT contain individual tests.
 
-   Test files are loaded independently from:
+   Test files are stored separately:
 
    tests/listening/test01.js
    tests/listening/test02.js
    ...
+
    tests/reading/test01.js
    ...
+
    tests/speaking/test01.js
    ...
+
    tests/writing/test01.js
+   ...
 
 ===================================================== */
 
-
-/* =====================================================
-   GLOBAL VARIABLES
-===================================================== */
 
 var currentSubject = "listening";
+
 var currentTest = null;
 
 
@@ -448,7 +927,7 @@ var SUBJECTS = {
 
     writing: {
         title: "Writing",
-        icon: "✍️"
+        icon: "✏️"
     }
 
 };
@@ -458,11 +937,14 @@ var SUBJECTS = {
    INITIALIZE
 ===================================================== */
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-    selectSubject("listening");
+        selectSubject("listening");
 
-});
+    }
+);
 
 
 /* =====================================================
@@ -495,11 +977,20 @@ function updateSubjectButtons() {
     var buttons =
         document.querySelectorAll(".subject-btn");
 
-    for (var i = 0; i < buttons.length; i++) {
+
+    for (
+        var i = 0;
+        i < buttons.length;
+        i++
+    ) {
 
         var button = buttons[i];
 
-        if (button.getAttribute("data-subject") === currentSubject) {
+
+        if (
+            button.getAttribute("data-subject")
+            === currentSubject
+        ) {
 
             button.classList.add("active");
 
@@ -520,9 +1011,13 @@ function updateSubjectButtons() {
 
 function updateSubjectTitle() {
 
-    var info = SUBJECTS[currentSubject];
+    var info =
+        SUBJECTS[currentSubject];
 
-    document.getElementById("subjectTitle").textContent =
+
+    document.getElementById(
+        "subjectTitle"
+    ).textContent =
         info.icon + " " + info.title;
 
 }
@@ -535,54 +1030,69 @@ function updateSubjectTitle() {
 function showTestList() {
 
     var container =
-        document.getElementById("testList");
+        document.getElementById(
+            "testList"
+        );
+
 
     container.innerHTML = "";
 
+
     /*
-       QUICKMARCH supports Test 01 → Test 19.
+       TEST 01 → TEST 19
 
-       Adding a new test file does NOT require changing
-       index.html.
-
-       Example:
-
-       tests/writing/test01.js
-       tests/writing/test02.js
-       tests/writing/test03.js
-
-       The corresponding button already exists.
+       No need to modify index.html
+       when individual test files are changed.
     */
 
-    for (var i = 1; i <= 19; i++) {
+
+    for (
+        var i = 1;
+        i <= 19;
+        i++
+    ) {
 
         var button =
-            document.createElement("button");
+            document.createElement(
+                "button"
+            );
 
-        button.className = "test-btn";
+
+        button.className =
+            "test-btn";
+
 
         var number =
-            i < 10 ? "0" + i : String(i);
+            i < 10
+                ? "0" + i
+                : String(i);
+
 
         button.textContent =
-            "Test " + number;
+            "🌼 Test " + number;
+
 
         button.setAttribute(
             "data-test-number",
             number
         );
 
-        button.onclick = (function(testNumber) {
 
-            return function() {
+        button.onclick =
+            (function(testNumber) {
 
-                loadTest(testNumber);
+                return function() {
 
-            };
+                    loadTest(testNumber);
 
-        })(number);
+                };
 
-        container.appendChild(button);
+            })(number);
+
+
+        container.appendChild(
+            button
+        );
 
     }
 
@@ -595,7 +1105,9 @@ function showTestList() {
 
 function loadTest(testNumber) {
 
-    currentTest = testNumber;
+    currentTest =
+        testNumber;
+
 
     var testPath =
         "tests/" +
@@ -604,56 +1116,82 @@ function loadTest(testNumber) {
         testNumber +
         ".js";
 
+
     showLoading(testPath);
 
 
     /*
-       Remove previously loaded TEST_DATA.
-
-       This prevents one test from accidentally being
-       displayed when another test is selected.
+       Remove previous test data.
     */
 
-    window.TEST_DATA = null;
+    window.TEST_DATA =
+        null;
 
 
     /*
-       Create a new script element.
+       Remove previous script.
     */
 
     var oldScript =
-        document.getElementById("quickmarch-test-script");
+        document.getElementById(
+            "quickmarch-test-script"
+        );
+
 
     if (oldScript) {
 
-        oldScript.parentNode.removeChild(oldScript);
+        oldScript.parentNode.removeChild(
+            oldScript
+        );
 
     }
 
 
+    /*
+       Create new script.
+    */
+
     var script =
-        document.createElement("script");
+        document.createElement(
+            "script"
+        );
+
 
     script.id =
         "quickmarch-test-script";
 
+
+    /*
+       Cache-busting parameter.
+
+       This helps GitHub Pages load the
+       newest version after a test file
+       has been updated.
+    */
+
     script.src =
-        testPath + "?v=" + Date.now();
+        testPath +
+        "?v=" +
+        Date.now();
 
-    script.onload = function() {
 
-        /*
-           The test file must create:
+    /* =================================================
+       SUCCESS
+    ================================================= */
 
-           window.TEST_DATA = {...}
-        */
+    script.onload =
+        function() {
+
 
         if (
-            typeof window.TEST_DATA === "undefined" ||
+            typeof window.TEST_DATA
+            === "undefined"
+            ||
             window.TEST_DATA === null
         ) {
 
             showError(
+
                 "The test file loaded successfully, " +
                 "but TEST_DATA was not found.<br><br>" +
 
@@ -668,6 +1206,7 @@ function loadTest(testNumber) {
                 "<code>" +
                 "window.TEST_DATA = { ... };" +
                 "</code>"
+
             );
 
             return;
@@ -680,12 +1219,19 @@ function loadTest(testNumber) {
             testPath
         );
 
+
     };
 
 
-    script.onerror = function() {
+    /* =================================================
+       ERROR
+    ================================================= */
+
+    script.onerror =
+        function() {
 
         showError(
+
             "Unable to load this test.<br><br>" +
 
             "The system tried to load:<br>" +
@@ -696,12 +1242,15 @@ function loadTest(testNumber) {
 
             "Please check that this file exists " +
             "in your GitHub repository."
+
         );
 
     };
 
 
-    document.body.appendChild(script);
+    document.body.appendChild(
+        script
+    );
 
 }
 
@@ -713,7 +1262,10 @@ function loadTest(testNumber) {
 function showLoading(path) {
 
     var area =
-        document.getElementById("testArea");
+        document.getElementById(
+            "testArea"
+        );
+
 
     area.innerHTML =
 
@@ -741,7 +1293,10 @@ function showLoading(path) {
 function showError(message) {
 
     var area =
-        document.getElementById("testArea");
+        document.getElementById(
+            "testArea"
+        );
+
 
     area.innerHTML =
 
@@ -749,7 +1304,7 @@ function showError(message) {
 
             '<div class="error-message">' +
 
-                '<strong>⚠️ Test Loading Error</strong>' +
+                '<strong>🌸 Test Loading Error</strong>' +
 
                 '<br><br>' +
 
@@ -774,49 +1329,53 @@ function showError(message) {
    RENDER TEST
 ===================================================== */
 
-function renderTest(data, path) {
+function renderTest(
+    data,
+    path
+) {
+
 
     var area =
-        document.getElementById("testArea");
+        document.getElementById(
+            "testArea"
+        );
 
-
-    /*
-       Safely obtain test title.
-    */
 
     var title =
-        data.title ||
+        data.title
+        ||
         SUBJECTS[currentSubject].title +
         " Test " +
         currentTest;
 
 
     var description =
-        data.description ||
+        data.description
+        ||
         "";
 
 
     /*
-       If the test file provides its own renderer,
+       If the test has its own renderer,
        use it.
-
-       This is important because Listening,
-       Reading, Speaking and Writing can have
-       completely different interfaces.
     */
 
-    if (typeof data.render === "function") {
+    if (
+        typeof data.render
+        === "function"
+    ) {
+
 
         area.innerHTML =
 
             '<div class="test-header">' +
 
                 '<h2>' +
-                title +
+                escapeHTML(title) +
                 '</h2>' +
 
                 '<p>' +
-                description +
+                escapeHTML(description) +
                 '</p>' +
 
             '</div>' +
@@ -831,21 +1390,27 @@ function renderTest(data, path) {
         try {
 
             data.render(
-                document.getElementById("testContent")
+                document.getElementById(
+                    "testContent"
+                )
             );
 
         } catch (error) {
 
             showError(
-                "The test file loaded, but an error " +
-                "occurred while displaying the test.<br><br>" +
+
+                "The test file loaded, " +
+                "but an error occurred " +
+                "while displaying the test.<br><br>" +
 
                 "<code>" +
                 error.message +
                 "</code>"
+
             );
 
         }
+
 
         return;
 
@@ -853,12 +1418,7 @@ function renderTest(data, path) {
 
 
     /*
-       If there is no custom renderer,
-       display the data in a safe basic format.
-
-       This allows us to add the actual test
-       structure later without changing the
-       loading system.
+       Basic fallback.
     */
 
     area.innerHTML =
@@ -879,7 +1439,7 @@ function renderTest(data, path) {
 
             '<div class="message">' +
 
-                '<h3>Test loaded successfully</h3>' +
+                '<h3>🌷 Test loaded successfully!</h3>' +
 
                 '<p>' +
 
@@ -899,7 +1459,6 @@ function renderTest(data, path) {
 
         '</div>';
 
-
 }
 
 
@@ -910,23 +1469,26 @@ function renderTest(data, path) {
 function clearTestArea() {
 
     var area =
-        document.getElementById("testArea");
+        document.getElementById(
+            "testArea"
+        );
+
 
     area.innerHTML =
 
-        '<div class="message">' +
+        '<div class="test-content">' +
 
-            '<h3>' +
+            '<div class="message">' +
 
-            'Welcome to QUICKMARCH PRACTICE' +
+                '<h3>🌸 Ready to practice?</h3>' +
 
-            '</h3>' +
+                '<p>' +
 
-            '<p>' +
+                    'Choose a subject and select a test.' +
 
-            'Choose a test to begin.' +
+                '</p>' +
 
-            '</p>' +
+            '</div>' +
 
         '</div>';
 
@@ -939,22 +1501,47 @@ function clearTestArea() {
 
 function escapeHTML(value) {
 
-    if (value === null || value === undefined) {
+    if (
+        value === null ||
+        value === undefined
+    ) {
 
         return "";
 
     }
 
+
     return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 </script>
 
 </body>
+
 </html>
