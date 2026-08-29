@@ -1,4811 +1,2039 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>QUICKMARCH PRACTICE</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f7fb;
-    color: #222;
-    line-height: 1.6;
-}
-
-
-/* =====================================================
-   NAVBAR
-===================================================== */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    background: white;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 14px 20px;
-
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-
-    flex-wrap: wrap;
-}
-
-.navbar a {
-    text-decoration: none;
-
-    color: #333;
-
-    font-weight: bold;
-
-    padding: 10px 15px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.navbar a:hover,
-.navbar a.active {
-    background: #eef2ff;
-    color: #3949ab;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero {
-    text-align: center;
-
-    padding: 65px 20px 35px;
-}
-
-.hero h1 {
-    font-size: 42px;
-
-    margin-bottom: 12px;
-}
-
-.hero p {
-    font-size: 18px;
-
-    color: #666;
-}
-
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
-.container {
-    max-width: 1150px;
-
-    margin: auto;
-
-    padding: 20px;
-}
-
-
-/* =====================================================
-   HOME CARDS
-===================================================== */
-
-.cards {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-
-    gap: 20px;
-
-    margin-bottom: 50px;
-}
-
-.card {
-    background: white;
-
-    padding: 30px 20px;
-
-    border-radius: 18px;
-
-    text-align: center;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
-
-    transition: 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card .icon {
-    font-size: 45px;
-
-    margin-bottom: 12px;
-}
-
-.card h2 {
-    margin-bottom: 8px;
-}
-
-.card p {
-    color: #777;
-
-    margin-bottom: 20px;
-}
-
-
-/* =====================================================
-   BUTTON
-===================================================== */
-
-.button {
-    background: #222;
-
-    color: white;
-
-    border: none;
-
-    border-radius: 10px;
-
-    padding: 11px 20px;
-
-    cursor: pointer;
-
-    font-size: 15px;
-
-    text-decoration: none;
-
-    display: inline-block;
-
-    transition: 0.2s;
-}
-
-.button:hover {
-    background: #444;
-}
-
-.button.secondary {
-    background: #3949ab;
-}
-
-.button.secondary:hover {
-    background: #303f9f;
-}
-
-
-/* =====================================================
-   SKILL SECTION
-===================================================== */
-
-.section {
-    display: none;
-
-    scroll-margin-top: 90px;
-
-    margin-top: 35px;
-
-    margin-bottom: 80px;
-}
-
-.section.active {
-    display: block;
-}
-
-.section-title {
-    text-align: center;
-
-    margin-bottom: 30px;
-}
-
-.section-title h2 {
-    font-size: 32px;
-
-    margin-bottom: 8px;
-}
-
-.section-title p {
-    color: #777;
-}
-
-
-/* =====================================================
-   TEST SELECTOR
-===================================================== */
-
-.test-selector {
-    background: white;
-
-    border-radius: 20px;
-
-    padding: 30px;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
-
-    margin-bottom: 30px;
-}
-
-.test-selector h3 {
-    text-align: center;
-
-    margin-bottom: 25px;
-
-    font-size: 22px;
-}
-
-.test-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(130px, 1fr));
-
-    gap: 15px;
-}
-
-.test-button {
-    background: #f5f7fb;
-
-    border: 2px solid #e1e4ec;
-
-    border-radius: 12px;
-
-    padding: 15px;
-
-    cursor: pointer;
-
-    font-weight: bold;
-
-    font-size: 15px;
-
-    transition: 0.2s;
-}
-
-.test-button:hover {
-    background: #eef2ff;
-
-    border-color: #7986cb;
-}
-
-.test-button.selected {
-    background: #3949ab;
-
-    color: white;
-
-    border-color: #3949ab;
-}
-
-
-/* =====================================================
-   TEST CONTENT
-===================================================== */
-
-.test-content {
-    display: none;
-}
-
-.test-content.active {
-    display: block;
-}
-
-.current-test-title {
-    text-align: center;
-
-    margin-bottom: 25px;
-
-    font-size: 27px;
-}
-
-
-/* =====================================================
-   TASK BOX
-===================================================== */
-
-.task-box {
-    background: white;
-
-    border-radius: 20px;
-
-    padding: 30px;
-
-    margin-bottom: 30px;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
-}
-
-.task-title {
-    font-size: 25px;
-
-    margin-bottom: 8px;
-}
-
-.task-description {
-    color: #777;
-
-    margin-bottom: 25px;
-}
-
-
-/* =====================================================
-   QUESTION BOX
-===================================================== */
-
-.question-box {
-    background: #f8f9ff;
-
-    border-radius: 15px;
-
-    padding: 25px;
-
-    margin-bottom: 20px;
-}
-
-.question-number {
-    font-weight: bold;
-
-    font-size: 18px;
-
-    margin-bottom: 15px;
-}
-
-
-/* =====================================================
-   EXAMPLE
-===================================================== */
-
-.example-box {
-    background: #fff8e1;
-
-    border-left: 5px solid #f0ad00;
-
-    padding: 18px;
-
-    border-radius: 10px;
-
-    margin-bottom: 20px;
-}
-
-
-/* =====================================================
-   AUDIO
-===================================================== */
-
-.audio-box {
-    position: sticky;
-
-    top: 85px;
-
-    z-index: 100;
-
-    background: white;
-
-    border-radius: 18px;
-
-    padding: 18px;
-
-    margin-bottom: 25px;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.12);
-
-    text-align: center;
-}
-
-.audio-box h3 {
-    margin-bottom: 10px;
-}
-
-.audio-box audio {
-    width: 100%;
-
-    max-width: 650px;
-}
-
-
-/* =====================================================
-   PICTURES
-===================================================== */
-
-.picture-options {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-
-    margin-top: 18px;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f5f7fb;
+color:#222;
+line-height:1.6
+}
+.navbar{
+position:sticky;
+top:0;
+z-index:1000;
+background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+padding:14px 20px;
+box-shadow:0 2px 12px rgba(0,0,0,.08);
+flex-wrap:wrap
+}
+.navbar a{
+text-decoration:none;
+color:#333;
+font-weight:bold;
+padding:10px 15px;
+border-radius:10px;
+cursor:pointer;
+transition:.2s
+}
+.navbar a:hover,.navbar a.active{
+background:#eef2ff;
+color:#3949ab
+}
+.hero{text-align:center;padding:65px 20px 35px}
+.hero h1{font-size:42px;margin-bottom:12px}
+.hero p{font-size:18px;color:#666}
+.container{max-width:1150px;margin:auto;padding:20px}
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-bottom:50px
+}
+.card{
+background:white;
+padding:30px 20px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+transition:.2s
+}
+.card:hover{transform:translateY(-5px)}
+.card .icon{font-size:45px;margin-bottom:12px}
+.card h2{margin-bottom:8px}
+.card p{color:#777;margin-bottom:20px}
+.button{
+background:#222;
+color:white;
+border:none;
+border-radius:10px;
+padding:11px 20px;
+cursor:pointer;
+font-size:15px;
+text-decoration:none;
+display:inline-block;
+transition:.2s
+}
+.button:hover{background:#444}
+.button.secondary{background:#3949ab}
+.button.secondary:hover{background:#303f9f}
+.section{
+display:none;
+scroll-margin-top:90px;
+margin-top:35px;
+margin-bottom:80px
+}
+.section.active{display:block}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title h2{font-size:32px;margin-bottom:8px}
+.section-title p{color:#777}
+.test-selector{
+background:white;
+border-radius:20px;
+padding:30px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+margin-bottom:30px
+}
+.test-selector h3{text-align:center;margin-bottom:25px;font-size:22px}
+.test-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+gap:15px
+}
+.test-button{
+background:#f5f7fb;
+border:2px solid #e1e4ec;
+border-radius:12px;
+padding:15px;
+cursor:pointer;
+font-weight:bold;
+font-size:15px;
+transition:.2s
+}
+.test-button:hover{background:#eef2ff;border-color:#7986cb}
+.test-button.selected{
+background:#3949ab;
+color:white;
+border-color:#3949ab
+}
+.test-content{display:none}
+.test-content.active{display:block}
+.current-test-title{text-align:center;margin-bottom:25px;font-size:27px}
+.task-box{
+background:white;
+border-radius:20px;
+padding:30px;
+margin-bottom:30px;
+box-shadow:0 4px 15px rgba(0,0,0,.08)
+}
+.task-title{font-size:25px;margin-bottom:8px}
+.task-description{color:#777;margin-bottom:25px}
+.question-box{
+background:#f8f9ff;
+border-radius:15px;
+padding:25px;
+margin-bottom:20px
+}
+.question-number{
+font-weight:bold;
+font-size:18px;
+margin-bottom:15px
+}
+.example-box{
+background:#fff8e1;
+border-left:5px solid #f0ad00;
+padding:18px;
+border-radius:10px;
+margin-bottom:20px
+}
+.audio-box{
+position:sticky;
+top:85px;
+z-index:100;
+background:white;
+border-radius:18px;
+padding:18px;
+margin-bottom:25px;
+box-shadow:0 4px 15px rgba(0,0,0,.12);
+text-align:center
+}
+.audio-box h3{margin-bottom:10px}
+.audio-box audio{width:100%;max-width:650px}
+.picture-options{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:18px
+}
+.picture-option{
+background:white;
+border:4px solid transparent;
+border-radius:15px;
+padding:8px;
+cursor:pointer;
+transition:.2s
+}
+.picture-option:hover{
+border-color:#b8c0ff;
+transform:scale(1.02)
+}
+.picture-option.selected{
+border-color:#3949ab;
+background:#eef1ff
+}
+.picture-option img{
+width:100%;
+height:190px;
+object-fit:contain;
+border-radius:10px;
+display:block
+}
+.answer-input,.question-input{
+width:100%;
+padding:13px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:16px;
+background:white;
+margin-top:10px
+}
+.answer-input:focus,.question-input:focus{
+outline:none;
+border-color:#3949ab
+}
+textarea.answer-input{min-height:120px;resize:vertical}
+.feedback{margin-top:12px;font-weight:bold}
+.correct{color:#16803c}
+.wrong{color:#c62828}
+.answer-explanation{
+background:#f1f8f4;
+border-left:5px solid #16803c;
+padding:15px;
+margin-top:15px;
+border-radius:10px;
+display:none
+}
+.answer-explanation.show{display:block}
+.answer-sample{
+background:#fff8e1;
+border-left:5px solid #f0ad00;
+padding:15px;
+margin-top:12px;
+border-radius:10px
+}
+.hint-box{
+background:#eef2ff;
+border-left:5px solid #3949ab;
+padding:15px;
+margin-top:12px;
+margin-bottom:15px;
+border-radius:10px;
+color:#333
+}
+.word-bank{
+background:#fff8e1;
+border:2px solid #f0ad00;
+border-radius:12px;
+padding:18px;
+margin-bottom:25px;
+line-height:2;
+text-align:center
+}
+.word-bank strong{
+display:block;
+margin-bottom:8px;
+font-size:18px
+}
+.passage-box{
+background:white;
+border:1px solid #e2e5ec;
+border-radius:15px;
+padding:25px;
+font-size:17px;
+line-height:2.1;
+margin-bottom:20px
+}
+.reading-layout{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:start
+}
+.fixed-picture{
+position:sticky;
+top:110px;
+background:white;
+border-radius:20px;
+padding:20px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+text-align:center
+}
+.fixed-picture img{
+width:100%;
+height:450px;
+object-fit:contain;
+border-radius:15px
+}
+.question-select{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+margin-bottom:20px;
+background:white
+}
+.speaking-card{
+background:white;
+border-radius:20px;
+padding:30px;
+margin-bottom:25px;
+box-shadow:0 4px 15px rgba(0,0,0,.08)
+}
+.speaking-topic{
+background:#f8f9ff;
+border-radius:15px;
+padding:20px;
+margin-top:15px
+}
+.speaking-prompt{
+font-size:18px;
+font-weight:bold;
+margin-bottom:15px
+}
+.speaking-list{padding-left:25px;margin-top:10px}
+.speaking-list li{margin-bottom:8px}
+.loading{
+text-align:center;
+padding:40px;
+color:#777;
+background:white;
+border-radius:20px
+}
+.error-message{
+background:#ffebee;
+color:#c62828;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+text-align:center
+}
+.file-path{
+display:inline-block;
+margin-top:10px;
+padding:8px 12px;
+background:#fff;
+border-radius:8px;
+font-family:monospace;
+color:#333
+}
+.inline-writing-input{
+display:inline-block;
+width:150px;
+padding:5px 8px;
+margin:0 4px;
+border:1px solid #aaa;
+border-radius:6px;
+font-size:16px
+}
+.inline-writing-input.correct-input{
+border:2px solid #16803c;
+background:#f1f8f4
+}
+.inline-writing-input.wrong-input{
+border:2px solid #c62828;
+background:#ffebee
+}
+footer{text-align:center;padding:30px;color:#888}
+
+@media(max-width:800px){
+.reading-layout{grid-template-columns:1fr}
+.fixed-picture{position:relative;top:0}
+.fixed-picture img{height:300px}
+.picture-options{grid-template-columns:1fr}
+.picture-option img{height:220px}
+}
+@media(max-width:600px){
+.navbar{gap:4px;padding:10px}
+.navbar a{padding:8px 10px;font-size:13px}
+.hero h1{font-size:32px}
+.task-box{padding:20px}
+.test-selector{padding:20px}
+.question-box{padding:18px}
 }
-
-.picture-option {
-    background: white;
-
-    border: 4px solid transparent;
-
-    border-radius: 15px;
-
-    padding: 8px;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.picture-option:hover {
-    border-color: #b8c0ff;
-
-    transform: scale(1.02);
-}
-
-.picture-option.selected {
-    border-color: #3949ab;
-
-    background: #eef1ff;
-}
-
-.picture-option img {
-    width: 100%;
-
-    height: 190px;
-
-    object-fit: contain;
-
-    border-radius: 10px;
-
-    display: block;
-}
-
-
-/* =====================================================
-   INPUT
-===================================================== */
-
-.answer-input,
-.question-input {
-    width: 100%;
-
-    padding: 13px;
-
-    border: 1px solid #ccc;
-
-    border-radius: 10px;
-
-    font-size: 16px;
-
-    background: white;
-
-    margin-top: 10px;
-}
-
-.answer-input:focus,
-.question-input:focus {
-    outline: none;
-
-    border-color: #3949ab;
-}
-
-
-/* =====================================================
-   TEXTAREA
-===================================================== */
-
-textarea.answer-input {
-    min-height: 120px;
-
-    resize: vertical;
-}
-
-
-/* =====================================================
-   FEEDBACK
-===================================================== */
-
-.feedback {
-    margin-top: 12px;
-
-    font-weight: bold;
-}
-
-.correct {
-    color: #16803c;
-}
-
-.wrong {
-    color: #c62828;
-}
-
-
-/* =====================================================
-   EXPLANATION
-===================================================== */
-
-.answer-explanation {
-    background: #f1f8f4;
-
-    border-left: 5px solid #16803c;
-
-    padding: 15px;
-
-    margin-top: 15px;
-
-    border-radius: 10px;
-
-    display: none;
-}
-
-.answer-explanation.show {
-    display: block;
-}
-
-.answer-sample {
-    background: #fff8e1;
-
-    border-left: 5px solid #f0ad00;
-
-    padding: 15px;
-
-    margin-top: 12px;
-
-    border-radius: 10px;
-}
-
-
-/* =====================================================
-   HINT
-===================================================== */
-
-.hint-box {
-    background: #eef2ff;
-
-    border-left: 5px solid #3949ab;
-
-    padding: 15px;
-
-    margin-top: 12px;
-
-    margin-bottom: 15px;
-
-    border-radius: 10px;
-
-    color: #333;
-}
-
-
-/* =====================================================
-   WORD BANK
-===================================================== */
-
-.word-bank {
-    background: #fff8e1;
-
-    border: 2px solid #f0ad00;
-
-    border-radius: 12px;
-
-    padding: 18px;
-
-    margin-bottom: 25px;
-
-    line-height: 2;
-
-    text-align: center;
-}
-
-.word-bank strong {
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-size: 18px;
-}
-
-
-/* =====================================================
-   PASSAGE
-===================================================== */
-
-.passage-box {
-    background: white;
-
-    border: 1px solid #e2e5ec;
-
-    border-radius: 15px;
-
-    padding: 25px;
-
-    font-size: 17px;
-
-    line-height: 2.1;
-
-    margin-bottom: 20px;
-}
-
-
-/* =====================================================
-   READING
-===================================================== */
-
-.reading-layout {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 30px;
-
-    align-items: start;
-}
-
-.fixed-picture {
-    position: sticky;
-
-    top: 110px;
-
-    background: white;
-
-    border-radius: 20px;
-
-    padding: 20px;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
-
-    text-align: center;
-}
-
-.fixed-picture img {
-    width: 100%;
-
-    height: 450px;
-
-    object-fit: contain;
-
-    border-radius: 15px;
-}
-
-.question-select {
-    width: 100%;
-
-    padding: 14px;
-
-    border-radius: 10px;
-
-    border: 1px solid #ccc;
-
-    font-size: 16px;
-
-    margin-bottom: 20px;
-
-    background: white;
-}
-
-
-/* =====================================================
-   SPEAKING
-===================================================== */
-
-.speaking-card {
-    background: white;
-
-    border-radius: 20px;
-
-    padding: 30px;
-
-    margin-bottom: 25px;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
-}
-
-.speaking-topic {
-    background: #f8f9ff;
-
-    border-radius: 15px;
-
-    padding: 20px;
-
-    margin-top: 15px;
-}
-
-.speaking-prompt {
-    font-size: 18px;
-
-    font-weight: bold;
-
-    margin-bottom: 15px;
-}
-
-.speaking-list {
-    padding-left: 25px;
-
-    margin-top: 10px;
-}
-
-.speaking-list li {
-    margin-bottom: 8px;
-}
-
-
-/* =====================================================
-   LOADING
-===================================================== */
-
-.loading {
-    text-align: center;
-
-    padding: 40px;
-
-    color: #777;
-
-    background: white;
-
-    border-radius: 20px;
-}
-
-
-/* =====================================================
-   ERROR
-===================================================== */
-
-.error-message {
-    background: #ffebee;
-
-    color: #c62828;
-
-    padding: 20px;
-
-    border-radius: 12px;
-
-    margin-bottom: 20px;
-
-    text-align: center;
-}
-
-.file-path {
-    display: inline-block;
-
-    margin-top: 10px;
-
-    padding: 8px 12px;
-
-    background: #fff;
-
-    border-radius: 8px;
-
-    font-family: monospace;
-
-    color: #333;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-    text-align: center;
-
-    padding: 30px;
-
-    color: #888;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 800px) {
-
-    .reading-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .fixed-picture {
-        position: relative;
-
-        top: 0;
-    }
-
-    .fixed-picture img {
-        height: 300px;
-    }
-
-    .picture-options {
-        grid-template-columns: 1fr;
-    }
-
-    .picture-option img {
-        height: 220px;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .navbar {
-        gap: 4px;
-
-        padding: 10px;
-    }
-
-    .navbar a {
-        padding: 8px 10px;
-
-        font-size: 13px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .task-box {
-        padding: 20px;
-    }
-
-    .test-selector {
-        padding: 20px;
-    }
-
-    .question-box {
-        padding: 18px;
-    }
-
-}
-
 </style>
 
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
-
 <nav class="navbar">
-
-    <a href="#home" onclick="showHome()">
-        🏠 Home
-    </a>
-
-    <a href="#listening" onclick="showSkill('listening')">
-        🎧 Listening
-    </a>
-
-    <a href="#speaking" onclick="showSkill('speaking')">
-        🎤 Speaking
-    </a>
-
-    <a href="#reading" onclick="showSkill('reading')">
-        📖 Reading
-    </a>
-
-    <a href="#writing" onclick="showSkill('writing')">
-        📝 Writing
-    </a>
-
+<a href="#home" onclick="showHome()">🏠 Home</a>
+<a href="#listening" onclick="showSkill('listening')">🎧 Listening</a>
+<a href="#speaking" onclick="showSkill('speaking')">🎤 Speaking</a>
+<a href="#reading" onclick="showSkill('reading')">📖 Reading</a>
+<a href="#writing" onclick="showSkill('writing')">📝 Writing</a>
 </nav>
 
-
-<!-- =====================================================
-     HOME
-===================================================== -->
-
 <section id="home" class="hero">
-
-    <h1>QUICKMARCH PRACTICE</h1>
-
-    <p>
-        Practice English. Learn Better. Improve Every Day.
-    </p>
-
+<h1>QUICKMARCH PRACTICE</h1>
+<p>Practice English. Learn Better. Improve Every Day.</p>
 </section>
-
 
 <div class="container">
 
-
-<!-- =====================================================
-     HOME CARDS
-===================================================== -->
-
 <div id="homeCards" class="cards">
 
-
-    <div class="card">
-
-        <div class="icon">
-            🎧
-        </div>
-
-        <h2>
-            Listening
-        </h2>
-
-        <p>
-            19 practice tests
-        </p>
-
-        <button
-            class="button"
-            onclick="showSkill('listening')"
-        >
-            Choose Test
-        </button>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="icon">
-            🎤
-        </div>
-
-        <h2>
-            Speaking
-        </h2>
-
-        <p>
-            19 practice tests
-        </p>
-
-        <button
-            class="button"
-            onclick="showSkill('speaking')"
-        >
-            Choose Test
-        </button>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="icon">
-            📖
-        </div>
-
-        <h2>
-            Reading
-        </h2>
-
-        <p>
-            19 practice tests
-        </p>
-
-        <button
-            class="button"
-            onclick="showSkill('reading')"
-        >
-            Choose Test
-        </button>
-
-    </div>
-
-
-    <div class="card">
-
-        <div class="icon">
-            📝
-        </div>
-
-        <h2>
-            Writing
-        </h2>
-
-        <p>
-            19 practice tests
-        </p>
-
-        <button
-            class="button"
-            onclick="showSkill('writing')"
-        >
-            Choose Test
-        </button>
-
-    </div>
-
-
+<div class="card">
+<div class="icon">🎧</div>
+<h2>Listening</h2>
+<p>19 practice tests</p>
+<button class="button" onclick="showSkill('listening')">Choose Test</button>
 </div>
 
+<div class="card">
+<div class="icon">🎤</div>
+<h2>Speaking</h2>
+<p>19 practice tests</p>
+<button class="button" onclick="showSkill('speaking')">Choose Test</button>
+</div>
 
-<!-- =====================================================
-     LISTENING
-===================================================== -->
+<div class="card">
+<div class="icon">📖</div>
+<h2>Reading</h2>
+<p>19 practice tests</p>
+<button class="button" onclick="showSkill('reading')">Choose Test</button>
+</div>
+
+<div class="card">
+<div class="icon">📝</div>
+<h2>Writing</h2>
+<p>19 practice tests</p>
+<button class="button" onclick="showSkill('writing')">Choose Test</button>
+</div>
+
+</div>
 
 <section id="listening" class="section">
-
-    <div class="section-title">
-
-        <h2>
-            🎧 Listening
-        </h2>
-
-        <p>
-            Choose one of the 19 Listening tests.
-        </p>
-
-    </div>
-
-
-    <div class="test-selector">
-
-        <h3>
-            Choose a Listening Test
-        </h3>
-
-        <div
-            id="listeningTestButtons"
-            class="test-grid"
-        ></div>
-
-    </div>
-
-
-    <div
-        id="listeningContent"
-        class="test-content"
-    ></div>
-
+<div class="section-title">
+<h2>🎧 Listening</h2>
+<p>Choose one of the 19 Listening tests.</p>
+</div>
+<div class="test-selector">
+<h3>Choose a Listening Test</h3>
+<div id="listeningTestButtons" class="test-grid"></div>
+</div>
+<div id="listeningContent" class="test-content"></div>
 </section>
-
-
-<!-- =====================================================
-     SPEAKING
-===================================================== -->
 
 <section id="speaking" class="section">
-
-    <div class="section-title">
-
-        <h2>
-            🎤 Speaking
-        </h2>
-
-        <p>
-            Choose one of the 19 Speaking tests.
-        </p>
-
-    </div>
-
-
-    <div class="test-selector">
-
-        <h3>
-            Choose a Speaking Test
-        </h3>
-
-        <div
-            id="speakingTestButtons"
-            class="test-grid"
-        ></div>
-
-    </div>
-
-
-    <div
-        id="speakingContent"
-        class="test-content"
-    ></div>
-
+<div class="section-title">
+<h2>🎤 Speaking</h2>
+<p>Choose one of the 19 Speaking tests.</p>
+</div>
+<div class="test-selector">
+<h3>Choose a Speaking Test</h3>
+<div id="speakingTestButtons" class="test-grid"></div>
+</div>
+<div id="speakingContent" class="test-content"></div>
 </section>
-
-
-<!-- =====================================================
-     READING
-===================================================== -->
 
 <section id="reading" class="section">
-
-    <div class="section-title">
-
-        <h2>
-            📖 Reading
-        </h2>
-
-        <p>
-            Choose one of the 19 Reading tests.
-        </p>
-
-    </div>
-
-
-    <div class="test-selector">
-
-        <h3>
-            Choose a Reading Test
-        </h3>
-
-        <div
-            id="readingTestButtons"
-            class="test-grid"
-        ></div>
-
-    </div>
-
-
-    <div
-        id="readingContent"
-        class="test-content"
-    ></div>
-
+<div class="section-title">
+<h2>📖 Reading</h2>
+<p>Choose one of the 19 Reading tests.</p>
+</div>
+<div class="test-selector">
+<h3>Choose a Reading Test</h3>
+<div id="readingTestButtons" class="test-grid"></div>
+</div>
+<div id="readingContent" class="test-content"></div>
 </section>
-
-
-<!-- =====================================================
-     WRITING
-===================================================== -->
 
 <section id="writing" class="section">
-
-    <div class="section-title">
-
-        <h2>
-            📝 Writing
-        </h2>
-
-        <p>
-            Choose one of the 19 Writing tests.
-        </p>
-
-    </div>
-
-
-    <div class="test-selector">
-
-        <h3>
-            Choose a Writing Test
-        </h3>
-
-        <div
-            id="writingTestButtons"
-            class="test-grid"
-        ></div>
-
-    </div>
-
-
-    <div
-        id="writingContent"
-        class="test-content"
-    ></div>
-
+<div class="section-title">
+<h2>📝 Writing</h2>
+<p>Choose one of the 19 Writing tests.</p>
+</div>
+<div class="test-selector">
+<h3>Choose a Writing Test</h3>
+<div id="writingTestButtons" class="test-grid"></div>
+</div>
+<div id="writingContent" class="test-content"></div>
 </section>
-
 
 </div>
 
-
 <footer>
-
-    © 2026 QUICKMARCH Pearson VS Gia su Minh Tri Thu Duc
-
+© 2026 QUICKMARCH Pearson VS Gia su Minh Tri Thu Duc
 </footer>
-
 
 <script>
 
-/* =====================================================
-   CONFIGURATION
-===================================================== */
+const TOTAL_TESTS=19;
 
-const TOTAL_TESTS = 19;
+let currentSkill=null;
+let currentTest=null;
+let currentTestData=null;
 
+const TEST_CACHE={};
+
+function createTestButtons(){
+["listening","speaking","reading","writing"].forEach(function(skill){
+const container=document.getElementById(skill+"TestButtons");
+if(!container)return;
+
+for(let i=1;i<=TOTAL_TESTS;i++){
+const button=document.createElement("button");
+button.type="button";
+button.className="test-button";
+button.textContent="Test "+String(i).padStart(2,"0");
+button.dataset.skill=skill;
+button.dataset.test=i;
+
+button.onclick=function(){
+loadTest(skill,i);
+};
+
+container.appendChild(button);
+}
+});
+}
+
+function updateSelectedButton(skill,testNumber){
+document.querySelectorAll(".test-button").forEach(function(button){
+button.classList.remove("selected");
+});
+
+const selected=document.querySelector(
+`.test-button[data-skill="${skill}"][data-test="${testNumber}"]`
+);
+
+if(selected)selected.classList.add("selected");
+}
+
+function showHome(){
+
+currentSkill=null;
+currentTest=null;
+currentTestData=null;
+
+document.querySelectorAll(".section").forEach(function(section){
+section.classList.remove("active");
+});
+
+document.getElementById("homeCards").style.display="grid";
+
+document.querySelectorAll(".navbar a").forEach(function(link){
+link.classList.remove("active");
+});
+
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function showSkill(skill){
+
+currentSkill=skill;
+
+document.getElementById("homeCards").style.display="none";
+
+document.querySelectorAll(".section").forEach(function(section){
+section.classList.remove("active");
+});
+
+document.querySelectorAll(".navbar a").forEach(function(link){
+link.classList.remove("active");
+});
+
+const section=document.getElementById(skill);
+if(!section)return;
+
+section.classList.add("active");
+
+const navLink=document.querySelector(`.navbar a[href="#${skill}"]`);
+if(navLink)navLink.classList.add("active");
+
+section.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+}
+
+async function loadTest(skill,testNumber){
+
+currentSkill=skill;
+currentTest=testNumber;
+currentTestData=null;
+
+updateSelectedButton(skill,testNumber);
+showSkill(skill);
+
+const content=document.getElementById(skill+"Content");
+if(!content)return;
+
+content.classList.add("active");
+
+const numberText=String(testNumber).padStart(2,"0");
+const file=`tests/${skill}/test${numberText}.js`;
+
+content.innerHTML=`
+<div class="loading">
+Loading ${capitalize(skill)} Test ${numberText}...
+<br><br>
+<small>${escapeHtml(file)}</small>
+</div>
+`;
+
+try{
+
+const data=await loadTestFile(file);
+
+currentTestData=data;
+
+displayTest(skill,data);
+
+}catch(error){
+
+console.error(error);
+
+showTestError(skill,numberText,file,error);
+
+}
+}
 
 /*
-   IMPORTANT
+  IMPORTANT:
+  Test files must contain:
 
-   Folder structure:
+  const TEST_DATA = {...};
 
-   tests/
-       listening/
-           test01.js
-           test02.js
-           ...
-           test19.js
-
-       speaking/
-           test01.js
-           test02.js
-           ...
-           test19.js
-
-       reading/
-           test01.js
-           test02.js
-           ...
-           test19.js
-
-       writing/
-           test01.js
-           test02.js
-           ...
-           test19.js
+  This loader evaluates every file in an isolated scope.
 */
 
+async function loadTestFile(file){
 
-/* =====================================================
-   STATE
-===================================================== */
+if(TEST_CACHE[file])return TEST_CACHE[file];
 
-let currentSkill = null;
+const response=await fetch(file+"?v="+Date.now());
 
-let currentTest = null;
-
-let currentTestData = null;
-
-
-/* =====================================================
-   TEST DATA CACHE
-===================================================== */
-
-const TEST_CACHE = {};
-
-
-/* =====================================================
-   CREATE TEST BUTTONS
-===================================================== */
-
-function createTestButtons() {
-
-    const skills = [
-        "listening",
-        "speaking",
-        "reading",
-        "writing"
-    ];
-
-
-    skills.forEach(function(skill) {
-
-        const container =
-            document.getElementById(
-                skill + "TestButtons"
-            );
-
-
-        if (!container) {
-            return;
-        }
-
-
-        for (
-            let i = 1;
-            i <= TOTAL_TESTS;
-            i++
-        ) {
-
-            const button =
-                document.createElement("button");
-
-
-            button.type = "button";
-
-            button.className =
-                "test-button";
-
-
-            button.textContent =
-                "Test " +
-                String(i).padStart(2, "0");
-
-
-            button.dataset.skill =
-                skill;
-
-
-            button.dataset.test =
-                i;
-
-
-            button.onclick =
-                function() {
-
-                    loadTest(
-                        skill,
-                        i
-                    );
-
-                };
-
-
-            container.appendChild(
-                button
-            );
-
-        }
-
-    });
-
+if(!response.ok){
+throw new Error(
+"HTTP "+response.status+" - "+response.statusText
+);
 }
 
+const code=await response.text();
 
-/* =====================================================
-   UPDATE SELECTED TEST BUTTON
-===================================================== */
+try{
 
-function updateSelectedButton(
-    skill,
-    testNumber
-) {
+const getData=new Function(`
+"use strict";
+${code}
+if(typeof TEST_DATA==="undefined"){
+throw new Error("TEST_DATA was not found in this test file.");
+}
+return TEST_DATA;
+`);
 
-    document
-        .querySelectorAll(
-            ".test-button"
-        )
-        .forEach(function(button) {
+const data=getData();
 
-            button.classList.remove(
-                "selected"
-            );
-
-        });
-
-
-    const selected =
-        document.querySelector(
-            `.test-button[data-skill="${skill}"][data-test="${testNumber}"]`
-        );
-
-
-    if (selected) {
-
-        selected.classList.add(
-            "selected"
-        );
-
-    }
-
+if(!data || typeof data!=="object"){
+throw new Error("TEST_DATA is not a valid object.");
 }
 
+TEST_CACHE[file]=data;
 
-/* =====================================================
-   SHOW HOME
-===================================================== */
+return data;
 
-function showHome() {
+}catch(error){
 
-    currentSkill = null;
-
-    currentTest = null;
-
-    currentTestData = null;
-
-
-    document
-        .querySelectorAll(".section")
-        .forEach(function(section) {
-
-            section.classList.remove(
-                "active"
-            );
-
-        });
-
-
-    document.getElementById(
-        "homeCards"
-    ).style.display = "grid";
-
-
-    document
-        .querySelectorAll(".navbar a")
-        .forEach(function(link) {
-
-            link.classList.remove(
-                "active"
-            );
-
-        });
-
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
+throw new Error(
+"JavaScript error in "+file+": "+error.message
+);
 
 }
-
-
-/* =====================================================
-   SHOW SKILL
-===================================================== */
-
-function showSkill(skill) {
-
-    currentSkill = skill;
-
-
-    document.getElementById(
-        "homeCards"
-    ).style.display = "none";
-
-
-    document
-        .querySelectorAll(".section")
-        .forEach(function(section) {
-
-            section.classList.remove(
-                "active"
-            );
-
-        });
-
-
-    document
-        .querySelectorAll(".navbar a")
-        .forEach(function(link) {
-
-            link.classList.remove(
-                "active"
-            );
-
-        });
-
-
-    const section =
-        document.getElementById(
-            skill
-        );
-
-
-    if (!section) {
-        return;
-    }
-
-
-    section.classList.add(
-        "active"
-    );
-
-
-    const navLink =
-        document.querySelector(
-            `.navbar a[href="#${skill}"]`
-        );
-
-
-    if (navLink) {
-
-        navLink.classList.add(
-            "active"
-        );
-
-    }
-
-
-    section.scrollIntoView({
-
-        behavior: "smooth",
-
-        block: "start"
-
-    });
-
 }
 
+function displayTest(skill,data){
 
-/* =====================================================
-   LOAD TEST
-===================================================== */
+const content=document.getElementById(skill+"Content");
+if(!content)return;
 
-async function loadTest(
-    skill,
-    testNumber
-) {
+if(skill==="listening")renderListening(data);
+else if(skill==="reading")renderReading(data);
+else if(skill==="writing")renderWriting(data);
+else if(skill==="speaking")renderSpeaking(data);
 
-    currentSkill = skill;
+content.classList.add("active");
 
-    currentTest = testNumber;
-
-    currentTestData = null;
-
-
-    updateSelectedButton(
-        skill,
-        testNumber
-    );
-
-
-    showSkill(skill);
-
-
-    const content =
-        document.getElementById(
-            skill + "Content"
-        );
-
-
-    if (!content) {
-        return;
-    }
-
-
-    content.classList.add(
-        "active"
-    );
-
-
-    const numberText =
-        String(testNumber).padStart(
-            2,
-            "0"
-        );
-
-
-    /*
-       THIS IS THE IMPORTANT PATH.
-
-       Example:
-
-       Writing Test 02
-       tests/writing/test02.js
-
-       Writing Test 03
-       tests/writing/test03.js
-
-       Speaking Test 02
-       tests/speaking/test02.js
-    */
-
-    const file =
-        `tests/${skill}/test${numberText}.js`;
-
-
-    content.innerHTML = `
-
-        <div class="loading">
-
-            Loading
-            ${capitalize(skill)}
-            Test ${numberText}...
-
-            <br><br>
-
-            <small>
-                ${file}
-            </small>
-
-        </div>
-
-    `;
-
-
-    try {
-
-        const data =
-            await loadTestFile(
-                file
-            );
-
-
-        currentTestData =
-            data;
-
-
-        displayTest(
-            skill,
-            data
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            error
-        );
-
-
-        showTestError(
-            skill,
-            numberText,
-            file,
-            error
-        );
-
-    }
-
+setTimeout(function(){
+content.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+},50);
 }
 
+function showTestError(skill,numberText,file,error){
 
-/* =====================================================
-   LOAD TEST FILE
-===================================================== */
+const content=document.getElementById(skill+"Content");
+if(!content)return;
 
-/*
-   We use fetch + Function instead of repeatedly
-   adding <script> tags.
+content.classList.add("active");
 
-   This is important because many test files contain:
-
-       const TEST_DATA = {...}
-
-   If the same global script scope is reused,
-   changing Test 02 -> Test 03 can cause conflicts.
-
-   Here each test file is evaluated in its own
-   isolated Function scope.
-*/
-
-async function loadTestFile(file) {
-
-    if (TEST_CACHE[file]) {
-
-        return TEST_CACHE[file];
-
-    }
-
-
-    const response =
-        await fetch(
-            file + "?v=" + Date.now()
-        );
-
-
-    if (!response.ok) {
-
-        throw new Error(
-            "HTTP " +
-            response.status +
-            " - " +
-            response.statusText
-        );
-
-    }
-
-
-    const code =
-        await response.text();
-
-
-    /*
-       Each test file must contain:
-
-       const TEST_DATA = {...};
-
-       We return that TEST_DATA from
-       an isolated function.
-    */
-
-    const getData =
-        new Function(
-
-            code +
-
-            `
-
-            if (
-                typeof TEST_DATA === "undefined"
-            ) {
-
-                throw new Error(
-                    "TEST_DATA was not found in this test file."
-                );
-
-            }
-
-            return TEST_DATA;
-
-            `
-
-        );
-
-
-    const data =
-        getData();
-
-
-    if (
-        !data ||
-        typeof data !== "object"
-    ) {
-
-        throw new Error(
-            "TEST_DATA is not a valid object."
-        );
-
-    }
-
-
-    TEST_CACHE[file] =
-        data;
-
-
-    return data;
-
+content.innerHTML=`
+<div class="error-message">
+<strong>Unable to load this test.</strong>
+<br><br>
+The system tried to load:
+<br>
+<span class="file-path">${escapeHtml(file)}</span>
+<br><br>
+${escapeHtml(error.message||"Unknown error.")}
+<br><br>
+Please check that this file exists and contains valid JavaScript.
+</div>
+`;
 }
 
-
-/* =====================================================
-   DISPLAY TEST
-===================================================== */
-
-function displayTest(
-    skill,
-    data
-) {
-
-    const content =
-        document.getElementById(
-            skill + "Content"
-        );
-
-
-    if (!content) {
-        return;
-    }
-
-
-    if (skill === "listening") {
-
-        renderListening(
-            data
-        );
-
-    }
-
-
-    else if (skill === "reading") {
-
-        renderReading(
-            data
-        );
-
-    }
-
-
-    else if (skill === "writing") {
-
-        renderWriting(
-            data
-        );
-
-    }
-
-
-    else if (skill === "speaking") {
-
-        renderSpeaking(
-            data
-        );
-
-    }
-
-
-    content.classList.add(
-        "active"
-    );
-
-
-    setTimeout(function() {
-
-        content.scrollIntoView({
-
-            behavior: "smooth",
-
-            block: "start"
-
-        });
-
-    }, 50);
-
-}
-
-
-/* =====================================================
-   ERROR
-===================================================== */
-
-function showTestError(
-    skill,
-    numberText,
-    file,
-    error
-) {
-
-    const content =
-        document.getElementById(
-            skill + "Content"
-        );
-
-
-    if (!content) {
-        return;
-    }
-
-
-    content.classList.add(
-        "active"
-    );
-
-
-    content.innerHTML = `
-
-        <div class="error-message">
-
-            <strong>
-                Unable to load this test.
-            </strong>
-
-            <br><br>
-
-            The system tried to load:
-
-            <br>
-
-            <span class="file-path">
-                ${file}
-            </span>
-
-            <br><br>
-
-            ${escapeHtml(
-                error.message ||
-                "Unknown error."
-            )}
-
-            <br><br>
-
-            Please check that this file exists
-            in your GitHub repository.
-
-        </div>
-
-    `;
-
-}
-
-
-/* =====================================================
+/* =========================
    LISTENING
-===================================================== */
-
-function renderListening(
-    data
-) {
-
-    const content =
-        document.getElementById(
-            "listeningContent"
-        );
-
-
-    let html = `
-
-        <h2 class="current-test-title">
-
-            ${escapeHtml(
-                data.title ||
-                "Listening Test"
-            )}
-
-        </h2>
-
-    `;
-
-
-    /* AUDIO */
-
-    if (data.audio) {
-
-        html += `
-
-            <div class="audio-box">
-
-                <h3>
-                    🎧 Listen to the recording
-                </h3>
-
-                <audio controls>
-
-                    <source
-                        src="${escapeAttribute(data.audio)}"
-                        type="audio/mpeg"
-                    >
-
-                    Your browser does not support audio.
-
-                </audio>
-
-            </div>
-
-        `;
-
-    }
-
-
-    /* TASK 1 */
-
-    if (
-        Array.isArray(data.task1)
-    ) {
-
-        html += `
-
-            <div class="task-box">
-
-                <h2 class="task-title">
-                    Task 1
-                </h2>
-
-                <p class="task-description">
-
-                    Listen and click on the picture
-                    that describes the correct answer.
-
-                </p>
-
-        `;
-
-
-        data.task1.forEach(
-            function(question, index) {
-
-                html += `
-
-                    <div class="question-box">
-
-                        <div class="question-number">
-
-                            Question ${index + 1}
-
-                        </div>
-
-                        <p>
-
-                            ${escapeHtml(
-                                question.question ||
-                                ""
-                            )}
-
-                        </p>
-
-                        <div class="picture-options">
-
-                `;
-
-
-                const images =
-                    Array.isArray(
-                        question.images
-                    )
-                    ?
-                    question.images
-                    :
-                    [];
-
-
-                images.forEach(
-                    function(image, imageIndex) {
-
-                        html += `
-
-                            <div
-
-                                class="picture-option"
-
-                                data-listening-q="${index}"
-
-                                data-listening-a="${imageIndex}"
-
-                                onclick="
-                                    selectPicture(
-                                        ${index},
-                                        ${imageIndex}
-                                    )
-                                "
-
-                            >
-
-                                <img
-                                    src="${escapeAttribute(image)}"
-                                    alt="Option ${imageIndex + 1}"
-                                >
-
-                            </div>
-
-                        `;
-
-                    }
-                );
-
-
-                html += `
-
-                        </div>
-
-                        <button
-                            class="button"
-                            style="margin-top:15px;"
-                            onclick="
-                                checkPicture(
-                                    ${index},
-                                    ${Number(question.answer)}
-                                )
-                            "
-                        >
-                            Check
-                        </button>
-
-                        <div
-                            id="picture-feedback-${index}"
-                            class="feedback"
-                        ></div>
-
-                    </div>
-
-                `;
-
-            }
-        );
-
-
-        html += `
-            </div>
-        `;
-
-    }
-
-
-    /* TASK 2 */
-
-    if (
-        Array.isArray(data.task2)
-    ) {
-
-        html += `
-
-            <div class="task-box">
-
-                <h2 class="task-title">
-                    Task 2
-                </h2>
-
-                <p class="task-description">
-
-                    Listen and write a short answer.
-
-                </p>
-
-        `;
-
-
-        data.task2.forEach(
-            function(question, index) {
-
-                html += `
-
-                    <div class="question-box">
-
-                        <div class="question-number">
-
-                            Question ${index + 1}
-
-                        </div>
-
-                        <p>
-
-                            ${escapeHtml(
-                                question.question ||
-                                ""
-                            )}
-
-                        </p>
-
-                        <input
-
-                            id="listen-answer-${index}"
-
-                            class="answer-input"
-
-                            type="text"
-
-                            placeholder="Write your answer..."
-
-                        >
-
-                        <button
-
-                            class="button"
-
-                            style="margin-top:15px;"
-
-                            onclick="
-                                checkShortAnswer(
-                                    ${index},
-                                    ${JSON.stringify(
-                                        question.answer || ""
-                                    )}
-                                )
-                            "
-
-                        >
-
-                            Check
-
-                        </button>
-
-                        <div
-                            id="short-feedback-${index}"
-                            class="feedback"
-                        ></div>
-
-                    </div>
-
-                `;
-
-            }
-        );
-
-
-        html += `
-            </div>
-        `;
-
-    }
-
-
-    content.innerHTML =
-        html;
-
+========================= */
+
+function renderListening(data){
+
+const content=document.getElementById("listeningContent");
+
+let html=`
+<h2 class="current-test-title">
+${escapeHtml(data.title||"Listening Test")}
+</h2>
+`;
+
+if(data.audio){
+html+=`
+<div class="audio-box">
+<h3>🎧 Listen to the recording</h3>
+<audio controls>
+<source src="${escapeAttribute(data.audio)}" type="audio/mpeg">
+Your browser does not support audio.
+</audio>
+</div>
+`;
 }
 
+if(Array.isArray(data.task1)){
 
-/* =====================================================
-   LISTENING PICTURE
-===================================================== */
+html+=`
+<div class="task-box">
+<h2 class="task-title">Task 1</h2>
+<p class="task-description">
+Listen and click on the picture that describes the correct answer.
+</p>
+`;
 
-function selectPicture(
-    questionIndex,
-    answerIndex
-) {
+data.task1.forEach(function(question,index){
 
-    const options =
-        document.querySelectorAll(
-            `[data-listening-q="${questionIndex}"]`
-        );
+html+=`
+<div class="question-box">
+<div class="question-number">Question ${index+1}</div>
+<p>${escapeHtml(question.question||"")}</p>
+<div class="picture-options">
+`;
 
+const images=Array.isArray(question.images)?question.images:[];
 
-    options.forEach(
-        function(option) {
+images.forEach(function(image,imageIndex){
 
-            option.classList.remove(
-                "selected"
-            );
+html+=`
+<div
+class="picture-option"
+data-listening-q="${index}"
+data-listening-a="${imageIndex}"
+onclick="selectPicture(${index},${imageIndex})"
+>
+<img src="${escapeAttribute(image)}" alt="Option ${imageIndex+1}">
+</div>
+`;
 
-        }
-    );
+});
 
+html+=`
+</div>
 
-    const selected =
-        document.querySelector(
-            `[data-listening-q="${questionIndex}"][data-listening-a="${answerIndex}"]`
-        );
+<button
+class="button"
+style="margin-top:15px;"
+onclick="checkPicture(${index},${Number(question.answer)})"
+>
+Check
+</button>
 
+<div id="picture-feedback-${index}" class="feedback"></div>
+</div>
+`;
 
-    if (selected) {
+});
 
-        selected.classList.add(
-            "selected"
-        );
-
-    }
-
+html+=`</div>`;
 }
 
+if(Array.isArray(data.task2)){
 
-/* =====================================================
-   CHECK LISTENING PICTURE
-===================================================== */
+html+=`
+<div class="task-box">
+<h2 class="task-title">Task 2</h2>
+<p class="task-description">
+Listen and write a short answer.
+</p>
+`;
 
-function checkPicture(
-    questionIndex,
-    correctAnswer
-) {
+data.task2.forEach(function(question,index){
 
-    const selected =
-        document.querySelector(
-            `[data-listening-q="${questionIndex}"].selected`
-        );
+html+=`
+<div class="question-box">
+<div class="question-number">Question ${index+1}</div>
+<p>${escapeHtml(question.question||"")}</p>
 
+<input
+id="listen-answer-${index}"
+class="answer-input"
+type="text"
+placeholder="Write your answer..."
+>
 
-    const feedback =
-        document.getElementById(
-            `picture-feedback-${questionIndex}`
-        );
+<button
+class="button"
+style="margin-top:15px;"
+onclick='checkShortAnswer(${index},${JSON.stringify(question.answer||"")})'
+>
+Check
+</button>
 
+<div id="short-feedback-${index}" class="feedback"></div>
+</div>
+`;
 
-    if (!selected) {
+});
 
-        feedback.textContent =
-            "Please choose a picture.";
-
-        feedback.className =
-            "feedback wrong";
-
-        return;
-
-    }
-
-
-    const userAnswer =
-        Number(
-            selected.dataset.listeningA
-        );
-
-
-    if (
-        userAnswer ===
-        Number(correctAnswer)
-    ) {
-
-        feedback.textContent =
-            "✓ Correct!";
-
-        feedback.className =
-            "feedback correct";
-
-    }
-
-    else {
-
-        feedback.textContent =
-            "✗ Try again.";
-
-        feedback.className =
-            "feedback wrong";
-
-    }
-
+html+=`</div>`;
 }
 
-
-/* =====================================================
-   CHECK LISTENING SHORT ANSWER
-===================================================== */
-
-function checkShortAnswer(
-    index,
-    correctAnswer
-) {
-
-    const input =
-        document.getElementById(
-            `listen-answer-${index}`
-        );
-
-
-    const feedback =
-        document.getElementById(
-            `short-feedback-${index}`
-        );
-
-
-    if (!input || !feedback) {
-        return;
-    }
-
-
-    const user =
-        normalizeText(
-            input.value
-        );
-
-
-    const correct =
-        normalizeText(
-            correctAnswer
-        );
-
-
-    if (user === "") {
-
-        feedback.textContent =
-            "Please write an answer.";
-
-        feedback.className =
-            "feedback wrong";
-
-        return;
-
-    }
-
-
-    if (
-        correct !== "" &&
-        user === correct
-    ) {
-
-        feedback.textContent =
-            "✓ Correct!";
-
-        feedback.className =
-            "feedback correct";
-
-    }
-
-    else if (
-        correct === ""
-    ) {
-
-        feedback.textContent =
-            "✓ Answer recorded.";
-
-        feedback.className =
-            "feedback correct";
-
-    }
-
-    else {
-
-        feedback.textContent =
-            "✗ Try again.";
-
-        feedback.className =
-            "feedback wrong";
-
-    }
-
+content.innerHTML=html;
 }
 
+function selectPicture(questionIndex,answerIndex){
 
-/* =====================================================
+const options=document.querySelectorAll(
+`[data-listening-q="${questionIndex}"]`
+);
+
+options.forEach(function(option){
+option.classList.remove("selected");
+});
+
+const selected=document.querySelector(
+`[data-listening-q="${questionIndex}"][data-listening-a="${answerIndex}"]`
+);
+
+if(selected)selected.classList.add("selected");
+}
+
+function checkPicture(questionIndex,correctAnswer){
+
+const selected=document.querySelector(
+`[data-listening-q="${questionIndex}"].selected`
+);
+
+const feedback=document.getElementById(
+`picture-feedback-${questionIndex}`
+);
+
+if(!selected){
+feedback.textContent="Please choose a picture.";
+feedback.className="feedback wrong";
+return;
+}
+
+const userAnswer=Number(selected.dataset.listeningA);
+
+if(userAnswer===Number(correctAnswer)){
+feedback.textContent="✓ Correct!";
+feedback.className="feedback correct";
+}else{
+feedback.textContent="✗ Try again.";
+feedback.className="feedback wrong";
+}
+}
+
+function checkShortAnswer(index,correctAnswer){
+
+const input=document.getElementById(`listen-answer-${index}`);
+const feedback=document.getElementById(`short-feedback-${index}`);
+
+if(!input||!feedback)return;
+
+const user=normalizeText(input.value);
+const correct=normalizeText(correctAnswer);
+
+if(user===""){
+feedback.textContent="Please write an answer.";
+feedback.className="feedback wrong";
+return;
+}
+
+if(correct!==""&&user===correct){
+feedback.textContent="✓ Correct!";
+feedback.className="feedback correct";
+}else if(correct===""){
+feedback.textContent="✓ Answer recorded.";
+feedback.className="feedback correct";
+}else{
+feedback.textContent="✗ Try again.";
+feedback.className="feedback wrong";
+}
+}
+
+/* =========================
    READING
-===================================================== */
+========================= */
 
-function renderReading(
-    data
-) {
+function renderReading(data){
 
-    const content =
-        document.getElementById(
-            "readingContent"
-        );
+const content=document.getElementById("readingContent");
 
+let html=`
+<h2 class="current-test-title">
+${escapeHtml(data.title||"Reading Test")}
+</h2>
+`;
 
-    let html = `
+if(data.passage){
 
-        <h2 class="current-test-title">
-
-            ${escapeHtml(
-                data.title ||
-                "Reading Test"
-            )}
-
-        </h2>
-
-    `;
-
-
-    /*
-       If the Reading file provides its own
-       HTML/passage, display it first.
-    */
-
-    if (data.passage) {
-
-        html += `
-
-            <div class="task-box">
-
-                <h2 class="task-title">
-                    Reading Passage
-                </h2>
-
-                <div class="passage-box">
-
-                    ${data.passage}
-
-                </div>
-
-            </div>
-
-        `;
-
-    }
-
-
-    /*
-       Standard picture/question format
-    */
-
-    if (
-        Array.isArray(data.questions)
-    ) {
-
-        html += `
-
-            <div class="task-box">
-
-                <h2 class="task-title">
-                    Task 4
-                </h2>
-
-                <p class="task-description">
-
-                    Look at the picture and choose
-                    the correct question.
-
-                </p>
-
-        `;
-
-
-        if (data.example) {
-
-            html += `
-
-                <div class="example-box">
-
-                    <strong>
-                        Example
-                    </strong>
-
-                    <p style="margin-top:8px;">
-
-                        ${escapeHtml(
-                            data.example.question ||
-                            ""
-                        )}
-
-                    </p>
-
-                </div>
-
-            `;
-
-        }
-
-
-        html += `
-
-            <div class="reading-layout">
-
-                <div class="fixed-picture">
-
-                    <h3>
-                        Picture
-                    </h3>
-
-                    <img
-                        id="reading-picture"
-                        src=""
-                        alt="Reading picture"
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label>
-
-                        <strong>
-                            Choose a question:
-                        </strong>
-
-                    </label>
-
-                    <select
-                        id="reading-question-select"
-                        class="question-select"
-                        onchange="changeReadingQuestion()"
-                    >
-
-                        <option value="">
-                            -- Choose a question --
-                        </option>
-
-        `;
-
-
-        data.questions.forEach(
-            function(question, index) {
-
-                html += `
-
-                    <option value="${index}">
-
-                        Question ${index + 1}
-
-                    </option>
-
-                `;
-
-            }
-        );
-
-
-        html += `
-
-                    </select>
-
-                    <div
-                        id="reading-question-text"
-                        class="question-box"
-                    >
-
-                        Please choose a question.
-
-                    </div>
-
-                    <button
-                        class="button"
-                        onclick="checkReadingAnswer()"
-                    >
-
-                        Check
-
-                    </button>
-
-                    <div
-                        id="reading-feedback"
-                        class="feedback"
-                    ></div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        `;
-
-    }
-
-
-    /*
-       Generic Reading fallback
-       for files with task data but a different structure.
-    */
-
-    if (
-        !data.questions &&
-        Array.isArray(data.task4)
-    ) {
-
-        html += renderGenericQuestionTask(
-            data.task4,
-            "Task 4"
-        );
-
-    }
-
-
-    content.innerHTML =
-        html;
-
-
-    window.currentReadingData =
-        data;
-
-
-    if (
-        data.questions &&
-        data.questions.length > 0
-    ) {
-
-        const first =
-            data.questions[0];
-
-
-        const picture =
-            getReadingPicture(
-                data,
-                first
-            );
-
-
-        const image =
-            document.getElementById(
-                "reading-picture"
-            );
-
-
-        if (image) {
-
-            image.src =
-                picture || "";
-
-        }
-
-    }
-
+html+=`
+<div class="task-box">
+<h2 class="task-title">Reading Passage</h2>
+<div class="passage-box">${data.passage}</div>
+</div>
+`;
 }
 
+if(Array.isArray(data.questions)){
 
-/* =====================================================
-   GET READING PICTURE
-===================================================== */
+html+=`
+<div class="task-box">
+<h2 class="task-title">Task 4</h2>
+<p class="task-description">
+Look at the picture and choose the correct question.
+</p>
+`;
 
-function getReadingPicture(
-    data,
-    question
-) {
+if(data.example){
 
-    if (
-        question &&
-        question.picture
-    ) {
-
-        return question.picture;
-
-    }
-
-
-    if (
-        question &&
-        question.pictureIndex !== undefined &&
-        Array.isArray(data.pictures)
-    ) {
-
-        return data.pictures[
-            Number(question.pictureIndex)
-        ] || "";
-
-    }
-
-
-    if (
-        Array.isArray(data.pictures) &&
-        data.pictures.length > 0
-    ) {
-
-        return data.pictures[0];
-
-    }
-
-
-    return "";
-
+html+=`
+<div class="example-box">
+<strong>Example</strong>
+<p style="margin-top:8px;">
+${escapeHtml(data.example.question||"")}
+</p>
+</div>
+`;
 }
 
+html+=`
+<div class="reading-layout">
 
-/* =====================================================
-   CHANGE READING QUESTION
-===================================================== */
+<div class="fixed-picture">
+<h3>Picture</h3>
+<img id="reading-picture" src="" alt="Reading picture">
+</div>
 
-function changeReadingQuestion() {
+<div>
 
-    const select =
-        document.getElementById(
-            "reading-question-select"
-        );
+<label>
+<strong>Choose a question:</strong>
+</label>
 
+<select
+id="reading-question-select"
+class="question-select"
+onchange="changeReadingQuestion()"
+>
+<option value="">-- Choose a question --</option>
+`;
 
-    const data =
-        window.currentReadingData;
+data.questions.forEach(function(question,index){
+html+=`
+<option value="${index}">
+Question ${index+1}
+</option>
+`;
+});
 
+html+=`
+</select>
 
-    if (
-        !select ||
-        !data ||
-        select.value === ""
-    ) {
+<div id="reading-question-text" class="question-box">
+Please choose a question.
+</div>
 
-        return;
+<button class="button" onclick="checkReadingAnswer()">
+Check
+</button>
 
-    }
+<div id="reading-feedback" class="feedback"></div>
 
-
-    const index =
-        Number(
-            select.value
-        );
-
-
-    const question =
-        data.questions[index];
-
-
-    const picture =
-        getReadingPicture(
-            data,
-            question
-        );
-
-
-    const image =
-        document.getElementById(
-            "reading-picture"
-        );
-
-
-    if (image) {
-
-        image.src =
-            picture || "";
-
-    }
-
-
-    const questionText =
-        document.getElementById(
-            "reading-question-text"
-        );
-
-
-    if (questionText) {
-
-        questionText.textContent =
-            question.question || "";
-
-    }
-
-
-    const feedback =
-        document.getElementById(
-            "reading-feedback"
-        );
-
-
-    if (feedback) {
-
-        feedback.textContent =
-            "";
-
-    }
-
+</div>
+</div>
+</div>
+`;
 }
 
-
-/* =====================================================
-   CHECK READING
-===================================================== */
-
-function checkReadingAnswer() {
-
-    const select =
-        document.getElementById(
-            "reading-question-select"
-        );
-
-
-    const feedback =
-        document.getElementById(
-            "reading-feedback"
-        );
-
-
-    if (
-        !select ||
-        !feedback
-    ) {
-
-        return;
-
-    }
-
-
-    if (
-        select.value === ""
-    ) {
-
-        feedback.textContent =
-            "Please choose a question.";
-
-        feedback.className =
-            "feedback wrong";
-
-        return;
-
-    }
-
-
-    const index =
-        Number(
-            select.value
-        );
-
-
-    const question =
-        window.currentReadingData
-            .questions[index];
-
-
-    if (
-        question.correct !== undefined
-    ) {
-
-        if (
-            question.correct === true
-        ) {
-
-            feedback.textContent =
-                "✓ Correct!";
-
-            feedback.className =
-                "feedback correct";
-
-        }
-
-        else {
-
-            feedback.textContent =
-                "✗ Try again.";
-
-            feedback.className =
-                "feedback wrong";
-
-        }
-
-    }
-
-    else {
-
-        feedback.textContent =
-            "✓ Answer recorded.";
-
-        feedback.className =
-            "feedback correct";
-
-    }
-
+if(!data.questions&&Array.isArray(data.task4)){
+html+=renderGenericQuestionTask(data.task4,"Task 4");
 }
 
+content.innerHTML=html;
 
-/* =====================================================
+window.currentReadingData=data;
+
+if(data.questions&&data.questions.length>0){
+
+const picture=getReadingPicture(data,data.questions[0]);
+const image=document.getElementById("reading-picture");
+
+if(image)image.src=picture||"";
+}
+}
+
+function getReadingPicture(data,question){
+
+if(question&&question.picture)return question.picture;
+
+if(
+question&&
+question.pictureIndex!==undefined&&
+Array.isArray(data.pictures)
+){
+return data.pictures[Number(question.pictureIndex)]||"";
+}
+
+if(Array.isArray(data.pictures)&&data.pictures.length>0){
+return data.pictures[0];
+}
+
+return "";
+}
+
+function changeReadingQuestion(){
+
+const select=document.getElementById("reading-question-select");
+const data=window.currentReadingData;
+
+if(!select||!data||select.value==="")return;
+
+const index=Number(select.value);
+const question=data.questions[index];
+
+const picture=getReadingPicture(data,question);
+
+const image=document.getElementById("reading-picture");
+if(image)image.src=picture||"";
+
+const questionText=document.getElementById("reading-question-text");
+if(questionText)questionText.textContent=question.question||"";
+
+const feedback=document.getElementById("reading-feedback");
+if(feedback)feedback.textContent="";
+}
+
+function checkReadingAnswer(){
+
+const select=document.getElementById("reading-question-select");
+const feedback=document.getElementById("reading-feedback");
+
+if(!select||!feedback)return;
+
+if(select.value===""){
+feedback.textContent="Please choose a question.";
+feedback.className="feedback wrong";
+return;
+}
+
+const index=Number(select.value);
+const question=window.currentReadingData.questions[index];
+
+if(question.correct!==undefined){
+
+if(question.correct===true){
+feedback.textContent="✓ Correct!";
+feedback.className="feedback correct";
+}else{
+feedback.textContent="✗ Try again.";
+feedback.className="feedback wrong";
+}
+
+}else{
+feedback.textContent="✓ Answer recorded.";
+feedback.className="feedback correct";
+}
+}
+
+/* =========================
    WRITING
-===================================================== */
+========================= */
 
-function renderWriting(
-    data
-) {
+function renderWriting(data){
 
-    const content =
-        document.getElementById(
-            "writingContent"
-        );
+const content=document.getElementById("writingContent");
 
+let html=`
+<h2 class="current-test-title">
+${escapeHtml(data.title||"Writing Test")}
+</h2>
+`;
 
-    let html = `
-
-        <h2 class="current-test-title">
-
-            ${escapeHtml(
-                data.title ||
-                "Writing Test"
-            )}
-
-        </h2>
-
-    `;
-
-
-    /*
-       TASK 3
-    */
-
-    if (
-        Array.isArray(data.task3)
-    ) {
-
-        html += renderWritingTask3(
-            data.task3
-        );
-
-    }
-
-
-    /*
-       TASK 5
-    */
-
-    if (
-        Array.isArray(data.task5)
-    ) {
-
-        html += renderWritingTask5(
-            data.task5,
-            data
-        );
-
-    }
-
-
-    /*
-       TASK 6
-    */
-
-    if (
-        Array.isArray(data.task6)
-    ) {
-
-        html += renderWritingTask6(
-            data.task6,
-            data
-        );
-
-    }
-
-
-    /*
-       If a writing file has a different
-       structure, display any supplied tasks.
-    */
-
-    if (
-        !data.task3 &&
-        !data.task5 &&
-        !data.task6
-    ) {
-
-        html += `
-
-            <div class="task-box">
-
-                <h2 class="task-title">
-                    Writing Practice
-                </h2>
-
-                <p>
-                    This test has loaded successfully.
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
-
-    content.innerHTML =
-        html;
-
+if(Array.isArray(data.task3)){
+html+=renderWritingTask3(data.task3);
 }
 
+if(Array.isArray(data.task5)){
+html+=renderWritingTask5(data.task5,data);
+}
 
-/* =====================================================
+if(Array.isArray(data.task6)){
+html+=renderWritingTask6(data.task6,data);
+}
+
+if(!data.task3&&!data.task5&&!data.task6){
+
+html+=`
+<div class="task-box">
+<h2 class="task-title">Writing Practice</h2>
+<p>This test has loaded successfully.</p>
+</div>
+`;
+}
+
+content.innerHTML=html;
+}
+
+/* =========================
    WRITING TASK 3
-===================================================== */
+========================= */
 
-function renderWritingTask3(
-    task3
-) {
+function renderWritingTask3(task3){
 
-    let html = `
+let html=`
+<div class="task-box">
+<h2 class="task-title">Task 3</h2>
+<p class="task-description">
+Write the questions that match the answers below.
+</p>
+`;
 
-        <div class="task-box">
+task3.forEach(function(item,index){
 
-            <h2 class="task-title">
-                Task 3
-            </h2>
+html+=`
+<div class="question-box">
 
-            <p class="task-description">
+<div class="question-number">
+Question ${index+1}
+</div>
+`;
 
-                Write the questions that match
-                the answers below.
+if(item.mike){
 
-            </p>
+html+=`
+<div class="example-box">
+<strong>Mike:</strong>
+<br>
+${escapeHtml(item.mike)}
+</div>
+`;
+}
 
-    `;
+html+=`
+<p>
+<strong>Sophie:</strong>
+</p>
 
+<input
+id="writing3-${index}"
+class="question-input"
+type="text"
+placeholder="Write the question here..."
+>
 
-    task3.forEach(
-        function(item, index) {
+<div
+id="writing3-feedback-${index}"
+class="feedback"
+></div>
 
-            html += `
+<div
+id="writing3-explanation-${index}"
+class="answer-explanation"
+></div>
 
-                <div class="question-box">
+<button
+class="button"
+style="margin-top:15px;"
+onclick="checkWriting3(${index})"
+>
+Check
+</button>
 
-                    <div class="question-number">
+</div>
+`;
+});
 
-                        Question ${index + 1}
+html+=`</div>`;
 
-                    </div>
+return html;
+}
 
-                    <p>
-                        <strong>
-                            Write the question:
-                        </strong>
-                    </p>
+function checkWriting3(index){
 
-                    <input
-                        id="writing3-${index}"
-                        class="question-input"
-                        type="text"
-                        placeholder="Write your question here..."
-                    >
+const data=currentTestData;
 
-                    <div
-                        id="writing3-feedback-${index}"
-                        class="feedback"
-                    ></div>
+if(!data||!Array.isArray(data.task3))return;
 
-                    <div
-                        id="writing3-explanation-${index}"
-                        class="answer-explanation"
-                    ></div>
+const item=data.task3[index];
 
-                    <button
-                        class="button"
-                        style="margin-top:15px;"
-                        onclick="checkWriting3(${index})"
-                    >
+const input=document.getElementById(`writing3-${index}`);
+const feedback=document.getElementById(`writing3-feedback-${index}`);
+const explanation=document.getElementById(`writing3-explanation-${index}`);
 
-                        Check
+if(!input||!feedback)return;
 
-                    </button>
+const user=normalizeText(input.value);
 
-                </div>
+if(user===""){
+feedback.textContent="Please write a question.";
+feedback.className="feedback wrong";
+return;
+}
 
-            `;
+const accepted=Array.isArray(item.acceptedQuestions)
+?item.acceptedQuestions
+:[];
 
-        }
-    );
+const normalizedAccepted=accepted.map(normalizeText);
 
+const correct=normalizedAccepted.includes(user);
 
-    html += `
-        </div>
-    `;
+if(correct){
 
+feedback.textContent="✓ Correct!";
+feedback.className="feedback correct";
+input.style.borderColor="#16803c";
 
-    return html;
+}else{
+
+feedback.textContent="✗ Try again.";
+feedback.className="feedback wrong";
+input.style.borderColor="#c62828";
 
 }
 
-
-/* =====================================================
-   CHECK WRITING TASK 3
-===================================================== */
-
-function checkWriting3(
-    index
-) {
-
-    const data =
-        currentTestData;
-
-
-    if (
-        !data ||
-        !Array.isArray(data.task3)
-    ) {
-
-        return;
-
-    }
-
-
-    const item =
-        data.task3[index];
-
-
-    const input =
-        document.getElementById(
-            `writing3-${index}`
-        );
-
-
-    const feedback =
-        document.getElementById(
-            `writing3-feedback-${index}`
-        );
-
-
-    const explanation =
-        document.getElementById(
-            `writing3-explanation-${index}`
-        );
-
-
-    if (
-        !input ||
-        !feedback
-    ) {
-
-        return;
-
-    }
-
-
-    const user =
-        normalizeText(
-            input.value
-        );
-
-
-    if (user === "") {
-
-        feedback.textContent =
-            "Please write a question.";
-
-        feedback.className =
-            "feedback wrong";
-
-        return;
-
-    }
-
-
-    const accepted =
-        Array.isArray(
-            item.acceptedQuestions
-        )
-        ?
-        item.acceptedQuestions
-        :
-        [];
-
-
-    const normalizedAccepted =
-        accepted.map(
-            normalizeText
-        );
-
-
-    const correct =
-        normalizedAccepted.includes(
-            user
-        );
-
-
-    if (correct) {
-
-        feedback.textContent =
-            "✓ Correct!";
-
-        feedback.className =
-            "feedback correct";
-
-        input.style.borderColor =
-            "#16803c";
-
-    }
-
-    else {
-
-        feedback.textContent =
-            "✗ Try again.";
-
-        feedback.className =
-            "feedback wrong";
-
-        input.style.borderColor =
-            "#c62828";
-
-    }
-
-
-    /*
-       Explanation is shown only AFTER checking.
-
-       The answer is not displayed before
-       the student attempts the question.
-    */
-
-    if (
-        explanation &&
-        (
-            item.explanation ||
-            accepted.length > 0
-        )
-    ) {
-
-        let explanationHTML = "";
-
-
-        if (accepted.length > 0) {
-
-            explanationHTML += `
-
-                <div class="answer-sample">
-
-                    <strong>
-                        Suggested answer:
-                    </strong>
-
-                    <br>
-
-                    ${escapeHtml(
-                        accepted[0]
-                    )}
-
-                </div>
-
-            `;
-
-        }
-
-
-        if (item.explanation) {
-
-            explanationHTML += `
-
-                <strong>
-                    🇻🇳 Giải thích:
-                </strong>
-
-                <br>
-
-                ${item.explanation}
-
-            `;
-
-        }
-
-
-        explanation.innerHTML =
-            explanationHTML;
-
-
-        explanation.classList.add(
-            "show"
-        );
-
-    }
-
+if(explanation&&(item.explanation||accepted.length>0)){
+
+let explanationHTML="";
+
+if(accepted.length>0){
+
+explanationHTML+=`
+<div class="answer-sample">
+<strong>Suggested answer:</strong>
+<br>
+${escapeHtml(accepted[0])}
+</div>
+`;
 }
 
+if(item.explanation){
 
-/* =====================================================
+explanationHTML+=`
+<strong>🇻🇳 Giải thích:</strong>
+<br>
+${escapeHtml(item.explanation)}
+`;
+}
+
+explanation.innerHTML=explanationHTML;
+explanation.classList.add("show");
+}
+}
+
+/* =========================
    WRITING TASK 5
-===================================================== */
+========================= */
 
-function renderWritingTask5(
-    task5,
-    data
-) {
+function renderWritingTask5(task5,data){
 
-    let html = `
+let html=`
+<div class="task-box">
 
-        <div class="task-box">
+<h2 class="task-title">Task 5</h2>
 
-            <h2 class="task-title">
-                Task 5
-            </h2>
+<p class="task-description">
+Fill in the missing words.
+Use the verbs in the box and change them into the PAST TENSE.
+</p>
+`;
 
-            <p class="task-description">
+if(Array.isArray(data.task5WordBank)){
 
-                Fill in the missing words.
-                Use the verbs in the box and
-                change them into the PAST TENSE.
+html+=`
+<div class="word-bank">
+<strong>📚 Word Bank</strong>
+${data.task5WordBank.map(escapeHtml).join(" &nbsp; • &nbsp; ")}
+</div>
+`;
+}
 
-            </p>
+if(data.task5Passage){
 
-    `;
+html+=`
+<div class="passage-box">
+${data.task5Passage}
+</div>
 
+<button class="button" onclick="checkWriting5Passage()">
+Check Task 5
+</button>
 
-    /*
-       WORD BANK
-    */
+<div
+id="writing5-passage-feedback"
+class="feedback"
+></div>
 
-    if (
-        Array.isArray(
-            data.task5WordBank
-        )
-    ) {
+</div>
+`;
 
-        html += `
+return html;
+}
 
-            <div class="word-bank">
+task5.forEach(function(item,index){
 
-                <strong>
-                    📚 Word Bank
-                </strong>
+const number=index+1;
 
-                ${data.task5WordBank
-                    .map(
-                        escapeHtml
-                    )
-                    .join(
-                        " &nbsp; • &nbsp; "
-                    )
-                }
+html+=`
+<div class="question-box">
 
-            </div>
+<div class="question-number">
+Question ${number}
+</div>
 
-        `;
+<input
+id="writing5-${number}"
+class="answer-input"
+type="text"
+placeholder="Write the past tense..."
+>
 
-    }
+<button
+class="button"
+style="margin-top:15px;"
+onclick="checkWriting5(${index})"
+>
+Check
+</button>
 
+<div
+id="writing5-feedback-${index}"
+class="feedback"
+></div>
 
-    /*
-       PASSAGE MODE
+<div
+id="writing5-explanation-${index}"
+class="answer-explanation"
+></div>
 
-       If the file has task5Passage,
-       display it.
+</div>
+`;
+});
 
-       This allows inline inputs such as:
+html+=`
+<div id="writing5-total-feedback" class="feedback"></div>
+</div>
+`;
 
-       <input data-answer="slept">
-    */
+return html;
+}
 
-    if (
-        data.task5Passage
-    ) {
+function checkWriting5(index){
 
-        html += `
+const data=currentTestData;
 
-            <div class="passage-box">
+if(!data||!Array.isArray(data.task5))return;
 
-                ${data.task5Passage}
+const item=data.task5[index];
 
-            </div>
+const number=index+1;
 
-            <button
-                class="button"
-                onclick="checkWriting5Passage()"
-            >
+const input=document.getElementById(`writing5-${number}`);
+const feedback=document.getElementById(`writing5-feedback-${index}`);
+const explanation=document.getElementById(`writing5-explanation-${index}`);
 
-                Check Task 5
+if(!input||!feedback)return;
 
-            </button>
+const user=normalizeText(input.value);
+const correct=normalizeText(item.answer||"");
 
-            <div
-                id="writing5-passage-feedback"
-                class="feedback"
-            ></div>
+if(user===""){
+feedback.textContent="Please write an answer.";
+feedback.className="feedback wrong";
+return;
+}
 
-        `;
+if(user===correct){
 
+feedback.textContent="✓ Correct!";
+feedback.className="feedback correct";
+input.style.borderColor="#16803c";
 
-        html += `
-            </div>
-        `;
+}else{
 
-
-        return html;
-
-    }
-
-
-    /*
-       ARRAY MODE
-
-       This works with the test02.js
-       structure you showed me:
-
-       task5: [
-           {
-               answer: "slept",
-               explanation: "..."
-           }
-       ]
-    */
-
-    task5.forEach(
-        function(item, index) {
-
-            const number =
-                index + 1;
-
-
-            html += `
-
-                <div class="question-box">
-
-                    <div class="question-number">
-
-                        Question ${number}
-
-                    </div>
-
-                    <input
-                        id="writing5-${number}"
-                        class="answer-input"
-                        type="text"
-                        placeholder="Write the past tense..."
-                    >
-
-                    <button
-                        class="button"
-                        style="margin-top:15px;"
-                        onclick="checkWriting5(${index})"
-                    >
-
-                        Check
-
-                    </button>
-
-                    <div
-                        id="writing5-feedback-${index}"
-                        class="feedback"
-                    ></div>
-
-                    <div
-                        id="writing5-explanation-${index}"
-                        class="answer-explanation"
-                    ></div>
-
-                </div>
-
-            `;
-
-        }
-    );
-
-
-    html += `
-
-            <div
-                id="writing5-total-feedback"
-                class="feedback"
-            ></div>
-
-        </div>
-
-    `;
-
-
-    return html;
+feedback.textContent="✗ Try again.";
+feedback.className="feedback wrong";
+input.style.borderColor="#c62828";
 
 }
 
+if(explanation){
 
-/* =====================================================
-   CHECK WRITING TASK 5
-===================================================== */
+let html=`
+<div class="answer-sample">
+<strong>Answer:</strong>
+${escapeHtml(item.answer||"")}
+</div>
+`;
 
-function checkWriting5(
-    index
-) {
+if(item.explanation){
 
-    const data =
-        currentTestData;
+html+=`
+<strong>🇻🇳 Giải thích:</strong>
+<br>
+${escapeHtml(item.explanation)}
+`;
+}
 
+explanation.innerHTML=html;
+explanation.classList.add("show");
+}
+}
 
-    if (
-        !data ||
-        !Array.isArray(data.task5)
-    ) {
+/* =========================
+   TASK 5 PASSAGE
+========================= */
 
-        return;
+function checkWriting5Passage(){
 
-    }
+const inputs=document.querySelectorAll(".inline-writing-input");
+const feedback=document.getElementById("writing5-passage-feedback");
 
+if(!inputs.length){
 
-    const item =
-        data.task5[index];
+if(feedback){
+feedback.textContent="No answer fields were found.";
+feedback.className="feedback wrong";
+}
 
+return;
+}
 
-    const number =
-        index + 1;
+let correctCount=0;
 
+inputs.forEach(function(input){
 
-    const input =
-        document.getElementById(
-            `writing5-${number}`
-        );
+const user=normalizeText(input.value);
+const answer=normalizeText(input.dataset.answer||"");
 
+input.classList.remove("correct-input","wrong-input");
 
-    const feedback =
-        document.getElementById(
-            `writing5-feedback-${index}`
-        );
+let explanationBox=null;
 
+if(input.dataset.explanationId){
+explanationBox=document.getElementById(
+input.dataset.explanationId
+);
+}
 
-    const explanation =
-        document.getElementById(
-            `writing5-explanation-${index}`
-        );
+if(
+user!==""&&
+user===answer
+){
 
+correctCount++;
+input.classList.add("correct-input");
 
-    if (
-        !input ||
-        !feedback
-    ) {
+}else{
 
-        return;
-
-    }
-
-
-    const user =
-        normalizeText(
-            input.value
-        );
-
-
-    const correct =
-        normalizeText(
-            item.answer || ""
-        );
-
-
-    if (user === "") {
-
-        feedback.textContent =
-            "Please write an answer.";
-
-        feedback.className =
-            "feedback wrong";
-
-        return;
-
-    }
-
-
-    if (
-        user === correct
-    ) {
-
-        feedback.textContent =
-            "✓ Correct!";
-
-        feedback.className =
-            "feedback correct";
-
-        input.style.borderColor =
-            "#16803c";
-
-    }
-
-    else {
-
-        feedback.textContent =
-            "✗ Try again.";
-
-        feedback.className =
-            "feedback wrong";
-
-        input.style.borderColor =
-            "#c62828";
-
-    }
-
-
-    /*
-       Show answer + explanation ONLY after
-       the student has checked.
-    */
-
-    if (explanation) {
-
-        explanation.innerHTML = `
-
-            <div class="answer-sample">
-
-                <strong>
-                    Answer:
-                </strong>
-
-                ${escapeHtml(
-                    item.answer || ""
-                )}
-
-            </div>
-
-            ${
-                item.explanation
-                ?
-                `
-                <strong>
-                    🇻🇳 Giải thích:
-                </strong>
-
-                <br>
-
-                ${item.explanation}
-                `
-                :
-                ""
-            }
-
-        `;
-
-
-        explanation.classList.add(
-            "show"
-        );
-
-    }
+input.classList.add("wrong-input");
 
 }
 
+if(explanationBox){
 
-/* =====================================================
-   TASK 5 PASSAGE CHECK
-===================================================== */
+const explanation=input.dataset.explanation||"";
+const correctAnswer=input.dataset.answer||"";
 
-function checkWriting5Passage() {
+explanationBox.innerHTML=`
+<div class="answer-sample">
+<strong>Answer:</strong>
+${escapeHtml(correctAnswer)}
+</div>
 
-    const inputs =
-        document.querySelectorAll(
-            ".inline-writing-input"
-        );
+${
+explanation
+?
+`<strong>🇻🇳 Giải thích:</strong><br>${escapeHtml(explanation)}`
+:""
+}
+`;
 
-
-    const feedback =
-        document.getElementById(
-            "writing5-passage-feedback"
-        );
-
-
-    if (
-        !inputs.length
-    ) {
-
-        if (feedback) {
-
-            feedback.textContent =
-                "No answer fields were found.";
-
-            feedback.className =
-                "feedback wrong";
-
-        }
-
-        return;
-
-    }
-
-
-    let correctCount = 0;
-
-
-    inputs.forEach(
-        function(input) {
-
-            const user =
-                normalizeText(
-                    input.value
-                );
-
-
-            const answer =
-                normalizeText(
-                    input.dataset.answer ||
-                    ""
-                );
-
-
-            input.classList.remove(
-                "correct-input",
-                "wrong-input"
-            );
-
-
-            if (
-                user !== "" &&
-                user === answer
-            ) {
-
-                correctCount++;
-
-
-                input.classList.add(
-                    "correct-input"
-                );
-
-            }
-
-            else {
-
-                input.classList.add(
-                    "wrong-input"
-                );
-
-            }
-
-        }
-    );
-
-
-    if (feedback) {
-
-        feedback.innerHTML = `
-
-            ${correctCount}/${inputs.length}
-            correct.
-
-            <br>
-
-            <small>
-
-                Green = correct
-                &nbsp;&nbsp;
-                Red = try again.
-
-            </small>
-
-        `;
-
-
-        feedback.className =
-            correctCount === inputs.length
-            ?
-            "feedback correct"
-            :
-            "feedback wrong";
-
-    }
-
+explanationBox.classList.add("show");
 }
 
+});
 
-/* =====================================================
+if(feedback){
+
+feedback.innerHTML=`
+${correctCount}/${inputs.length} correct.
+<br>
+<small>
+Green = correct &nbsp;&nbsp; Red = try again.
+</small>
+`;
+
+feedback.className=
+correctCount===inputs.length
+?"feedback correct"
+:"feedback wrong";
+}
+}
+
+/* =========================
    WRITING TASK 6
-===================================================== */
+========================= */
 
-function renderWritingTask6(
-    task6,
-    data
-) {
+function renderWritingTask6(task6,data){
 
-    let html = `
+let html=`
+<div class="task-box">
 
-        <div class="task-box">
+<h2 class="task-title">
+Task 6
+${
+data.task6Title
+?" — "+escapeHtml(data.task6Title)
+:""
+}
+</h2>
 
-            <h2 class="task-title">
+<p class="task-description">
+${
+data.task6Description
+?escapeHtml(data.task6Description)
+:"Write your own answer. Use the hints to help you."
+}
+</p>
+`;
 
-                Task 6
-                ${
-                    data.task6Title
-                    ?
-                    " — " +
-                    escapeHtml(
-                        data.task6Title
-                    )
-                    :
-                    ""
-                }
+task6.forEach(function(item,index){
 
-            </h2>
+const isObject=item&&typeof item==="object";
 
-            <p class="task-description">
+const question=isObject
+?(
+item.question||
+item.starter||
+""
+)
+:String(item||"");
 
-                ${
-                    data.task6Description
-                    ?
-                    escapeHtml(
-                        data.task6Description
-                    )
-                    :
-                    "Write your own answer. Use the hints to help you."
-                }
+const hint=isObject?(item.hint||""):"";
 
-            </p>
+html+=`
+<div class="question-box">
 
-    `;
+<div class="question-number">
+${index+1}. ${escapeHtml(question)}
+</div>
+`;
 
+if(hint){
 
-    task6.forEach(
-        function(item, index) {
-
-            const starter =
-                typeof item === "string"
-                ?
-                item
-                :
-                item.starter || "";
-
-
-            const hint =
-                typeof item === "object"
-                ?
-                item.hint || ""
-                :
-                "";
-
-
-            html += `
-
-                <div class="question-box">
-
-                    <div class="question-number">
-
-                        ${index + 1}.
-                        ${escapeHtml(
-                            starter
-                        )}
-
-                    </div>
-
-            `;
-
-
-            /*
-               IMPORTANT:
-
-               Only the HINT is shown before
-               the student writes.
-
-               The sample answer is NOT shown here.
-            */
-
-            if (hint) {
-
-                html += `
-
-                    <div class="hint-box">
-
-                        💡
-                        <strong>
-                            Gợi ý:
-                        </strong>
-
-                        ${escapeHtml(
-                            hint
-                        )}
-
-                    </div>
-
-                `;
-
-            }
-
-
-            html += `
-
-                    <textarea
-                        id="writing6-${index}"
-                        class="answer-input"
-                        rows="4"
-                        placeholder="Write your answer here..."
-                    ></textarea>
-
-                    <div
-                        id="writing6-feedback-${index}"
-                        class="feedback"
-                    ></div>
-
-                    <div
-                        id="writing6-explanation-${index}"
-                        class="answer-explanation"
-                    ></div>
-
-                </div>
-
-            `;
-
-        }
-    );
-
-
-    html += `
-
-            <button
-                class="button"
-                onclick="checkWritingTask6()"
-            >
-
-                Check Task 6
-
-            </button>
-
-            <div
-                id="writing6-total-feedback"
-                class="feedback"
-            ></div>
-
-        </div>
-
-    `;
-
-
-    return html;
-
+html+=`
+<div class="hint-box">
+💡 <strong>Gợi ý:</strong>
+${escapeHtml(hint)}
+</div>
+`;
 }
 
-
-/* =====================================================
-   CHECK WRITING TASK 6
-===================================================== */
-
-function checkWritingTask6() {
-
-    const data =
-        currentTestData;
-
-
-    if (
-        !data ||
-        !Array.isArray(data.task6)
-    ) {
-
-        return;
-
-    }
-
-
-    let completed = 0;
-
-
-    data.task6.forEach(
-        function(item, index) {
-
-            const input =
-                document.getElementById(
-                    `writing6-${index}`
-                );
-
-
-            const feedback =
-                document.getElementById(
-                    `writing6-feedback-${index}`
-                );
-
-
-            const explanation =
-                document.getElementById(
-                    `writing6-explanation-${index}`
-                );
-
-
-            if (
-                !input
-            ) {
-
-                return;
-
-            }
-
-
-            if (
-                input.value.trim() !== ""
-            ) {
-
-                completed++;
-
-            }
-
-
-            /*
-               Writing Task 6 is personal writing.
-
-               We do NOT mark the student's own
-               answer simply as right/wrong.
-
-               We only check completion.
-            */
-
-            if (
-                feedback
-            ) {
-
-                if (
-                    input.value.trim() !== ""
-                ) {
-
-                    feedback.textContent =
-                        "✓ Answer written.";
-
-                    feedback.className =
-                        "feedback correct";
-
-                }
-
-                else {
-
-                    feedback.textContent =
-                        "Please write your answer.";
-
-                    feedback.className =
-                        "feedback wrong";
-
-                }
-
-            }
-
-
-            /*
-               Show sample + explanation only
-               AFTER the student checks.
-            */
-
-            if (
-                explanation &&
-                typeof item === "object"
-            ) {
-
-                let html = "";
-
-
-                if (
-                    item.sample
-                ) {
-
-                    html += `
-
-                        <div class="answer-sample">
-
-                            <strong>
-                                💡 Sample answer:
-                            </strong>
-
-                            <br>
-
-                            ${escapeHtml(
-                                item.sample
-                            )}
-
-                        </div>
-
-                    `;
-
-                }
-
-
-                if (
-                    item.explanation
-                ) {
-
-                    html += `
-
-                        <strong>
-                            🇻🇳 Giải thích:
-                        </strong>
-
-                        <br>
-
-                        ${escapeHtml(
-                            item.explanation
-                        )}
-
-                    `;
-
-                }
-
-
-                if (html) {
-
-                    explanation.innerHTML =
-                        html;
-
-                    explanation.classList.add(
-                        "show"
-                    );
-
-                }
-
-            }
-
-        }
-    );
-
-
-    const total =
-        document.getElementById(
-            "writing6-total-feedback"
-        );
-
-
-    if (!total) {
-        return;
-    }
-
-
-    if (
-        completed === data.task6.length
-    ) {
-
-        total.innerHTML = `
-
-            ✓ Writing submitted.
-
-            <br>
-
-            All
-            ${data.task6.length}
-            sections have been completed.
-
-            <br><br>
-
-            <small>
-                Task 6 is personal writing,
-                so the sample answers are only references.
-            </small>
-
-        `;
-
-        total.className =
-            "feedback correct";
-
-    }
-
-    else {
-
-        total.innerHTML = `
-
-            Please complete all sections.
-
-            <br>
-
-            ${completed}/${data.task6.length}
-            completed.
-
-        `;
-
-        total.className =
-            "feedback wrong";
-
-    }
-
+html+=`
+<textarea
+id="writing6-${index}"
+class="answer-input"
+rows="4"
+placeholder="Write your answer here..."
+></textarea>
+
+<div
+id="writing6-feedback-${index}"
+class="feedback"
+></div>
+
+<div
+id="writing6-explanation-${index}"
+class="answer-explanation"
+></div>
+
+</div>
+`;
+});
+
+html+=`
+<button
+class="button"
+onclick="checkWritingTask6()"
+
+>
+
+Check Task 6 </button>
+
+<div
+id="writing6-total-feedback"
+class="feedback"
+></div>
+
+</div>
+`;
+
+return html;
 }
 
+function checkWritingTask6(){
 
-/* =====================================================
-   SPEAKING
-===================================================== */
+const data=currentTestData;
 
-function renderSpeaking(
-    data
-) {
+if(!data||!Array.isArray(data.task6))return;
 
-    const content =
-        document.getElementById(
-            "speakingContent"
-        );
+let completed=0;
 
+data.task6.forEach(function(item,index){
 
-    let html = `
+const input=document.getElementById(`writing6-${index}`);
+const feedback=document.getElementById(`writing6-feedback-${index}`);
+const explanation=document.getElementById(`writing6-explanation-${index}`);
 
-        <h2 class="current-test-title">
+if(!input)return;
 
-            ${escapeHtml(
-                data.title ||
-                "Speaking Test"
-            )}
-
-        </h2>
-
-    `;
-
-
-    /*
-       AUDIO
-    */
-
-    if (data.audio) {
-
-        html += `
-
-            <div class="audio-box">
-
-                <h3>
-                    🎧 Listen to the recording
-                </h3>
-
-                <audio controls>
-
-                    <source
-                        src="${escapeAttribute(data.audio)}"
-                        type="audio/mpeg"
-                    >
-
-                </audio>
-
-            </div>
-
-        `;
-
-    }
-
-
-    /*
-       Common speaking structures.
-    */
-
-    if (
-        Array.isArray(data.questions)
-    ) {
-
-        html += `
-
-            <div class="speaking-card">
-
-                <h2 class="task-title">
-                    Speaking Questions
-                </h2>
-
-        `;
-
-
-        data.questions.forEach(
-            function(item, index) {
-
-                html += `
-
-                    <div class="speaking-topic">
-
-                        <div class="question-number">
-
-                            Question ${index + 1}
-
-                        </div>
-
-                        <div class="speaking-prompt">
-
-                            ${escapeHtml(
-                                item.question ||
-                                item.prompt ||
-                                item.text ||
-                                ""
-                            )}
-
-                        </div>
-
-                `;
-
-
-                if (
-                    Array.isArray(
-                        item.points
-                    )
-                ) {
-
-                    html += `
-
-                        <ul class="speaking-list">
-
-                    `;
-
-
-                    item.points.forEach(
-                        function(point) {
-
-                            html += `
-
-                                <li>
-                                    ${escapeHtml(
-                                        point
-                                    )}
-                                </li>
-
-                            `;
-
-                        }
-                    );
-
-
-                    html += `
-                        </ul>
-                    `;
-
-                }
-
-
-                if (
-                    item.hint
-                ) {
-
-                    html += `
-
-                        <div class="hint-box">
-
-                            💡
-                            <strong>
-                                Hint:
-                            </strong>
-
-                            ${escapeHtml(
-                                item.hint
-                            )}
-
-                        </div>
-
-                    `;
-
-                }
-
-
-                html += `
-
-                    </div>
-
-                `;
-
-            }
-        );
-
-
-        html += `
-
-            </div>
-
-        `;
-
-    }
-
-
-    /*
-       Alternative format:
-
-       task1 / task2 / task3
-    */
-
-    [
-        "task1",
-        "task2",
-        "task3",
-        "task4",
-        "task5",
-        "task6"
-    ].forEach(
-        function(taskName) {
-
-            if (
-                Array.isArray(
-                    data[taskName]
-                )
-            ) {
-
-                html += renderSpeakingTask(
-                    taskName,
-                    data[taskName]
-                );
-
-            }
-
-        }
-    );
-
-
-    /*
-       If the file contains prompt directly.
-    */
-
-    if (
-        data.prompt &&
-        !data.questions
-    ) {
-
-        html += `
-
-            <div class="speaking-card">
-
-                <h2 class="task-title">
-                    Speaking Practice
-                </h2>
-
-                <div class="speaking-topic">
-
-                    <div class="speaking-prompt">
-
-                        ${escapeHtml(
-                            data.prompt
-                        )}
-
-                    </div>
-
-                `;
-
-
-        if (data.hint) {
-
-            html += `
-
-                <div class="hint-box">
-
-                    💡
-                    <strong>
-                        Hint:
-                    </strong>
-
-                    ${escapeHtml(
-                        data.hint
-                    )}
-
-                </div>
-
-            `;
-
-        }
-
-
-        html += `
-
-                </div>
-
-            </div>
-
-        `;
-
-    }
-
-
-    if (
-        !data.questions &&
-        !data.prompt &&
-        !data.task1 &&
-        !data.task2 &&
-        !data.task3 &&
-        !data.task4 &&
-        !data.task5 &&
-        !data.task6
-    ) {
-
-        html += `
-
-            <div class="speaking-card">
-
-                <h2 class="task-title">
-                    Speaking Test Loaded
-                </h2>
-
-                <p>
-                    This Speaking test has been loaded successfully.
-                </p>
-
-                <p style="margin-top:10px;color:#777;">
-                    Add your speaking questions to
-                    the corresponding testXX.js file.
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
-
-    content.innerHTML =
-        html;
-
+if(input.value.trim()!==""){
+completed++;
 }
 
+if(feedback){
 
-/* =====================================================
-   SPEAKING TASK
-===================================================== */
+if(input.value.trim()!==""){
 
-function renderSpeakingTask(
-    taskName,
-    items
-) {
+feedback.textContent="✓ Answer written.";
+feedback.className="feedback correct";
 
-    let html = `
+}else{
 
-        <div class="speaking-card">
-
-            <h2 class="task-title">
-
-                ${
-                    taskName
-                        .replace(
-                            "task",
-                            "Task "
-                        )
-                }
-
-            </h2>
-
-    `;
-
-
-    items.forEach(
-        function(item, index) {
-
-            const text =
-                typeof item === "string"
-                ?
-                item
-                :
-                (
-                    item.question ||
-                    item.prompt ||
-                    item.text ||
-                    ""
-                );
-
-
-            html += `
-
-                <div class="speaking-topic">
-
-                    <div class="question-number">
-
-                        Question ${index + 1}
-
-                    </div>
-
-                    <div class="speaking-prompt">
-
-                        ${escapeHtml(
-                            text
-                        )}
-
-                    </div>
-
-            `;
-
-
-            if (
-                typeof item === "object" &&
-                item.hint
-            ) {
-
-                html += `
-
-                    <div class="hint-box">
-
-                        💡
-                        <strong>
-                            Hint:
-                        </strong>
-
-                        ${escapeHtml(
-                            item.hint
-                        )}
-
-                    </div>
-
-                `;
-
-            }
-
-
-            if (
-                typeof item === "object" &&
-                Array.isArray(
-                    item.points
-                )
-            ) {
-
-                html += `
-
-                    <ul class="speaking-list">
-
-                `;
-
-
-                item.points.forEach(
-                    function(point) {
-
-                        html += `
-
-                            <li>
-                                ${escapeHtml(
-                                    point
-                                )}
-                            </li>
-
-                        `;
-
-                    }
-                );
-
-
-                html += `
-                    </ul>
-                `;
-
-            }
-
-
-            html += `
-
-                </div>
-
-            `;
-
-        }
-    );
-
-
-    html += `
-
-        </div>
-
-    `;
-
-
-    return html;
+feedback.textContent="Please write your answer.";
+feedback.className="feedback wrong";
 
 }
-
-
-/* =====================================================
-   GENERIC QUESTION TASK
-===================================================== */
-
-function renderGenericQuestionTask(
-    items,
-    title
-) {
-
-    let html = `
-
-        <div class="task-box">
-
-            <h2 class="task-title">
-                ${escapeHtml(title)}
-            </h2>
-
-    `;
-
-
-    items.forEach(
-        function(item, index) {
-
-            const question =
-                typeof item === "string"
-                ?
-                item
-                :
-                (
-                    item.question ||
-                    item.prompt ||
-                    ""
-                );
-
-
-            html += `
-
-                <div class="question-box">
-
-                    <div class="question-number">
-
-                        Question ${index + 1}
-
-                    </div>
-
-                    <p>
-                        ${escapeHtml(
-                            question
-                        )}
-                    </p>
-
-                </div>
-
-            `;
-
-        }
-    );
-
-
-    html += `
-        </div>
-    `;
-
-
-    return html;
-
 }
 
+if(
+explanation&&
+item&&
+typeof item==="object"
+){
 
-/* =====================================================
-   NORMALIZE TEXT
-===================================================== */
+let html="";
 
-function normalizeText(
-    text
-) {
+if(item.sample){
 
-    return String(
-        text || ""
-    )
+html+=`
 
-        .toLowerCase()
-
-        .trim()
-
-        .replace(
-            /[’‘]/g,
-            "'"
-        )
-
-        .replace(
-            /[.,!?;:"]/g,
-            ""
-        )
-
-        .replace(
-            /\s+/g,
-            " "
-        );
-
+<div class="answer-sample">
+<strong>💡 Sample answer:</strong>
+<br>
+${escapeHtml(item.sample)}
+</div>
+`;
 }
 
+if(item.explanation){
 
-/* =====================================================
-   CAPITALIZE
-===================================================== */
-
-function capitalize(
-    text
-) {
-
-    return String(text)
-        .charAt(0)
-        .toUpperCase() +
-        String(text).slice(1);
-
+html+=`<strong>🇻🇳 Giải thích:</strong> <br>
+${escapeHtml(item.explanation)}`;
 }
 
+if(html){
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+explanation.innerHTML=html;
+explanation.classList.add("show");
+}
+}
+});
 
-function escapeHtml(
-    value
-) {
+const total=document.getElementById("writing6-total-feedback");
 
-    return String(
-        value ?? ""
-    )
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+if(!total)return;
 
+if(completed===data.task6.length){
+
+total.innerHTML=`✓ Writing submitted. <br>
+All ${data.task6.length} sections have been completed. <br><br> <small>
+Task 6 is personal writing, so the sample answers are only references. </small>`;
+
+total.className="feedback correct";
+
+}else{
+
+total.innerHTML=`Please complete all sections. <br>
+${completed}/${data.task6.length} completed.`;
+
+total.className="feedback wrong";
+}
 }
 
+/* =========================
+SPEAKING
+========================= */
 
-/* =====================================================
-   ESCAPE ATTRIBUTE
-===================================================== */
+function renderSpeaking(data){
 
-function escapeAttribute(
-    value
-) {
+const content=document.getElementById("speakingContent");
 
-    return escapeHtml(
-        value
-    );
+let html=`
 
+<h2 class="current-test-title">
+${escapeHtml(data.title||"Speaking Test")}
+</h2>
+`;
+
+if(data.audio){
+
+html+=`
+
+<div class="audio-box">
+<h3>🎧 Listen to the recording</h3>
+<audio controls>
+<source src="${escapeAttribute(data.audio)}" type="audio/mpeg">
+</audio>
+</div>
+`;
 }
 
+if(Array.isArray(data.questions)){
 
-/* =====================================================
-   START WEBSITE
-===================================================== */
+html+=`
+
+<div class="speaking-card">
+<h2 class="task-title">Speaking Questions</h2>
+`;
+
+data.questions.forEach(function(item,index){
+
+html+=`
+
+<div class="speaking-topic">
+
+<div class="question-number">
+Question ${index+1}
+</div>
+
+<div class="speaking-prompt">
+${escapeHtml(
+item.question||
+item.prompt||
+item.text||
+""
+)}
+</div>
+`;
+
+if(Array.isArray(item.points)){
+
+html+=`<ul class="speaking-list">`;
+
+item.points.forEach(function(point){
+
+html+=`
+
+<li>${escapeHtml(point)}</li>
+`;
+
+});
+
+html+=`</ul>`;
+}
+
+if(item.hint){
+
+html+=`
+
+<div class="hint-box">
+💡 <strong>Hint:</strong>
+${escapeHtml(item.hint)}
+</div>
+`;
+}
+
+html+=`</div>`;
+});
+
+html+=`</div>`;
+}
+
+[
+"task1",
+"task2",
+"task3",
+"task4",
+"task5",
+"task6"
+].forEach(function(taskName){
+
+if(Array.isArray(data[taskName])){
+html+=renderSpeakingTask(
+taskName,
+data[taskName]
+);
+}
+});
+
+if(data.prompt&&!data.questions){
+
+html+=`
+
+<div class="speaking-card">
+
+<h2 class="task-title">Speaking Practice</h2>
+
+<div class="speaking-topic">
+
+<div class="speaking-prompt">
+${escapeHtml(data.prompt)}
+</div>
+`;
+
+if(data.hint){
+
+html+=`
+
+<div class="hint-box">
+💡 <strong>Hint:</strong>
+${escapeHtml(data.hint)}
+</div>
+`;
+}
+
+html+=`
+
+</div>
+</div>
+`;
+}
+
+if(
+!data.questions&&
+!data.prompt&&
+!data.task1&&
+!data.task2&&
+!data.task3&&
+!data.task4&&
+!data.task5&&
+!data.task6
+){
+
+html+=`
+
+<div class="speaking-card">
+
+<h2 class="task-title">
+Speaking Test Loaded
+</h2>
+
+<p>
+This Speaking test has been loaded successfully.
+</p>
+
+</div>
+`;
+}
+
+content.innerHTML=html;
+}
+
+function renderSpeakingTask(taskName,items){
+
+let html=`
+
+<div class="speaking-card">
+
+<h2 class="task-title">
+${taskName.replace("task","Task ")}
+</h2>
+`;
+
+items.forEach(function(item,index){
+
+const text=
+typeof item==="string"
+?item
+:item.question||item.prompt||item.text||"";
+
+html+=`
+
+<div class="speaking-topic">
+
+<div class="question-number">
+Question ${index+1}
+</div>
+
+<div class="speaking-prompt">
+${escapeHtml(text)}
+</div>
+`;
+
+if(
+typeof item==="object"&&
+item.hint
+){
+
+html+=`
+
+<div class="hint-box">
+💡 <strong>Hint:</strong>
+${escapeHtml(item.hint)}
+</div>
+`;
+}
+
+if(
+typeof item==="object"&&
+Array.isArray(item.points)
+){
+
+html+=`<ul class="speaking-list">`;
+
+item.points.forEach(function(point){
+
+html+=`
+
+<li>${escapeHtml(point)}</li>
+`;
+
+});
+
+html+=`</ul>`;
+}
+
+html+=`</div>`;
+});
+
+html+=`</div>`;
+
+return html;
+}
+
+/* =========================
+GENERIC
+========================= */
+
+function renderGenericQuestionTask(items,title){
+
+let html=`
+
+<div class="task-box">
+
+<h2 class="task-title">
+${escapeHtml(title)}
+</h2>
+`;
+
+items.forEach(function(item,index){
+
+const question=
+typeof item==="string"
+?item
+:item.question||item.prompt||"";
+
+html+=`
+
+<div class="question-box">
+
+<div class="question-number">
+Question ${index+1}
+</div>
+
+<p>${escapeHtml(question)}</p>
+
+</div>
+`;
+});
+
+html+=`</div>`;
+
+return html;
+}
+
+/* =========================
+HELPERS
+========================= */
+
+function normalizeText(text){
+
+return String(text||"")
+.toLowerCase()
+.trim()
+.replace(/[’‘]/g,"'")
+.replace(/[.,!?;:"]/g,"")
+.replace(/\s+/g," ");
+}
+
+function capitalize(text){
+
+return String(text)
+.charAt(0)
+.toUpperCase()+
+String(text).slice(1);
+}
+
+function escapeHtml(value){
+
+return String(value??"")
+.replace(/&/g,"&")
+.replace(/</g,"<")
+.replace(/>/g,">")
+.replace(/"/g,""")
+.replace(/'/g,"'");
+}
+
+function escapeAttribute(value){
+
+return escapeHtml(value);
+}
+
+/* =========================
+START
+========================= */
 
 createTestButtons();
-
 showHome();
 
 </script>
 
 </body>
-
 </html>
