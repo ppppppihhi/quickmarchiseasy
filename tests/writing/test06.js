@@ -1,12 +1,12 @@
 /* =====================================================
    QUICKMARCH PRACTICE
-   WRITING TEST
+   WRITING TEST 06
    Ben talks to Lily / Anna Emails Gran / Visiting Friends
 ===================================================== */
 
 window.QUICKMARCH_TEST = {
 
-    title: "Writing Test",
+    title: "Writing Test 06",
 
     render: function(container) {
 
