@@ -1,6 +1,8 @@
+
 /* =========================================================
    QUICKMARCH PRACTICE
    SPEAKING TEST 01
+   ONE QUESTION PER PAGE
    ========================================================= */
 
 window.QUICKMARCH_TEST = {
@@ -24,202 +26,404 @@ window.QUICKMARCH_TEST = {
         ];
 
 
+        let currentQuestion = 0;
+
+
         container.innerHTML = `
 
             <div style="
                 width:100%;
-                max-width:1000px;
+                max-width:900px;
                 margin:0 auto;
             ">
 
-                <div style="
-                    text-align:center;
-                    margin-bottom:20px;
-                    color:#315b45;
-                    font-size:18px;
-                    font-weight:700;
-                ">
-                    Look at the picture and answer the question.
+                <!-- QUESTION NUMBER -->
+
+                <div
+                    id="questionNumber"
+                    style="
+                        text-align:center;
+                        color:#315b45;
+                        font-size:19px;
+                        font-weight:800;
+                        margin-bottom:10px;
+                    "
+                >
+                    Question 1 / 5
                 </div>
 
 
-                <div id="speakingQuestions"></div>
-
-            </div>
-
-        `;
-
-
-        const questions =
-            document.getElementById(
-                "speakingQuestions"
-            );
-
-
-        for (
-            let i = 0;
-            i < 5;
-            i++
-        ) {
-
-            const card =
-                document.createElement("div");
-
-
-            card.style.cssText = `
-                background:#ffffff;
-                border:1px solid #d8e4dc;
-                border-radius:10px;
-                padding:16px;
-                margin-bottom:18px;
-            `;
-
-
-            card.innerHTML = `
+                <!-- IMAGE AREA -->
 
                 <div style="
-                    color:#315b45;
-                    font-size:18px;
-                    font-weight:800;
-                    margin-bottom:12px;
-                ">
-                    Question ${i + 1}
-                </div>
-
-
-                <div style="
+                    position:relative;
                     width:100%;
-                    text-align:center;
-                    margin-bottom:14px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
                 ">
+
+
+                    <!-- LEFT BUTTON -->
+
+                    <button
+                        id="prevButton"
+                        type="button"
+                        aria-label="Previous question"
+                        style="
+                            position:absolute;
+                            left:0;
+                            top:50%;
+                            transform:translateY(-50%);
+
+                            width:46px;
+                            height:90px;
+
+                            border:1px solid #cfddd3;
+                            background:#f7faf8;
+                            color:#315b45;
+
+                            border-radius:8px;
+
+                            font-size:30px;
+                            font-weight:700;
+
+                            cursor:pointer;
+
+                            z-index:5;
+                        "
+                    >
+                        ‹
+                    </button>
+
+
+                    <!-- IMAGE -->
 
                     <img
-                        src="tests/speaking/images/test01/${i + 1}.png"
-                        alt="Speaking Question ${i + 1}"
+                        id="questionImage"
+                        src="tests/speaking/images/test01/1.png"
+                        alt="Speaking Question 1"
                         style="
                             display:block;
                             width:100%;
-                            max-width:850px;
+                            max-width:700px;
                             height:auto;
-                            margin:0 auto;
+
                             border-radius:8px;
-                        "
-                        onerror="
-                            this.style.display='none';
-                            this.nextElementSibling.style.display='block';
                         "
                     >
 
-                    <div
+
+                    <!-- RIGHT BUTTON -->
+
+                    <button
+                        id="nextButton"
+                        type="button"
+                        aria-label="Next question"
                         style="
-                            display:none;
-                            padding:20px;
-                            background:#fff5f3;
-                            border:1px solid #edd5d0;
+                            position:absolute;
+                            right:0;
+                            top:50%;
+                            transform:translateY(-50%);
+
+                            width:46px;
+                            height:90px;
+
+                            border:1px solid #cfddd3;
+                            background:#f7faf8;
+                            color:#315b45;
+
                             border-radius:8px;
-                            color:#805047;
+
+                            font-size:30px;
+                            font-weight:700;
+
+                            cursor:pointer;
+
+                            z-index:5;
                         "
                     >
-                        Image not found:<br>
-                        <code>
-                            tests/speaking/images/test01/${i + 1}.png
-                        </code>
-                    </div>
+                        ›
+                    </button>
 
                 </div>
 
 
+                <!-- SHOW ANSWER -->
+
                 <div style="
                     text-align:center;
+                    margin-top:12px;
                 ">
 
                     <button
+                        id="answerButton"
                         type="button"
-                        class="answer-button"
                         style="
                             border:1px solid #cfddd3;
                             background:#f7faf8;
                             color:#315b45;
+
                             border-radius:7px;
-                            padding:8px 20px;
+
+                            padding:7px 20px;
+
                             font-family:inherit;
                             font-size:16px;
                             font-weight:700;
+
                             cursor:pointer;
                         "
                     >
                         Show Answer
                     </button>
 
+
+                    <div
+                        id="answerBox"
+                        style="
+                            display:none;
+
+                            margin:10px auto 0;
+
+                            max-width:700px;
+
+                            padding:10px 14px;
+
+                            background:#edf5ef;
+                            border:1px solid #cfdfd4;
+
+                            border-radius:7px;
+
+                            color:#456053;
+
+                            font-size:16px;
+                            line-height:1.4;
+
+                            text-align:left;
+                        "
+                    ></div>
+
                 </div>
 
+            </div>
 
-                <div
-                    class="answer-box"
-                    style="
-                        display:none;
-                        margin-top:12px;
-                        padding:12px 15px;
-                        background:#edf5ef;
-                        border:1px solid #cfdfd4;
-                        border-radius:8px;
-                        color:#456053;
-                        font-size:17px;
-                        line-height:1.5;
-                    "
-                >
-                    ${answers[i]}
-                </div>
-
-            `;
+        `;
 
 
-            questions.appendChild(card);
-
-
-            const button =
-                card.querySelector(
-                    ".answer-button"
-                );
-
-
-            const answer =
-                card.querySelector(
-                    ".answer-box"
-                );
-
-
-            button.addEventListener(
-                "click",
-                function() {
-
-                    if (
-                        answer.style.display ===
-                        "none"
-                    ) {
-
-                        answer.style.display =
-                            "block";
-
-                        button.textContent =
-                            "Hide Answer";
-
-                    }
-
-                    else {
-
-                        answer.style.display =
-                            "none";
-
-                        button.textContent =
-                            "Show Answer";
-
-                    }
-
-                }
+        const image =
+            document.getElementById(
+                "questionImage"
             );
 
+
+        const questionNumber =
+            document.getElementById(
+                "questionNumber"
+            );
+
+
+        const answerButton =
+            document.getElementById(
+                "answerButton"
+            );
+
+
+        const answerBox =
+            document.getElementById(
+                "answerBox"
+            );
+
+
+        const prevButton =
+            document.getElementById(
+                "prevButton"
+            );
+
+
+        const nextButton =
+            document.getElementById(
+                "nextButton"
+            );
+
+
+        /* =================================================
+           UPDATE QUESTION
+        ================================================= */
+
+        function updateQuestion() {
+
+            const number =
+                currentQuestion + 1;
+
+
+            questionNumber.textContent =
+                "Question " +
+                number +
+                " / 5";
+
+
+            image.src =
+                "tests/speaking/images/test01/" +
+                number +
+                ".png";
+
+
+            image.alt =
+                "Speaking Question " +
+                number;
+
+
+            answerBox.style.display =
+                "none";
+
+
+            answerBox.textContent =
+                answers[currentQuestion];
+
+
+            answerButton.textContent =
+                "Show Answer";
+
+
+            /* ---------------------------------------------
+               DISABLE / ENABLE NAVIGATION
+            --------------------------------------------- */
+
+            if (
+                currentQuestion === 0
+            ) {
+
+                prevButton.style.opacity =
+                    "0.4";
+
+                prevButton.style.cursor =
+                    "default";
+
+            }
+
+            else {
+
+                prevButton.style.opacity =
+                    "1";
+
+                prevButton.style.cursor =
+                    "pointer";
+
+            }
+
+
+            if (
+                currentQuestion ===
+                answers.length - 1
+            ) {
+
+                nextButton.style.opacity =
+                    "0.4";
+
+                nextButton.style.cursor =
+                    "default";
+
+            }
+
+            else {
+
+                nextButton.style.opacity =
+                    "1";
+
+                nextButton.style.cursor =
+                    "pointer";
+
+            }
+
         }
+
+
+        /* =================================================
+           PREVIOUS
+        ================================================= */
+
+        prevButton.addEventListener(
+            "click",
+            function() {
+
+                if (
+                    currentQuestion > 0
+                ) {
+
+                    currentQuestion--;
+
+                    updateQuestion();
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           NEXT
+        ================================================= */
+
+        nextButton.addEventListener(
+            "click",
+            function() {
+
+                if (
+                    currentQuestion <
+                    answers.length - 1
+                ) {
+
+                    currentQuestion++;
+
+                    updateQuestion();
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           SHOW / HIDE ANSWER
+        ================================================= */
+
+        answerButton.addEventListener(
+            "click",
+            function() {
+
+                if (
+                    answerBox.style.display ===
+                    "none"
+                ) {
+
+                    answerBox.style.display =
+                        "block";
+
+                    answerButton.textContent =
+                        "Hide Answer";
+
+                }
+
+                else {
+
+                    answerBox.style.display =
+                        "none";
+
+                    answerButton.textContent =
+                        "Show Answer";
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           INITIAL DISPLAY
+        ================================================= */
+
+        updateQuestion();
 
     }
 
