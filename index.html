@@ -868,94 +868,154 @@ function createTestButtons() {
    LOAD TEST
 ===================================================== */
 
-const path =
-    "tests/" +
-    currentSubject +
-    "/test" +
-    testNumber +
-    ".js";
+async function loadTest(testNumber) {
 
-showLoading(path);
+    currentTest = testNumber;
 
-const oldScript =
-    document.getElementById(
-        "quickmarch-test-script"
-    );
+    /* =================================================
+       LISTENING ONLY
+       Show Task 1 / Task 2 selection
+    ================================================= */
 
-if (oldScript) {
-    oldScript.remove();
-}
+    if (currentSubject === "listening") {
 
-window.QUICKMARCH_TEST = null;
+        showListeningTasks(testNumber);
 
-try {
+        return;
+    }
 
-    const response =
-        await fetch(
-            path + "?v=" + Date.now()
+
+    /* =================================================
+       WRITING / READING / SPEAKING
+       KEEP EXISTING STRUCTURE
+    ================================================= */
+
+    const path =
+        "tests/" +
+        currentSubject +
+        "/test" +
+        testNumber +
+        ".js";
+
+
+    showLoading(path);
+
+
+    /* -------------------------------------------------
+       Remove previous test script
+    ------------------------------------------------- */
+
+    const oldScript =
+        document.getElementById(
+            "quickmarch-test-script"
         );
 
-    if (!response.ok) {
 
-        throw new Error(
-            "File not found (HTTP " +
-            response.status +
-            ")"
+    if (oldScript) {
+
+        oldScript.remove();
+
+    }
+
+
+    /* -------------------------------------------------
+       Remove old global test
+    ------------------------------------------------- */
+
+    window.QUICKMARCH_TEST = null;
+
+
+    try {
+
+        const response =
+            await fetch(
+                path + "?v=" + Date.now()
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "File not found (HTTP " +
+                response.status +
+                ")"
+            );
+
+        }
+
+
+        const code =
+            await response.text();
+
+
+        const script =
+            document.createElement("script");
+
+
+        script.id =
+            "quickmarch-test-script";
+
+
+        script.textContent =
+            code;
+
+
+        document.body.appendChild(
+            script
+        );
+
+
+        /* -------------------------------------------------
+           Check test object
+        ------------------------------------------------- */
+
+        if (
+            !window.QUICKMARCH_TEST
+        ) {
+
+            throw new Error(
+                "The file loaded successfully, but it did not create window.QUICKMARCH_TEST."
+            );
+
+        }
+
+
+        /* -------------------------------------------------
+           Render test
+        ------------------------------------------------- */
+
+        renderTest(
+            window.QUICKMARCH_TEST
+        );
+
+
+    }
+
+    catch (error) {
+
+        showError(
+
+            "The system tried to load:<br><br>" +
+
+            "<code>" +
+            escapeHTML(path) +
+            "</code>" +
+
+            "<br><br>" +
+
+            "Error:<br>" +
+
+            "<code>" +
+            escapeHTML(error.message) +
+            "</code>"
+
         );
 
     }
 
-    const code =
-        await response.text();
-
-    const script =
-        document.createElement("script");
-
-    script.id =
-        "quickmarch-test-script";
-
-    script.textContent =
-        code;
-
-    document.body.appendChild(script);
-
-    if (!window.QUICKMARCH_TEST) {
-
-        throw new Error(
-            "The file loaded successfully, but it did not create window.QUICKMARCH_TEST."
-        );
-
-    }
-
-    renderTest(
-        window.QUICKMARCH_TEST
-    );
-
-}
-catch (error) {
-
-    showError(
-
-        "The system tried to load:<br><br>" +
-
-        "<code>" +
-        escapeHTML(path) +
-        "</code>" +
-
-        "<br><br>" +
-
-        "Error:<br>" +
-
-        "<code>" +
-        escapeHTML(error.message) +
-        "</code>"
-
-    );
-
-   
 }
 
-}
+
 /* =====================================================
    SHOW LISTENING TASK MENU
 ===================================================== */
@@ -1220,9 +1280,6 @@ async function loadListeningTask(
     }
 
 }
-
-
-
         /*
            Render test.
         */
