@@ -872,12 +872,25 @@ async function loadTest(testNumber) {
 
     currentTest = testNumber;
 
-    const path =
+  let path;
+
+if (currentSubject === "listening") {
+
+    path =
+        "tests/listening/test" +
+        testNumber +
+        "/task01/task01.js";
+
+} else {
+
+    path =
         "tests/" +
         currentSubject +
         "/test" +
         testNumber +
-        "/task01/task01.js";
+        ".js";
+
+}
 
 
     showLoading(path);
