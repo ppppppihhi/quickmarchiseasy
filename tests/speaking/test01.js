@@ -1,3 +1,4 @@
+
 /* =========================================================
    QUICKMARCH PRACTICE
    SPEAKING TEST 01
@@ -24,9 +25,12 @@ window.QUICKMARCH_TEST = {
 
         ];
 
-
         let currentQuestion = 0;
 
+
+        /* =================================================
+           MAIN HTML
+        ================================================= */
 
         container.innerHTML = `
 
@@ -63,7 +67,7 @@ window.QUICKMARCH_TEST = {
                 ">
 
 
-                    <!-- LEFT BUTTON -->
+                    <!-- PREVIOUS -->
 
                     <button
                         id="prevButton"
@@ -88,15 +92,12 @@ window.QUICKMARCH_TEST = {
                             font-weight:700;
 
                             cursor:pointer;
-
                             z-index:5;
                         "
-                    >
-                        ‹
-                    </button>
+                    >‹</button>
 
 
-                    <!-- IMAGE -->
+                    <!-- QUESTION IMAGE -->
 
                     <img
                         id="questionImage"
@@ -113,7 +114,7 @@ window.QUICKMARCH_TEST = {
                     >
 
 
-                    <!-- RIGHT BUTTON -->
+                    <!-- NEXT -->
 
                     <button
                         id="nextButton"
@@ -138,17 +139,14 @@ window.QUICKMARCH_TEST = {
                             font-weight:700;
 
                             cursor:pointer;
-
                             z-index:5;
                         "
-                    >
-                        ›
-                    </button>
+                    >›</button>
 
                 </div>
 
 
-                <!-- SHOW ANSWER -->
+                <!-- ANSWER -->
 
                 <div style="
                     text-align:center;
@@ -210,35 +208,34 @@ window.QUICKMARCH_TEST = {
         `;
 
 
+        /* =================================================
+           ELEMENTS
+        ================================================= */
+
         const image =
             document.getElementById(
                 "questionImage"
             );
-
 
         const questionNumber =
             document.getElementById(
                 "questionNumber"
             );
 
-
         const answerButton =
             document.getElementById(
                 "answerButton"
             );
-
 
         const answerBox =
             document.getElementById(
                 "answerBox"
             );
 
-
         const prevButton =
             document.getElementById(
                 "prevButton"
             );
-
 
         const nextButton =
             document.getElementById(
@@ -273,12 +270,12 @@ window.QUICKMARCH_TEST = {
                 number;
 
 
-            answerBox.style.display =
-                "none";
-
-
             answerBox.textContent =
                 answers[currentQuestion];
+
+
+            answerBox.style.display =
+                "none";
 
 
             answerButton.textContent =
@@ -299,9 +296,7 @@ window.QUICKMARCH_TEST = {
                 prevButton.style.cursor =
                     "default";
 
-            }
-
-            else {
+            } else {
 
                 prevButton.style.opacity =
                     "1";
@@ -327,9 +322,7 @@ window.QUICKMARCH_TEST = {
                 nextButton.style.cursor =
                     "default";
 
-            }
-
-            else {
+            } else {
 
                 nextButton.style.opacity =
                     "1";
@@ -343,7 +336,7 @@ window.QUICKMARCH_TEST = {
 
 
         /* =================================================
-           PREVIOUS
+           PREVIOUS QUESTION
         ================================================= */
 
         prevButton.addEventListener(
@@ -365,7 +358,7 @@ window.QUICKMARCH_TEST = {
 
 
         /* =================================================
-           NEXT
+           NEXT QUESTION
         ================================================= */
 
         nextButton.addEventListener(
@@ -406,9 +399,7 @@ window.QUICKMARCH_TEST = {
                     answerButton.textContent =
                         "Hide Answer";
 
-                }
-
-                else {
+                } else {
 
                     answerBox.style.display =
                         "none";
@@ -423,7 +414,7 @@ window.QUICKMARCH_TEST = {
 
 
         /* =================================================
-           INITIAL DISPLAY
+           START
         ================================================= */
 
         updateQuestion();
