@@ -1,4 +1,4 @@
-```javascript
+
 const TEST_DATA = {
 
     title: "Writing Test 02",
@@ -246,4 +246,4 @@ const TEST_DATA = {
     ]
 
 };
-```
+
