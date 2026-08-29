@@ -5,7 +5,7 @@
    EASY + MEDIUM
    ========================================================= */
 
-const SPEAKING_TEST_01 = {
+window.QUICKMARCH_TEST = {
 
     title: "Speaking Test 01",
 
@@ -97,3 +97,4 @@ const SPEAKING_TEST_01 = {
     }
 
 };
+
