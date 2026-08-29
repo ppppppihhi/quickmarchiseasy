@@ -32,8 +32,8 @@ window.QUICKMARCH_TEST = {
         container.innerHTML = `
 
             <div style="
-                width:100%;
-                max-width:900px;
+                width:50%;
+                max-width:500px;
                 margin:0 auto;
             ">
 
@@ -71,13 +71,10 @@ window.QUICKMARCH_TEST = {
                         type="button"
                         aria-label="Previous question"
                         style="
-                            position:absolute;
-                            left:0;
-                            top:50%;
-                            transform:translateY(-50%);
+                          position:absolute; left:0; top:50%; transform:translateY(-50%);
 
-                            width:46px;
-                            height:90px;
+                            width:30px;
+                            height:50px;
 
                             border:1px solid #cfddd3;
                             background:#f7faf8;
