@@ -1,7 +1,8 @@
+
 /* =====================================================
    QUICKMARCH LISTENING TEST 01
    TASK 2: THE TRIP
-   8 questions × 2 marks = 16 marks
+   8 QUESTIONS × 2 MARKS = 16 MARKS
 ===================================================== */
 
 window.QUICKMARCH_TEST = {
@@ -12,7 +13,10 @@ window.QUICKMARCH_TEST = {
 
         container.innerHTML = `
 
-            <div class="listening-task">
+            <div style="
+                max-width:900px;
+                margin:0 auto;
+            ">
 
                 <!-- =================================================
                      INSTRUCTION
@@ -37,8 +41,9 @@ window.QUICKMARCH_TEST = {
                         color:#5f7067;
                         margin-bottom:4px;
                     ">
-                        Listen to the conversation. After each part of the conversation,
-                        write a short answer to the question.
+                        Listen to the conversation. After each part
+                        of the conversation, write a short answer
+                        to the question.
                     </p>
 
                     <p style="
@@ -59,7 +64,7 @@ window.QUICKMARCH_TEST = {
                     background:#e3eee6;
                     border:1px solid #cfdfd4;
                     border-radius:10px;
-                    padding:12px;
+                    padding:14px;
                     margin-bottom:18px;
                     text-align:center;
                 ">
@@ -67,7 +72,7 @@ window.QUICKMARCH_TEST = {
                     <div style="
                         color:#315b45;
                         font-weight:800;
-                        margin-bottom:7px;
+                        margin-bottom:8px;
                     ">
                         🎧 Listen to the recording
                     </div>
@@ -80,11 +85,15 @@ window.QUICKMARCH_TEST = {
                             max-width:700px;
                         "
                     >
+
                         <source
-                            src="tests/listening/test01/task02/task02.mp3"
+                            src="tests/listening/test01/audio/task2.mp3"
                             type="audio/mpeg"
                         >
-                        Your browser does not support the audio element.
+
+                        Your browser does not support
+                        the audio element.
+
                     </audio>
 
                 </div>
@@ -153,14 +162,16 @@ window.QUICKMARCH_TEST = {
             {
                 number: 1,
 
-                question: "Who owned the boat first?",
+                question:
+                    "Who owned the boat first?",
 
                 answers: [
                     "Bill",
                     "Uncle Bill"
                 ],
 
-                answerDisplay: "Bill",
+                answerDisplay:
+                    "Bill",
 
                 explanation: `
                     Đọc câu hỏi họ hỏi
@@ -177,10 +188,8 @@ window.QUICKMARCH_TEST = {
 
                     <br>
 
-                    - .....uncle Bill....Then..sold
-                    <span style="color:#718078;">
+                    - .....<b>uncle Bill</b>....Then..sold
                     (đã bán đi)
-                    </span>
 
                     <br>
 
@@ -201,7 +210,8 @@ window.QUICKMARCH_TEST = {
             {
                 number: 2,
 
-                question: "Which beach are the Browns going to?",
+                question:
+                    "Which beach are the Browns going to?",
 
                 answers: [
                     "Whorley",
@@ -209,7 +219,8 @@ window.QUICKMARCH_TEST = {
                     "W-H-O-R-L-E-Y"
                 ],
 
-                answerDisplay: "WHORLEY",
+                answerDisplay:
+                    "WHORLEY",
 
                 explanation: `
                     Đọc câu hỏi họ hỏi
@@ -234,12 +245,12 @@ window.QUICKMARCH_TEST = {
 
                     <br>
 
-                    - W-H-O-R-L-E-Y
+                    - <b>W-H-O-R-L-E-Y</b>
 
                     <br><br>
 
-                    Keyword:
-                    <b>Whorley Beach → WHORLEY</b>.
+                    Do đó đáp án là
+                    <b>WHORLEY</b>.
                 `
             },
 
@@ -247,13 +258,15 @@ window.QUICKMARCH_TEST = {
             {
                 number: 3,
 
-                question: "When did Sophie’s friend go on the boat?",
+                question:
+                    "When did Sophie’s friend go on the boat?",
 
                 answers: [
                     "Last year"
                 ],
 
-                answerDisplay: "Last year",
+                answerDisplay:
+                    "Last year",
 
                 explanation: `
                     Đọc câu hỏi họ hỏi
@@ -278,8 +291,8 @@ window.QUICKMARCH_TEST = {
 
                     <br><br>
 
-                    Keyword:
-                    <b>When → Last year</b>.
+                    Do đó đáp án là
+                    <b>Last year</b>.
                 `
             },
 
@@ -287,14 +300,16 @@ window.QUICKMARCH_TEST = {
             {
                 number: 4,
 
-                question: "What is Sophie going to do next?",
+                question:
+                    "What is Sophie going to do next?",
 
                 answers: [
                     "Take photos",
                     "Take some photos"
                 ],
 
-                answerDisplay: "Take some photos",
+                answerDisplay:
+                    "Take some photos",
 
                 explanation: `
                     Đọc câu hỏi họ hỏi
@@ -332,7 +347,8 @@ window.QUICKMARCH_TEST = {
             {
                 number: 5,
 
-                question: "Why does Ben catch more fish?",
+                question:
+                    "Why does Ben catch more fish?",
 
                 answers: [
                     "He has a long fishing line",
@@ -340,7 +356,8 @@ window.QUICKMARCH_TEST = {
                     "A long fishing line"
                 ],
 
-                answerDisplay: "Ben has a long fishing line",
+                answerDisplay:
+                    "Ben has a long fishing line",
 
                 explanation: `
                     Đọc câu hỏi họ hỏi
@@ -357,11 +374,8 @@ window.QUICKMARCH_TEST = {
 
                     <br>
 
-                    - Why?
-
-                    <br>
-
-                    - He's got a <b>long fishing line</b>.
+                    - He's got a
+                    <b>long fishing line</b>.
 
                     <br>
 
@@ -378,7 +392,8 @@ window.QUICKMARCH_TEST = {
             {
                 number: 6,
 
-                question: "Where did Sophie leave her sunglasses?",
+                question:
+                    "Where did Sophie leave her sunglasses?",
 
                 answers: [
                     "On the seat",
@@ -386,7 +401,8 @@ window.QUICKMARCH_TEST = {
                     "On that seat"
                 ],
 
-                answerDisplay: "On the seat",
+                answerDisplay:
+                    "On the seat",
 
                 explanation: `
                     Đọc câu hỏi họ hỏi
@@ -399,11 +415,12 @@ window.QUICKMARCH_TEST = {
 
                     <br>
 
-                    - I can't find my <b>sunglasses</b>...
+                    - Can't find my
+                    <b>sunglasses</b>...
 
                     <br>
 
-                    - You had them on at the table downstairs.
+                    - On at the table downstairs.
 
                     <br>
 
@@ -411,7 +428,8 @@ window.QUICKMARCH_TEST = {
 
                     <br>
 
-                    - They're <b>on that seat</b>!
+                    - They're
+                    <b>on that seat</b>!
 
                     <br><br>
 
@@ -424,14 +442,16 @@ window.QUICKMARCH_TEST = {
             {
                 number: 7,
 
-                question: "Which is the best place for the picnic?",
+                question:
+                    "Which is the best place for the picnic?",
 
                 answers: [
                     "By the rocks",
                     "The rocks"
                 ],
 
-                answerDisplay: "By the rocks",
+                answerDisplay:
+                    "By the rocks",
 
                 explanation: `
                     Đọc câu hỏi họ hỏi
@@ -444,7 +464,7 @@ window.QUICKMARCH_TEST = {
 
                     <br>
 
-                    - There are tables at that café...
+                    - Tables at that café...
 
                     <br>
 
@@ -466,7 +486,8 @@ window.QUICKMARCH_TEST = {
             {
                 number: 8,
 
-                question: "What are the Browns going to do first after lunch?",
+                question:
+                    "What are the Browns going to do first after lunch?",
 
                 answers: [
                     "Walk along the beach",
@@ -474,7 +495,8 @@ window.QUICKMARCH_TEST = {
                     "Walk along the beach before swimming"
                 ],
 
-                answerDisplay: "Walk along the beach",
+                answerDisplay:
+                    "Walk along the beach",
 
                 explanation: `
                     Đọc câu hỏi họ hỏi
@@ -495,7 +517,7 @@ window.QUICKMARCH_TEST = {
 
                     <br>
 
-                    - We can <b>walk along the beach</b>
+                    - <b>Walk along the beach</b>
                     before that.
 
                     <br>
@@ -517,13 +539,16 @@ window.QUICKMARCH_TEST = {
         ===================================================== */
 
         const questionArea =
-            document.getElementById("task2Questions");
+            document.getElementById(
+                "task2Questions"
+            );
 
 
         questions.forEach(function(item) {
 
             const box =
                 document.createElement("div");
+
 
             box.style.cssText = `
                 border:1px solid #d8e4dc;
@@ -541,7 +566,8 @@ window.QUICKMARCH_TEST = {
                     color:#315b45;
                     margin-bottom:8px;
                 ">
-                    ${item.number}. ${item.question}
+                    ${item.number}.
+                    ${item.question}
                 </div>
 
 
@@ -643,6 +669,7 @@ window.QUICKMARCH_TEST = {
 
                             score += 2;
 
+
                             feedback.innerHTML = `
 
                                 <div style="
@@ -705,16 +732,12 @@ window.QUICKMARCH_TEST = {
 
 
                     /* =================================================
-                       SCORE DISPLAY
+                       SCORE
                     ================================================== */
 
-                    const scoreBox =
-                        document.getElementById(
-                            "task2Score"
-                        );
-
-
-                    scoreBox.innerHTML = `
+                    document.getElementById(
+                        "task2Score"
+                    ).innerHTML = `
 
                         <div style="
                             display:inline-block;
@@ -735,9 +758,14 @@ window.QUICKMARCH_TEST = {
                     `;
 
 
-                    scoreBox.scrollIntoView({
+                    document.getElementById(
+                        "task2Score"
+                    ).scrollIntoView({
+
                         behavior:"smooth",
+
                         block:"center"
+
                     });
 
                 }
@@ -746,4 +774,3 @@ window.QUICKMARCH_TEST = {
     }
 
 };
-
