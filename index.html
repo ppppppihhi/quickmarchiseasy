@@ -608,7 +608,7 @@ footer {
         data-subject="listening"
         onclick="selectSubject('listening')"
     >
-        Listening
+        🎧Listening
     </button>
 
     <button
@@ -617,7 +617,7 @@ footer {
         data-subject="reading"
         onclick="selectSubject('reading')"
     >
-        Reading
+        📖Reading
     </button>
 
     <button
@@ -626,7 +626,7 @@ footer {
         data-subject="speaking"
         onclick="selectSubject('speaking')"
     >
-        Speaking
+        🎤Speaking
     </button>
 
     <button
@@ -635,7 +635,7 @@ footer {
         data-subject="writing"
         onclick="selectSubject('writing')"
     >
-        Writing
+        📝Writing
     </button>
 
 </div>
@@ -648,7 +648,7 @@ footer {
 <div class="test-panel">
 
     <h2 id="subjectTitle">
-        Listening
+       🎧Listening
     </h2>
 
     <p class="test-description">
@@ -868,29 +868,417 @@ function createTestButtons() {
    LOAD TEST
 ===================================================== */
 
+/* =====================================================
+   LOAD TEST
+===================================================== */
+
 async function loadTest(testNumber) {
 
     currentTest = testNumber;
 
-  let path;
 
-if (currentSubject === "listening") {
+    /* =================================================
+       LISTENING ONLY
+       Show Task 1 / Task 2 selection
+    ================================================= */
 
-    path =
-        "tests/listening/test" +
-        testNumber +
-        "/task01/task01.js";
+    if (currentSubject === "listening") {
 
-} else {
+        showListeningTasks(testNumber);
 
-    path =
+        return;
+
+    }
+
+
+    /* =================================================
+       WRITING / READING / SPEAKING
+       KEEP EXISTING STRUCTURE
+    ================================================= */
+
+    const path =
         "tests/" +
         currentSubject +
         "/test" +
         testNumber +
         ".js";
 
+
+    showLoading(path);
+
+
+    /* -------------------------------------------------
+       Remove previous test script
+    ------------------------------------------------- */
+
+    const oldScript =
+        document.getElementById(
+            "quickmarch-test-script"
+        );
+
+
+    if (oldScript) {
+
+        oldScript.remove();
+
+    }
+
+
+    /* -------------------------------------------------
+       Remove old global test
+    ------------------------------------------------- */
+
+    window.QUICKMARCH_TEST = null;
+
+
+    try {
+
+        const response =
+            await fetch(
+                path + "?v=" + Date.now()
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "File not found (HTTP " +
+                response.status +
+                ")"
+            );
+
+        }
+
+
+        const code =
+            await response.text();
+
+
+        const script =
+            document.createElement("script");
+
+
+        script.id =
+            "quickmarch-test-script";
+
+
+        script.textContent =
+            code;
+
+
+        document.body.appendChild(
+            script
+        );
+
+
+        if (
+            !window.QUICKMARCH_TEST
+        ) {
+
+            throw new Error(
+                "The file loaded successfully, but it did not create window.QUICKMARCH_TEST."
+            );
+
+        }
+
+
+        renderTest(
+            window.QUICKMARCH_TEST
+        );
+
+
+    }
+
+    catch (error) {
+
+        showError(
+
+            "The system tried to load:<br><br>" +
+
+            "<code>" +
+            escapeHTML(path) +
+            "</code>" +
+
+            "<br><br>" +
+
+            "Error:<br>" +
+
+            "<code>" +
+            escapeHTML(error.message) +
+            "</code>"
+
+        );
+
+    }
+
 }
+
+
+/* =====================================================
+   SHOW LISTENING TASK MENU
+===================================================== */
+
+function showListeningTasks(testNumber) {
+
+    const area =
+        document.getElementById(
+            "testArea"
+        );
+
+
+    area.innerHTML = `
+
+        <div class="test-header">
+
+            <h2>
+                Listening Test ${testNumber}
+            </h2>
+
+            <p>
+                Choose a task.
+            </p>
+
+        </div>
+
+
+        <div class="test-content">
+
+            <div style="
+                display:flex;
+                justify-content:center;
+                align-items:stretch;
+                gap:16px;
+                width:100%;
+                max-width:700px;
+                margin:10px auto;
+            ">
+
+
+                <!-- =================================
+                     TASK 1
+                ================================== -->
+
+                <button
+                    type="button"
+                    onclick="
+                        loadListeningTask(
+                            '${testNumber}',
+                            '01'
+                        )
+                    "
+                    style="
+                        flex:1;
+                        min-height:90px;
+                        border:1px solid #cfddd3;
+                        background:#f7faf8;
+                        color:#315b45;
+                        border-radius:10px;
+                        font-family:inherit;
+                        font-size:20px;
+                        font-weight:800;
+                        cursor:pointer;
+                        padding:15px;
+                    "
+                    onmouseover="
+                        this.style.background='#e8f2eb';
+                    "
+                    onmouseout="
+                        this.style.background='#f7faf8';
+                    "
+                >
+
+                    🎧<br>
+
+                    Task 1
+
+                </button>
+
+
+                <!-- =================================
+                     TASK 2
+                ================================== -->
+
+                <button
+                    type="button"
+                    onclick="
+                        loadListeningTask(
+                            '${testNumber}',
+                            '02'
+                        )
+                    "
+                    style="
+                        flex:1;
+                        min-height:90px;
+                        border:1px solid #cfddd3;
+                        background:#f7faf8;
+                        color:#315b45;
+                        border-radius:10px;
+                        font-family:inherit;
+                        font-size:20px;
+                        font-weight:800;
+                        cursor:pointer;
+                        padding:15px;
+                    "
+                    onmouseover="
+                        this.style.background='#e8f2eb';
+                    "
+                    onmouseout="
+                        this.style.background='#f7faf8';
+                    "
+                >
+
+                    🎧<br>
+
+                    Task 2
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   LOAD LISTENING TASK
+===================================================== */
+
+async function loadListeningTask(
+    testNumber,
+    taskNumber
+) {
+
+    const path =
+        "tests/listening/test" +
+        testNumber +
+        "/task" +
+        taskNumber +
+        "/task" +
+        taskNumber +
+        ".js";
+
+
+    showLoading(path);
+
+
+    /* -------------------------------------------------
+       Remove previous test script
+    ------------------------------------------------- */
+
+    const oldScript =
+        document.getElementById(
+            "quickmarch-test-script"
+        );
+
+
+    if (oldScript) {
+
+        oldScript.remove();
+
+    }
+
+
+    /* -------------------------------------------------
+       Remove previous test object
+    ------------------------------------------------- */
+
+    window.QUICKMARCH_TEST = null;
+
+
+    try {
+
+        const response =
+            await fetch(
+                path + "?v=" + Date.now()
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "File not found (HTTP " +
+                response.status +
+                ")"
+            );
+
+        }
+
+
+        const code =
+            await response.text();
+
+
+        const script =
+            document.createElement("script");
+
+
+        script.id =
+            "quickmarch-test-script";
+
+
+        script.textContent =
+            code;
+
+
+        document.body.appendChild(
+            script
+        );
+
+
+        /* -------------------------------------------------
+           Check test object
+        ------------------------------------------------- */
+
+        if (
+            !window.QUICKMARCH_TEST
+        ) {
+
+            throw new Error(
+                "The file loaded successfully, but it did not create window.QUICKMARCH_TEST."
+            );
+
+        }
+
+
+        /* -------------------------------------------------
+           Render Listening Task
+        ------------------------------------------------- */
+
+        renderTest(
+            window.QUICKMARCH_TEST
+        );
+
+
+    }
+
+    catch (error) {
+
+        showError(
+
+            "The system tried to load:<br><br>" +
+
+            "<code>" +
+            escapeHTML(path) +
+            "</code>" +
+
+            "<br><br>" +
+
+            "Error:<br>" +
+
+            "<code>" +
+            escapeHTML(error.message) +
+            "</code>"
+
+        );
+
+    }
+
+}
+
 
 
     showLoading(path);
