@@ -206,91 +206,87 @@ window.QUICKMARCH_TEST = {
                TASK 5
                NEW FEEDBACK DESIGN
             ============================================= */
+            /* =================================================
+   TASK 5 FEEDBACK
+================================================= */
 
-            .qm-task5-feedback {
-                margin-top: 12px;
-                border-radius: 9px;
-                overflow: hidden;
-                border: 1px solid #dfe5e1;
-            }
+if (user === correct) {
 
+    score += 1.5;
 
-            .qm-task5-result {
-                padding: 11px 14px;
-                font-weight: 700;
-            }
+    feedback.className =
+        "qm-feedback qm-correct";
 
+    feedback.innerHTML = `
 
-            .qm-task5-result.correct {
-                background: #eef8f0;
-                color: #315b45;
-                border-bottom: 1px solid #d2e6d7;
-            }
+        ✓ Correct! 1.5/1.5 marks
 
+        <div class="qm-explanation">
 
-            .qm-task5-result.wrong {
-                background: #fff5f2;
-                color: #754d45;
-                border-bottom: 1px solid #ecd8d2;
-            }
+            <div>
+                Đáp án:
+                ${item.verb} → ${item.answer}
+            </div>
 
+            <div class="qm-clue">
 
-            .qm-task5-answer {
-                padding: 10px 14px;
-                background: #f4f8ff;
-                border-bottom: 1px solid #e1e8f0;
-                color: #40586d;
-            }
+                Gợi ý:
+                ${item.clue}
 
+            </div>
 
-            .qm-task5-answer strong {
-                color: #355a78;
-            }
+            <div>
+                Giải thích:
+                ${item.why}
+            </div>
 
+            <div>
+                Cụm từ quan trọng:
+                ${item.phrase}
+            </div>
 
-            .qm-task5-hint {
-                padding: 10px 14px;
-                background: #fffaf0;
-                border-bottom: 1px solid #eee4cc;
-                color: #665b42;
-            }
+        </div>
 
+    `;
 
-            .qm-task5-hint strong {
-                color: #725f32;
-            }
+} else {
 
+    feedback.className =
+        "qm-feedback qm-wrong";
 
-            .qm-task5-explanation {
-                padding: 11px 14px;
-                background: #f7f9f8;
-                color: #53655b;
-                border-bottom: 1px solid #e2e7e4;
-            }
+    feedback.innerHTML = `
 
+        ✗ Try again.
 
-            .qm-task5-explanation strong {
-                color: #43564c;
-            }
+        <div class="qm-explanation">
 
+            <div>
+                Đáp án:
+                ${item.answer}
+            </div>
 
-            .qm-task5-phrase {
-                padding: 10px 14px;
-                background: #fafafa;
-                color: #59635e;
-            }
+            <div class="qm-clue">
 
+                Gợi ý:
+                ${item.clue}
 
-            .qm-task5-verb {
-                display: inline-block;
-                margin-top: 5px;
-                padding: 4px 8px;
-                background: #ffffff;
-                border: 1px solid #d9e0dc;
-                border-radius: 5px;
-                font-weight: 700;
-                color: #46574e;
-            }
+            </div>
+
+            <div>
+                Giải thích:
+                ${item.why}
+            </div>
+
+            <div>
+                Cụm từ quan trọng:
+                ${item.phrase}
+            </div>
+
+        </div>
+
+    `;
+
+}
 
 
             /* =============================================
