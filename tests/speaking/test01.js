@@ -1,4 +1,3 @@
-
 /* =========================================================
    QUICKMARCH PRACTICE
    SPEAKING TEST 01
@@ -25,12 +24,9 @@ window.QUICKMARCH_TEST = {
 
         ];
 
+
         let currentQuestion = 0;
 
-
-        /* =================================================
-           MAIN HTML
-        ================================================= */
 
         container.innerHTML = `
 
@@ -49,7 +45,7 @@ window.QUICKMARCH_TEST = {
                         color:#315b45;
                         font-size:19px;
                         font-weight:800;
-                        margin-bottom:6px;
+                        margin-bottom:10px;
                     "
                 >
                     Question 1 / 5
@@ -67,7 +63,7 @@ window.QUICKMARCH_TEST = {
                 ">
 
 
-                    <!-- PREVIOUS -->
+                    <!-- LEFT BUTTON -->
 
                     <button
                         id="prevButton"
@@ -80,7 +76,7 @@ window.QUICKMARCH_TEST = {
                             transform:translateY(-50%);
 
                             width:46px;
-                            height:60px;
+                            height:90px;
 
                             border:1px solid #cfddd3;
                             background:#f7faf8;
@@ -92,12 +88,15 @@ window.QUICKMARCH_TEST = {
                             font-weight:700;
 
                             cursor:pointer;
+
                             z-index:5;
                         "
-                    >‹</button>
+                    >
+                        ‹
+                    </button>
 
 
-                    <!-- QUESTION IMAGE -->
+                    <!-- IMAGE -->
 
                     <img
                         id="questionImage"
@@ -107,14 +106,14 @@ window.QUICKMARCH_TEST = {
                             display:block;
                             width:100%;
                             max-width:700px;
-                            height:17.5vh;
-                            object-fit:contain;
+                            height:auto;
+
                             border-radius:8px;
                         "
                     >
 
 
-                    <!-- NEXT -->
+                    <!-- RIGHT BUTTON -->
 
                     <button
                         id="nextButton"
@@ -127,7 +126,7 @@ window.QUICKMARCH_TEST = {
                             transform:translateY(-50%);
 
                             width:46px;
-                            height:60px;
+                            height:90px;
 
                             border:1px solid #cfddd3;
                             background:#f7faf8;
@@ -139,18 +138,21 @@ window.QUICKMARCH_TEST = {
                             font-weight:700;
 
                             cursor:pointer;
+
                             z-index:5;
                         "
-                    >›</button>
+                    >
+                        ›
+                    </button>
 
                 </div>
 
 
-                <!-- ANSWER -->
+                <!-- SHOW ANSWER -->
 
                 <div style="
                     text-align:center;
-                    margin-top:6px;
+                    margin-top:12px;
                 ">
 
                     <button
@@ -163,7 +165,7 @@ window.QUICKMARCH_TEST = {
 
                             border-radius:7px;
 
-                            padding:6px 20px;
+                            padding:7px 20px;
 
                             font-family:inherit;
                             font-size:16px;
@@ -181,11 +183,11 @@ window.QUICKMARCH_TEST = {
                         style="
                             display:none;
 
-                            margin:8px auto 0;
+                            margin:10px auto 0;
 
                             max-width:700px;
 
-                            padding:9px 14px;
+                            padding:10px 14px;
 
                             background:#edf5ef;
                             border:1px solid #cfdfd4;
@@ -208,34 +210,35 @@ window.QUICKMARCH_TEST = {
         `;
 
 
-        /* =================================================
-           ELEMENTS
-        ================================================= */
-
         const image =
             document.getElementById(
                 "questionImage"
             );
+
 
         const questionNumber =
             document.getElementById(
                 "questionNumber"
             );
 
+
         const answerButton =
             document.getElementById(
                 "answerButton"
             );
+
 
         const answerBox =
             document.getElementById(
                 "answerBox"
             );
 
+
         const prevButton =
             document.getElementById(
                 "prevButton"
             );
+
 
         const nextButton =
             document.getElementById(
@@ -270,12 +273,12 @@ window.QUICKMARCH_TEST = {
                 number;
 
 
-            answerBox.textContent =
-                answers[currentQuestion];
-
-
             answerBox.style.display =
                 "none";
+
+
+            answerBox.textContent =
+                answers[currentQuestion];
 
 
             answerButton.textContent =
@@ -283,7 +286,7 @@ window.QUICKMARCH_TEST = {
 
 
             /* ---------------------------------------------
-               PREVIOUS BUTTON
+               DISABLE / ENABLE NAVIGATION
             --------------------------------------------- */
 
             if (
@@ -296,7 +299,9 @@ window.QUICKMARCH_TEST = {
                 prevButton.style.cursor =
                     "default";
 
-            } else {
+            }
+
+            else {
 
                 prevButton.style.opacity =
                     "1";
@@ -306,10 +311,6 @@ window.QUICKMARCH_TEST = {
 
             }
 
-
-            /* ---------------------------------------------
-               NEXT BUTTON
-            --------------------------------------------- */
 
             if (
                 currentQuestion ===
@@ -322,7 +323,9 @@ window.QUICKMARCH_TEST = {
                 nextButton.style.cursor =
                     "default";
 
-            } else {
+            }
+
+            else {
 
                 nextButton.style.opacity =
                     "1";
@@ -336,7 +339,7 @@ window.QUICKMARCH_TEST = {
 
 
         /* =================================================
-           PREVIOUS QUESTION
+           PREVIOUS
         ================================================= */
 
         prevButton.addEventListener(
@@ -358,7 +361,7 @@ window.QUICKMARCH_TEST = {
 
 
         /* =================================================
-           NEXT QUESTION
+           NEXT
         ================================================= */
 
         nextButton.addEventListener(
@@ -399,7 +402,9 @@ window.QUICKMARCH_TEST = {
                     answerButton.textContent =
                         "Hide Answer";
 
-                } else {
+                }
+
+                else {
 
                     answerBox.style.display =
                         "none";
@@ -414,7 +419,7 @@ window.QUICKMARCH_TEST = {
 
 
         /* =================================================
-           START
+           INITIAL DISPLAY
         ================================================= */
 
         updateQuestion();
@@ -422,4 +427,3 @@ window.QUICKMARCH_TEST = {
     }
 
 };
-
