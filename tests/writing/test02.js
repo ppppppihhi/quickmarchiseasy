@@ -1,4 +1,4 @@
-
+```javascript
 /* =====================================================
    QUICKMARCH PRACTICE
    WRITING TEST 02
@@ -14,16 +14,7 @@ window.QUICKMARCH_TEST = {
         /* =================================================
            CSS
         ================================================= */
-const style = document.createElement("style");
 
-        style.textContent = `
-            .problem-text {
-                color: rgb(0, 0, 238);
-                font-weight: 700;
-            }
-        `;
-
-        container.appendChild(style);
         const style = document.createElement("style");
 
         style.textContent = `
@@ -36,6 +27,11 @@ const style = document.createElement("style");
 
             .qm-writing * {
                 box-sizing: border-box;
+            }
+
+            .qm-problem {
+                color: rgb(0, 0, 238);
+                font-weight: 700;
             }
 
             .qm-task {
@@ -53,7 +49,8 @@ const style = document.createElement("style");
             }
 
             .qm-task-description {
-                color: #5f7067;
+                color: rgb(0, 0, 238);
+                font-weight: 700;
                 font-size: 15px;
                 margin-bottom: 16px;
             }
@@ -245,197 +242,154 @@ const style = document.createElement("style");
         }
 
 
-      /* =====================================================
-   TASK 3 — CHECK + EXPLANATION
-===================================================== */
+        /* =================================================
+           TASK 3 DATA
+        ================================================= */
 
-window.submitWriting3 = function(index) {
+        const task3 = [
 
-    const input = document.getElementById(
-        `writing3-${index}`
-    );
+            {
+                answer:
+                    "I think living in the country is better than living in the city.",
 
-    const feedback = document.getElementById(
-        `writing3-feedback-${index}`
-    );
+                acceptedQuestions: [
 
-    const userAnswer = normalizeWritingText(
-        input.value
-    );
+                    "What do you think about living in the country?",
+                    "What do you think of living in the country?",
+                    "Which do you think is better, living in the country or living in the city?",
+                    "Do you think living in the country is better than living in the city?"
 
-    if (userAnswer === "") {
+                ],
 
-        feedback.innerHTML = `
-            Please write a question.
-        `;
+                explanation: `
+                    <strong>💡 Giải thích:</strong><br>
+                    Mike đang đưa ra <strong>ý kiến</strong> về việc
+                    sống ở nông thôn và thành phố.
+                    Khi muốn hỏi ý kiến của một người, ta có thể dùng
+                    <strong>What do you think...?</strong>
+                    <br><br>
+                    <strong>What do you think about living in the country?</strong>
+                    <br>
+                    = Bạn nghĩ gì về việc sống ở nông thôn?
+                `
+            },
 
-        feedback.className = "feedback wrong";
+            {
+                answer:
+                    "For me, the best thing about living here is fishing in the lake.",
 
-        return;
-    }
+                acceptedQuestions: [
 
+                    "What is the best thing about living here?",
+                    "What is the best thing about living here for you?",
+                    "What do you think is the best thing about living here?"
 
-    const question = TEST_DATA.task3[index];
+                ],
 
-    const accepted =
-        question.acceptedQuestions.map(
-            normalizeWritingText
-        );
+                explanation: `
+                    <strong>💡 Giải thích:</strong><br>
+                    Hãy chú ý cụm
+                    <strong>"the best thing about living here"</strong>.
+                    Mike đang nói về <strong>điều tốt nhất</strong>
+                    khi sống ở đây.
+                    Vì vậy ta dùng <strong>What</strong> để hỏi
+                    thông tin về sự vật hoặc hoạt động.
+                    <br><br>
+                    <strong>What is the best thing about living here?</strong>
+                    <br>
+                    = Điều tuyệt vời nhất khi sống ở đây là gì?
+                `
+            },
 
+            {
+                answer:
+                    "I usually go fishing two or three times a week.",
 
-    /* =================================================
-       EXPLANATION FOR EACH QUESTION
-    ================================================= */
+                acceptedQuestions: [
 
-    const explanations = [
+                    "How often do you go fishing?",
+                    "How often do you usually go fishing?"
 
-        `
-        <strong>💡 Giải thích:</strong><br>
-        Câu trả lời có cụm <strong>"last year"</strong>,
-        đây là thông tin về <strong>thời gian</strong>
-        một sự việc xảy ra trong quá khứ.
-        Vì vậy, ta dùng từ để hỏi <strong>When</strong>.
-        <br><br>
-        <strong>When did you move into your house?</strong>
-        <br>
-        = Bạn chuyển vào ngôi nhà này khi nào?
-        `,
+                ],
 
+                explanation: `
+                    <strong>💡 Giải thích:</strong><br>
+                    Hãy quan sát cụm
+                    <strong>"two or three times a week"</strong>.
+                    Đây là thông tin về <strong>tần suất</strong>:
+                    một hoạt động xảy ra bao nhiêu lần.
+                    <br><br>
+                    Khi thấy các cụm như
+                    <strong>once a week</strong>,
+                    <strong>twice a month</strong>,
+                    <strong>three times a week</strong>,
+                    ta thường dùng <strong>How often</strong>.
+                    <br><br>
+                    <strong>How often do you go fishing?</strong>
+                    <br>
+                    = Bạn đi câu cá bao lâu một lần?
+                `
+            },
 
-        `
-        <strong>💡 Giải thích:</strong><br>
-        Mike nói:
-        <strong>"living in the country is better than living in the city."</strong>
-        Đây là <strong>ý kiến của Mike</strong> về việc sống ở
-        nông thôn và thành phố.
-        Vì vậy, ta có thể hỏi:
-        <strong>What do you think...?</strong>
-        <br><br>
-        <strong>What do you think about living in the country?</strong>
-        <br>
-        = Bạn nghĩ gì về việc sống ở nông thôn?
-        `,
+            {
+                answer:
+                    "This weekend? Yes, I’m going to go fishing on Saturday.",
 
+                acceptedQuestions: [
 
-        `
-        <strong>💡 Giải thích:</strong><br>
-        Mike nói:
-        <strong>"the best thing ... is fishing in the lake."</strong>
-        Câu trả lời đang cho biết <strong>điều tốt nhất</strong>
-        mà Mike thích làm ở đây.
-        Vì vậy, ta dùng từ để hỏi <strong>What</strong>
-        để hỏi về sự việc hoặc hoạt động.
-        <br><br>
-        <strong>What is the best thing about living here?</strong>
-        <br>
-        = Điều tuyệt vời nhất khi sống ở đây là gì?
-        `,
+                    "When are you going to go fishing?",
+                    "When are you going fishing?",
+                    "When will you go fishing?"
 
+                ],
 
-        `
-        <strong>💡 Giải thích:</strong><br>
-        Câu trả lời có:
-        <strong>"two or three times a week"</strong>.
-        Cụm này cho biết <strong>tần suất</strong>,
-        tức là một hoạt động xảy ra bao nhiêu lần.
-        Vì vậy, ta dùng <strong>How often</strong>.
-        <br><br>
-        <strong>How often do you go fishing?</strong>
-        <br>
-        = Bạn đi câu cá bao lâu một lần?
-        `,
+                explanation: `
+                    <strong>💡 Giải thích:</strong><br>
+                    Mike nói
+                    <strong>"on Saturday"</strong>.
+                    Đây là thông tin về <strong>thời gian</strong>.
+                    Khi câu trả lời cho biết một thời điểm cụ thể,
+                    ta có thể dùng <strong>When</strong> để hỏi.
+                    <br><br>
+                    <strong>When are you going to go fishing?</strong>
+                    <br>
+                    = Bạn sẽ đi câu cá khi nào?
+                `
+            },
 
+            {
+                answer:
+                    "Of course I can, Sophie. I’d love to teach you to fish!",
 
-        `
-        <strong>💡 Giải thích:</strong><br>
-        Mike nói:
-        <strong>"on Saturday"</strong>.
-        Đây là một <strong>thời điểm cụ thể trong tương lai</strong>.
-        Khi hỏi về thời gian, ta dùng <strong>When</strong>.
-        <br><br>
-        <strong>When are you going to go fishing?</strong>
-        <br>
-        = Bạn sẽ đi câu cá khi nào?
-        `
+                acceptedQuestions: [
 
-    ];
+                    "Can you teach me to fish?",
+                    "Can you teach me how to fish?",
+                    "Could you teach me to fish?",
+                    "Can you teach me fishing?"
 
+                ],
 
-    /* =================================================
-       CHECK ANSWER
-    ================================================= */
+                explanation: `
+                    <strong>💡 Giải thích:</strong><br>
+                    Mike trả lời
+                    <strong>"Of course I can"</strong>
+                    và sau đó nói
+                    <strong>"I'd love to teach you to fish"</strong>.
+                    Điều này cho thấy Sophie đã hỏi Mike
+                    liệu anh ấy <strong>có thể dạy cô ấy câu cá hay không</strong>.
+                    <br><br>
+                    Vì vậy ta dùng
+                    <strong>Can you...?</strong>
+                    để hỏi về khả năng hoặc lời đề nghị.
+                    <br><br>
+                    <strong>Can you teach me to fish?</strong>
+                    <br>
+                    = Bạn có thể dạy tôi câu cá không?
+                `
+            }
 
-    if (accepted.includes(userAnswer)) {
-
-        feedback.innerHTML = `
-
-            <div>
-                ✓ Correct!
-                <strong>3/3 marks</strong>
-            </div>
-
-            <div style="
-                margin-top:12px;
-                padding:12px;
-                background:#f4f8ff;
-                border-left:4px solid #0000EE;
-                border-radius:8px;
-                line-height:1.6;
-            ">
-
-                ${explanations[index]}
-
-            </div>
-
-        `;
-
-        feedback.className =
-            "feedback correct";
-
-    } else {
-
-        feedback.innerHTML = `
-
-            <div>
-                ✗ Try again.
-            </div>
-
-            <div style="
-                margin-top:10px;
-                padding:12px;
-                background:#fff8f6;
-                border-radius:8px;
-                line-height:1.6;
-            ">
-
-                <strong>Suggested answer:</strong><br>
-
-                ${question.acceptedQuestions[0]}?
-
-            </div>
-
-
-            <div style="
-                margin-top:12px;
-                padding:12px;
-                background:#f4f8ff;
-                border-left:4px solid #0000EE;
-                border-radius:8px;
-                line-height:1.6;
-            ">
-
-                ${explanations[index]}
-
-            </div>
-
-        `;
-
-        feedback.className =
-            "feedback wrong";
-
-    }
-
-};
+        ];
 
 
         /* =================================================
@@ -446,161 +400,112 @@ window.submitWriting3 = function(index) {
 
             {
                 answer: "woke",
-
                 verb: "wake",
-
-                clue: "“up” đứng ngay sau chỗ trống → cụm động từ “wake up”.",
-
+                clue:
+                    "Từ “up” đứng ngay sau chỗ trống → cụm động từ “wake up”.",
                 why:
-                    "Từ “this morning” cho biết hành động xảy ra trong quá khứ. Toàn bộ câu chuyện kể về một ngày đã kết thúc nên cần dùng Past Simple.",
-
+                    "Câu chuyện kể về một ngày đã kết thúc. Cụm “this morning” cho biết hành động xảy ra trong quá khứ nên “wake” phải đổi sang Past Simple.",
                 phrase:
                     "woke up = đã thức dậy."
-
             },
 
             {
                 answer: "ate",
-
                 verb: "eat",
-
                 clue:
-                    "Từ “them” đứng sau chỗ trống. “Them” ở đây chỉ “sausage and eggs”.",
-
+                    "Từ “them” đứng sau chỗ trống. “Them” chỉ “sausage and eggs”.",
                 why:
-                    "Mẹ đã nấu sausage and eggs cho bữa sáng, vì vậy hành động tiếp theo hợp lý là mọi người ăn chúng. Đây là hành động đã xảy ra nên dùng Past Simple.",
-
+                    "Mum cooked sausage and eggs for breakfast, sau đó mọi người ăn chúng. Vì hành động đã xảy ra nên dùng Past Simple: eat → ate.",
                 phrase:
                     "ate them = đã ăn chúng."
-
             },
 
             {
                 answer: "took",
-
                 verb: "take",
-
                 clue:
                     "Sau chỗ trống là “our swimming things and a picnic into our bags”.",
-
                 why:
-                    "Ngữ cảnh cho biết mọi người chuẩn bị đồ để đi đến hồ. Cụm “take ... into our bags” có nghĩa là mang đồ vào túi. Vì hành động đã xảy ra nên “take” phải đổi sang Past Simple.",
-
+                    "Ngữ cảnh cho biết mọi người chuẩn bị đồ để đi đến hồ. Cụm “take ... into our bags” phù hợp với nghĩa mang đồ vào túi. Vì câu chuyện ở quá khứ nên take → took.",
                 phrase:
                     "took ... into our bags = đã mang ... vào túi."
-
             },
 
             {
                 answer: "wore",
-
                 verb: "wear",
-
                 clue:
                     "Sau chỗ trống là “a hat all the time”.",
-
                 why:
-                    "Ta nhận ra cụm “wear a hat” = đội/mang mũ. Câu nói về ngày đã qua nên động từ “wear” phải chuyển sang Past Simple.",
-
+                    "Cụm “wear a hat” có nghĩa là đội hoặc mang mũ. Vì câu chuyện kể về một ngày đã qua nên wear phải chuyển sang Past Simple: wear → wore.",
                 phrase:
                     "wore a hat = đã đội mũ."
-
             },
 
             {
                 answer: "knocked",
-
                 verb: "knock",
-
                 clue:
                     "Sau chỗ trống là “on Mike’s door”.",
-
                 why:
-                    "Cụm “knock on the door” có nghĩa là gõ cửa. Sau đó mọi người đi đến hồ, nên đây là một hành động đã xảy ra trước đó. Vì vậy dùng Past Simple: knock → knocked.",
-
+                    "Cụm “knock on the door” có nghĩa là gõ cửa. Đây là một hành động đã xảy ra trước khi mọi người đi đến hồ nên dùng Past Simple: knock → knocked.",
                 phrase:
                     "knocked on Mike’s door = đã gõ cửa nhà Mike."
-
             },
 
             {
                 answer: "swam",
-
                 verb: "swim",
-
                 clue:
-                    "Câu nói “Dad ___ to the middle of the lake” cho biết Dad di chuyển bằng cách bơi.",
-
+                    "Câu “Dad ___ to the middle of the lake” cho biết Dad di chuyển bằng cách bơi.",
                 why:
-                    "Ngữ cảnh nói Dad đi đến giữa hồ bằng cách bơi. Động từ phù hợp là “swim”. Đây là hành động đã xảy ra nên dùng Past Simple: swim → swam.",
-
+                    "Ngữ cảnh nói Dad bơi đến giữa hồ. Động từ phù hợp là “swim”. Đây là động từ bất quy tắc nên swim → swam.",
                 phrase:
                     "swam to the middle of the lake = đã bơi đến giữa hồ."
-
             },
 
             {
                 answer: "took",
-
                 verb: "take",
-
                 clue:
                     "Sau chỗ trống là “a sailing boat onto the lake”.",
-
                 why:
-                    "Ngữ cảnh cho biết Anna và người kể chuyện đưa một chiếc thuyền buồm ra hồ cùng với giáo viên. Cụm “take a boat onto the lake” phù hợp với ý nghĩa của câu. Vì sự việc đã xảy ra nên take → took.",
-
+                    "Anna và người kể chuyện đưa một chiếc thuyền buồm ra hồ cùng Sarah. Động từ phù hợp là “take”. Vì hành động đã xảy ra nên take → took.",
                 phrase:
                     "took a sailing boat onto the lake = đã đưa một chiếc thuyền buồm ra hồ."
-
             },
 
             {
                 answer: "gave",
-
                 verb: "give",
-
                 clue:
                     "Sau chỗ trống là “us a lesson for an hour”.",
-
                 why:
-                    "Cụm “give someone a lesson” = dạy/cho ai một buổi học. Sarah là giáo viên nên cô ấy “gave us a lesson”. Sự việc đã xảy ra nên give → gave.",
-
+                    "Cụm “give someone a lesson” có nghĩa là dạy hoặc cho ai một buổi học. Sarah là giáo viên nên cô ấy “gave us a lesson”.",
                 phrase:
                     "gave us a lesson = đã dạy chúng tôi một buổi học."
-
             },
 
             {
                 answer: "showed",
-
                 verb: "show",
-
                 clue:
                     "Sau chỗ trống là “us how to turn the boat around”.",
-
                 why:
-                    "Cấu trúc “show someone how to do something” có nghĩa là chỉ cho ai cách làm một việc gì. Sarah đã chỉ cho họ cách quay thuyền, nên dùng “show”. Vì câu chuyện ở quá khứ: show → showed.",
-
+                    "Cấu trúc “show someone how to do something” có nghĩa là chỉ cho ai cách làm một việc gì. Vì hành động đã xảy ra nên show → showed.",
                 phrase:
                     "showed us how to turn the boat around = đã chỉ cho chúng tôi cách quay thuyền."
-
             },
 
             {
                 answer: "caught",
-
                 verb: "catch",
-
                 clue:
-                    "Câu nói “some fish” cho biết Sophie và Mike đã bắt được cá.",
-
+                    "Sau chỗ trống là “some fish”.",
                 why:
-                    "Ngữ cảnh nói về hoạt động câu cá ở hồ. Cụm “catch fish” = bắt cá. Đây là hành động đã xảy ra nên dùng Past Simple. Động từ này là bất quy tắc: catch → caught.",
-
+                    "Ngữ cảnh nói về hoạt động câu cá ở hồ. Cụm “catch fish” có nghĩa là bắt cá. Đây là động từ bất quy tắc: catch → caught.",
                 phrase:
                     "caught some fish = đã bắt được một ít cá."
-
             }
 
         ];
@@ -613,7 +518,8 @@ window.submitWriting3 = function(index) {
         const task6 = [
 
             {
-                starter: "At the weekend I like...",
+                starter:
+                    "At the weekend I like...",
 
                 hint:
                     "What do you like doing at the weekend? Where do you go? Who do you go with?",
@@ -626,7 +532,8 @@ window.submitWriting3 = function(index) {
             },
 
             {
-                starter: "Sometimes my friends and I...",
+                starter:
+                    "Sometimes my friends and I...",
 
                 hint:
                     "What do you sometimes do together?",
@@ -635,11 +542,12 @@ window.submitWriting3 = function(index) {
                     "Sometimes my friends and I go cycling around the town. We have a lot of fun together.",
 
                 explanation:
-                    "Nêu một hoạt động em thường thỉnh thoảng làm cùng bạn bè."
+                    "Nêu một hoạt động em thỉnh thoảng làm cùng bạn bè."
             },
 
             {
-                starter: "Every weekend my family...",
+                starter:
+                    "Every weekend my family...",
 
                 hint:
                     "What does your family usually do together?",
@@ -652,7 +560,8 @@ window.submitWriting3 = function(index) {
             },
 
             {
-                starter: "Last weekend...",
+                starter:
+                    "Last weekend...",
 
                 hint:
                     "What did you do last weekend? Remember to use the past tense.",
@@ -665,7 +574,8 @@ window.submitWriting3 = function(index) {
             },
 
             {
-                starter: "Next Saturday...",
+                starter:
+                    "Next Saturday...",
 
                 hint:
                     "What are you going to do next Saturday?",
@@ -699,6 +609,7 @@ window.submitWriting3 = function(index) {
                     </h2>
 
                     <p class="qm-task-description">
+                        Task Three: Sophie Asks Mike Some Questions (15 marks)<br>
                         The Brown family are staying in Danny’s house.
                         Sophie talks to the neighbour, Mike.
                         She asks him some questions.
@@ -796,6 +707,7 @@ window.submitWriting3 = function(index) {
                     </h2>
 
                     <p class="qm-task-description">
+                        Task Five: Ben Writes to Grandpa (15 marks)<br>
                         Ben writes a card to Grandpa about the family’s
                         day by the lake. Fill in the missing words.
                         Use the verbs in the box below but don’t forget
@@ -805,20 +717,22 @@ window.submitWriting3 = function(index) {
 
                     <div class="qm-example">
 
-                        <strong>💡 How to do Task 5</strong>
+                        <strong>💡 Cách làm Task 5</strong>
 
                         <p>
-                            Hãy quan sát từ ngay bên cạnh chỗ trống,
-                            đọc ngữ cảnh của cả câu và chú ý các cụm
-                            động từ. Sau đó xác định động từ phù hợp
-                            và đổi sang Past Simple.
+                            Hãy quan sát từ đứng ngay bên cạnh chỗ trống,
+                            đọc ngữ cảnh của cả câu và chú ý các cụm động từ.
+                            Sau đó chọn động từ phù hợp rồi đổi sang
+                            Past Simple.
                         </p>
 
                         <p>
-                            Đặc biệt chú ý các cụm như
-                            <strong>wake up</strong>,
-                            <strong>knock on the door</strong>,
-                            <strong>give someone a lesson</strong>...
+                            Ví dụ, nếu thấy <strong>“up”</strong> ngay sau
+                            chỗ trống, hãy nghĩ đến cụm
+                            <strong>“wake up”</strong>.
+                            Nếu thấy <strong>“on the door”</strong>,
+                            hãy nghĩ đến cụm
+                            <strong>“knock on the door”</strong>.
                         </p>
 
                     </div>
@@ -853,12 +767,14 @@ window.submitWriting3 = function(index) {
                             <strong>slept</strong>
                             in Danny’s house last night.
                             It was lovely and sunny when we all
+
                             <input
                                 id="t2-task5-0"
                                 class="qm-input qm-inline-input"
                                 type="text"
                                 placeholder="(1)"
                             >
+
                             up this morning.
                         </p>
 
@@ -866,108 +782,126 @@ window.submitWriting3 = function(index) {
                         <p>
                             Mum cooked sausage and eggs for breakfast
                             and we
+
                             <input
                                 id="t2-task5-1"
                                 class="qm-input qm-inline-input"
                                 type="text"
                                 placeholder="(2)"
                             >
+
                             them at the table in the garden.
                         </p>
 
 
                         <p>
                             Then we
+
                             <input
                                 id="t2-task5-2"
                                 class="qm-input qm-inline-input"
                                 type="text"
                                 placeholder="(3)"
                             >
+
                             our swimming things and a picnic into our bags.
                         </p>
 
 
                         <p>
                             Jack
+
                             <input
                                 id="t2-task5-3"
                                 class="qm-input qm-inline-input"
                                 type="text"
                                 placeholder="(4)"
                             >
+
                             a hat all the time because the sun was quite hot.
                         </p>
 
 
                         <p>
                             We
+
                             <input
                                 id="t2-task5-4"
                                 class="qm-input qm-inline-input"
                                 type="text"
                                 placeholder="(5)"
                             >
+
                             on Mike’s door, and then we all walked to the lake.
                         </p>
 
 
                         <p>
                             Dad
+
                             <input
                                 id="t2-task5-5"
                                 class="qm-input qm-inline-input"
                                 type="text"
                                 placeholder="(6)"
                             >
+
                             to the middle of the lake.
                         </p>
 
 
                         <p>
                             Anna and I
+
                             <input
                                 id="t2-task5-6"
                                 class="qm-input qm-inline-input"
                                 type="text"
                                 placeholder="(7)"
                             >
+
                             a sailing boat onto the lake with a sailing teacher, Sarah.
                         </p>
 
 
                         <p>
                             She
+
                             <input
                                 id="t2-task5-7"
                                 class="qm-input qm-inline-input"
                                 type="text"
                                 placeholder="(8)"
                             >
+
                             us a lesson for an hour.
                         </p>
 
 
                         <p>
                             She
+
                             <input
                                 id="t2-task5-8"
                                 class="qm-input qm-inline-input"
                                 type="text"
                                 placeholder="(9)"
                             >
+
                             us how to turn the boat around.
                         </p>
 
 
                         <p>
                             Sophie and Mike
+
                             <input
                                 id="t2-task5-9"
                                 class="qm-input qm-inline-input"
                                 type="text"
                                 placeholder="(10)"
                             >
+
                             some fish and we are going to cook them for dinner.
                         </p>
 
@@ -1009,6 +943,7 @@ window.submitWriting3 = function(index) {
                     </h2>
 
                     <p class="qm-task-description">
+                        Task Six: My Weekends (10 marks)<br>
                         Now write about your weekends.
                         Write about 50 words — about 10 words
                         in each space.
@@ -1083,7 +1018,7 @@ window.submitWriting3 = function(index) {
            TASK 3 CHECK
         ================================================= */
 
-        let task3Scores =
+        const task3Scores =
             new Array(task3.length).fill(false);
 
 
@@ -1096,9 +1031,7 @@ window.submitWriting3 = function(index) {
                     function() {
 
                         const index =
-                            Number(
-                                button.dataset.index
-                            );
+                            Number(button.dataset.index);
 
                         const input =
                             container.querySelector(
@@ -1136,7 +1069,6 @@ window.submitWriting3 = function(index) {
                             updateTask3Total();
 
                             return;
-
                         }
 
 
@@ -1150,6 +1082,12 @@ window.submitWriting3 = function(index) {
 
                                     ✓ Correct!
                                     <strong>3/3 marks</strong>
+
+                                    <div class="qm-explanation">
+
+                                        ${task3[index].explanation}
+
+                                    </div>
 
                                 </div>
 
@@ -1172,7 +1110,13 @@ window.submitWriting3 = function(index) {
                                     </strong>
 
                                     ${task3[index]
-                                        .acceptedQuestions[0]}?
+                                        .acceptedQuestions[0]}
+
+                                    <div class="qm-explanation">
+
+                                        ${task3[index].explanation}
+
+                                    </div>
 
                                 </div>
 
@@ -1239,31 +1183,22 @@ window.submitWriting3 = function(index) {
 
 
                             const user =
-                                normalize(
-                                    input.value
-                                );
+                                normalize(input.value);
 
 
                             const correct =
-                                normalize(
-                                    item.answer
-                                );
+                                normalize(item.answer);
 
 
                             const feedback =
-                                document.createElement(
-                                    "div"
-                                );
+                                document.createElement("div");
 
 
                             feedback.id =
                                 `t2-task5-feedback-${index}`;
 
 
-                            if (
-                                user ===
-                                correct
-                            ) {
+                            if (user === correct) {
 
                                 score += 1.5;
 
@@ -1302,19 +1237,23 @@ window.submitWriting3 = function(index) {
                                         </div>
 
                                         <p>
+
                                             <strong>
                                                 Vì sao chọn từ này?
                                             </strong>
 
                                             ${item.why}
+
                                         </p>
 
                                         <p>
+
                                             <strong>
                                                 Cụm từ quan trọng:
                                             </strong>
 
                                             ${item.phrase}
+
                                         </p>
 
                                     </div>
@@ -1330,7 +1269,7 @@ window.submitWriting3 = function(index) {
 
                                     ✗ Try again.
 
-                                    <br>
+                                    <br><br>
 
                                     <strong>
                                         Đáp án:
@@ -1363,19 +1302,23 @@ window.submitWriting3 = function(index) {
                                         </div>
 
                                         <p>
+
                                             <strong>
                                                 Vì sao chọn từ này?
                                             </strong>
 
                                             ${item.why}
+
                                         </p>
 
                                         <p>
+
                                             <strong>
                                                 Cụm từ quan trọng:
                                             </strong>
 
                                             ${item.phrase}
+
                                         </p>
 
                                     </div>
@@ -1387,9 +1330,7 @@ window.submitWriting3 = function(index) {
 
                             input
                                 .parentNode
-                                .appendChild(
-                                    feedback
-                                );
+                                .appendChild(feedback);
 
                         }
                     );
@@ -1475,6 +1416,7 @@ window.submitWriting3 = function(index) {
 
                             `;
 
+
                             sample.style.display =
                                 "block";
 
@@ -1489,8 +1431,7 @@ window.submitWriting3 = function(index) {
 
 
                     if (
-                        completed ===
-                        task6.length
+                        completed === task6.length
                     ) {
 
                         feedback.innerHTML = `
@@ -1502,7 +1443,7 @@ window.submitWriting3 = function(index) {
                                 <br><br>
 
                                 <strong>
-                                    Task 6 Score: 10/10 marks
+                                    Task 6 completed
                                 </strong>
 
                                 <br><br>
@@ -1545,3 +1486,4 @@ window.submitWriting3 = function(index) {
     }
 
 };
+```
