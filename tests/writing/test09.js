@@ -41,25 +41,10 @@ window.QUICKMARCH_TEST = {
                 margin-bottom: 8px;
             }
 
-            /* Nội dung đề bài màu xanh dương */
             .qm-instruction {
-                color: rgb(0, 0, 238);
-            }
-
-            .qm-task-description {
                 color: rgb(0, 0, 238);
                 font-size: 15px;
                 margin-bottom: 16px;
-            }
-
-            /* Email / đoạn văn đề bài */
-            .qm-letter {
-                color: rgb(0, 0, 238);
-                line-height: 1.9;
-            }
-
-            .qm-letter strong {
-                color: rgb(0, 0, 238);
             }
 
             .qm-example {
@@ -108,13 +93,13 @@ window.QUICKMARCH_TEST = {
             }
 
             .qm-inline-input {
-                width: 175px;
+                width: 170px;
                 display: inline-block;
                 margin: 0 5px;
             }
 
             .qm-textarea {
-                min-height: 115px;
+                min-height: 110px;
                 resize: vertical;
             }
 
@@ -154,16 +139,14 @@ window.QUICKMARCH_TEST = {
                 color: #754d45;
             }
 
-            /* Phần giải thích KHÔNG dùng màu xanh */
             .qm-explanation {
-                margin-top: 12px;
-                padding: 12px 14px;
-                background: #f7f3ef;
+                margin-top: 10px;
+                padding: 12px;
+                background: #f7faf8;
                 border-radius: 8px;
-                color: #37443d;
+                color: #53655b;
             }
 
-            /* Chỉ keyword tiếng Anh dùng màu nâu đất */
             .qm-keyword {
                 color: #990000;
                 font-weight: 700;
@@ -172,9 +155,8 @@ window.QUICKMARCH_TEST = {
             .qm-clue {
                 margin-top: 8px;
                 padding: 9px 11px;
-                background: #f5f1ed;
+                background: #f5f1ee;
                 border-radius: 7px;
-                color: #37443d;
             }
 
             .qm-word-bank {
@@ -184,7 +166,15 @@ window.QUICKMARCH_TEST = {
                 padding: 13px 15px;
                 margin: 12px 0 16px;
                 line-height: 2;
+            }
+
+            .qm-letter {
                 color: rgb(0, 0, 238);
+                line-height: 1.8;
+            }
+
+            .qm-letter input {
+                color: #37443d;
             }
 
             .qm-total {
@@ -227,7 +217,7 @@ window.QUICKMARCH_TEST = {
 
         `;
 
-        container.appendChild(style);
+        document.head.appendChild(style);
 
 
         /* =================================================
@@ -246,18 +236,6 @@ window.QUICKMARCH_TEST = {
         }
 
 
-        function escapeHTML(value) {
-
-            return String(value || "")
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-
-        }
-
-
         /* =================================================
            TASK 3 DATA
         ================================================= */
@@ -270,21 +248,41 @@ window.QUICKMARCH_TEST = {
 
                 acceptedQuestions: [
                     "Where do you play tennis?",
-                    "Where do you play tennis, Andy?"
+                    "Where do you play tennis, Andy?",
+                    "Where do you play tennis Andy?"
                 ],
 
                 explanation: `
-                    Andy nói <span class="qm-keyword">“at a club”</span>.
-                    Đây là thông tin về <span class="qm-keyword">địa điểm</span>
-                    Andy chơi tennis.
+                    <strong>💡 Gợi ý:</strong><br>
+
+                    Andy nói:
+                    “No, I play tennis at a club.”
+                    → Andy đang nói về
+                    <span class="qm-keyword">nơi</span>
+                    bạn ấy chơi tennis.
                     <br><br>
-                    Khi muốn hỏi một người chơi một môn thể thao ở đâu,
-                    ta dùng <span class="qm-keyword">Where do...?</span>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+
+                    Khi muốn hỏi
+                    <span class="qm-keyword">“Bạn chơi tennis ở đâu?”</span>,
+                    ta dùng từ để hỏi
+                    <span class="qm-keyword">Where</span>.
                     <br><br>
+
+                    Cấu trúc:
+                    <span class="qm-keyword">
+                        Where do you + verb...?
+                    </span>
+                    <br><br>
+
                     Đáp án:
-                    <span class="qm-keyword">Where do you play tennis?</span>
+                    <span class="qm-keyword">
+                        Where do you play tennis?
+                    </span>
                 `
             },
+
 
             {
                 answer:
@@ -292,20 +290,44 @@ window.QUICKMARCH_TEST = {
 
                 acceptedQuestions: [
                     "Why did you choose tennis?",
-                    "Why did you choose tennis, Andy?"
+                    "Why did you choose tennis, Andy?",
+                    "Why did you choose tennis Andy?"
                 ],
 
                 explanation: `
-                    Andy nói <span class="qm-keyword">“because it looked fun to play”</span>.
-                    Đây là lý do Andy chọn tennis.
+                    <strong>💡 Gợi ý:</strong><br>
+
+                    Andy nói:
+                    “I chose tennis because it looked fun to play.”
+                    → Andy đang nói về
+                    <span class="qm-keyword">lý do</span>
+                    chọn tennis.
                     <br><br>
-                    Khi hỏi lý do của một hành động đã xảy ra,
-                    ta dùng <span class="qm-keyword">Why did...?</span>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+
+                    Khi muốn hỏi
+                    <span class="qm-keyword">“Tại sao bạn chọn tennis?”</span>,
+                    ta dùng
+                    <span class="qm-keyword">Why</span>.
                     <br><br>
+
+                    Vì việc chọn tennis đã xảy ra trong quá khứ,
+                    dùng
+                    <span class="qm-keyword">Why did you...?</span>
+                    <br><br>
+
+                    choose → V2/ed:
+                    <span class="qm-keyword">chose</span>.
+                    <br><br>
+
                     Đáp án:
-                    <span class="qm-keyword">Why did you choose tennis?</span>
+                    <span class="qm-keyword">
+                        Why did you choose tennis?
+                    </span>
                 `
             },
+
 
             {
                 answer:
@@ -313,45 +335,92 @@ window.QUICKMARCH_TEST = {
 
                 acceptedQuestions: [
                     "How often do you play in tennis competitions?",
-                    "How often do you play in tennis competitions, Andy?"
+                    "How often do you play in tennis competitions, Andy?",
+                    "How often do you play in tennis competitions Andy?"
                 ],
 
                 explanation: `
-                    Andy nói <span class="qm-keyword">“twice a year”</span>.
-                    Cụm này cho biết <span class="qm-keyword">tần suất</span>
-                    Andy tham gia các cuộc thi tennis.
+                    <strong>💡 Gợi ý:</strong><br>
+
+                    Andy nói:
+                    “I play in them twice a year.”
+                    → Andy đang nói về
+                    <span class="qm-keyword">
+                        số lần / tần suất
+                    </span>
+                    tham gia các cuộc thi tennis.
                     <br><br>
-                    Khi hỏi một hoạt động xảy ra bao lâu một lần,
-                    ta dùng <span class="qm-keyword">How often</span>.
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+
+                    Khi hỏi
+                    <span class="qm-keyword">
+                        “bao lâu một lần?”
+                    </span>,
+                    ta dùng
+                    <span class="qm-keyword">How often</span>.
                     <br><br>
+
+                    Cấu trúc:
+                    <span class="qm-keyword">
+                        How often do you + verb...?
+                    </span>
+                    <br><br>
+
                     Đáp án:
-                    <span class="qm-keyword">How often do you play in tennis competitions?</span>
+                    <span class="qm-keyword">
+                        How often do you play in tennis competitions?
+                    </span>
                 `
             },
+
 
             {
                 answer:
-                    "My last competition? No, I lost but I played quite well.",
+                    "Tennis competitions? No, I lost but I played quite well.",
 
                 acceptedQuestions: [
                     "Did you win your last competition?",
-                    "Did you win your last competition, Andy?"
+                    "Did you win your last competition, Andy?",
+                    "Did you win your last competition Andy?"
                 ],
 
                 explanation: `
-                    Andy trả lời <span class="qm-keyword">“No, I lost”</span>.
-                    Điều này cho biết Andy không thắng cuộc thi gần nhất.
+                    <strong>💡 Gợi ý:</strong><br>
+
+                    Andy nói:
+                    “No, I lost but I played quite well.”
+                    → Andy đang nói về
+                    <span class="qm-keyword">
+                        kết quả cuộc thi gần nhất
+                    </span>.
                     <br><br>
-                    Khi hỏi về một sự việc đã xảy ra trong quá khứ,
-                    ta dùng <span class="qm-keyword">Did you...?</span>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+
+                    Câu trả lời bắt đầu bằng
+                    <span class="qm-keyword">No</span>,
+                    vì vậy đây là câu hỏi Yes/No.
                     <br><br>
-                    Động từ <span class="qm-keyword">win</span> trong câu hỏi
-                    giữ nguyên dạng vì đã có <span class="qm-keyword">Did</span>.
+
+                    Hỏi về một sự việc đã xảy ra trong quá khứ,
+                    ta dùng:
+                    <span class="qm-keyword">
+                        Did you + verb...?
+                    </span>
                     <br><br>
+
+                    win → V2/ed:
+                    <span class="qm-keyword">won</span>.
+                    <br><br>
+
                     Đáp án:
-                    <span class="qm-keyword">Did you win your last competition?</span>
+                    <span class="qm-keyword">
+                        Did you win your last competition?
+                    </span>
                 `
             },
+
 
             {
                 answer:
@@ -359,19 +428,45 @@ window.QUICKMARCH_TEST = {
 
                 acceptedQuestions: [
                     "When are you playing your next match?",
-                    "When are you playing your next match, Andy?"
+                    "When are you playing your next match, Andy?",
+                    "When are you playing your next match Andy?",
+                    "When are you playing your next game?",
+                    "When are you playing your next game, Andy?",
+                    "When are you playing your next game Andy?"
                 ],
 
                 explanation: `
-                    Andy nói <span class="qm-keyword">“Next weekend”</span>.
-                    Đây là thông tin về <span class="qm-keyword">thời gian</span>
-                    của trận đấu tiếp theo.
+                    <strong>💡 Gợi ý:</strong><br>
+
+                    Andy nói:
+                    “Next weekend. I’m playing against my friend Jack.”
+                    → Andy đang nói về
+                    <span class="qm-keyword">
+                        thời gian của trận đấu tiếp theo
+                    </span>.
                     <br><br>
-                    Khi hỏi thời gian của một kế hoạch trong tương lai,
-                    ta có thể dùng <span class="qm-keyword">When are you...?</span>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+
+                    Khi muốn hỏi
+                    <span class="qm-keyword">
+                        “Khi nào bạn chơi trận tiếp theo?”
+                    </span>,
+                    ta dùng
+                    <span class="qm-keyword">When</span>.
                     <br><br>
+
+                    Vì Andy đã có kế hoạch,
+                    có thể dùng:
+                    <span class="qm-keyword">
+                        When are you playing...?
+                    </span>
+                    <br><br>
+
                     Đáp án:
-                    <span class="qm-keyword">When are you playing your next match?</span>
+                    <span class="qm-keyword">
+                        When are you playing your next match?
+                    </span>
                 `
             }
 
@@ -385,260 +480,142 @@ window.QUICKMARCH_TEST = {
         const task5 = [
 
             {
-                answer: "came",
-                verb: "come",
-
-                clue: `
-                    Chủ ngữ là <span class="qm-keyword">my cousin Andy</span>
-                    và sau chỗ trống là
-                    <span class="qm-keyword">to our house</span>.
-                `,
-
-                why: `
-                    Andy đến nhà vào tối thứ Sáu.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">come</span>.
-                    Đây là động từ bất quy tắc:
-                    <span class="qm-keyword">come → came</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">came to our house</span>
-                    = đã đến nhà chúng tôi.
-                `
-            },
-
-            {
                 answer: "slept",
                 verb: "sleep",
+                clue:
+                    "Anna was on a school trip, so Andy stayed in her bedroom.",
 
-                clue: `
-                    Anna đi chuyến dã ngoại của trường nên Andy
-                    <span class="qm-keyword">in her bedroom</span>.
-                `,
+                why:
+                    "Andy cần một nơi để ngủ. Vì cuối tuần đã kết thúc nên động từ “sleep” phải chuyển sang Past Simple.",
 
-                why: `
-                    Andy ngủ trong phòng của Anna.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">sleep</span>.
-                    Past Simple:
-                    <span class="qm-keyword">sleep → slept</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">slept in her bedroom</span>
-                    = đã ngủ trong phòng của cô ấy.
-                `
+                phrase:
+                    "slept in her bedroom = đã ngủ trong phòng ngủ của Anna."
             },
+
 
             {
                 answer: "woke",
                 verb: "wake",
+                clue:
+                    "Sau chỗ trống là “up early”.",
 
-                clue: `
-                    Có cụm <span class="qm-keyword">up early</span>.
-                    Cụm này nói về việc thức dậy sớm.
-                `,
+                why:
+                    "Cụm “wake up early” có nghĩa là thức dậy sớm. Past Simple của “wake” là “woke”.",
 
-                why: `
-                    Gia đình thức dậy sớm vì trận bóng đá của Ben.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">wake</span>.
-                    Đây là động từ bất quy tắc:
-                    <span class="qm-keyword">wake → woke</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">woke up early</span>
-                    = đã thức dậy sớm.
-                `
+                phrase:
+                    "woke up early = đã thức dậy sớm."
             },
+
 
             {
                 answer: "ate",
                 verb: "eat",
+                clue:
+                    "Sau chỗ trống là “cereals for breakfast”.",
 
-                clue: `
-                    Sau chỗ trống là
-                    <span class="qm-keyword">cereals for breakfast</span>.
-                `,
+                why:
+                    "Câu nói về việc ăn ngũ cốc vào bữa sáng. Past Simple của “eat” là “ate”.",
 
-                why: `
-                    Gia đình ăn ngũ cốc vào bữa sáng.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">eat</span>.
-                    Đây là động từ bất quy tắc:
-                    <span class="qm-keyword">eat → ate</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">ate cereals for breakfast</span>
-                    = đã ăn ngũ cốc vào bữa sáng.
-                `
+                phrase:
+                    "ate cereals for breakfast = đã ăn ngũ cốc vào bữa sáng."
             },
+
 
             {
                 answer: "took",
                 verb: "take",
+                clue:
+                    "Mum đưa mọi người đến công viên cho trận bóng đá.",
 
-                clue: `
-                    Có cấu trúc
-                    <span class="qm-keyword">take someone to the park</span>.
-                `,
+                why:
+                    "Cụm “take someone to a place” có nghĩa là đưa ai đó đến một nơi. Past Simple của “take” là “took”.",
 
-                why: `
-                    Mum đưa mọi người đến công viên để xem trận bóng.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">take</span>.
-                    Đây là động từ bất quy tắc:
-                    <span class="qm-keyword">take → took</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">took us to the park</span>
-                    = đã đưa chúng tôi đến công viên.
-                `
+                phrase:
+                    "took us to the park = đã đưa chúng tôi đến công viên."
             },
+
 
             {
                 answer: "won",
                 verb: "win",
+                clue:
+                    "Ben’s team were really good and the match was fantastic.",
 
-                clue: `
-                    Sau chỗ trống là tỉ số
-                    <span class="qm-keyword">3 – 0</span>.
-                    Đội của Ben chơi rất tốt.
-                `,
+                why:
+                    "Đội của Ben thắng trận với tỷ số 3–0. Past Simple của “win” là “won”.",
 
-                why: `
-                    Đội của Ben thắng trận với tỉ số 3–0.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">win</span>.
-                    Đây là động từ bất quy tắc:
-                    <span class="qm-keyword">win → won</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">won 3–0</span>
-                    = đã thắng với tỉ số 3–0.
-                `
+                phrase:
+                    "won 3–0 = đã thắng với tỷ số 3–0."
             },
+
 
             {
                 answer: "visited",
                 verb: "visit",
+                clue:
+                    "Sau chỗ trống là “Grandma and Grandad”.",
 
-                clue: `
-                    Sau trận bóng, gia đình đến gặp
-                    <span class="qm-keyword">Grandma and Grandad</span>.
-                `,
+                why:
+                    "Câu nói về việc đến thăm ông bà. “Visit” chuyển sang Past Simple thành “visited”.",
 
-                why: `
-                    Gia đình đến thăm ông bà sau trận bóng.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">visit</span>.
-                    Đây là động từ có quy tắc:
-                    <span class="qm-keyword">visit → visited</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">visited Grandma and Grandad</span>
-                    = đã đến thăm ông bà.
-                `
+                phrase:
+                    "visited Grandma and Grandad = đã đến thăm ông bà."
             },
+
 
             {
                 answer: "gave",
                 verb: "give",
+                clue:
+                    "Grandma cho mọi người một ít kem đặc biệt.",
 
-                clue: `
-                    Có cấu trúc
-                    <span class="qm-keyword">give someone some ice cream</span>.
-                `,
+                why:
+                    "Cụm “give someone something” có nghĩa là cho ai đó thứ gì. Past Simple của “give” là “gave”.",
 
-                why: `
-                    Grandma đưa kem đặc biệt cho mọi người.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">give</span>.
-                    Đây là động từ bất quy tắc:
-                    <span class="qm-keyword">give → gave</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">gave us some ice cream</span>
-                    = đã cho chúng tôi một ít kem.
-                `
+                phrase:
+                    "gave us some ice cream = đã cho chúng tôi một ít kem."
             },
+
 
             {
                 answer: "rained",
                 verb: "rain",
+                clue:
+                    "Câu nói về thời tiết vào Sunday afternoon.",
 
-                clue: `
-                    Câu nói về thời tiết vào chiều Chủ nhật:
-                    <span class="qm-keyword">it ... a lot</span>.
-                `,
+                why:
+                    "Câu nói “it rained a lot” diễn tả trời mưa rất nhiều. “Rain” chuyển sang Past Simple thành “rained”.",
 
-                why: `
-                    Câu nói về việc trời mưa rất nhiều.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">rain</span>.
-                    Đây là động từ có quy tắc:
-                    <span class="qm-keyword">rain → rained</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">rained a lot</span>
-                    = đã mưa rất nhiều.
-                `
+                phrase:
+                    "rained a lot = đã mưa rất nhiều."
             },
+
 
             {
                 answer: "sat",
                 verb: "sit",
+                clue:
+                    "Sau chỗ trống là “on the sofa”.",
 
-                clue: `
-                    Có cụm
-                    <span class="qm-keyword">on the sofa</span>.
-                    Gia đình ở trên ghế sofa để xem phim.
-                `,
+                why:
+                    "Cụm “sit on the sofa” có nghĩa là ngồi trên ghế sofa. Past Simple của “sit” là “sat”.",
 
-                why: `
-                    Mọi người ngồi trên ghế sofa vì trời mưa.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">sit</span>.
-                    Đây là động từ bất quy tắc:
-                    <span class="qm-keyword">sit → sat</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">sat on the sofa</span>
-                    = đã ngồi trên ghế sofa.
-                `
+                phrase:
+                    "sat on the sofa = đã ngồi trên ghế sofa."
             },
+
 
             {
                 answer: "watched",
                 verb: "watch",
+                clue:
+                    "Sau chỗ trống là “them” và trước đó có “good films on TV”.",
 
-                clue: `
-                    Sau chỗ trống là
-                    <span class="qm-keyword">them</span>.
-                    “Them” ở đây chỉ những bộ phim hay trên TV.
-                `,
+                why:
+                    "“Them” ở đây chỉ những bộ phim hay trên TV. Vì vậy động từ phù hợp là “watch”. “Watch” chuyển sang Past Simple thành “watched”.",
 
-                why: `
-                    Gia đình xem những bộ phim trên TV.
-                    Động từ phù hợp là
-                    <span class="qm-keyword">watch</span>.
-                    Đây là động từ có quy tắc:
-                    <span class="qm-keyword">watch → watched</span>.
-                `,
-
-                phrase: `
-                    <span class="qm-keyword">watched them</span>
-                    = đã xem chúng.
-                `
+                phrase:
+                    "watched them = đã xem chúng."
             }
 
         ];
@@ -651,75 +628,79 @@ window.QUICKMARCH_TEST = {
         const task6 = [
 
             {
-                starter: "At the weekend I usually...",
+                starter: "At the weekend I usually",
 
                 hint:
-                    "What do you usually do at the weekend? Think about activities you enjoy doing.",
+                    "What do you usually do at the weekend? Think about playing sports, watching TV, meeting friends or relaxing.",
 
                 sample:
-                    "At the weekend I usually play football with my friends and watch TV.",
+                    "At the weekend I usually play football with my friends and watch films with my family.",
 
                 explanation:
-                    "Em có thể nói về những hoạt động em thường làm vào cuối tuần, chẳng hạn như chơi thể thao, xem TV hoặc đi chơi với bạn bè."
+                    "Em có thể viết về những hoạt động em thường làm vào cuối tuần."
             },
 
+
             {
-                starter: "Sometimes,...",
+                starter: "Sometimes,",
 
                 hint:
-                    "What do you sometimes do at the weekend? Think about places you visit or things you enjoy.",
+                    "What do you sometimes do at the weekend? Think about going somewhere, visiting relatives or doing something special.",
 
                 sample:
-                    "Sometimes, I go to the park with my family and have a picnic.",
+                    "Sometimes, I visit my grandparents or go shopping with my parents.",
 
                 explanation:
-                    "Em có thể viết về một hoạt động không phải lúc nào cũng làm nhưng thỉnh thoảng em thực hiện vào cuối tuần."
+                    "Em có thể viết về một hoạt động thỉnh thoảng em làm vào cuối tuần."
             },
 
+
             {
-                starter: "The best thing about the weekend...",
+                starter: "The best thing about the weekend",
 
                 hint:
-                    "What is your favourite thing about the weekend? Explain why you like it.",
+                    "What do you like most about weekends? Think about having free time, sleeping late, playing with friends or relaxing.",
 
                 sample:
-                    "The best thing about the weekend is having more time to play with my friends.",
+                    "The best thing about the weekend is having lots of free time to relax and play with my friends.",
 
                 explanation:
-                    "Em hãy nêu điều em thích nhất về cuối tuần và có thể giải thích ngắn gọn lý do."
+                    "Em có thể nói về điều em thích nhất ở cuối tuần và giải thích ngắn gọn lý do."
             },
 
+
             {
-                starter: "Last weekend,...",
+                starter: "Last weekend,",
 
                 hint:
                     "What did you do last weekend? Remember to use the past tense.",
 
                 sample:
-                    "Last weekend, I visited my grandparents and played football with my cousin.",
+                    "Last weekend, I played football with my friends and visited my grandparents.",
 
                 explanation:
-                    "Đây là sự việc đã xảy ra trong quá khứ. Em cần chú ý dùng Past Simple khi kể về cuối tuần trước."
+                    "Câu này nói về cuối tuần đã qua, vì vậy em nên chú ý sử dụng Past Simple."
             },
 
+
             {
-                starter: "Next weekend,...",
+                starter: "Next weekend,",
 
                 hint:
-                    "What are you going to do next weekend? Think about your plans.",
+                    "What are you going to do next weekend? Think about your plans for the future.",
 
                 sample:
-                    "Next weekend, I am going to visit my cousin and watch a football match.",
+                    "Next weekend, I am going to visit my grandparents and play tennis with my friends.",
 
                 explanation:
-                    "Đây là kế hoạch trong tương lai. Em có thể dùng cấu trúc “be going to” để nói về dự định."
+                    "Em có thể viết về kế hoạch của em cho cuối tuần tới."
             }
 
         ];
 
 
         /* =================================================
-           RENDER HTML
+           RENDER
         ================================================= */
 
         let html = `
@@ -736,12 +717,15 @@ window.QUICKMARCH_TEST = {
                         Task 3 — Sophie Talks to Andy
                     </h2>
 
-                    <p class="qm-task-description">
+                    <div class="qm-instruction">
+
                         At Ben’s football match Sophie talks to Andy.
                         Sophie asks him some questions.
                         Write the questions in the spaces.
                         The first one is an example.
-                    </p>
+
+                    </div>
+
 
                     <div class="qm-example">
 
@@ -777,7 +761,7 @@ window.QUICKMARCH_TEST = {
                     </p>
 
                     <input
-                        id="t9-task3-${index}"
+                        id="qm09-task3-${index}"
                         class="qm-input"
                         type="text"
                         placeholder="Write Sophie's question here..."
@@ -786,23 +770,20 @@ window.QUICKMARCH_TEST = {
                     <div class="qm-answer">
 
                         <strong>Andy:</strong>
-                        <span class="qm-instruction">
-                            ${item.answer}
-                        </span>
+                        ${item.answer}
 
                     </div>
 
                     <button
                         type="button"
                         class="qm-button"
-                        data-action="check-task3"
-                        data-index="${index}"
+                        data-task3-index="${index}"
                     >
                         Check
                     </button>
 
                     <div
-                        id="t9-task3-feedback-${index}"
+                        id="qm09-task3-feedback-${index}"
                     ></div>
 
                 </div>
@@ -815,7 +796,7 @@ window.QUICKMARCH_TEST = {
         html += `
 
                     <div
-                        id="t9-task3-total"
+                        id="qm09-task3-total"
                         class="qm-total"
                     >
                         Task 3 Score: 0/15 marks
@@ -834,13 +815,16 @@ window.QUICKMARCH_TEST = {
                         Task 5 — A Great Weekend with my Cousin
                     </h2>
 
-                    <p class="qm-task-description">
-                        Ben writes an email to his friend Gary about his weekend with Andy.
-                        Fill in the missing words. Use the verbs in the box below
-                        but don’t forget to change them to PAST TENSE because
-                        the weekend is finished.
-                        The first one is an example.
-                    </p>
+                    <div class="qm-instruction">
+
+                        Ben writes an email to his friend Gary about his
+                        weekend with Andy. Fill in the missing words.
+                        Use the verbs in the box below but don’t forget
+                        to change them to PAST TENSE because the weekend
+                        is finished. The first one is an example.
+
+                    </div>
+
 
                     <div class="qm-word-bank">
 
@@ -866,102 +850,146 @@ window.QUICKMARCH_TEST = {
                         <div class="qm-letter">
 
                             <p>
+
                                 On Friday evening my cousin Andy
-                                <strong>(example) came</strong>
+                                (example)
+
+                                <strong>came</strong>
+
                                 to our house for the weekend.
                                 Anna was on a school trip so Andy
+
                                 <input
-                                    id="t9-task5-0"
+                                    id="qm09-task5-1"
                                     class="qm-input qm-inline-input"
                                     type="text"
                                     placeholder="(1)"
                                 >
+
                                 in her bedroom.
+
                             </p>
 
+
                             <p>
+
                                 In the morning we all
+
                                 <input
-                                    id="t9-task5-1"
+                                    id="qm09-task5-2"
                                     class="qm-input qm-inline-input"
                                     type="text"
                                     placeholder="(2)"
                                 >
+
                                 up early because of Ben’s football match.
+
                                 We
+
                                 <input
-                                    id="t9-task5-2"
+                                    id="qm09-task5-3"
                                     class="qm-input qm-inline-input"
                                     type="text"
                                     placeholder="(3)"
                                 >
-                                cereals for breakfast and then Mum
+
+                                cereals for breakfast
+
+                                and then Mum
+
                                 <input
-                                    id="t9-task5-3"
+                                    id="qm09-task5-4"
                                     class="qm-input qm-inline-input"
                                     type="text"
                                     placeholder="(4)"
                                 >
+
                                 us to the park for the football match.
+
                             </p>
 
+
                             <p>
-                                Ben’s team were really good and the match was fantastic.
-                                They
+
+                                Ben’s team were really good and the match
+                                was fantastic. They
+
                                 <input
-                                    id="t9-task5-4"
+                                    id="qm09-task5-5"
                                     class="qm-input qm-inline-input"
                                     type="text"
                                     placeholder="(5)"
                                 >
+
                                 3 – 0.
+
                             </p>
 
+
                             <p>
+
                                 After the football we
+
                                 <input
-                                    id="t9-task5-5"
+                                    id="qm09-task5-6"
                                     class="qm-input qm-inline-input"
                                     type="text"
                                     placeholder="(6)"
                                 >
+
                                 Grandma and Grandad.
+
                                 They were very happy to see us all.
+
                                 As usual Grandma
+
                                 <input
-                                    id="t9-task5-6"
+                                    id="qm09-task5-7"
                                     class="qm-input qm-inline-input"
                                     type="text"
                                     placeholder="(7)"
                                 >
+
                                 us all some of her special ice cream.
+
                             </p>
 
+
                             <p>
+
                                 On Sunday afternoon it
+
                                 <input
-                                    id="t9-task5-7"
+                                    id="qm09-task5-8"
                                     class="qm-input qm-inline-input"
                                     type="text"
                                     placeholder="(8)"
                                 >
+
                                 a lot.
+
                                 There were some good films on TV so we just
+
                                 <input
-                                    id="t9-task5-8"
+                                    id="qm09-task5-9"
                                     class="qm-input qm-inline-input"
                                     type="text"
                                     placeholder="(9)"
                                 >
+
                                 on the sofa and
+
                                 <input
-                                    id="t9-task5-9"
+                                    id="qm09-task5-10"
                                     class="qm-input qm-inline-input"
                                     type="text"
                                     placeholder="(10)"
                                 >
+
                                 them – we were really lazy!
+
                             </p>
+
 
                             <p>
                                 What a great weekend!
@@ -974,7 +1002,7 @@ window.QUICKMARCH_TEST = {
 
                     <button
                         type="button"
-                        id="t9-check-task5"
+                        id="qm09-check-task5"
                         class="qm-button"
                     >
                         Check Task 5
@@ -982,7 +1010,7 @@ window.QUICKMARCH_TEST = {
 
 
                     <div
-                        id="t9-task5-total"
+                        id="qm09-task5-total"
                         class="qm-total"
                     >
                         Task 5 Score: 0/15 marks
@@ -1001,10 +1029,12 @@ window.QUICKMARCH_TEST = {
                         Task 6 — Weekends
                     </h2>
 
-                    <p class="qm-task-description">
+                    <div class="qm-instruction">
+
                         Now write about your weekends.
                         Write about ten words in each space.
-                    </p>
+
+                    </div>
 
         `;
 
@@ -1021,23 +1051,20 @@ window.QUICKMARCH_TEST = {
 
                     <div class="qm-example">
 
-                        <strong>💡 Gợi ý:</strong>
-
-                        <br>
+                        <strong>💡 Gợi ý:</strong><br>
 
                         ${item.hint}
 
                     </div>
 
                     <textarea
-                        id="t9-task6-${index}"
+                        id="qm09-task6-${index}"
                         class="qm-input qm-textarea"
                         placeholder="Write your answer here..."
                     ></textarea>
 
                     <div
-                        id="t9-task6-sample-${index}"
-                        style="display:none;"
+                        id="qm09-task6-sample-${index}"
                     ></div>
 
                 </div>
@@ -1051,14 +1078,14 @@ window.QUICKMARCH_TEST = {
 
                     <button
                         type="button"
-                        id="t9-check-task6"
+                        id="qm09-check-task6"
                         class="qm-button"
                     >
                         Check Task 6
                     </button>
 
                     <div
-                        id="t9-task6-feedback"
+                        id="qm09-task6-feedback"
                     ></div>
 
                 </section>
@@ -1080,7 +1107,7 @@ window.QUICKMARCH_TEST = {
 
 
         container
-            .querySelectorAll('[data-action="check-task3"]')
+            .querySelectorAll("[data-task3-index]")
             .forEach(function(button) {
 
                 button.addEventListener(
@@ -1088,16 +1115,16 @@ window.QUICKMARCH_TEST = {
                     function() {
 
                         const index =
-                            Number(button.dataset.index);
+                            Number(button.dataset.task3Index);
 
                         const input =
                             container.querySelector(
-                                `#t9-task3-${index}`
+                                `#qm09-task3-${index}`
                             );
 
                         const feedback =
                             container.querySelector(
-                                `#t9-task3-feedback-${index}`
+                                `#qm09-task3-feedback-${index}`
                             );
 
                         const user =
@@ -1138,7 +1165,7 @@ window.QUICKMARCH_TEST = {
                                 <div class="qm-feedback qm-correct">
 
                                     ✓ Correct!
-                                    <strong>3/3 marks</strong>
+                                    <span>3/3 marks</span>
 
                                     <div class="qm-explanation">
 
@@ -1162,14 +1189,8 @@ window.QUICKMARCH_TEST = {
 
                                     <br><br>
 
-                                    <span>
-                                        Suggested answer:
-                                    </span>
-
-                                    ${escapeHTML(
-                                        task3[index]
-                                            .acceptedQuestions[0]
-                                    )}
+                                    Suggested answer:
+                                    ${task3[index].acceptedQuestions[0]}
 
                                     <div class="qm-explanation">
 
@@ -1198,7 +1219,7 @@ window.QUICKMARCH_TEST = {
 
             const total =
                 container.querySelector(
-                    "#t9-task3-total"
+                    "#qm09-task3-total"
                 );
 
             total.textContent =
@@ -1212,7 +1233,7 @@ window.QUICKMARCH_TEST = {
         ================================================= */
 
         container
-            .querySelector("#t9-check-task5")
+            .querySelector("#qm09-check-task5")
             .addEventListener(
                 "click",
                 function() {
@@ -1220,146 +1241,161 @@ window.QUICKMARCH_TEST = {
                     let score = 0;
 
 
-                    task5.forEach(
-                        function(item, index) {
+                    task5.forEach(function(item, index) {
 
-                            const input =
-                                container.querySelector(
-                                    `#t9-task5-${index}`
-                                );
-
-
-                            const old =
-                                container.querySelector(
-                                    `#t9-task5-feedback-${index}`
-                                );
-
-
-                            if (old) {
-                                old.remove();
-                            }
-
-
-                            const user =
-                                normalize(input.value);
-
-                            const correct =
-                                normalize(item.answer);
-
-
-                            const feedback =
-                                document.createElement("div");
-
-
-                            feedback.id =
-                                `t9-task5-feedback-${index}`;
-
-
-                            if (user === correct) {
-
-                                score += 1.5;
-
-                                feedback.className =
-                                    "qm-feedback qm-correct";
-
-                                feedback.innerHTML = `
-
-                                    ✓ Correct!
-                                    <strong>1.5/1.5 marks</strong>
-
-                                    <div class="qm-explanation">
-
-                                        <div>
-                                            Đáp án:
-                                            ${item.answer}
-                                        </div>
-
-                                        <div class="qm-clue">
-
-                                            Gợi ý:
-                                            ${item.clue}
-
-                                        </div>
-
-                                        <div style="margin-top:8px;">
-
-                                            Giải thích:
-                                            ${item.why}
-
-                                        </div>
-
-                                        <div style="margin-top:8px;">
-
-                                            Cụm từ quan trọng:
-                                            ${item.phrase}
-
-                                        </div>
-
-                                    </div>
-
-                                `;
-
-                            } else {
-
-                                feedback.className =
-                                    "qm-feedback qm-wrong";
-
-                                feedback.innerHTML = `
-
-                                    ✗ Try again.
-
-                                    <div class="qm-explanation">
-
-                                        <div>
-                                            Đáp án:
-                                            ${item.answer}
-                                        </div>
-
-                                        <div class="qm-clue">
-
-                                            Gợi ý:
-                                            ${item.clue}
-
-                                        </div>
-
-                                        <div style="margin-top:8px;">
-
-                                            Giải thích:
-                                            ${item.why}
-
-                                        </div>
-
-                                        <div style="margin-top:8px;">
-
-                                            Cụm từ quan trọng:
-                                            ${item.phrase}
-
-                                        </div>
-
-                                    </div>
-
-                                `;
-
-                            }
-
-
-                            input.parentNode.appendChild(
-                                feedback
+                        const input =
+                            container.querySelector(
+                                `#qm09-task5-${index + 1}`
                             );
 
+
+                        const oldFeedback =
+                            container.querySelector(
+                                `#qm09-task5-feedback-${index + 1}`
+                            );
+
+
+                        if (oldFeedback) {
+                            oldFeedback.remove();
                         }
-                    );
+
+
+                        const user =
+                            normalize(input.value);
+
+                        const correct =
+                            normalize(item.answer);
+
+
+                        const feedback =
+                            document.createElement("div");
+
+
+                        feedback.id =
+                            `qm09-task5-feedback-${index + 1}`;
+
+
+                        if (user === correct) {
+
+                            score += 1.5;
+
+                            feedback.className =
+                                "qm-feedback qm-correct";
+
+                            feedback.innerHTML = `
+
+                                ✓ Correct!
+                                <span>1.5/1.5 marks</span>
+
+                                <div class="qm-explanation">
+
+                                    Đáp án:
+                                    ${item.answer}
+
+                                    <div class="qm-clue">
+
+                                        Gợi ý:
+                                        ${item.clue}
+
+                                    </div>
+
+                                    <p>
+
+                                        Giải thích:
+
+                                        ${item.verb}
+                                        →
+                                        V2/ed:
+
+                                        <span class="qm-keyword">
+                                            ${item.answer}
+                                        </span>.
+
+                                        ${item.why}
+
+                                    </p>
+
+                                    <p>
+
+                                        Cụm từ quan trọng:
+
+                                        <span class="qm-keyword">
+                                            ${item.phrase}
+                                        </span>
+
+                                    </p>
+
+                                </div>
+
+                            `;
+
+                        } else {
+
+                            feedback.className =
+                                "qm-feedback qm-wrong";
+
+                            feedback.innerHTML = `
+
+                                ✗ Try again.
+
+                                <div class="qm-explanation">
+
+                                    Đáp án:
+                                    ${item.answer}
+
+                                    <div class="qm-clue">
+
+                                        Gợi ý:
+                                        ${item.clue}
+
+                                    </div>
+
+                                    <p>
+
+                                        Giải thích:
+
+                                        ${item.verb}
+                                        →
+                                        V2/ed:
+
+                                        <span class="qm-keyword">
+                                            ${item.answer}
+                                        </span>.
+
+                                        ${item.why}
+
+                                    </p>
+
+                                    <p>
+
+                                        Cụm từ quan trọng:
+
+                                        <span class="qm-keyword">
+                                            ${item.phrase}
+                                        </span>
+
+                                    </p>
+
+                                </div>
+
+                            `;
+
+                        }
+
+
+                        input.parentNode.appendChild(feedback);
+
+                    });
 
 
                     const total =
                         container.querySelector(
-                            "#t9-task5-total"
+                            "#qm09-task5-total"
                         );
 
 
-                    total.innerHTML = `
-                        Task 5 Score: ${score}/15 marks
-                    `;
+                    total.innerHTML =
+                        `Task 5 Score: ${score}/15 marks`;
 
                 }
             );
@@ -1370,7 +1406,7 @@ window.QUICKMARCH_TEST = {
         ================================================= */
 
         container
-            .querySelector("#t9-check-task6")
+            .querySelector("#qm09-check-task6")
             .addEventListener(
                 "click",
                 function() {
@@ -1378,72 +1414,64 @@ window.QUICKMARCH_TEST = {
                     let completed = 0;
 
 
-                    task6.forEach(
-                        function(item, index) {
+                    task6.forEach(function(item, index) {
 
-                            const input =
-                                container.querySelector(
-                                    `#t9-task6-${index}`
-                                );
+                        const input =
+                            container.querySelector(
+                                `#qm09-task6-${index}`
+                            );
 
-                            const sample =
-                                container.querySelector(
-                                    `#t9-task6-sample-${index}`
-                                );
-
-
-                            if (
-                                input.value.trim() !== ""
-                            ) {
-
-                                completed++;
-
-                            }
+                        const sample =
+                            container.querySelector(
+                                `#qm09-task6-sample-${index}`
+                            );
 
 
-                            sample.innerHTML = `
+                        if (
+                            input.value.trim() !== ""
+                        ) {
 
-                                <div class="qm-sample">
-
-                                    <strong>
-                                        💡 Sample answer:
-                                    </strong>
-
-                                    <p>
-                                        ${item.sample}
-                                    </p>
-
-                                    <p class="qm-small-note">
-
-                                        <strong>
-                                            Giải thích:
-                                        </strong>
-
-                                        ${item.explanation}
-
-                                    </p>
-
-                                </div>
-
-                            `;
-
-                            sample.style.display =
-                                "block";
+                            completed++;
 
                         }
-                    );
+
+
+                        sample.innerHTML = `
+
+                            <div class="qm-sample">
+
+                                <strong>
+                                    💡 Sample answer:
+                                </strong>
+
+                                <p>
+                                    ${item.sample}
+                                </p>
+
+                                <p class="qm-small-note">
+
+                                    <strong>
+                                        Giải thích:
+                                    </strong>
+
+                                    ${item.explanation}
+
+                                </p>
+
+                            </div>
+
+                        `;
+
+                    });
 
 
                     const feedback =
                         container.querySelector(
-                            "#t9-task6-feedback"
+                            "#qm09-task6-feedback"
                         );
 
 
-                    if (
-                        completed ===
-                        task6.length
-                    ) {
+                    if (completed === task6.length) {
 
                         feedback.innerHTML = `
 
