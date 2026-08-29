@@ -1,811 +1,1350 @@
+/* =====================================================
+   QUICKMARCH PRACTICE
+   WRITING TEST 10
+===================================================== */
+
 window.QUICKMARCH_TEST = {
+
+    title: "Writing Test 10",
+
     render: function(container) {
 
-        /* =====================================================
-           QUICKMARCH PRACTICE
-           WRITING TEST 10
-           ===================================================== */
-
-        const BLUE = "rgb(0, 0, 238)";
-        const EARTH = "#990000";
-        const EARTH_ORANGE = "#993333";
-
-        container.innerHTML = "";
-
-        /* =====================================================
-           COMMON STYLES
-        ===================================================== */
+        /* =================================================
+           CSS
+        ================================================= */
 
         const style = document.createElement("style");
 
         style.textContent = `
-            .writing-test {
-                font-family: Arial, sans-serif;
+
+            .qm-writing {
+                color: #37443d;
+                font-family: "Segoe UI", Arial, sans-serif;
                 line-height: 1.6;
-                color: #333;
-                max-width: 1000px;
-                margin: 0 auto;
-                padding: 20px;
             }
 
-            .writing-test h2 {
-                margin-top: 30px;
-                margin-bottom: 12px;
-                color: #333;
-            }
-
-            .writing-test h3 {
-                margin-top: 25px;
-                color: #333;
-            }
-
-            .task-intro {
-                margin-bottom: 20px;
-            }
-
-            .question-box {
-                margin: 18px 0;
-                padding: 16px;
-                border: 1px solid #ddd;
-                border-radius: 10px;
-                background: #fff;
-            }
-
-            .question-line {
-                margin: 8px 0;
-            }
-
-            .speaker {
-                font-weight: bold;
-            }
-
-            .exam-text {
-                color: ${BLUE};
-            }
-
-            .email-text {
-                color: ${BLUE};
-                font-size: 17px;
-                line-height: 1.75;
-            }
-
-            .answer-input {
-                width: 100%;
-                max-width: 850px;
-                padding: 10px 12px;
-                margin: 8px 0;
-                border: 1px solid #bbb;
-                border-radius: 7px;
-                font-size: 16px;
+            .qm-writing * {
                 box-sizing: border-box;
             }
 
-            .check-btn {
-                margin-top: 8px;
-                padding: 9px 18px;
-                border: none;
-                border-radius: 7px;
-                background: #555;
-                color: white;
-                cursor: pointer;
-                font-size: 15px;
+            .qm-task {
+                background: #ffffff;
+                border: 1px solid #dce7df;
+                border-radius: 12px;
+                padding: 20px;
+                margin-bottom: 18px;
             }
 
-            .check-btn:hover {
-                background: #333;
-            }
-
-            .feedback {
-                margin-top: 12px;
-                padding: 13px 15px;
-                border-radius: 8px;
-                background: #f7f7f7;
-                border-left: 4px solid #aaa;
-            }
-
-            .feedback-title {
-                margin: 7px 0 3px;
-            }
-
-            .keyword {
-                color: ${EARTH};
-                font-weight: bold;
-            }
-
-            .keyword2 {
-                color: ${EARTH_ORANGE};
-                font-weight: bold;
-            }
-
-            .task5-wordbank {
-                margin: 15px 0 20px;
-                padding: 14px;
-                background: #f8f8f8;
-                border-radius: 8px;
-                border: 1px solid #ddd;
-            }
-
-            .wordbank-word {
-                display: inline-block;
-                margin: 4px 8px 4px 0;
-                padding: 4px 9px;
-                background: white;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-            }
-
-            .task5-sentence {
-                margin: 14px 0;
-            }
-
-            .blank-input {
-                width: 220px;
-                max-width: 100%;
-                padding: 8px 10px;
-                border: 1px solid #aaa;
-                border-radius: 6px;
-                font-size: 16px;
-            }
-
-            .task6-box {
-                margin: 18px 0;
-                padding: 16px;
-                border: 1px solid #ddd;
-                border-radius: 10px;
-                background: #fff;
-            }
-
-            .task6-prompt {
+            .qm-task-title {
+                color: #315b45;
+                font-size: 22px;
                 margin-bottom: 8px;
-                font-weight: bold;
             }
 
-            .hint-box {
-                margin: 8px 0;
+            .qm-instruction {
+                color: rgb(0, 0, 238);
+                font-size: 15px;
+                margin-bottom: 16px;
+            }
+
+            .qm-example {
+                background: #f1f7f3;
+                border-left: 4px solid #8db59b;
+                border-radius: 8px;
+                padding: 12px 15px;
+                margin: 12px 0 16px;
+            }
+
+            .qm-question {
+                border: 1px solid #dce7df;
+                border-radius: 10px;
+                padding: 15px;
+                margin-top: 12px;
+                background: #fbfdfc;
+            }
+
+            .qm-number {
+                color: #315b45;
+                font-weight: 700;
+                margin-bottom: 8px;
+            }
+
+            .qm-answer {
+                background: #f5f8f6;
+                border-radius: 8px;
                 padding: 10px 12px;
-                background: #fafafa;
-                border-left: 3px solid #aaa;
-                border-radius: 5px;
+                margin: 10px 0;
             }
 
-            .sample-box {
+            .qm-input {
+                width: 100%;
+                border: 1px solid #cbdad0;
+                border-radius: 7px;
+                padding: 10px 12px;
+                font-family: inherit;
+                font-size: 15px;
+                outline: none;
+                background: #ffffff;
+            }
+
+            .qm-input:focus {
+                border-color: #82a992;
+                box-shadow: 0 0 0 2px rgba(130,169,146,.15);
+            }
+
+            .qm-inline-input {
+                width: 170px;
+                display: inline-block;
+                margin: 0 5px;
+            }
+
+            .qm-textarea {
+                min-height: 110px;
+                resize: vertical;
+            }
+
+            .qm-button {
+                border: none;
+                background: #8db59b;
+                color: #ffffff;
+                border-radius: 8px;
+                padding: 9px 16px;
+                font-family: inherit;
+                font-size: 15px;
+                font-weight: 700;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+
+            .qm-button:hover {
+                background: #729b82;
+            }
+
+            .qm-feedback {
                 margin-top: 12px;
                 padding: 12px 14px;
-                background: #fafafa;
-                border-radius: 7px;
-            }
-
-            .sample-title {
-                margin-bottom: 5px;
-            }
-
-            .task6-textarea {
-                width: 100%;
-                min-height: 85px;
-                padding: 10px;
-                border: 1px solid #bbb;
-                border-radius: 7px;
-                font-size: 16px;
-                resize: vertical;
-                box-sizing: border-box;
-            }
-
-            .score-box {
-                margin-top: 25px;
-                padding: 15px;
-                background: #f7f7f7;
                 border-radius: 8px;
-                font-size: 17px;
+                line-height: 1.65;
             }
+
+            .qm-correct {
+                background: #eef8f0;
+                border: 1px solid #c8e1ce;
+                color: #315b45;
+            }
+
+            .qm-wrong {
+                background: #fff5f2;
+                border: 1px solid #ecd3cc;
+                color: #754d45;
+            }
+
+            .qm-explanation {
+                margin-top: 10px;
+                padding: 12px;
+                background: #f7faf8;
+                border-radius: 8px;
+                color: #53655b;
+            }
+
+            .qm-keyword {
+                color: #990000;
+                font-weight: 700;
+            }
+
+            .qm-clue {
+                margin-top: 8px;
+                padding: 9px 11px;
+                background: #f5f1ee;
+                border-radius: 7px;
+            }
+
+            .qm-word-bank {
+                background: #f1f7f3;
+                border: 1px solid #d8e6dc;
+                border-radius: 9px;
+                padding: 13px 15px;
+                margin: 12px 0 16px;
+                line-height: 2;
+            }
+
+            .qm-letter {
+                color: rgb(0, 0, 238);
+                line-height: 1.8;
+            }
+
+            .qm-letter input {
+                color: #37443d;
+            }
+
+            .qm-total {
+                margin-top: 15px;
+                padding: 13px 15px;
+                border-radius: 9px;
+                background: #eaf4ed;
+                color: #315b45;
+                font-weight: 700;
+            }
+
+            .qm-sample {
+                margin-top: 12px;
+                padding: 13px 15px;
+                background: #f0f7ff;
+                border-left: 4px solid #8aa9c7;
+                border-radius: 8px;
+            }
+
+            .qm-small-note {
+                color: #748179;
+                font-size: 14px;
+            }
+
+            @media (max-width: 600px) {
+
+                .qm-task {
+                    padding: 15px;
+                }
+
+                .qm-task-title {
+                    font-size: 19px;
+                }
+
+                .qm-inline-input {
+                    width: 140px;
+                }
+
+            }
+
         `;
 
         document.head.appendChild(style);
 
-        /* =====================================================
-           MAIN WRAPPER
-        ===================================================== */
 
-        const wrapper = document.createElement("div");
-        wrapper.className = "writing-test";
+        /* =================================================
+           HELPERS
+        ================================================= */
 
-        /* =====================================================
-           TITLE
-        ===================================================== */
+        function normalize(text) {
 
-        const title = document.createElement("h1");
-        title.textContent = "Writing Test 10";
-        wrapper.appendChild(title);
+            return String(text || "")
+                .toLowerCase()
+                .trim()
+                .replace(/[’‘]/g, "'")
+                .replace(/[.,!?;:"]/g, "")
+                .replace(/\s+/g, " ");
 
-        /* =====================================================
-           TASK 3
-        ===================================================== */
+        }
 
-        const task3Title = document.createElement("h2");
-        task3Title.textContent = "Task Three: At the Park (15 marks)";
-        wrapper.appendChild(task3Title);
 
-        const task3Intro = document.createElement("div");
-        task3Intro.className = "task-intro exam-text";
-        task3Intro.innerHTML = `
-            At the park, Mrs Brown sees her friend, Penny. Mrs Brown asks Penny some questions.
-            What are Mrs Brown’s questions? Write them in the spaces. The first one is an example.
-        `;
-        wrapper.appendChild(task3Intro);
+        /* =================================================
+           TASK 3 DATA
+        ================================================= */
 
-        const task3Questions = [
+        const task3 = [
+
             {
-                answer: "How often do you come to this park?",
-                feedback: `
-                    <div class="feedback-title">Gợi ý:</div>
-                    Penny nói: “I come to this park a lot, almost every day.”
-                    → Penny đang nói về số lần cô ấy đến công viên.
+                answer:
+                    "I come to this park a lot, almost every day.",
 
-                    <div class="feedback-title">Hướng dẫn:</div>
-                    Câu trả lời nói về tần suất.
-                    → Dùng <span class="keyword">How often...?</span>
+                acceptedQuestions: [
+                    "How often do you come to this park?",
+                    "How often do you come to this park"
+                ],
 
-                    <div class="feedback-title">Đáp án:</div>
-                    <span class="keyword">How often do you come to this park?</span>
+                explanation: `
+                    <strong>💡 Gợi ý:</strong><br>
+                    Penny nói:
+                    “I come to this park a lot, almost every day.”
+                    → Penny đang nói về <span class="qm-keyword">tần suất</span>
+                    cô ấy đến công viên.
+                    <br><br>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+                    Khi hỏi “bao lâu một lần”, dùng
+                    <span class="qm-keyword">How often</span>.
+                    <br><br>
+
+                    Đáp án:
+                    <span class="qm-keyword">How often do you come to this park?</span>
                 `
             },
+
             {
-                answer: "When did you first come here?",
-                feedback: `
-                    <div class="feedback-title">Gợi ý:</div>
-                    Penny nói: “I first came here six months ago.”
-                    → Penny đang nói về lần đầu cô ấy đến đây.
+                answer:
+                    "I first came here six months ago.",
 
-                    <div class="feedback-title">Hướng dẫn:</div>
-                    Câu trả lời nói về thời gian trong quá khứ.
-                    → Dùng <span class="keyword">When did...?</span>
+                acceptedQuestions: [
+                    "When did you first come here?",
+                    "When did you first come here"
+                ],
 
-                    <div class="feedback-title">Đáp án:</div>
-                    <span class="keyword">When did you first come here?</span>
+                explanation: `
+                    <strong>💡 Gợi ý:</strong><br>
+                    Penny nói:
+                    “I first came here six months ago.”
+                    → Câu trả lời cho biết <span class="qm-keyword">thời gian</span>
+                    cô ấy đến đây lần đầu.
+                    <br><br>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+                    Khi hỏi “khi nào”, dùng
+                    <span class="qm-keyword">When</span>.
+                    Vì “came” là hành động trong quá khứ,
+                    dùng <span class="qm-keyword">When did...?</span>
+                    <br><br>
+
+                    Đáp án:
+                    <span class="qm-keyword">When did you first come here?</span>
                 `
             },
+
             {
-                answer: "Is the park far from your house?",
-                feedback: `
-                    <div class="feedback-title">Gợi ý:</div>
-                    Penny nói: “This park is only two hundred metres from my house.”
-                    → Penny đang nói về khoảng cách từ nhà đến công viên.
+                answer:
+                    "Not very. This park is only two hundred metres from my house.",
 
-                    <div class="feedback-title">Hướng dẫn:</div>
-                    Câu trả lời nói về việc công viên có xa nhà hay không.
-                    → Dùng <span class="keyword">Is the park...?</span>
+                acceptedQuestions: [
+                    "Is the park far from your house?",
+                    "Is the park far from your house"
+                ],
 
-                    <div class="feedback-title">Đáp án:</div>
-                    <span class="keyword">Is the park far from your house?</span>
+                explanation: `
+                    <strong>💡 Gợi ý:</strong><br>
+                    Penny nói:
+                    “This park is only two hundred metres from my house.”
+                    → Penny đang nói về <span class="qm-keyword">khoảng cách</span>
+                    từ nhà đến công viên.
+                    <br><br>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+                    Câu trả lời “Not very” cho thấy câu hỏi là câu
+                    <span class="qm-keyword">Yes/No</span>
+                    về việc công viên có xa nhà hay không.
+                    <br><br>
+
+                    Đáp án:
+                    <span class="qm-keyword">Is the park far from your house?</span>
                 `
             },
+
             {
-                answer: "Is there a café here?",
-                feedback: `
-                    <div class="feedback-title">Gợi ý:</div>
-                    Penny nói: “Of course, there’s a lovely one over there.”
-                    → Penny đang nói về một quán cà phê ở công viên.
+                answer:
+                    "A café? Of course, there’s a lovely one over there.",
 
-                    <div class="feedback-title">Hướng dẫn:</div>
-                    Câu trả lời nói về sự tồn tại của một địa điểm.
-                    → Dùng <span class="keyword">Is there...?</span>
+                acceptedQuestions: [
+                    "Is there a café here?",
+                    "Is there a cafe here?",
+                    "Is there a café here",
+                    "Is there a cafe here"
+                ],
 
-                    <div class="feedback-title">Đáp án:</div>
-                    <span class="keyword">Is there a café here?</span>
+                explanation: `
+                    <strong>💡 Gợi ý:</strong><br>
+                    Penny nói:
+                    “Of course, there’s a lovely one over there.”
+                    → Penny đang nói rằng có một
+                    <span class="qm-keyword">café</span>
+                    ở đó.
+                    <br><br>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+                    Khi hỏi “Có ... ở đây không?”, dùng cấu trúc
+                    <span class="qm-keyword">Is there...?</span>
+                    <br><br>
+
+                    Đáp án:
+                    <span class="qm-keyword">Is there a café here?</span>
                 `
             },
+
             {
-                answer: "Are you going to be here tomorrow?",
-                feedback: `
-                    <div class="feedback-title">Gợi ý:</div>
-                    Penny nói: “Yes, I’m going to be here tomorrow.”
-                    → Penny đang nói về kế hoạch vào ngày mai.
+                answer:
+                    "Yes, I’m going to be here tomorrow.",
 
-                    <div class="feedback-title">Hướng dẫn:</div>
-                    Câu trả lời nói về kế hoạch trong tương lai.
-                    → Dùng <span class="keyword">Are you going to...?</span>
+                acceptedQuestions: [
+                    "Are you going to be here tomorrow?",
+                    "Are you going to be here tomorrow"
+                ],
 
-                    <div class="feedback-title">Đáp án:</div>
-                    <span class="keyword">Are you going to be here tomorrow?</span>
+                explanation: `
+                    <strong>💡 Gợi ý:</strong><br>
+                    Penny nói:
+                    “Yes, I’m going to be here tomorrow.”
+                    → Penny đang nói về
+                    <span class="qm-keyword">kế hoạch ngày mai</span>.
+                    <br><br>
+
+                    <strong>👉 Hướng dẫn:</strong><br>
+                    Đây là câu hỏi Yes/No về kế hoạch tương lai.
+                    Dùng cấu trúc
+                    <span class="qm-keyword">Are you going to...?</span>
+                    <br><br>
+
+                    Đáp án:
+                    <span class="qm-keyword">Are you going to be here tomorrow?</span>
                 `
             }
+
         ];
 
-        const task3Conversation = document.createElement("div");
-        task3Conversation.className = "exam-text";
 
-        task3Conversation.innerHTML = `
-            <div class="question-box">
-                <div class="question-line">
-                    <span class="speaker">Mrs Brown:</span>
-                    Example: What are you doing here at the park?
-                </div>
-                <div class="question-line">
-                    <span class="speaker">Penny:</span>
-                    I’m meeting my husband here at 3.00.
-                </div>
-            </div>
-        `;
+        /* =================================================
+           TASK 5 DATA
+        ================================================= */
 
-        wrapper.appendChild(task3Conversation);
+        const task5 = [
 
-        task3Questions.forEach(function(item, index) {
-
-            const box = document.createElement("div");
-            box.className = "question-box";
-
-            box.innerHTML = `
-                <div class="question-line exam-text">
-                    <span class="speaker">Mrs Brown:</span>
-                    ............................................................ ?
-                </div>
-
-                <div class="question-line exam-text">
-                    <span class="speaker">Penny:</span>
-                    ${
-                        index === 0
-                        ? "I come to this park a lot, almost every day."
-                        : index === 1
-                        ? "I first came here six months ago."
-                        : index === 2
-                        ? "Not very. This park is only two hundred metres from my house."
-                        : index === 3
-                        ? "A café? Of course, there’s a lovely one over there."
-                        : "Yes, I’m going to be here tomorrow – see you!"
-                    }
-                </div>
-
-                <input
-                    type="text"
-                    class="answer-input"
-                    placeholder="Write your question here..."
-                >
-
-                <button class="check-btn">Check</button>
-
-                <div class="feedback" style="display:none;"></div>
-            `;
-
-            const input = box.querySelector(".answer-input");
-            const button = box.querySelector(".check-btn");
-            const feedback = box.querySelector(".feedback");
-
-            button.addEventListener("click", function() {
-
-                const userAnswer = input.value.trim();
-
-                if (!userAnswer) {
-                    feedback.style.display = "block";
-                    feedback.innerHTML = "Please write your question first.";
-                    return;
-                }
-
-                feedback.style.display = "block";
-                feedback.innerHTML = item.feedback;
-
-                const normalizedUser = userAnswer
-                    .toLowerCase()
-                    .replace(/[?.!,]/g, "")
-                    .replace(/\s+/g, " ")
-                    .trim();
-
-                const normalizedCorrect = item.answer
-                    .toLowerCase()
-                    .replace(/[?.!,]/g, "")
-                    .replace(/\s+/g, " ")
-                    .trim();
-
-                if (normalizedUser === normalizedCorrect) {
-                    feedback.style.borderLeftColor = "#555";
-                    feedback.innerHTML =
-                        `<div class="feedback-title">✓ Correct</div>` +
-                        item.feedback;
-                } else {
-                    feedback.style.borderLeftColor = "#aaa";
-                    feedback.innerHTML =
-                        `<div class="feedback-title">Đáp án tham khảo:</div>` +
-                        `<span class="keyword">${item.answer}</span>` +
-                        item.feedback;
-                }
-            });
-
-            wrapper.appendChild(box);
-        });
-
-        /* =====================================================
-           TASK 5
-        ===================================================== */
-
-        const task5Title = document.createElement("h2");
-        task5Title.textContent = "Task Five: Sophie writes to her Grandma (15 marks)";
-        wrapper.appendChild(task5Title);
-
-        const task5Intro = document.createElement("div");
-        task5Intro.className = "task-intro email-text";
-        task5Intro.innerHTML = `
-            The next day Sophie writes to her grandma. Fill in the missing words. Use the verbs in the
-            box below but don’t forget to change them to the PAST TENSE because the park visit is
-            finished.<br>
-            The first answer is an example.
-        `;
-        wrapper.appendChild(task5Intro);
-
-        const wordBank = document.createElement("div");
-        wordBank.className = "task5-wordbank exam-text";
-        wordBank.innerHTML = `
-            <strong>Word Bank:</strong><br>
-            <span class="wordbank-word">arrive</span>
-            <span class="wordbank-word">buy</span>
-            <span class="wordbank-word">climb</span>
-            <span class="wordbank-word">eat</span>
-            <span class="wordbank-word">find</span>
-            <span class="wordbank-word">fly</span>
-            <span class="wordbank-word">go</span>
-            <span class="wordbank-word">lose</span>
-            <span class="wordbank-word">take</span>
-            <span class="wordbank-word">wake</span>
-            <span class="wordbank-word">wear</span>
-        `;
-        wrapper.appendChild(wordBank);
-
-        const task5Answers = [
-            "woke",
-            "wore",
-            "took",
-            "arrived",
-            "found",
-            "ate",
-            "bought",
-            "flew",
-            "lost",
-            "climbed"
-        ];
-
-        const task5Feedback = [
             {
-                hint: "Sophie got up early to help Mum.",
-                explanation: `
-                    Câu nói về việc thức dậy sớm trong quá khứ.
-                    → Động từ <span class="keyword">wake</span> chuyển sang Past Simple là <span class="keyword">woke</span>.
-                `,
-                phrase: "<span class=\"keyword\">wake up early</span> = thức dậy sớm."
+                answer: "woke",
+                verb: "wake",
+                clue:
+                    "Sau chỗ trống là “up early”.",
+                why:
+                    "Cụm “wake up” có nghĩa là thức dậy. Vì Sophie kể lại việc đã xảy ra hôm qua nên dùng Past Simple.",
+                phrase:
+                    "woke up = đã thức dậy."
             },
+
             {
-                hint: "It was a hot day, so they put on T-shirts and shorts.",
-                explanation: `
-                    Câu nói về quần áo mà mọi người mặc trong ngày hôm đó.
-                    → Động từ <span class="keyword">wear</span> chuyển sang Past Simple là <span class="keyword">wore</span>.
-                `,
-                phrase: "<span class=\"keyword\">wear T-shirts and shorts</span> = mặc áo phông và quần short."
+                answer: "wore",
+                verb: "wear",
+                clue:
+                    "Sau chỗ trống là “our T-shirts and shorts”.",
+                why:
+                    "Câu nói về quần áo mọi người mặc trong một ngày nóng. Past Simple của “wear” là “wore”.",
+                phrase:
+                    "wore T-shirts and shorts = đã mặc áo phông và quần short."
             },
+
             {
-                hint: "They brought a bat and ball with them.",
-                explanation: `
-                    Câu nói về việc mang theo một chiếc gậy và quả bóng.
-                    → Động từ <span class="keyword">take</span> chuyển sang Past Simple là <span class="keyword">took</span>.
-                `,
-                phrase: "<span class=\"keyword\">take ... with us</span> = mang ... theo."
+                answer: "took",
+                verb: "take",
+                clue:
+                    "Sau chỗ trống là “a bat and ball with us”.",
+                why:
+                    "Cụm “take something with us” có nghĩa là mang thứ gì đó theo. Past Simple của “take” là “took”.",
+                phrase:
+                    "took a bat and ball with us = đã mang theo gậy và bóng."
             },
+
             {
-                hint: "They got to the park.",
-                explanation: `
-                    Câu nói về thời điểm gia đình đến công viên.
-                    → Động từ <span class="keyword">arrive</span> chuyển sang Past Simple là <span class="keyword">arrived</span>.
-                `,
-                phrase: "<span class=\"keyword\">arrive at the park</span> = đến công viên."
+                answer: "arrived",
+                verb: "arrive",
+                clue:
+                    "Sau chỗ trống là “at the park”.",
+                why:
+                    "Cụm “arrive at the park” có nghĩa là đến công viên. Sự việc đã xảy ra nên dùng Past Simple.",
+                phrase:
+                    "arrived at the park = đã đến công viên."
             },
+
             {
-                hint: "They discovered a fantastic place under the trees.",
-                explanation: `
-                    Câu nói về việc tìm được một nơi rất đẹp để picnic.
-                    → Động từ <span class="keyword">find</span> chuyển sang Past Simple là <span class="keyword\">found</span>.
-                `,
-                phrase: "<span class=\"keyword\">find a place</span> = tìm thấy một nơi."
+                answer: "found",
+                verb: "find",
+                clue:
+                    "Sau chỗ trống là “a fantastic place under the trees”.",
+                why:
+                    "Sophie và mọi người tìm được một chỗ rất đẹp dưới những tán cây. Past Simple của “find” là “found”.",
+                phrase:
+                    "found a fantastic place = đã tìm được một chỗ tuyệt vời."
             },
+
             {
-                hint: "After the game, everyone had sandwiches and cakes.",
-                explanation: `
-                    Câu nói về việc ăn sandwiches và cakes sau trò chơi.
-                    → Động từ <span class="keyword">eat</span> chuyển sang Past Simple là <span class="keyword\">ate</span>.
-                `,
-                phrase: "<span class=\"keyword\">eat sandwiches and cakes</span> = ăn bánh mì và bánh ngọt."
+                answer: "ate",
+                verb: "eat",
+                clue:
+                    "Sau chỗ trống là “our sandwiches and cakes”.",
+                why:
+                    "Sau khi chơi bóng chày, mọi người ăn bánh mì kẹp và bánh ngọt. Past Simple của “eat” là “ate”.",
+                phrase:
+                    "ate our sandwiches and cakes = đã ăn bánh mì kẹp và bánh ngọt."
             },
+
             {
-                hint: "Mum got ice cream from the café.",
-                explanation: `
-                    Câu nói về việc Mum mua kem cho mọi người.
-                    → Động từ <span class="keyword">buy</span> chuyển sang Past Simple là <span class="keyword\">bought</span>.
-                `,
-                phrase: "<span class=\"keyword\">buy some ice cream</span> = mua một ít kem."
+                answer: "bought",
+                verb: "buy",
+                clue:
+                    "Sau chỗ trống là “us some ice cream”.",
+                why:
+                    "Mum mua kem cho mọi người từ quán café. Past Simple của “buy” là “bought”.",
+                phrase:
+                    "bought us some ice cream = đã mua kem cho chúng tôi."
             },
+
             {
-                hint: "Ben used his new kite in the park.",
-                explanation: `
-                    Câu nói về việc Ben thả chiếc diều mới.
-                    → Động từ <span class="keyword">fly</span> chuyển sang Past Simple là <span class="keyword\">flew</span>.
-                `,
-                phrase: "<span class=\"keyword\">fly a kite</span> = thả diều."
+                answer: "flew",
+                verb: "fly",
+                clue:
+                    "Sau chỗ trống là “his new kite”.",
+                why:
+                    "Ben thả chiếc diều mới của mình. Past Simple của “fly” là “flew”.",
+                phrase:
+                    "flew his new kite = đã thả diều."
             },
+
             {
-                hint: "The kite ended up in a tree.",
-                explanation: `
-                    Câu nói về việc Ben làm mất chiếc diều khi nó mắc trên cây.
-                    → Động từ <span class="keyword">lose</span> chuyển sang Past Simple là <span class="keyword\">lost</span>.
-                `,
-                phrase: "<span class=\"keyword\">lose a kite</span> = làm mất chiếc diều."
+                answer: "lost",
+                verb: "lose",
+                clue:
+                    "Sau chỗ trống là “it in a tree”.",
+                why:
+                    "Ben làm mất chiếc diều vì nó mắc trên cây. Past Simple của “lose” là “lost”.",
+                phrase:
+                    "lost it in a tree = đã làm mất nó trên cây."
             },
+
             {
-                hint: "Anna went up the tree to get the kite.",
-                explanation: `
-                    Câu nói về việc Anna trèo lên cây.
-                    → Động từ <span class="keyword">climb</span> chuyển sang Past Simple là <span class="keyword\">climbed</span>.
-                `,
-                phrase: "<span class=\"keyword\">climb the tree</span> = trèo lên cây."
+                answer: "climbed",
+                verb: "climb",
+                clue:
+                    "Sau chỗ trống là “the tree”.",
+                why:
+                    "Anna trèo lên cây để lấy chiếc diều cho Ben. Past Simple của “climb” là “climbed”.",
+                phrase:
+                    "climbed the tree = đã trèo lên cây."
             }
+
         ];
 
-        const task5 = document.createElement("div");
-        task5.className = "email-text";
 
-        task5.innerHTML = `
-            <div style="margin-bottom:15px;">
-                Hi Grandma,
-            </div>
+        /* =================================================
+           TASK 6 DATA
+        ================================================= */
 
-            <div class="task5-sentence">
-                Yesterday we all <strong>(example)</strong> went to the park.
-            </div>
+        const task6 = [
 
-            <div class="task5-sentence">
-                I (1)
-                <input class="blank-input" data-index="0">
-                up early to help Mum to make the picnic.
-            </div>
-
-            <div class="task5-sentence">
-                It was a hot day so we (2)
-                <input class="blank-input" data-index="1">
-                our T-shirts and shorts.
-            </div>
-
-            <div class="task5-sentence">
-                We (3)
-                <input class="blank-input" data-index="2">
-                a bat and ball with us for a baseball game.
-            </div>
-
-            <div class="task5-sentence">
-                When we (4)
-                <input class="blank-input" data-index="3">
-                at the park, it was already full of people.
-            </div>
-
-            <div class="task5-sentence">
-                We (5)
-                <input class="blank-input" data-index="4">
-                a fantastic place under the trees for our picnic.
-            </div>
-
-            <div class="task5-sentence">
-                After our game of baseball we (6)
-                <input class="blank-input" data-index="5">
-                our sandwiches and cakes and everyone enjoyed them.
-            </div>
-
-            <div class="task5-sentence">
-                After lunch Mum (7)
-                <input class="blank-input" data-index="6">
-                us some ice cream from the café.
-            </div>
-
-            <div class="task5-sentence">
-                Ben (8)
-                <input class="blank-input" data-index="7">
-                his new kite, but Mum wasn’t happy because he (9)
-                <input class="blank-input" data-index="8">
-                it in a tree.
-            </div>
-
-            <div class="task5-sentence">
-                Anna (10)
-                <input class="blank-input" data-index="9">
-                the tree to get it for him.
-            </div>
-
-            <div style="margin-top:15px;">
-                It was a great day.
-            </div>
-
-            <div style="margin-top:10px;">
-                Love,<br>
-                Sophie
-            </div>
-        `;
-
-        wrapper.appendChild(task5);
-
-        const task5Check = document.createElement("button");
-        task5Check.className = "check-btn";
-        task5Check.textContent = "Check Task 5";
-
-        const task5Result = document.createElement("div");
-        task5Result.className = "feedback";
-        task5Result.style.display = "none";
-
-        task5Check.addEventListener("click", function() {
-
-            let score = 0;
-
-            const inputs = task5.querySelectorAll(".blank-input");
-
-            inputs.forEach(function(input, index) {
-
-                const userAnswer = input.value
-                    .trim()
-                    .toLowerCase();
-
-                if (userAnswer === task5Answers[index]) {
-                    score += 1.5;
-                    input.style.borderColor = "#555";
-                } else {
-                    input.style.borderColor = "#aaa";
-                }
-            });
-
-            let html = `
-                <div style="font-size:18px; margin-bottom:15px;">
-                    Task 5 Score: ${score} / 15
-                </div>
-            `;
-
-            task5Feedback.forEach(function(item, index) {
-
-                html += `
-                    <div style="margin-top:20px; padding-top:12px; border-top:1px solid #ddd;">
-                        <div>Câu ${index + 1}</div>
-
-                        <div class="feedback-title">Đáp án</div>
-                        <div>
-                            <span class="keyword">${task5Answers[index]}</span>
-                        </div>
-
-                        <div class="feedback-title">Gợi ý</div>
-                        <div>
-                            ${item.hint}
-                        </div>
-
-                        <div class="feedback-title">Giải thích</div>
-                        <div>
-                            ${item.explanation}
-                        </div>
-
-                        <div class="feedback-title">Cụm từ quan trọng</div>
-                        <div>
-                            ${item.phrase}
-                        </div>
-                    </div>
-                `;
-            });
-
-            task5Result.innerHTML = html;
-            task5Result.style.display = "block";
-        });
-
-        wrapper.appendChild(task5Check);
-        wrapper.appendChild(task5Result);
-
-        /* =====================================================
-           TASK 6
-        ===================================================== */
-
-        const task6Title = document.createElement("h2");
-        task6Title.textContent = "Task Six: Parks (10 marks)";
-        wrapper.appendChild(task6Title);
-
-        const task6Intro = document.createElement("div");
-        task6Intro.className = "task-intro exam-text";
-        task6Intro.innerHTML = `
-            Now write about parks in your town.<br>
-            Write about 10 words in each space.
-        `;
-        wrapper.appendChild(task6Intro);
-
-        const task6Data = [
             {
-                prompt: "1. I like parks because",
-                hint: "Gợi ý: nói về lý do bạn thích công viên. Bạn có thể nói về cây xanh, không khí hoặc các hoạt động.",
-                sample: "I like parks because they are quiet, green and good for relaxing.",
-                explanation: "Có thể viết về những lý do khiến bạn thích công viên. Đây là câu hỏi cá nhân nên không có một đáp án duy nhất."
+                starter: "I like parks because",
+
+                hint:
+                    "Why do you like parks? Think about fresh air, trees, games, walking or relaxing.",
+
+                sample:
+                    "I like parks because they are green, peaceful and good places to relax.",
+
+                explanation:
+                    "Em có thể viết về những lý do em thích công viên, chẳng hạn như không khí trong lành, cây xanh hoặc không gian thư giãn."
             },
+
             {
-                prompt: "2. The park in my town is",
-                hint: "Gợi ý: mô tả công viên trong thị trấn của bạn: lớn, nhỏ, đẹp, đông người hoặc yên tĩnh.",
-                sample: "The park in my town is large, clean and full of beautiful trees.",
-                explanation: "Hãy dùng các tính từ để mô tả công viên và thêm một vài chi tiết cụ thể."
+                starter: "The park in my town is",
+
+                hint:
+                    "Describe the park in your town. Think about its size, trees, people, playgrounds or cafés.",
+
+                sample:
+                    "The park in my town is large and beautiful, with many trees and a children's playground.",
+
+                explanation:
+                    "Em có thể mô tả công viên ở nơi em sống bằng cách nói về kích thước, cây cối, khu vui chơi hoặc các tiện ích."
             },
+
             {
-                prompt: "3. Last week in the park,",
-                hint: "Gợi ý: kể một việc bạn hoặc gia đình đã làm ở công viên tuần trước.",
-                sample: "Last week in the park, I played football with my friends.",
-                explanation: "Vì có “Last week”, bạn có thể dùng Past Simple để kể về một hoạt động đã xảy ra."
+                starter: "Last week in the park,",
+
+                hint:
+                    "What happened when you were in the park last week? Use the past tense.",
+
+                sample:
+                    "Last week in the park, I played football with my friends and ate some ice cream.",
+
+                explanation:
+                    "Câu này nói về một sự việc đã xảy ra trong quá khứ, vì vậy em nên sử dụng Past Simple."
             },
+
             {
-                prompt: "4. My family usually",
-                hint: "Gợi ý: nói về hoạt động gia đình thường làm khi đến công viên.",
-                sample: "My family usually walks around the park and has a picnic there.",
-                explanation: "Vì có “usually”, bạn có thể dùng Present Simple để nói về thói quen."
+                starter: "My family usually",
+
+                hint:
+                    "What does your family usually do in a park? Think about walking, playing, eating or relaxing.",
+
+                sample:
+                    "My family usually walks around the park, takes photos and enjoys a picnic together.",
+
+                explanation:
+                    "Em có thể viết về những hoạt động mà gia đình em thường làm khi đến công viên."
             },
+
             {
-                prompt: "5. During the next holidays,",
-                hint: "Gợi ý: nói về kế hoạch của bạn trong kỳ nghỉ sắp tới.",
-                sample: "During the next holidays, I will visit the park with my family.",
-                explanation: "Bạn có thể dùng “will” hoặc “be going to” để nói về kế hoạch trong tương lai."
+                starter: "During the next holidays,",
+
+                hint:
+                    "What are you going to do in a park during your next holidays?",
+
+                sample:
+                    "During the next holidays, I am going to visit the park with my friends and play some games.",
+
+                explanation:
+                    "Câu này nói về kế hoạch trong tương lai. Em có thể dùng “be going to” hoặc các cấu trúc tương lai phù hợp."
             }
+
         ];
 
-        task6Data.forEach(function(item, index) {
 
-            const box = document.createElement("div");
-            box.className = "task6-box";
-
-            box.innerHTML = `
-                <div class="task6-prompt exam-text">
-                    ${item.prompt}
-                </div>
-
-                <textarea
-                    class="task6-textarea"
-                    placeholder="Write your answer here..."
-                ></textarea>
-
-                <div class="hint-box">
-                    ${item.hint}
-                </div>
-
-                <button class="check-btn">Check</button>
-
-                <div class="feedback" style="display:none;">
-                    <div class="sample-box">
-                        <div class="sample-title">Sample answer</div>
-                        <div>${item.sample}</div>
-                    </div>
-
-                    <div class="sample-box">
-                        <div class="sample-title">Giải thích</div>
-                        <div>${item.explanation}</div>
-                    </div>
-                </div>
-            `;
-
-            const button = box.querySelector(".check-btn");
-            const feedback = box.querySelector(".feedback");
-
-            button.addEventListener("click", function() {
-                feedback.style.display = "block";
-            });
-
-            wrapper.appendChild(box);
-        });
-
-        /* =====================================================
-           FINAL SCORE INFORMATION
-        ===================================================== */
-
-        const scoreBox = document.createElement("div");
-        scoreBox.className = "score-box";
-        scoreBox.innerHTML = `
-            <strong>Writing Test 10</strong><br>
-            Task 3: 15 marks<br>
-            Task 5: 15 marks<br>
-            Task 6: 10 marks<br>
-            Total: 40 marks
-        `;
-
-        wrapper.appendChild(scoreBox);
-
-        /* =====================================================
+        /* =================================================
            RENDER
-        ===================================================== */
+        ================================================= */
 
-        container.appendChild(wrapper);
+        let html = `
+
+            <div class="qm-writing">
+
+                <!-- =====================================
+                     TASK 3
+                ====================================== -->
+
+                <section class="qm-task">
+
+                    <h2 class="qm-task-title">
+                        Task 3 — At the Park
+                    </h2>
+
+                    <div class="qm-instruction">
+
+                        At the park, Mrs Brown sees her friend, Penny.
+                        Mrs Brown asks Penny some questions.
+                        What are Mrs Brown’s questions?
+                        Write them in the spaces.
+                        The first one is an example.
+
+                    </div>
+
+                    <div class="qm-example">
+
+                        <strong>Example</strong>
+
+                        <p>
+                            <strong>Mrs Brown:</strong>
+                            What are you doing here at the park?
+                        </p>
+
+                        <p>
+                            <strong>Penny:</strong>
+                            I’m meeting my husband here at 3.00.
+                        </p>
+
+                    </div>
+
+        `;
+
+
+        task3.forEach(function(item, index) {
+
+            html += `
+
+                <div class="qm-question">
+
+                    <div class="qm-number">
+                        Question ${index + 1} — 3 marks
+                    </div>
+
+                    <p>
+                        <strong>Mrs Brown:</strong>
+                    </p>
+
+                    <input
+                        id="qm10-task3-${index}"
+                        class="qm-input"
+                        type="text"
+                        placeholder="Write Mrs Brown's question here..."
+                    >
+
+                    <div class="qm-answer">
+
+                        <strong>Penny:</strong>
+                        ${item.answer}
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="qm-button"
+                        data-task3-index="${index}"
+                    >
+                        Check
+                    </button>
+
+                    <div
+                        id="qm10-task3-feedback-${index}"
+                    ></div>
+
+                </div>
+
+            `;
+
+        });
+
+
+        html += `
+
+                    <div
+                        id="qm10-task3-total"
+                        class="qm-total"
+                    >
+                        Task 3 Score: 0/15 marks
+                    </div>
+
+                </section>
+
+
+                <!-- =====================================
+                     TASK 5
+                ====================================== -->
+
+                <section class="qm-task">
+
+                    <h2 class="qm-task-title">
+                        Task 5 — Sophie Writes to her Grandma
+                    </h2>
+
+                    <div class="qm-instruction">
+
+                        The next day Sophie writes to her grandma.
+                        Fill in the missing words.
+                        Use the verbs in the box below but don’t forget
+                        to change them to the PAST TENSE because the park visit
+                        is finished. The first answer is an example.
+
+                    </div>
+
+                    <div class="qm-word-bank">
+
+                        <strong>Word bank:</strong><br>
+
+                        arrive &nbsp;&nbsp;
+                        buy &nbsp;&nbsp;
+                        climb &nbsp;&nbsp;
+                        eat &nbsp;&nbsp;
+                        find &nbsp;&nbsp;
+                        fly &nbsp;&nbsp;
+                        go &nbsp;&nbsp;
+                        lose &nbsp;&nbsp;
+                        take &nbsp;&nbsp;
+                        wake &nbsp;&nbsp;
+                        wear
+
+                    </div>
+
+
+                    <div class="qm-question">
+
+                        <div class="qm-letter">
+
+                            <p>
+                                Yesterday we all (example)
+                                <strong>went</strong>
+                                to the park.
+                                I
+                                <input
+                                    id="qm10-task5-1"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(1)"
+                                >
+                                up early to help Mum to make the picnic.
+                                It was a hot day so we
+                                <input
+                                    id="qm10-task5-2"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(2)"
+                                >
+                                our T-shirts and shorts.
+                            </p>
+
+
+                            <p>
+                                We
+                                <input
+                                    id="qm10-task5-3"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(3)"
+                                >
+                                a bat and ball with us for a baseball game.
+                                When we
+                                <input
+                                    id="qm10-task5-4"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(4)"
+                                >
+                                at the park, it was already full of people.
+                                We
+                                <input
+                                    id="qm10-task5-5"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(5)"
+                                >
+                                a fantastic place under the trees for our picnic.
+                            </p>
+
+
+                            <p>
+                                After our game of baseball we
+                                <input
+                                    id="qm10-task5-6"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(6)"
+                                >
+                                our sandwiches and cakes and everyone enjoyed them.
+                            </p>
+
+
+                            <p>
+                                After lunch Mum
+                                <input
+                                    id="qm10-task5-7"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(7)"
+                                >
+                                us some ice cream from the café.
+                                Ben
+                                <input
+                                    id="qm10-task5-8"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(8)"
+                                >
+                                his new kite, but Mum wasn’t happy because he
+                                <input
+                                    id="qm10-task5-9"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(9)"
+                                >
+                                it in a tree.
+                                Anna
+                                <input
+                                    id="qm10-task5-10"
+                                    class="qm-input qm-inline-input"
+                                    type="text"
+                                    placeholder="(10)"
+                                >
+                                the tree to get it for him.
+                            </p>
+
+
+                            <p>
+                                It was a great day.
+                            </p>
+
+                            <p>
+                                Love,<br>
+                                Sophie
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="qm10-check-task5"
+                        class="qm-button"
+                    >
+                        Check Task 5
+                    </button>
+
+
+                    <div
+                        id="qm10-task5-total"
+                        class="qm-total"
+                    >
+                        Task 5 Score: 0/15 marks
+                    </div>
+
+                </section>
+
+
+                <!-- =====================================
+                     TASK 6
+                ====================================== -->
+
+                <section class="qm-task">
+
+                    <h2 class="qm-task-title">
+                        Task 6 — Parks
+                    </h2>
+
+                    <div class="qm-instruction">
+
+                        Now write about parks in your town.
+                        Write about 10 words in each space.
+
+                    </div>
+
+        `;
+
+
+        task6.forEach(function(item, index) {
+
+            html += `
+
+                <div class="qm-question">
+
+                    <div class="qm-number">
+                        ${index + 1}. ${item.starter}
+                    </div>
+
+                    <div class="qm-example">
+
+                        <strong>💡 Gợi ý:</strong><br>
+
+                        ${item.hint}
+
+                    </div>
+
+                    <textarea
+                        id="qm10-task6-${index}"
+                        class="qm-input qm-textarea"
+                        placeholder="Write your answer here..."
+                    ></textarea>
+
+                    <div
+                        id="qm10-task6-sample-${index}"
+                    ></div>
+
+                </div>
+
+            `;
+
+        });
+
+
+        html += `
+
+                    <button
+                        type="button"
+                        id="qm10-check-task6"
+                        class="qm-button"
+                    >
+                        Check Task 6
+                    </button>
+
+                    <div
+                        id="qm10-task6-feedback"
+                    ></div>
+
+                </section>
+
+            </div>
+
+        `;
+
+
+        container.innerHTML = html;
+
+
+        /* =================================================
+           TASK 3 CHECK
+        ================================================= */
+
+        const task3Scores =
+            new Array(task3.length).fill(false);
+
+
+        container
+            .querySelectorAll("[data-task3-index]")
+            .forEach(function(button) {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        const index =
+                            Number(button.dataset.task3Index);
+
+                        const input =
+                            container.querySelector(
+                                `#qm10-task3-${index}`
+                            );
+
+                        const feedback =
+                            container.querySelector(
+                                `#qm10-task3-feedback-${index}`
+                            );
+
+                        const user =
+                            normalize(input.value);
+
+                        const accepted =
+                            task3[index]
+                                .acceptedQuestions
+                                .map(normalize);
+
+
+                        if (!user) {
+
+                            task3Scores[index] = false;
+
+                            feedback.innerHTML = `
+
+                                <div class="qm-feedback qm-wrong">
+
+                                    Please write a question.
+
+                                </div>
+
+                            `;
+
+                            updateTask3Total();
+
+                            return;
+                        }
+
+
+                        if (accepted.includes(user)) {
+
+                            task3Scores[index] = true;
+
+                            feedback.innerHTML = `
+
+                                <div class="qm-feedback qm-correct">
+
+                                    ✓ Correct!
+                                    <span>3/3 marks</span>
+
+                                    <div class="qm-explanation">
+
+                                        ${task3[index].explanation}
+
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                        } else {
+
+                            task3Scores[index] = false;
+
+                            feedback.innerHTML = `
+
+                                <div class="qm-feedback qm-wrong">
+
+                                    ✗ Try again.
+
+                                    <br><br>
+
+                                    Suggested answer:
+                                    ${task3[index].acceptedQuestions[0]}
+
+                                    <div class="qm-explanation">
+
+                                        ${task3[index].explanation}
+
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                        }
+
+                        updateTask3Total();
+
+                    }
+                );
+
+            });
+
+
+        function updateTask3Total() {
+
+            const score =
+                task3Scores.filter(Boolean).length * 3;
+
+            const total =
+                container.querySelector(
+                    "#qm10-task3-total"
+                );
+
+            total.textContent =
+                `Task 3 Score: ${score}/15 marks`;
+
+        }
+
+
+        /* =================================================
+           TASK 5 CHECK
+        ================================================= */
+
+        container
+            .querySelector("#qm10-check-task5")
+            .addEventListener(
+                "click",
+                function() {
+
+                    let score = 0;
+
+
+                    task5.forEach(function(item, index) {
+
+                        const input =
+                            container.querySelector(
+                                `#qm10-task5-${index + 1}`
+                            );
+
+
+                        const oldFeedback =
+                            container.querySelector(
+                                `#qm10-task5-feedback-${index + 1}`
+                            );
+
+
+                        if (oldFeedback) {
+                            oldFeedback.remove();
+                        }
+
+
+                        const user =
+                            normalize(input.value);
+
+                        const correct =
+                            normalize(item.answer);
+
+
+                        const feedback =
+                            document.createElement("div");
+
+
+                        feedback.id =
+                            `qm10-task5-feedback-${index + 1}`;
+
+
+                        if (user === correct) {
+
+                            score += 1.5;
+
+                            feedback.className =
+                                "qm-feedback qm-correct";
+
+                            feedback.innerHTML = `
+
+                                ✓ Correct!
+                                <span>1.5/1.5 marks</span>
+
+                                <div class="qm-explanation">
+
+                                    Đáp án:
+                                    ${item.answer}
+
+                                    <div class="qm-clue">
+
+                                        Gợi ý:
+                                        ${item.clue}
+
+                                    </div>
+
+                                    <p>
+                                        Giải thích:
+                                        ${item.verb}
+                                        → V2/ed:
+                                        <span class="qm-keyword">
+                                            ${item.answer}
+                                        </span>.
+                                        ${item.why}
+                                    </p>
+
+                                    <p>
+                                        Cụm từ quan trọng:
+                                        <span class="qm-keyword">
+                                            ${item.phrase}
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                            `;
+
+                        } else {
+
+                            feedback.className =
+                                "qm-feedback qm-wrong";
+
+                            feedback.innerHTML = `
+
+                                ✗ Try again.
+
+                                <div class="qm-explanation">
+
+                                    Đáp án:
+                                    ${item.answer}
+
+                                    <div class="qm-clue">
+
+                                        Gợi ý:
+                                        ${item.clue}
+
+                                    </div>
+
+                                    <p>
+                                        Giải thích:
+                                        ${item.verb}
+                                        → V2/ed:
+                                        <span class="qm-keyword">
+                                            ${item.answer}
+                                        </span>.
+                                        ${item.why}
+                                    </p>
+
+                                    <p>
+                                        Cụm từ quan trọng:
+                                        <span class="qm-keyword">
+                                            ${item.phrase}
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                            `;
+
+                        }
+
+
+                        input.parentNode.appendChild(feedback);
+
+                    });
+
+
+                    const total =
+                        container.querySelector(
+                            "#qm10-task5-total"
+                        );
+
+
+                    total.innerHTML =
+                        `Task 5 Score: ${score}/15 marks`;
+
+                }
+            );
+
+
+        /* =================================================
+           TASK 6 CHECK
+        ================================================= */
+
+        container
+            .querySelector("#qm10-check-task6")
+            .addEventListener(
+                "click",
+                function() {
+
+                    let completed = 0;
+
+
+                    task6.forEach(function(item, index) {
+
+                        const input =
+                            container.querySelector(
+                                `#qm10-task6-${index}`
+                            );
+
+
+                        const sample =
+                            container.querySelector(
+                                `#qm10-task6-sample-${index}`
+                            );
+
+
+                        if (
+                            input.value.trim() !== ""
+                        ) {
+
+                            completed++;
+
+                        }
+
+
+                        sample.innerHTML = `
+
+                            <div class="qm-sample">
+
+                                <strong>
+                                    💡 Sample answer:
+                                </strong>
+
+                                <p>
+                                    ${item.sample}
+                                </p>
+
+                                <p class="qm-small-note">
+
+                                    <strong>
+                                        Giải thích:
+                                    </strong>
+
+                                    ${item.explanation}
+
+                                </p>
+
+                            </div>
+
+                        `;
+
+                    });
+
+
+                    const feedback =
+                        container.querySelector(
+                            "#qm10-task6-feedback"
+                        );
+
+
+                    if (completed === task6.length) {
+
+                        feedback.innerHTML = `
+
+                            <div class="qm-feedback qm-correct">
+
+                                ✓ Writing submitted!
+
+                                <br><br>
+
+                                <strong>
+                                    Task 6 Score: 10/10 marks
+                                </strong>
+
+                                <br><br>
+
+                                💡 Đây là bài viết cá nhân.
+                                Sample answer chỉ là câu trả lời
+                                tham khảo.
+
+                            </div>
+
+                        `;
+
+                    } else {
+
+                        feedback.innerHTML = `
+
+                            <div class="qm-feedback qm-wrong">
+
+                                Please complete all 5 sections.
+
+                                <br><br>
+
+                                (${completed}/5 completed)
+
+                                <br><br>
+
+                                💡 Sample answers have been shown
+                                to help you.
+
+                            </div>
+
+                        `;
+
+                    }
+
+                }
+            );
+
     }
+
 };
