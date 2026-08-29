@@ -868,64 +868,94 @@ function createTestButtons() {
    LOAD TEST
 ===================================================== */
 
-/* =====================================================
-   LOAD TEST
-===================================================== */
+const path =
+    "tests/" +
+    currentSubject +
+    "/test" +
+    testNumber +
+    ".js";
 
-async function loadTest(testNumber) {
+showLoading(path);
 
-    currentTest = testNumber;
+const oldScript =
+    document.getElementById(
+        "quickmarch-test-script"
+    );
 
+if (oldScript) {
+    oldScript.remove();
+}
 
-    /* =================================================
-       LISTENING ONLY
-       Show Task 1 / Task 2 selection
-    ================================================= */
+window.QUICKMARCH_TEST = null;
 
-    if (currentSubject === "listening") {
+try {
 
-        showListeningTasks(testNumber);
-
-        return;
-
-    }
-
-
-    /* =================================================
-       WRITING / READING / SPEAKING
-       KEEP EXISTING STRUCTURE
-    ================================================= */
-
-    const path =
-        "tests/" +
-        currentSubject +
-        "/test" +
-        testNumber +
-        ".js";
-
-
-    showLoading(path);
-
-
-    /* -------------------------------------------------
-       Remove previous test script
-    ------------------------------------------------- */
-
-    const oldScript =
-        document.getElementById(
-            "quickmarch-test-script"
+    const response =
+        await fetch(
+            path + "?v=" + Date.now()
         );
 
+    if (!response.ok) {
 
-    if (oldScript) {
-
-        oldScript.remove();
+        throw new Error(
+            "File not found (HTTP " +
+            response.status +
+            ")"
+        );
 
     }
 
+    const code =
+        await response.text();
 
- 
+    const script =
+        document.createElement("script");
 
+    script.id =
+        "quickmarch-test-script";
+
+    script.textContent =
+        code;
+
+    document.body.appendChild(script);
+
+    if (!window.QUICKMARCH_TEST) {
+
+        throw new Error(
+            "The file loaded successfully, but it did not create window.QUICKMARCH_TEST."
+        );
+
+    }
+
+    renderTest(
+        window.QUICKMARCH_TEST
+    );
+
+}
+catch (error) {
+
+    showError(
+
+        "The system tried to load:<br><br>" +
+
+        "<code>" +
+        escapeHTML(path) +
+        "</code>" +
+
+        "<br><br>" +
+
+        "Error:<br>" +
+
+        "<code>" +
+        escapeHTML(error.message) +
+        "</code>"
+
+    );
+
+   
+}
+
+}
 /* =====================================================
    SHOW LISTENING TASK MENU
 ===================================================== */
@@ -1191,99 +1221,6 @@ async function loadListeningTask(
 
 }
 
-
-
-    showLoading(path);
-
-    /*
-       Remove previous test script.
-    */
-
-    const oldScript =
-        document.getElementById(
-            "quickmarch-test-script"
-        );
-
-    if (oldScript) {
-
-        oldScript.remove();
-
-    }
-
-
-    /*
-       Remove old global test.
-    */
-
-    window.QUICKMARCH_TEST = null;
-
-
-    try {
-
-        /*
-           Fetch the test file.
-        */
-
-        const response =
-            await fetch(
-                path + "?v=" + Date.now()
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "File not found (HTTP " +
-                response.status +
-                ")"
-            );
-
-        }
-
-
-        const code =
-            await response.text();
-
-
-        /*
-           Create script.
-        */
-
-        const script =
-            document.createElement("script");
-
-        script.id =
-            "quickmarch-test-script";
-
-        script.textContent =
-            code;
-
-
-        /*
-           Execute test file.
-        */
-
-        document.body.appendChild(script);
-
-
-        /*
-           IMPORTANT:
-
-           Every test MUST create:
-
-           window.QUICKMARCH_TEST
-
-        */
-
-        if (
-            !window.QUICKMARCH_TEST
-        ) {
-
-            throw new Error(
-                "The file loaded successfully, but it did not create window.QUICKMARCH_TEST."
-            );
-
-        }
 
 
         /*
