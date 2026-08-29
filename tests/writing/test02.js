@@ -1,4 +1,4 @@
-```javascript
+
 /* =====================================================
    QUICKMARCH PRACTICE
    WRITING TEST 02
