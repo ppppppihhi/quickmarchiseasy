@@ -6,11 +6,8 @@
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
-
->
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0">
 
 <title>QUICKMARCH Pearson Practice</title>
 
@@ -18,7 +15,8 @@ content="width=device-width, initial-scale=1.0"
 
 /* =====================================================
    QUICKMARCH PRACTICE
-   CLEAN PASTEL GREEN UI
+   MAIN INDEX
+   Pearson VS Giasu Minh Tri Thu Duc
 ===================================================== */
 
 
@@ -67,9 +65,9 @@ header {
 
     background: #dcebe2;
 
-    border-bottom: 1px solid #c9ddd0;
+    border-bottom: 1px solid #c8dbcf;
 
-    padding: 14px 20px;
+    padding: 10px 20px;
 
     text-align: center;
 
@@ -78,11 +76,13 @@ header {
 
 .logo {
 
-    font-size: 25px;
+    font-size: 23px;
+
+    line-height: 1.15;
 
     font-weight: 800;
 
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
 
     color: #315b45;
 
@@ -91,7 +91,7 @@ header {
 
 .subtitle {
 
-    margin-top: 3px;
+    margin-top: 2px;
 
     font-size: 15px;
 
@@ -102,13 +102,13 @@ header {
 }
 
 
-.school-name {
+.copyright {
 
-    margin-top: 5px;
+    margin-top: 2px;
 
-    font-size: 13px;
+    font-size: 12px;
 
-    color: #668074;
+    color: #708177;
 
 }
 
@@ -119,11 +119,11 @@ header {
 
 .container {
 
-    width: 96%;
+    width: 95%;
 
     max-width: 1250px;
 
-    margin: 16px auto;
+    margin: 14px auto;
 
 }
 
@@ -136,22 +136,22 @@ header {
 
     background: #ffffff;
 
-    border: 1px solid #dce8df;
+    border: 1px solid #dce7df;
 
-    border-radius: 12px;
+    border-radius: 11px;
 
-    padding: 15px 20px;
+    padding: 13px 18px;
 
-    margin-bottom: 14px;
+    margin-bottom: 11px;
 
 }
 
 
 .welcome-card h2 {
 
-    font-size: 19px;
-
     color: #315b45;
+
+    font-size: 19px;
 
     margin-bottom: 3px;
 
@@ -160,15 +160,15 @@ header {
 
 .welcome-card p {
 
-    font-size: 14px;
+    color: #718078;
 
-    color: #718077;
+    font-size: 15px;
 
 }
 
 
 /* =====================================================
-   SUBJECT TABS
+   SUBJECT NAVIGATION
 ===================================================== */
 
 .subject-tabs {
@@ -178,26 +178,30 @@ header {
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 10px;
+    gap: 9px;
 
-    margin-bottom: 14px;
+    margin-bottom: 11px;
 
 }
 
 
 .subject-btn {
 
-    border: 1px solid #d6e3da;
+    border: 1px solid #d4e1d8;
 
     background: #ffffff;
 
-    color: #466052;
+    color: #456053;
 
-    border-radius: 10px;
+    border-radius: 9px;
 
-    padding: 13px 8px;
+    padding: 11px 8px;
 
-    font-size: 16px;
+    min-height: 44px;
+
+    font-family: inherit;
+
+    font-size: 17px;
 
     font-weight: 700;
 
@@ -205,15 +209,17 @@ header {
 
     transition:
         background 0.15s ease,
-        transform 0.15s ease,
-        border-color 0.15s ease;
+        border-color 0.15s ease,
+        transform 0.15s ease;
 
 }
 
 
 .subject-btn:hover {
 
-    background: #eef6f0;
+    background: #edf5ef;
+
+    border-color: #b9d2c1;
 
     transform: translateY(-1px);
 
@@ -224,7 +230,7 @@ header {
 
     background: #b9d6c3;
 
-    border-color: #a7cbb4;
+    border-color: #a6c7b1;
 
     color: #284f3a;
 
@@ -232,18 +238,18 @@ header {
 
 
 /* =====================================================
-   TEST PANEL
+   TEST SELECTOR
 ===================================================== */
 
 .test-panel {
 
     background: #ffffff;
 
-    border: 1px solid #dce8df;
+    border: 1px solid #dce7df;
 
-    border-radius: 12px;
+    border-radius: 11px;
 
-    padding: 18px 20px;
+    padding: 14px 18px;
 
 }
 
@@ -254,18 +260,18 @@ header {
 
     font-size: 20px;
 
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 
 }
 
 
 .test-description {
 
-    color: #718077;
+    color: #718078;
 
     font-size: 14px;
 
-    margin-bottom: 13px;
+    margin-bottom: 10px;
 
 }
 
@@ -288,9 +294,9 @@ header {
 
 .test-btn {
 
-    min-height: 43px;
+    min-height: 41px;
 
-    border: 1px solid #dce7df;
+    border: 1px solid #d8e4dc;
 
     background: #f7faf8;
 
@@ -298,13 +304,15 @@ header {
 
     border-radius: 8px;
 
-    padding: 8px 4px;
+    padding: 7px 4px;
 
-    cursor: pointer;
+    font-family: inherit;
 
-    font-size: 14px;
+    font-size: 15px;
 
     font-weight: 700;
+
+    cursor: pointer;
 
     transition:
         background 0.15s ease,
@@ -316,11 +324,18 @@ header {
 
 .test-btn:hover {
 
-    background: #e7f2ea;
+    background: #e8f2eb;
 
-    border-color: #bcd5c5;
+    border-color: #b8d1c0;
 
     transform: translateY(-1px);
+
+}
+
+
+.test-btn:active {
+
+    transform: translateY(0);
 
 }
 
@@ -331,14 +346,10 @@ header {
 
 #testArea {
 
-    margin-top: 14px;
+    margin-top: 12px;
 
 }
 
-
-/* =====================================================
-   TEST HEADER
-===================================================== */
 
 .test-header {
 
@@ -346,285 +357,57 @@ header {
 
     border: 1px solid #d0e1d5;
 
-    border-radius: 12px;
+    border-radius: 11px;
 
-    padding: 17px 20px;
-
-    margin-bottom: 12px;
-
-}
-
-
-.test-header h2 {
-
-    font-size: 21px;
-
-    color: #315b45;
-
-    margin-bottom: 4px;
-
-}
-
-
-.test-header p {
-
-    font-size: 14px;
-
-    color: #64766c;
-
-}
-
-
-/* =====================================================
-   TEST CONTENT
-===================================================== */
-
-.test-content {
-
-    background: #ffffff;
-
-    border: 1px solid #dce8df;
-
-    border-radius: 12px;
-
-    padding: 22px;
-
-    min-height: 160px;
-
-}
-
-
-/* =====================================================
-   TEST INTERNAL COMPONENTS
-===================================================== */
-
-.current-test-title {
-
-    color: #315b45;
-
-    font-size: 22px;
-
-    margin-bottom: 18px;
-
-}
-
-
-.task-box {
-
-    background: #ffffff;
-
-    border: 1px solid #dce8df;
-
-    border-radius: 10px;
-
-    padding: 20px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.task-title {
-
-    color: #315b45;
-
-    font-size: 20px;
-
-    margin-bottom: 8px;
-
-}
-
-
-.task-description {
-
-    color: #63736a;
-
-    font-size: 15px;
-
-    line-height: 1.6;
-
-    margin-bottom: 15px;
-
-}
-
-
-.example-box {
-
-    background: #f0f6f2;
-
-    border-left: 4px solid #8eb79b;
-
-    border-radius: 6px;
-
-    padding: 14px;
-
-    margin: 12px 0;
-
-    line-height: 1.6;
-
-}
-
-
-.question-box {
-
-    background: #fafcfb;
-
-    border: 1px solid #e1e9e4;
-
-    border-radius: 9px;
-
-    padding: 16px;
-
-    margin-top: 12px;
-
-}
-
-
-.question-number {
-
-    color: #315b45;
-
-    font-size: 16px;
-
-    font-weight: 700;
+    padding: 14px 18px;
 
     margin-bottom: 10px;
 
 }
 
 
-.question-input,
-.answer-input,
-textarea {
+.test-header h2 {
 
-    width: 100%;
+    color: #315b45;
 
-    border: 1px solid #cbd9d0;
+    font-size: 21px;
 
-    border-radius: 7px;
-
-    padding: 10px 12px;
-
-    font-family: inherit;
-
-    font-size: 16px;
-
-    color: #35423a;
-
-    background: #ffffff;
+    margin-bottom: 3px;
 
 }
 
 
-.question-input:focus,
-.answer-input:focus,
-textarea:focus {
+.test-header p {
 
-    outline: none;
-
-    border-color: #8fb89d;
-
-    box-shadow:
-        0 0 0 2px rgba(143,184,157,0.18);
-
-}
-
-
-.button {
-
-    border: none;
-
-    background: #75a985;
-
-    color: white;
-
-    border-radius: 8px;
-
-    padding: 10px 18px;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    margin-top: 10px;
-
-}
-
-
-.button:hover {
-
-    background: #659977;
-
-}
-
-
-.given-answer {
-
-    background: #f1f6f3;
-
-    border-radius: 7px;
-
-    padding: 10px;
-
-    margin-top: 10px;
-
-    line-height: 1.5;
-
-}
-
-
-/* =====================================================
-   FEEDBACK
-===================================================== */
-
-.feedback {
-
-    margin-top: 10px;
-
-    padding: 10px 12px;
-
-    border-radius: 7px;
+    color: #64766c;
 
     font-size: 14px;
 
-    line-height: 1.5;
-
 }
 
 
-.feedback.correct {
+.test-content {
 
-    background: #e8f5eb;
+    background: #ffffff;
 
-    border: 1px solid #c8e2ce;
+    border: 1px solid #dce7df;
 
-    color: #326442;
+    border-radius: 11px;
 
-}
-
-
-.feedback.wrong {
-
-    background: #fff2f0;
-
-    border: 1px solid #f0d0ca;
-
-    color: #875047;
+    padding: 20px;
 
 }
 
 
 /* =====================================================
-   MESSAGE
+   GENERAL MESSAGE
 ===================================================== */
 
 .message {
 
     text-align: center;
 
-    padding: 35px 15px;
+    padding: 28px 15px;
 
 }
 
@@ -635,7 +418,7 @@ textarea:focus {
 
     font-size: 20px;
 
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 
 }
 
@@ -657,9 +440,11 @@ textarea:focus {
 
     text-align: center;
 
-    padding: 35px;
+    padding: 30px 15px;
 
     color: #527461;
+
+    font-size: 16px;
 
     font-weight: 700;
 
@@ -668,7 +453,11 @@ textarea:focus {
 
 .loading small {
 
-    color: #8a9890;
+    display: block;
+
+    margin-top: 5px;
+
+    color: #89958e;
 
     font-weight: 400;
 
@@ -689,22 +478,35 @@ textarea:focus {
 
     border-radius: 8px;
 
-    padding: 18px;
+    padding: 17px;
 
-    line-height: 1.7;
+    line-height: 1.6;
+
+}
+
+
+.error-message strong {
+
+    font-size: 17px;
 
 }
 
 
 .error-message code {
 
+    display: inline-block;
+
     background: #ffffff;
 
     border: 1px solid #eadbd7;
 
-    padding: 3px 6px;
+    border-radius: 5px;
 
-    border-radius: 4px;
+    padding: 3px 7px;
+
+    font-family:
+        Consolas,
+        monospace;
 
 }
 
@@ -715,7 +517,7 @@ textarea:focus {
 
 .back-btn {
 
-    margin-top: 15px;
+    margin-top: 12px;
 
     border: none;
 
@@ -725,11 +527,15 @@ textarea:focus {
 
     border-radius: 8px;
 
-    padding: 10px 16px;
+    padding: 9px 15px;
 
-    cursor: pointer;
+    font-family: inherit;
+
+    font-size: 14px;
 
     font-weight: 700;
+
+    cursor: pointer;
 
 }
 
@@ -749,7 +555,7 @@ footer {
 
     text-align: center;
 
-    padding: 18px 10px 25px;
+    padding: 14px 10px 18px;
 
     color: #829087;
 
@@ -764,28 +570,13 @@ footer {
 
     font-weight: 700;
 
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 
 }
 
 
 /* =====================================================
-   DESKTOP — KEEP MAIN MENU ON ONE SCREEN
-===================================================== */
-
-@media (min-width: 1000px) {
-
-    body {
-
-        overflow-x: hidden;
-
-    }
-
-}
-
-
-/* =====================================================
-   TABLET
+   MOBILE / TABLET
 ===================================================== */
 
 @media (max-width: 900px) {
@@ -810,14 +601,14 @@ footer {
 
         width: 94%;
 
-        margin-top: 12px;
+        margin-top: 10px;
 
     }
 
 
     .logo {
 
-        font-size: 22px;
+        font-size: 21px;
 
     }
 
@@ -837,6 +628,13 @@ footer {
     }
 
 
+    .subject-btn {
+
+        font-size: 16px;
+
+    }
+
+
     .test-grid {
 
         grid-template-columns:
@@ -845,21 +643,7 @@ footer {
     }
 
 
-    .test-panel {
-
-        padding: 15px;
-
-    }
-
-
     .test-content {
-
-        padding: 15px;
-
-    }
-
-
-    .task-box {
 
         padding: 15px;
 
@@ -878,13 +662,6 @@ footer {
 
         grid-template-columns:
             repeat(3, 1fr);
-
-    }
-
-
-    .subject-btn {
-
-        font-size: 14px;
 
     }
 
@@ -911,8 +688,8 @@ footer {
     Pearson English Practice
 </div>
 
-<div class="school-name">
-    Vs Giasu Minh Tri Thu Duc
+<div class="copyright">
+    © 2026 QUICKMARCH Pearson Practice VS Giasu Minh Tri Thu Duc
 </div>
 ```
 
@@ -925,6 +702,10 @@ footer {
 <div class="container">
 
 ```
+<!-- =================================================
+     WELCOME
+================================================== -->
+
 <div class="welcome-card">
 
     <h2>
@@ -932,14 +713,14 @@ footer {
     </h2>
 
     <p>
-        Choose a skill and select a test to start.
+        Choose a skill and select a practice test.
     </p>
 
 </div>
 
 
 <!-- =================================================
-     SUBJECTS
+     SUBJECT TABS
 ================================================== -->
 
 <div class="subject-tabs">
@@ -989,7 +770,7 @@ footer {
 
 
 <!-- =================================================
-     TEST LIST
+     TEST SELECTOR
 ================================================== -->
 
 <div class="test-panel">
@@ -1002,6 +783,7 @@ footer {
         Select a practice test.
     </p>
 
+
     <div
         id="testList"
         class="test-grid">
@@ -1011,7 +793,7 @@ footer {
 
 
 <!-- =================================================
-     TEST AREA
+     TEST CONTENT
 ================================================== -->
 
 <div id="testArea">
@@ -1049,7 +831,7 @@ footer {
 </div>
 
 <div>
-    © 2026 QUICKMARCH — Vs Giasu Minh Tri Thu Duc
+    © 2026 QUICKMARCH Pearson Practice VS Giasu Minh Tri Thu Duc
 </div>
 ```
 
@@ -1058,16 +840,29 @@ footer {
 <script>
 
 /* =====================================================
-   QUICKMARCH MAIN SYSTEM
+   QUICKMARCH MAIN APPLICATION
 ===================================================== */
 
 
-var currentSubject = "listening";
+/*
+   Current selected subject.
+*/
 
-var currentTest = null;
+let currentSubject = "listening";
 
 
-var SUBJECTS = {
+/*
+   Current selected test.
+*/
+
+let currentTest = null;
+
+
+/*
+   Subject information.
+*/
+
+const SUBJECTS = {
 
     listening: {
         title: "Listening"
@@ -1096,7 +891,9 @@ document.addEventListener(
     "DOMContentLoaded",
     function() {
 
-        selectSubject("listening");
+        selectSubject(
+            "listening"
+        );
 
     }
 );
@@ -1108,15 +905,17 @@ document.addEventListener(
 
 function selectSubject(subject) {
 
-    currentSubject = subject;
+    currentSubject =
+        subject;
 
-    currentTest = null;
+    currentTest =
+        null;
 
     updateSubjectButtons();
 
     updateSubjectTitle();
 
-    showTestList();
+    createTestButtons();
 
     clearTestArea();
 
@@ -1124,72 +923,76 @@ function selectSubject(subject) {
 
 
 /* =====================================================
-   UPDATE BUTTONS
+   UPDATE SUBJECT BUTTONS
 ===================================================== */
 
 function updateSubjectButtons() {
 
-    var buttons =
+    const buttons =
         document.querySelectorAll(
             ".subject-btn"
         );
 
 
-    for (
-        var i = 0;
-        i < buttons.length;
-        i++
-    ) {
+    buttons.forEach(
+        function(button) {
 
-        var button =
-            buttons[i];
+            const subject =
+                button.getAttribute(
+                    "data-subject"
+                );
 
 
-        if (
-            button.getAttribute(
-                "data-subject"
-            )
-            === currentSubject
-        ) {
+            if (
+                subject ===
+                currentSubject
+            ) {
 
-            button.classList.add(
-                "active"
-            );
+                button.classList.add(
+                    "active"
+                );
 
-        } else {
+            } else {
 
-            button.classList.remove(
-                "active"
-            );
+                button.classList.remove(
+                    "active"
+                );
+
+            }
 
         }
-
-    }
+    );
 
 }
 
 
 /* =====================================================
-   UPDATE TITLE
+   UPDATE SUBJECT TITLE
 ===================================================== */
 
 function updateSubjectTitle() {
 
-    document.getElementById(
-        "subjectTitle"
-    ).textContent =
-        SUBJECTS[currentSubject].title;
+    const title =
+        document.getElementById(
+            "subjectTitle"
+        );
+
+
+    title.textContent =
+        SUBJECTS[
+            currentSubject
+        ].title;
 
 }
 
 
 /* =====================================================
-   SHOW TESTS
+   CREATE TEST BUTTONS
 ===================================================== */
 
-function showTestList() {
+function createTestButtons() {
 
-    var container =
+    const container =
         document.getElementById(
             "testList"
         );
@@ -1198,19 +1001,26 @@ function showTestList() {
     container.innerHTML = "";
 
 
+    /*
+       Create Test 01 → Test 19.
+
+       The actual JS file is only loaded
+       when the student clicks a test.
+    */
+
     for (
-        var i = 1;
+        let i = 1;
         i <= 19;
         i++
     ) {
 
-        var number =
+        const number =
             i < 10
                 ? "0" + i
                 : String(i);
 
 
-        var button =
+        const button =
             document.createElement(
                 "button"
             );
@@ -1224,18 +1034,20 @@ function showTestList() {
             "Test " + number;
 
 
-        button.onclick =
-            (function(testNumber) {
+        button.type =
+            "button";
 
-                return function() {
 
-                    loadTest(
-                        testNumber
-                    );
+        button.addEventListener(
+            "click",
+            function() {
 
-                };
+                loadTest(
+                    number
+                );
 
-            })(number);
+            }
+        );
 
 
         container.appendChild(
@@ -1248,45 +1060,34 @@ function showTestList() {
 
 
 /* =====================================================
-   LOAD TEST
-=====================================================
-
-   IMPORTANT:
-
-   This loader supports files such as:
-
-   const TEST_DATA = {
-
-       title: "...",
-
-       task3: [...],
-
-       task5: [...],
-
-       task6: [...]
-
-   };
-
-   We automatically convert:
-
-       const TEST_DATA =
-
-   into:
-
-       window.TEST_DATA =
-
-   so the individual test file does NOT
-   need to be rewritten.
-
+   LOAD TEST FILE
 ===================================================== */
 
-function loadTest(testNumber) {
+/*
+   IMPORTANT ARCHITECTURE
+
+   Every test is an independent file:
+
+       tests/listening/test01.js
+       tests/reading/test01.js
+       tests/speaking/test01.js
+       tests/writing/test01.js
+
+   The index does NOT contain test content.
+
+   The index only loads the selected file.
+*/
+
+
+async function loadTest(
+    testNumber
+) {
 
     currentTest =
         testNumber;
 
 
-    var testPath =
+    const testPath =
         "tests/" +
         currentSubject +
         "/test" +
@@ -1300,10 +1101,10 @@ function loadTest(testNumber) {
 
 
     /*
-       Remove previous test script.
+       Remove previously loaded test.
     */
 
-    var oldScript =
+    const oldScript =
         document.getElementById(
             "quickmarch-test-script"
         );
@@ -1317,175 +1118,161 @@ function loadTest(testNumber) {
 
 
     /*
-       Clear old data.
+       Clear previous test data.
+
+       Each test file will create:
+
+           window.QUICKMARCH_TEST
+
     */
 
-    window.TEST_DATA =
+    window.QUICKMARCH_TEST =
         null;
 
 
-    /*
-       Fetch the JS file as text.
-    */
+    try {
 
-    fetch(
-        testPath +
-        "?v=" +
-        Date.now()
-    )
+        /*
+           Fetch the selected JS file.
 
-    .then(
-        function(response) {
+           Cache-busting prevents GitHub Pages
+           from showing an older version after
+           you update a test.
+        */
 
-            if (!response.ok) {
-
-                throw new Error(
-                    "HTTP " +
-                    response.status
-                );
-
-            }
-
-            return response.text();
-
-        }
-    )
-
-    .then(
-        function(code) {
-
-            /*
-               Convert:
-
-               const TEST_DATA =
-
-               into:
-
-               window.TEST_DATA =
-            */
-
-            code =
-                code.replace(
-                    /\bconst\s+TEST_DATA\s*=/,
-                    "window.TEST_DATA ="
-                );
-
-
-            /*
-               Create a script.
-            */
-
-            var script =
-                document.createElement(
-                    "script"
-                );
-
-
-            script.id =
-                "quickmarch-test-script";
-
-
-            /*
-               Keep the test code as a
-               classic JavaScript script.
-
-               This means functions such as:
-
-               renderWriting()
-               submitWriting3()
-               checkWritingTask5()
-               checkWritingTask6()
-
-               remain available.
-            */
-
-            script.text =
-                code;
-
-
-            document.body.appendChild(
-                script
+        const response =
+            await fetch(
+                testPath +
+                "?v=" +
+                Date.now()
             );
 
 
-            /*
-               Check TEST_DATA.
-            */
+        if (!response.ok) {
 
-            if (
-                !window.TEST_DATA
-            ) {
-
-                throw new Error(
-                    "TEST_DATA was not found."
-                );
-
-            }
-
-
-            renderLoadedTest(
-                window.TEST_DATA,
-                testPath
+            throw new Error(
+                "File not found (HTTP " +
+                response.status +
+                ")"
             );
 
         }
-    )
 
-    .catch(
-        function(error) {
 
-            showError(
+        const code =
+            await response.text();
 
-                "Unable to load this test.<br><br>" +
 
-                "The system tried to load:<br>" +
+        /*
+           Execute the individual test file.
 
-                "<code>" +
-                escapeHTML(testPath) +
-                "</code><br><br>" +
+           We expect each test file to define:
 
-                "Error:<br>" +
+               window.QUICKMARCH_TEST = {...};
 
-                "<code>" +
-                escapeHTML(
-                    error.message
-                ) +
-                "</code>"
+           This keeps every test independent.
+        */
 
+        const script =
+            document.createElement(
+                "script"
+            );
+
+
+        script.id =
+            "quickmarch-test-script";
+
+
+        script.textContent =
+            code;
+
+
+        document.body.appendChild(
+            script
+        );
+
+
+        /*
+           Check that the test supplied
+           its data.
+        */
+
+        if (
+            !window.QUICKMARCH_TEST
+        ) {
+
+            throw new Error(
+                "window.QUICKMARCH_TEST was not found."
             );
 
         }
-    );
+
+
+        /*
+           Render the loaded test.
+        */
+
+        renderTest(
+            window.QUICKMARCH_TEST,
+            testPath
+        );
+
+    }
+
+    catch (error) {
+
+        showError(
+
+            "Unable to load this test.<br><br>" +
+
+            "The system tried to load:<br>" +
+
+            "<code>" +
+            escapeHTML(testPath) +
+            "</code><br><br>" +
+
+            "Error:<br>" +
+
+            "<code>" +
+            escapeHTML(
+                error.message
+            ) +
+            "</code>"
+
+        );
+
+    }
 
 }
 
 
 /* =====================================================
-   RENDER LOADED TEST
+   RENDER TEST
 ===================================================== */
 
-function renderLoadedTest(
-    data,
-    path
+function renderTest(
+    test,
+    testPath
 ) {
 
-    var area =
+    const area =
         document.getElementById(
             "testArea"
         );
 
 
-    var title =
-        data.title
+    const title =
+        test.title
         ||
-        SUBJECTS[currentSubject].title +
+        SUBJECTS[
+            currentSubject
+        ].title +
         " Test " +
         currentTest;
 
 
     /*
-       Create test header and
-       dedicated content area.
+       Create the standard test header.
     */
 
     area.innerHTML =
@@ -1500,12 +1287,13 @@ function renderLoadedTest(
 
             '<p>' +
 
-                'Practice test content' +
+                escapeHTML(
+                    getTestDescription()
+                ) +
 
             '</p>' +
 
         '</div>' +
-
 
         '<div ' +
 
@@ -1516,69 +1304,41 @@ function renderLoadedTest(
         '</div>';
 
 
-    var content =
+    const content =
         document.getElementById(
             "testContent"
         );
 
 
     /*
-       WRITING
+       -------------------------------------------------
+       OPTION 1
+       Test supplies its own render function.
+       -------------------------------------------------
+
+       This is useful for advanced tests.
     */
 
     if (
-        currentSubject === "writing"
+        typeof test.render ===
+        "function"
     ) {
 
-        /*
-           Your Writing Test 01 has:
+        try {
 
-               window.renderWriting()
+            test.render(
+                content
+            );
 
-           so use it directly.
-        */
+            return;
 
-        if (
-            typeof window.renderWriting
-            === "function"
-        ) {
+        }
 
-            /*
-               renderWriting() from your
-               test file expects an element
-               with id="writingContent".
+        catch (error) {
 
-               Create that element.
-            */
-
-            content.innerHTML =
-
-                '<div id="writingContent"></div>';
-
-
-            try {
-
-                window.renderWriting(
-                    data
-                );
-
-            } catch (error) {
-
-                showError(
-
-                    "The Writing test loaded, " +
-                    "but an error occurred while " +
-                    "displaying it.<br><br>" +
-
-                    "<code>" +
-                    escapeHTML(
-                        error.message
-                    ) +
-                    "</code>"
-
-                );
-
-            }
+            showTestRenderError(
+                error
+            );
 
             return;
 
@@ -1588,34 +1348,200 @@ function renderLoadedTest(
 
 
     /*
-       GENERIC RENDERER
+       -------------------------------------------------
+       OPTION 2
+       Subject-specific renderer.
+       -------------------------------------------------
     */
 
     if (
-        typeof data.render
-        === "function"
+        currentSubject ===
+        "writing"
     ) {
+
+        renderWriting(
+            test,
+            content
+        );
+
+        return;
+
+    }
+
+
+    if (
+        currentSubject ===
+        "listening"
+    ) {
+
+        renderListening(
+            test,
+            content
+        );
+
+        return;
+
+    }
+
+
+    if (
+        currentSubject ===
+        "reading"
+    ) {
+
+        renderReading(
+            test,
+            content
+        );
+
+        return;
+
+    }
+
+
+    if (
+        currentSubject ===
+        "speaking"
+    ) {
+
+        renderSpeaking(
+            test,
+            content
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Unknown subject.
+    */
+
+    content.innerHTML =
+
+        '<div class="message">' +
+
+            '<h3>' +
+                'Test loaded' +
+            '</h3>' +
+
+            '<p>' +
+
+                'The test file was loaded successfully.' +
+
+            '</p>' +
+
+        '</div>';
+
+}
+
+
+/* =====================================================
+   SUBJECT DESCRIPTION
+===================================================== */
+
+function getTestDescription() {
+
+    if (
+        currentSubject ===
+        "listening"
+    ) {
+
+        return "Listening practice test";
+
+    }
+
+
+    if (
+        currentSubject ===
+        "reading"
+    ) {
+
+        return "Reading practice test";
+
+    }
+
+
+    if (
+        currentSubject ===
+        "speaking"
+    ) {
+
+        return "Speaking practice test";
+
+    }
+
+
+    if (
+        currentSubject ===
+        "writing"
+    ) {
+
+        return "Writing practice test";
+
+    }
+
+
+    return "Practice test";
+
+}
+
+
+/* =====================================================
+   WRITING RENDERER
+===================================================== */
+
+/*
+   This function is intentionally kept here
+   as the central Writing renderer.
+
+   Later we will move this function into:
+
+       assets/js/app.js
+
+   so index.html becomes even cleaner.
+
+   For now this placeholder provides a safe
+   architecture for the new system.
+*/
+
+function renderWriting(
+    test,
+    container
+) {
+
+    /*
+       If the Writing test provides
+       a compatible renderer, use it.
+    */
+
+    if (
+        typeof window.renderWriting ===
+        "function"
+    ) {
+
+        /*
+           Create the element expected
+           by the existing Writing Test 01.
+        */
+
+        container.innerHTML =
+            '<div id="writingContent"></div>';
+
 
         try {
 
-            data.render(
-                content
+            window.renderWriting(
+                test
             );
 
-        } catch (error) {
+        }
 
-            showError(
+        catch (error) {
 
-                "The test loaded, " +
-                "but an error occurred while " +
-                "displaying it.<br><br>" +
-
-                "<code>" +
-                escapeHTML(
-                    error.message
-                ) +
-                "</code>"
-
+            showTestRenderError(
+                error
             );
 
         }
@@ -1626,20 +1552,26 @@ function renderLoadedTest(
 
 
     /*
-       If there is no renderer.
+       Temporary generic display.
+
+       This will be replaced by the
+       central Writing renderer when
+       we convert test01.js to the
+       new architecture.
     */
 
-    content.innerHTML =
+    container.innerHTML =
 
         '<div class="message">' +
 
             '<h3>' +
-                'Test loaded successfully' +
+                'Writing Test Loaded' +
             '</h3>' +
 
             '<p>' +
 
-                escapeHTML(path) +
+                'This test is ready for the ' +
+                'new QUICKMARCH Writing renderer.' +
 
             '</p>' +
 
@@ -1649,12 +1581,101 @@ function renderLoadedTest(
 
 
 /* =====================================================
-   LOADING MESSAGE
+   LISTENING RENDERER
 ===================================================== */
 
-function showLoading(path) {
+function renderListening(
+    test,
+    container
+) {
 
-    var area =
+    container.innerHTML =
+
+        '<div class="message">' +
+
+            '<h3>' +
+                'Listening Test Loaded' +
+            '</h3>' +
+
+            '<p>' +
+
+                'The Listening renderer will display ' +
+                'the audio, pictures and questions.' +
+
+            '</p>' +
+
+        '</div>';
+
+}
+
+
+/* =====================================================
+   READING RENDERER
+===================================================== */
+
+function renderReading(
+    test,
+    container
+) {
+
+    container.innerHTML =
+
+        '<div class="message">' +
+
+            '<h3>' +
+                'Reading Test Loaded' +
+            '</h3>' +
+
+            '<p>' +
+
+                'The Reading renderer will display ' +
+                'the passage and questions.' +
+
+            '</p>' +
+
+        '</div>';
+
+}
+
+
+/* =====================================================
+   SPEAKING RENDERER
+===================================================== */
+
+function renderSpeaking(
+    test,
+    container
+) {
+
+    container.innerHTML =
+
+        '<div class="message">' +
+
+            '<h3>' +
+                'Speaking Test Loaded' +
+            '</h3>' +
+
+            '<p>' +
+
+                'The Speaking renderer will display ' +
+                'the speaking activities.' +
+
+            '</p>' +
+
+        '</div>';
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+function showLoading(
+    path
+) {
+
+    const area =
         document.getElementById(
             "testArea"
         );
@@ -1666,7 +1687,7 @@ function showLoading(path) {
 
             '<div class="loading">' +
 
-                'Loading test...<br><br>' +
+                'Loading test...' +
 
                 '<small>' +
 
@@ -1685,9 +1706,11 @@ function showLoading(path) {
    ERROR
 ===================================================== */
 
-function showError(message) {
+function showError(
+    message
+) {
 
-    var area =
+    const area =
         document.getElementById(
             "testArea"
         );
@@ -1715,6 +1738,8 @@ function showError(message) {
 
                 'class="back-btn" ' +
 
+                'type="button" ' +
+
                 'onclick="clearTestArea()">' +
 
                 'Back to Tests' +
@@ -1727,12 +1752,42 @@ function showError(message) {
 
 
 /* =====================================================
+   TEST RENDER ERROR
+===================================================== */
+
+function showTestRenderError(
+    error
+) {
+
+    showError(
+
+        "The test file loaded, but " +
+        "there was an error while displaying it." +
+
+        "<br><br>" +
+
+        "Error:<br>" +
+
+        "<code>" +
+
+            escapeHTML(
+                error.message
+            ) +
+
+        "</code>"
+
+    );
+
+}
+
+
+/* =====================================================
    CLEAR TEST AREA
 ===================================================== */
 
 function clearTestArea() {
 
-    var area =
+    const area =
         document.getElementById(
             "testArea"
         );
@@ -1767,7 +1822,9 @@ function clearTestArea() {
    ESCAPE HTML
 ===================================================== */
 
-function escapeHTML(value) {
+function escapeHTML(
+    value
+) {
 
     if (
         value === null ||
