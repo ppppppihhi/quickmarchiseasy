@@ -1,776 +1,1387 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUICKMARCH PRACTICE</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #222;
-        }
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 
-        /* =========================
-           NAVBAR
-        ========================= */
+>
 
-        nav {
-            background: #ffffff;
-            padding: 14px 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+<title>QUICKMARCH Pearson Practice</title>
 
-        nav button {
-            border: none;
-            background: transparent;
-            padding: 12px 18px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
+<style>
 
-        nav button:hover {
-            background: #eef3ff;
-        }
+/* =====================================================
+   QUICKMARCH PRACTICE
+   Pearson VS Giasu Minh Tri Thu Duc
+===================================================== */
 
-        nav button.active {
-            background: #2f6fed;
-            color: white;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        /* =========================
-           HERO
-        ========================= */
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
 
-        .hero {
-            text-align: center;
-            padding: 45px 20px 35px;
-            background: linear-gradient(135deg, #eaf2ff, #ffffff);
-        }
+body {
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
 
-        .hero h1 {
-            margin: 0;
-            font-size: 38px;
-            color: #2457b8;
-        }
+    background: #f4f8f5;
+    color: #34443b;
 
-        .hero p {
-            margin-top: 12px;
-            font-size: 18px;
-            color: #555;
-        }
+    font-size: 17px;
+    line-height: 1.5;
+}
 
-        /* =========================
-           MAIN
-        ========================= */
 
-        .section {
-            display: none;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 35px 20px 60px;
-        }
+/* =====================================================
+   HEADER
+===================================================== */
 
-        .section.active {
-            display: block;
-        }
+header {
+    width: 100%;
+    background: #dce9df;
+    border-bottom: 1px solid #c5d7ca;
+    padding: 7px 15px;
+    text-align: center;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 25px;
-        }
+.logo {
+    font-size: 21px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: .3px;
+    color: #315b45;
+}
 
-        .section-title h2 {
-            margin-bottom: 8px;
-            font-size: 30px;
-        }
+.subtitle {
+    margin-top: 1px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #567061;
+}
 
-        .section-title p {
-            color: #666;
-        }
+.copyright {
+    margin-top: 1px;
+    font-size: 12px;
+    color: #718078;
+}
 
-        /* =========================
-           HOME CARDS
-        ========================= */
 
-        .home-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
+/* =====================================================
+   MAIN
+===================================================== */
 
-        .home-card {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 18px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            cursor: pointer;
-            transition: 0.2s;
-        }
+.container {
+    width: 96%;
+    max-width: 1400px;
+    margin: 10px auto;
+}
 
-        .home-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 7px 20px rgba(0,0,0,0.12);
-        }
 
-        .home-card .icon {
-            font-size: 45px;
-            margin-bottom: 12px;
-        }
+/* =====================================================
+   WELCOME
+===================================================== */
 
-        .home-card h3 {
-            margin: 8px 0;
-        }
+.welcome-card {
+    background: #ffffff;
+    border: 1px solid #d8e4dc;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-bottom: 9px;
+}
 
-        .home-card p {
-            color: #666;
-            font-size: 14px;
-        }
+.welcome-card h2 {
+    color: #315b45;
+    font-size: 20px;
+    margin-bottom: 1px;
+}
 
-        /* =========================
-           TEST SELECTOR
-        ========================= */
+.welcome-card p {
+    color: #68786f;
+    font-size: 16px;
+}
 
-        .test-selector {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 12px;
-            margin-bottom: 25px;
-        }
 
-        .test-btn {
-            border: none;
-            background: white;
-            padding: 14px;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: 0.2s;
-        }
+/* =====================================================
+   SUBJECT BUTTONS
+===================================================== */
 
-        .test-btn:hover {
-            background: #edf3ff;
-        }
+.subject-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 9px;
+}
 
-        .test-btn.active {
-            background: #2f6fed;
-            color: white;
-        }
+.subject-btn {
+    border: 1px solid #cfddd3;
+    background: #ffffff;
+    color: #456053;
+    border-radius: 8px;
+    padding: 8px;
+    min-height: 42px;
 
-        /* =========================
-           TEST CONTENT
-        ========================= */
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
 
-        #listening-content,
-        #reading-content,
-        #writing-content,
-        #speaking-content {
-            background: white;
-            border-radius: 18px;
-            padding: 25px;
-            min-height: 200px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-        }
+    cursor: pointer;
+}
 
-        /* =========================
-           AUDIO
-        ========================= */
+.subject-btn:hover {
+    background: #edf5ef;
+}
 
-        .audio-box {
-            background: #eef4ff;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            position: sticky;
-            top: 75px;
-            z-index: 20;
-        }
+.subject-btn.active {
+    background: #b9d4c1;
+    border-color: #a7c5af;
+    color: #294f39;
+}
 
-        .audio-box audio {
-            width: 100%;
-        }
 
-        /* =========================
-           GENERAL BUTTON
-        ========================= */
+/* =====================================================
+   TEST SELECTOR
+===================================================== */
 
-        .check-btn,
-        .next-btn,
-        .back-btn {
-            border: none;
-            background: #2f6fed;
-            color: white;
-            padding: 12px 22px;
-            border-radius: 9px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 15px;
-        }
+.test-panel {
+    background: #ffffff;
+    border: 1px solid #d8e4dc;
+    border-radius: 10px;
+    padding: 10px 16px;
+}
 
-        .check-btn:hover,
-        .next-btn:hover,
-        .back-btn:hover {
-            opacity: 0.9;
-        }
+.test-panel h2 {
+    color: #315b45;
+    font-size: 20px;
+    margin-bottom: 1px;
+}
 
-        /* =========================
-           FOOTER
-        ========================= */
+.test-description {
+    color: #718078;
+    font-size: 15px;
+    margin-bottom: 7px;
+}
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #ffffff;
-            color: #777;
-            margin-top: 30px;
-        }
 
-        /* =========================
-           MOBILE
-        ========================= */
+/* =====================================================
+   TEST GRID
+===================================================== */
 
-        @media (max-width: 700px) {
+.test-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+}
 
-            nav {
-                gap: 4px;
-                padding: 10px 5px;
-                flex-wrap: wrap;
-            }
+.test-btn {
+    min-height: 38px;
 
-            nav button {
-                font-size: 13px;
-                padding: 9px 10px;
-            }
+    border: 1px solid #d5e1d9;
+    background: #f7faf8;
+    color: #456053;
 
-            .hero h1 {
-                font-size: 30px;
-            }
+    border-radius: 7px;
+    padding: 5px 3px;
 
-            .section {
-                padding: 25px 12px 45px;
-            }
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
 
-            #listening-content,
-            #reading-content,
-            #writing-content,
-            #speaking-content {
-                padding: 16px;
-            }
-        }
-    </style>
+    cursor: pointer;
+}
+
+.test-btn:hover {
+    background: #e8f2eb;
+    border-color: #b7d0bf;
+}
+
+.test-btn.active {
+    background: #b9d4c1;
+    color: #294f39;
+}
+
+
+/* =====================================================
+   TEST AREA
+===================================================== */
+
+#testArea {
+    margin-top: 9px;
+}
+
+.test-header {
+    background: #e3eee6;
+    border: 1px solid #cfdfd4;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-bottom: 8px;
+}
+
+.test-header h2 {
+    color: #315b45;
+    font-size: 21px;
+}
+
+.test-header p {
+    color: #64756b;
+    font-size: 15px;
+}
+
+.test-content {
+    background: #ffffff;
+    border: 1px solid #d8e4dc;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.message {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.message h3 {
+    color: #315b45;
+    font-size: 21px;
+    margin-bottom: 4px;
+}
+
+.message p {
+    color: #718078;
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading {
+    text-align: center;
+    padding: 25px 10px;
+    color: #527461;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.loading small {
+    display: block;
+    margin-top: 4px;
+    color: #89958e;
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error-message {
+    background: #fff5f3;
+    border: 1px solid #edd5d0;
+    color: #805047;
+
+    border-radius: 8px;
+    padding: 16px;
+
+    line-height: 1.6;
+}
+
+.error-message strong {
+    font-size: 18px;
+}
+
+.error-message code {
+    display: inline-block;
+
+    background: #ffffff;
+    border: 1px solid #eadbd7;
+
+    border-radius: 5px;
+    padding: 3px 7px;
+
+    font-family: Consolas, monospace;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    text-align: center;
+    padding: 9px 10px 12px;
+
+    color: #829087;
+    font-size: 12px;
+}
+
+.footer-title {
+    color: #587265;
+    font-weight: 700;
+    margin-bottom: 1px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .test-grid {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .subject-tabs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .test-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .test-content {
+        padding: 12px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .test-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-    <nav>
-        <button class="nav-btn active" data-section="home">
-            🏠 Home
-        </button>
+<header>
 
-        <button class="nav-btn" data-section="listening">
-            🎧 Listening
-        </button>
+```
+<div class="logo">
+    QUICKMARCH
+</div>
 
-        <button class="nav-btn" data-section="speaking">
-            🎤 Speaking
-        </button>
+<div class="subtitle">
+    Pearson English Practice
+</div>
 
-        <button class="nav-btn" data-section="reading">
-            📖 Reading
-        </button>
+<div class="copyright">
+    © 2026 QUICKMARCH Pearson Practice VS Giasu Minh Tri Thu Duc
+</div>
+```
 
-        <button class="nav-btn" data-section="writing">
-            📝 Writing
-        </button>
-    </nav>
+</header>
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="container">
+
+```
+<!-- =================================================
+     WELCOME
+================================================== -->
+
+<div class="welcome-card">
+
+    <h2>
+        Welcome to QUICKMARCH Practice
+    </h2>
+
+    <p>
+        Choose a skill and select a practice test.
+    </p>
+
+</div>
 
 
-    <!-- =========================
-         HERO
-    ========================= -->
+<!-- =================================================
+     SUBJECTS
+================================================== -->
 
-    <div class="hero">
-        <h1>QUICKMARCH PRACTICE</h1>
-        <p>English Practice Tests</p>
+<div class="subject-tabs">
+
+    <button
+        type="button"
+        class="subject-btn active"
+        data-subject="listening"
+        onclick="selectSubject('listening')"
+    >
+        🎧 Listening
+    </button>
+
+    <button
+        type="button"
+        class="subject-btn"
+        data-subject="reading"
+        onclick="selectSubject('reading')"
+    >
+        📖 Reading
+    </button>
+
+    <button
+        type="button"
+        class="subject-btn"
+        data-subject="speaking"
+        onclick="selectSubject('speaking')"
+    >
+        🎤 Speaking
+    </button>
+
+    <button
+        type="button"
+        class="subject-btn"
+        data-subject="writing"
+        onclick="selectSubject('writing')"
+    >
+        📝 Writing
+    </button>
+
+</div>
+
+
+<!-- =================================================
+     TEST LIST
+================================================== -->
+
+<div class="test-panel">
+
+    <h2 id="subjectTitle">
+        Listening
+    </h2>
+
+    <p class="test-description">
+        Select a practice test.
+    </p>
+
+    <div
+        id="testList"
+        class="test-grid"
+    ></div>
+
+</div>
+
+
+<!-- =================================================
+     TEST AREA
+================================================== -->
+
+<div id="testArea">
+
+    <div class="test-content">
+
+        <div class="message">
+
+            <h3>
+                Ready to practice?
+            </h3>
+
+            <p>
+                Choose a subject and select a test.
+            </p>
+
+        </div>
+
     </div>
 
+</div>
+```
 
-    <!-- =========================
-         HOME
-    ========================= -->
+</div>
 
-    <section id="home" class="section active">
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-        <div class="section-title">
-            <h2>Welcome to QUICKMARCH PRACTICE</h2>
-            <p>Choose a skill to start practising.</p>
-        </div>
+<footer>
 
-        <div class="home-grid">
+```
+<div class="footer-title">
+    QUICKMARCH PEARSON PRACTICE
+</div>
 
-            <div class="home-card" onclick="showSection('listening')">
-                <div class="icon">🎧</div>
-                <h3>Listening</h3>
-                <p>Practise listening with 19 tests.</p>
-            </div>
+<div>
+    © 2026 QUICKMARCH Pearson Practice VS Giasu Minh Tri Thu Duc
+</div>
+```
 
-            <div class="home-card" onclick="showSection('speaking')">
-                <div class="icon">🎤</div>
-                <h3>Speaking</h3>
-                <p>Practise speaking with picture prompts.</p>
-            </div>
+</footer>
 
-            <div class="home-card" onclick="showSection('reading')">
-                <div class="icon">📖</div>
-                <h3>Reading</h3>
-                <p>Practise reading with 19 tests.</p>
-            </div>
+<script>
 
-            <div class="home-card" onclick="showSection('writing')">
-                <div class="icon">📝</div>
-                <h3>Writing</h3>
-                <p>Practise writing with 19 tests.</p>
-            </div>
-
-        </div>
-
-    </section>
+/* =====================================================
+   QUICKMARCH MAIN APPLICATION
+===================================================== */
 
 
-    <!-- =========================
-         LISTENING
-    ========================= -->
+/* =====================================================
+   CURRENT SUBJECT
+===================================================== */
 
-    <section id="listening" class="section">
-
-        <div class="section-title">
-            <h2>🎧 Listening Practice</h2>
-            <p>Choose a test.</p>
-        </div>
-
-        <div id="listening-tests" class="test-selector"></div>
-
-        <div id="listening-content">
-            <p style="text-align:center;color:#777;">
-                Please choose a Listening Test.
-            </p>
-        </div>
-
-    </section>
+let currentSubject = "listening";
 
 
-    <!-- =========================
-         SPEAKING
-    ========================= -->
+/* =====================================================
+   CURRENT TEST
+===================================================== */
 
-    <section id="speaking" class="section">
-
-        <div class="section-title">
-            <h2>🎤 Speaking Practice</h2>
-            <p>Choose a speaking test.</p>
-        </div>
-
-        <div id="speaking-tests" class="test-selector"></div>
-
-        <div id="speaking-content">
-            <p style="text-align:center;color:#777;">
-                Please choose a Speaking Test.
-            </p>
-        </div>
-
-    </section>
+let currentTest = null;
 
 
-    <!-- =========================
-         READING
-    ========================= -->
+/* =====================================================
+   SUBJECTS
+===================================================== */
 
-    <section id="reading" class="section">
+const SUBJECTS = {
 
-        <div class="section-title">
-            <h2>📖 Reading Practice</h2>
-            <p>Choose a test.</p>
-        </div>
+    listening: "Listening",
 
-        <div id="reading-tests" class="test-selector"></div>
+    reading: "Reading",
 
-        <div id="reading-content">
-            <p style="text-align:center;color:#777;">
-                Please choose a Reading Test.
-            </p>
-        </div>
+    speaking: "Speaking",
 
-    </section>
+    writing: "Writing"
+
+};
 
 
-    <!-- =========================
-         WRITING
-    ========================= -->
+/* =====================================================
+   INITIALIZE
+===================================================== */
 
-    <section id="writing" class="section">
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-        <div class="section-title">
-            <h2>📝 Writing Practice</h2>
-            <p>Choose a test.</p>
-        </div>
+        selectSubject("listening");
 
-        <div id="writing-tests" class="test-selector"></div>
-
-        <div id="writing-content">
-            <p style="text-align:center;color:#777;">
-                Please choose a Writing Test.
-            </p>
-        </div>
-
-    </section>
+    }
+);
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+/* =====================================================
+   SELECT SUBJECT
+===================================================== */
 
-    <footer>
-        © 2026 QUICKMARCH PRACTICE
-    </footer>
+function selectSubject(subject) {
+
+    currentSubject = subject;
+
+    currentTest = null;
+
+    updateSubjectButtons();
+
+    updateSubjectTitle();
+
+    createTestButtons();
+
+    clearTestArea();
+
+}
 
 
-    <script>
+/* =====================================================
+   UPDATE SUBJECT BUTTONS
+===================================================== */
 
-        /* =========================================================
-           SETTINGS
-        ========================================================= */
+function updateSubjectButtons() {
 
-        const TOTAL_TESTS = 19;
+    document
+        .querySelectorAll(".subject-btn")
+        .forEach(function(button) {
 
+            const subject =
+                button.getAttribute("data-subject");
 
-        /* =========================================================
-           NAVIGATION
-        ========================================================= */
-
-        function showSection(sectionName) {
-
-            document.querySelectorAll(".section").forEach(section => {
-                section.classList.remove("active");
-            });
-
-            document.querySelectorAll(".nav-btn").forEach(button => {
-                button.classList.remove("active");
-            });
-
-            const section = document.getElementById(sectionName);
-
-            if (section) {
-                section.classList.add("active");
-            }
-
-            const button = document.querySelector(
-                `.nav-btn[data-section="${sectionName}"]`
+            button.classList.toggle(
+                "active",
+                subject === currentSubject
             );
-
-            if (button) {
-                button.classList.add("active");
-            }
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        }
-
-
-        document.querySelectorAll(".nav-btn").forEach(button => {
-
-            button.addEventListener("click", function() {
-
-                const sectionName = this.dataset.section;
-
-                showSection(sectionName);
-
-            });
 
         });
 
+}
 
-        /* =========================================================
-           TEST BUTTONS
-        ========================================================= */
 
-        function createTestButtons(skill) {
+/* =====================================================
+   UPDATE TITLE
+===================================================== */
 
-            const container = document.getElementById(
-                skill + "-tests"
+function updateSubjectTitle() {
+
+    document.getElementById(
+        "subjectTitle"
+    ).textContent =
+        SUBJECTS[currentSubject];
+
+}
+
+
+/* =====================================================
+   CREATE TEST BUTTONS
+===================================================== */
+
+function createTestButtons() {
+
+    const list =
+        document.getElementById("testList");
+
+    list.innerHTML = "";
+
+    for (
+        let i = 1;
+        i <= 19;
+        i++
+    ) {
+
+        const number =
+            String(i).padStart(2, "0");
+
+
+        const button =
+            document.createElement("button");
+
+
+        button.type = "button";
+
+        button.className = "test-btn";
+
+        button.textContent =
+            "Test " + number;
+
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                loadTest(number);
+
+            }
+        );
+
+
+        list.appendChild(button);
+
+    }
+
+}
+
+
+/* =====================================================
+   LOAD TEST
+===================================================== */
+
+async function loadTest(testNumber) {
+
+    currentTest = testNumber;
+
+
+    /* =================================================
+       LISTENING
+       Show Task 1 / Task 2 selection
+    ================================================= */
+
+    if (
+        currentSubject === "listening"
+    ) {
+
+        showListeningTasks(testNumber);
+
+        return;
+
+    }
+
+
+    /* =================================================
+       READING / SPEAKING / WRITING
+    ================================================= */
+
+    const path =
+        "tests/" +
+        currentSubject +
+        "/test" +
+        testNumber +
+        ".js";
+
+
+    showLoading(path);
+
+
+    /* -------------------------------------------------
+       Remove previous test script
+    ------------------------------------------------- */
+
+    const oldScript =
+        document.getElementById(
+            "quickmarch-test-script"
+        );
+
+
+    if (oldScript) {
+
+        oldScript.remove();
+
+    }
+
+
+    /* -------------------------------------------------
+       Remove previous test object
+    ------------------------------------------------- */
+
+    window.QUICKMARCH_TEST = null;
+
+
+    try {
+
+        const response =
+            await fetch(
+                path + "?v=" + Date.now()
             );
 
-            if (!container) return;
 
-            for (let i = 1; i <= TOTAL_TESTS; i++) {
+        if (!response.ok) {
 
-                const button = document.createElement("button");
-
-                button.className = "test-btn";
-
-                button.textContent =
-                    "Test " + String(i).padStart(2, "0");
-
-                button.dataset.test = i;
-
-                button.addEventListener("click", function() {
-
-                    loadTest(
-                        skill,
-                        Number(this.dataset.test)
-                    );
-
-                    container
-                        .querySelectorAll(".test-btn")
-                        .forEach(btn => {
-                            btn.classList.remove("active");
-                        });
-
-                    this.classList.add("active");
-
-                });
-
-                container.appendChild(button);
-            }
-        }
-
-
-        /* =========================================================
-           LOAD TEST
-        ========================================================= */
-
-        function loadTest(skill, testNumber) {
-
-            const testCode =
-                String(testNumber).padStart(2, "0");
-
-            const content =
-                document.getElementById(skill + "-content");
-
-            if (!content) return;
-
-
-            /* ---------------------------------------------
-               SPEAKING
-            --------------------------------------------- */
-
-            if (skill === "speaking") {
-
-                content.innerHTML = `
-                    <div style="
-                        text-align:center;
-                        padding:20px;
-                    ">
-                        <p>Loading Speaking Test ${testCode}...</p>
-                    </div>
-                `;
-
-                const oldScript =
-                    document.getElementById(
-                        "speaking-test-script"
-                    );
-
-                if (oldScript) {
-                    oldScript.remove();
-                }
-
-                window.QUICKMARCH_TEST = null;
-
-                const script =
-                    document.createElement("script");
-
-                script.id = "speaking-test-script";
-
-                script.src =
-                    `speaking/test${testCode}.js`;
-
-                script.onload = function() {
-
-                    if (
-                        window.QUICKMARCH_TEST &&
-                        typeof window.QUICKMARCH_TEST.render === "function"
-                    ) {
-
-                        content.innerHTML = "";
-
-                        window.QUICKMARCH_TEST.render(
-                            content
-                        );
-
-                    } else {
-
-                        content.innerHTML = `
-                            <p style="
-                                text-align:center;
-                                color:#d00;
-                            ">
-                                Speaking Test ${testCode}
-                                could not be loaded.
-                            </p>
-                        `;
-
-                    }
-
-                };
-
-                script.onerror = function() {
-
-                    content.innerHTML = `
-                        <p style="
-                            text-align:center;
-                            color:#d00;
-                        ">
-                            Speaking Test ${testCode}
-                            file was not found.
-                        </p>
-                    `;
-
-                };
-
-                document.body.appendChild(script);
-
-                return;
-            }
-
-
-            /* ---------------------------------------------
-               LISTENING / READING / WRITING
-            --------------------------------------------- */
-
-            content.innerHTML = `
-                <div style="
-                    text-align:center;
-                    padding:20px;
-                ">
-                    <p>
-                        Loading ${skill}
-                        Test ${testCode}...
-                    </p>
-                </div>
-            `;
-
-
-            const scriptId =
-                `${skill}-test-script`;
-
-            const oldScript =
-                document.getElementById(scriptId);
-
-            if (oldScript) {
-                oldScript.remove();
-            }
-
-
-            window.QUICKMARCH_TEST = null;
-
-
-            const script =
-                document.createElement("script");
-
-            script.id = scriptId;
-
-
-            /*
-             * Test files:
-             *
-             * tests/listening/test01.js
-             * tests/reading/test01.js
-             * tests/writing/test01.js
-             *
-             * etc.
-             */
-
-            script.src =
-                `tests/${skill}/test${testCode}.js`;
-
-
-            script.onload = function() {
-
-                if (
-                    window.QUICKMARCH_TEST &&
-                    typeof window.QUICKMARCH_TEST.render === "function"
-                ) {
-
-                    content.innerHTML = "";
-
-                    window.QUICKMARCH_TEST.render(
-                        content
-                    );
-
-                } else {
-
-                    content.innerHTML = `
-                        <p style="
-                            text-align:center;
-                            color:#d00;
-                        ">
-                            ${skill}
-                            Test ${testCode}
-                            could not be loaded.
-                        </p>
-                    `;
-
-                }
-
-            };
-
-
-            script.onerror = function() {
-
-                content.innerHTML = `
-                    <p style="
-                        text-align:center;
-                        color:#d00;
-                    ">
-                        ${skill}
-                        Test ${testCode}
-                        file was not found.
-                    </p>
-                `;
-
-            };
-
-
-            document.body.appendChild(script);
+            throw new Error(
+                "File not found (HTTP " +
+                response.status +
+                ")"
+            );
 
         }
 
 
-        /* =========================================================
-           CREATE ALL TEST BUTTONS
-        ========================================================= */
-
-        createTestButtons("listening");
-        createTestButtons("speaking");
-        createTestButtons("reading");
-        createTestButtons("writing");
+        const code =
+            await response.text();
 
 
-    </script>
+        const script =
+            document.createElement(
+                "script"
+            );
+
+
+        script.id =
+            "quickmarch-test-script";
+
+
+        script.textContent =
+            code;
+
+
+        document.body.appendChild(
+            script
+        );
+
+
+        /* -------------------------------------------------
+           Check test object
+        ------------------------------------------------- */
+
+        if (
+            !window.QUICKMARCH_TEST
+        ) {
+
+            throw new Error(
+                "The file loaded successfully, but it did not create window.QUICKMARCH_TEST."
+            );
+
+        }
+
+
+        /* -------------------------------------------------
+           Render test
+        ------------------------------------------------- */
+
+        renderTest(
+            window.QUICKMARCH_TEST
+        );
+
+
+    }
+
+    catch (error) {
+
+        showError(
+
+            "The system tried to load:<br><br>" +
+
+            "<code>" +
+            escapeHTML(path) +
+            "</code>" +
+
+            "<br><br>" +
+
+            "Error:<br>" +
+
+            "<code>" +
+            escapeHTML(error.message) +
+            "</code>"
+
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOW LISTENING TASK MENU
+===================================================== */
+
+function showListeningTasks(testNumber) {
+
+    const area =
+        document.getElementById(
+            "testArea"
+        );
+
+
+    area.innerHTML = `
+
+        <div class="test-header">
+
+            <h2>
+                Listening Test ${testNumber}
+            </h2>
+
+            <p>
+                Choose a task.
+            </p>
+
+        </div>
+
+
+        <div class="test-content">
+
+            <div style="
+                display:flex;
+                justify-content:center;
+                align-items:stretch;
+                gap:16px;
+                width:100%;
+                max-width:700px;
+                margin:10px auto;
+            ">
+
+
+                <button
+                    type="button"
+                    onclick="
+                        loadListeningTask(
+                            '${testNumber}',
+                            '01'
+                        )
+                    "
+                    style="
+                        flex:1;
+                        min-height:90px;
+                        border:1px solid #cfddd3;
+                        background:#f7faf8;
+                        color:#315b45;
+                        border-radius:10px;
+                        font-family:inherit;
+                        font-size:20px;
+                        font-weight:800;
+                        cursor:pointer;
+                        padding:15px;
+                    "
+                    onmouseover="
+                        this.style.background='#e8f2eb';
+                    "
+                    onmouseout="
+                        this.style.background='#f7faf8';
+                    "
+                >
+
+                    🎧<br>
+
+                    Task 1
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="
+                        loadListeningTask(
+                            '${testNumber}',
+                            '02'
+                        )
+                    "
+                    style="
+                        flex:1;
+                        min-height:90px;
+                        border:1px solid #cfddd3;
+                        background:#f7faf8;
+                        color:#315b45;
+                        border-radius:10px;
+                        font-family:inherit;
+                        font-size:20px;
+                        font-weight:800;
+                        cursor:pointer;
+                        padding:15px;
+                    "
+                    onmouseover="
+                        this.style.background='#e8f2eb';
+                    "
+                    onmouseout="
+                        this.style.background='#f7faf8';
+                    "
+                >
+
+                    🎧<br>
+
+                    Task 2
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   LOAD LISTENING TASK
+===================================================== */
+
+async function loadListeningTask(
+    testNumber,
+    taskNumber
+) {
+
+    const path =
+        "tests/listening/test" +
+        testNumber +
+        "/task" +
+        taskNumber +
+        "/task" +
+        taskNumber +
+        ".js";
+
+
+    showLoading(path);
+
+
+    /* -------------------------------------------------
+       Remove previous test script
+    ------------------------------------------------- */
+
+    const oldScript =
+        document.getElementById(
+            "quickmarch-test-script"
+        );
+
+
+    if (oldScript) {
+
+        oldScript.remove();
+
+    }
+
+
+    /* -------------------------------------------------
+       Remove previous test object
+    ------------------------------------------------- */
+
+    window.QUICKMARCH_TEST = null;
+
+
+    try {
+
+        const response =
+            await fetch(
+                path + "?v=" + Date.now()
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "File not found (HTTP " +
+                response.status +
+                ")"
+            );
+
+        }
+
+
+        const code =
+            await response.text();
+
+
+        const script =
+            document.createElement(
+                "script"
+            );
+
+
+        script.id =
+            "quickmarch-test-script";
+
+
+        script.textContent =
+            code;
+
+
+        document.body.appendChild(
+            script
+        );
+
+
+        /* -------------------------------------------------
+           Check test object
+        ------------------------------------------------- */
+
+        if (
+            !window.QUICKMARCH_TEST
+        ) {
+
+            throw new Error(
+                "The file loaded successfully, but it did not create window.QUICKMARCH_TEST."
+            );
+
+        }
+
+
+        /* -------------------------------------------------
+           Render Listening Task
+        ------------------------------------------------- */
+
+        renderTest(
+            window.QUICKMARCH_TEST
+        );
+
+
+    }
+
+    catch (error) {
+
+        showError(
+
+            "The system tried to load:<br><br>" +
+
+            "<code>" +
+            escapeHTML(path) +
+            "</code>" +
+
+            "<br><br>" +
+
+            "Error:<br>" +
+
+            "<code>" +
+            escapeHTML(error.message) +
+            "</code>"
+
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDER TEST
+===================================================== */
+
+function renderTest(test) {
+
+    const area =
+        document.getElementById(
+            "testArea"
+        );
+
+
+    const title =
+        test.title ||
+        SUBJECTS[currentSubject] +
+        " Test " +
+        currentTest;
+
+
+    area.innerHTML =
+
+        '<div class="test-header">' +
+
+            '<h2>' +
+                escapeHTML(title) +
+            '</h2>' +
+
+            '<p>' +
+                escapeHTML(
+                    SUBJECTS[currentSubject] +
+                    " practice test"
+                ) +
+            '</p>' +
+
+        '</div>' +
+
+        '<div ' +
+            'class="test-content" ' +
+            'id="testContent">' +
+        '</div>';
+
+
+    const content =
+        document.getElementById(
+            "testContent"
+        );
+
+
+    /* -------------------------------------------------
+       Test rendering contract
+    ------------------------------------------------- */
+
+    if (
+        typeof test.render !==
+        "function"
+    ) {
+
+        content.innerHTML =
+
+            '<div class="error-message">' +
+
+                '<strong>' +
+                    'Test Structure Error' +
+                '</strong>' +
+
+                '<br><br>' +
+
+                'This test does not contain ' +
+
+                '<code>render()</code>.' +
+
+                '<br><br>' +
+
+                'Please check the test file.' +
+
+            '</div>';
+
+        return;
+
+    }
+
+
+    try {
+
+        test.render(content);
+
+    }
+
+    catch (error) {
+
+        showTestRenderError(error);
+
+    }
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+function showLoading(path) {
+
+    document.getElementById(
+        "testArea"
+    ).innerHTML =
+
+        '<div class="test-content">' +
+
+            '<div class="loading">' +
+
+                'Loading test...' +
+
+                '<small>' +
+
+                    escapeHTML(path) +
+
+                '</small>' +
+
+            '</div>' +
+
+        '</div>';
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showError(message) {
+
+    document.getElementById(
+        "testArea"
+    ).innerHTML =
+
+        '<div class="test-content">' +
+
+            '<div class="error-message">' +
+
+                '<strong>' +
+                    'Test Loading Error' +
+                '</strong>' +
+
+                '<br><br>' +
+
+                message +
+
+            '</div>' +
+
+        '</div>';
+
+}
+
+
+/* =====================================================
+   RENDER ERROR
+===================================================== */
+
+function showTestRenderError(error) {
+
+    showError(
+
+        "The file loaded successfully, " +
+        "but there was an error while displaying it." +
+
+        "<br><br>" +
+
+        "Error:<br>" +
+
+        "<code>" +
+
+            escapeHTML(
+                error.message
+            ) +
+
+        "</code>"
+
+    );
+
+}
+
+
+/* =====================================================
+   CLEAR TEST AREA
+===================================================== */
+
+function clearTestArea() {
+
+    document.getElementById(
+        "testArea"
+    ).innerHTML =
+
+        '<div class="test-content">' +
+
+            '<div class="message">' +
+
+                '<h3>' +
+                    'Ready to practice?' +
+                '</h3>' +
+
+                '<p>' +
+                    'Choose a subject and select a test.' +
+                '</p>' +
+
+            '</div>' +
+
+        '</div>';
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "";
+
+    }
+
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
 
 </body>
+
 </html>
